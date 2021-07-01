@@ -525,7 +525,7 @@ function App() {
                     <div>svg</div>
                   </div>
                   <div>
-                    超好喝的超好喝的超ddcsssdddcdsss好喝的超好喝的超好喝的超好喝的=超好喝的超好喝的超好喝的
+                    超好喝的超好喝的超dddddcsssdddcdsss好喝的超好喝的超好喝的超好喝的=超好喝的超好喝的超好喝的
                   </div>
                   <div className="card-button">
                     <a href="#/"> 購買</a>
