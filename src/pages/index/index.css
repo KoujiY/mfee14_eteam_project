@@ -182,6 +182,9 @@ li {
 .d-flex {
   display: flex;
 }
+.align-center {
+  align-items: center;
+}
 
 /*container    rwd*/
 @media screen and (max-width: 1920px) {
@@ -1016,6 +1019,37 @@ li {
     position: absolute;
     bottom: 2.5%;
     z-index: -1;
+  }
+  .chartbox-icon {
+    width: 30px;
+    height: 31px;
+    fill: #f9f9f9;
+  }
+  .chart-box {
+    background-color: #ff5554;
+    width: 45px;
+    height: 45px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    right: 0;
+    top: 50%;
+  }
+  .top-box {
+    background-color: #ff5554;
+    color: #f9f9f9;
+    width: 45px;
+    height: 45px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    right: 0;
+    z-index: 2;
+    top: 80%;
   }
 }
 @media screen and (min-width: 320px) and (max-width: 576px) {

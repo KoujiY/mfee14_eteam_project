@@ -1,6 +1,9 @@
 import React from 'react'
 import './footer.css'
 
+import Logo from './svg/LOGO.svg'
+import phoneLOGO from './svg/phoneLOGO.svg'
+
 function Footer() {
   return (
     <>
@@ -11,7 +14,7 @@ function Footer() {
               <div className="footer-left">
                 <div>
                   <div className="logo2">
-                    <img src="./svg/LOGO.svg" alt="no-pic" />
+                    <img src={Logo} alt="Logo" />
                   </div>
                 </div>
                 <ul>
@@ -136,7 +139,7 @@ function Footer() {
                 </div>
               </div>
               <div className="phonelogo2">
-                <img src="./svg/phoneLOGO - .svg" alt="" />
+                <img src={phoneLOGO} alt="phoneLOGO" />
               </div>
               <div className="phone-item">
                 <div>墨丘利咖啡</div>
@@ -144,8 +147,7 @@ function Footer() {
               </div>
               <div calss="footer-right">
                 <div className="button-w mb-30">
-                  {' '}
-                  <a href="#/">聯絡我們</a>{' '}
+                  <a href="#/">聯絡我們</a>
                 </div>
                 <div className="button-w mb-30">
                   <a href="#/">加入我們</a>
