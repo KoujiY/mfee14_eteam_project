@@ -13,11 +13,10 @@ function Index() {
             <img src={onepagepic} alt="onepage-pic" />
           </div>
           <div className="phone-onepage-pic">
-          <img src={ phoneherrosection} alt=" phone-herrosection" />
+            <img src={phoneherrosection} alt=" phone-herrosection" />
           </div>
           <div className="herro-text">
             <div>
-              z`
               {/*?xml version="1.0" encoding="iso-8859-1"?*/}
               {/* Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  */}
               <svg
