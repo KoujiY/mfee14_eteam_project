@@ -1048,8 +1048,8 @@ li {
     align-items: center;
     text-align: center;
     right: 0;
-    z-index: 2;
-    top: 80%;
+    z-index: 5;
+    bottom: 30%;
   }
 }
 @media screen and (min-width: 320px) and (max-width: 576px) {
