@@ -1,11 +1,11 @@
 import React from 'react'
 
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
-import Nav from './pages/nav'
+import Nav from './pages/nav/nav-index'
 
 import Index from './pages/index'
 
-import Footer from './pages/footer'
+import Footer from './pages/footer/footer-index'
 
 function App() {
   return (
