@@ -6,6 +6,7 @@ import phoneherrosection from './img/phone-herrosection.jpg'
 import colorshlip from './img/colorshlip.png'
 import twosection from './img/twosection.jpg'
 import phonetwosection from './img/phone-twosection.jpg'
+import longcolorship from './img/long-colorship.png'
 
 function Index() {
   return (
@@ -99,7 +100,7 @@ function Index() {
           <div className="twopage-rectangle" />
         </div>
         <div className="phone-long-colorship">
-          <img src="./img/long-colorship.png" alt="no-pic" />
+          <img src={longcolorship} alt="longcolorship" />
         </div>
         <div className="three-section">
           <div className="threepage-pic">
