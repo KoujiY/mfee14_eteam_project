@@ -1,16 +1,19 @@
 import React from 'react'
 import './index.css'
 
+import onepagepic from './img/herrosection.jpg'
+import phoneherrosection from './img/phone-herrosection.jpg'
+
 function Index() {
   return (
     <>
       <div className="container">
         <div className="herro-section">
           <div className="onepage-pic">
-            <img src="./img/herrosection.jpg" alt="no-pic" />
+            <img src={onepagepic} alt="onepage-pic" />
           </div>
-          <div className="img-s-none">
-            <img src="./img/phone-herrosection.jpg" alt="" />
+          <div className="phone-onepage-pic">
+          <img src={ phoneherrosection} alt=" phone-herrosection" />
           </div>
           <div className="herro-text">
             <div>

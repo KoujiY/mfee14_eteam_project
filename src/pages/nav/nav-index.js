@@ -3,7 +3,7 @@ import './nav.css'
 
 import Logo from './svg/LOGO.svg'
 
-// import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 
 function Nav() {
   return (
@@ -11,7 +11,7 @@ function Nav() {
       <div className="container">
         <div className="nav ">
           <div className="icon-s-none ">
-            <a href="#">
+            <a href="#/">
               {/*?xml version="1.0" encoding="iso-8859-1"?*/}
               {/* Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  */}
               <svg
@@ -222,7 +222,7 @@ function Nav() {
             </li>
           </div>
           <div className="loginbar">
-            <a href>
+            <a href="#/">
               <div className="three-gp-flex">
                 <div className="nav-icon-4">
                   {/*?xml version="1.0" encoding="iso-8859-1"?*/}
@@ -269,7 +269,7 @@ function Nav() {
                 <div>登入/註冊</div>
               </div>
             </a>
-            <a href>
+            <a href="#/">
               <div className="three-gp-flex">
                 <div className="nav-icon-4">
                   {/*?xml version="1.0" encoding="iso-8859-1"?*/}
@@ -317,7 +317,7 @@ function Nav() {
                 <div>店家專區</div>
               </div>
             </a>
-            <a href>
+            <a href="#/">
               <div className="three-gp-flex">
                 <div className="nav-icon-1">
                   {/*?xml version="1.0" encoding="iso-8859-1"?*/}

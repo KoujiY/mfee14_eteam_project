@@ -352,7 +352,7 @@ li {
     margin-left: auto;
     position: relative;
   }
-  .img-s-none {
+  .phone-onepage-pic {
     display: none;
   }
   .herro-text {
@@ -425,11 +425,11 @@ li {
   .onepage-pic {
     display: none;
   }
-  .img-s-none {
+  .phone-onepage-pic {
     width: 100%;
     display: block;
   }
-  .img-s-none img {
+  .phone-onepage-pic img {
     width: 100%;
   }
 
