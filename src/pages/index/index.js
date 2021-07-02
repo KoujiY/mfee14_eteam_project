@@ -3,6 +3,9 @@ import './index.css'
 
 import onepagepic from './img/herrosection.jpg'
 import phoneherrosection from './img/phone-herrosection.jpg'
+import colorshlip from './img/colorshlip.png'
+import twosection from './img/twosection.jpg'
+import phonetwosection from './img/phone-twosection.jpg'
 
 function Index() {
   return (
@@ -71,13 +74,13 @@ function Index() {
         </div>
         <div className="two-section">
           <div className="two-colorship">
-            <img src="./img/colorshlip.png" />{' '}
+            <img src={colorshlip} alt="colorship" />
           </div>
           <div className=" twopage-pic">
-            <img src="./img/twosection.jpg" alt="no-pic" />
+            <img src={twosection} alt="twosection" />
           </div>
           <div className=" phone-twopage-pic">
-            <img src="./img/phone-twosection.jpg" alt="no-pic" />
+            <img src={phonetwosection} alt="phonetwosection" />
           </div>
           <div className="cardtwo">
             <div className="fontsize-34">我們相遇在世界的角落</div>
