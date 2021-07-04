@@ -1,13 +1,8 @@
 import React from 'react'
 
-import UsersText from './usersText'
-
+// 放function用
 function Users() {
-  return (
-    <>
-      <UsersText />
-    </>
-  )
+  return <></>
 }
 
 export default Users

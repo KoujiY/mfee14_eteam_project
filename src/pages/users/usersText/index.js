@@ -1,23 +1,17 @@
 import React from 'react'
 
-import { BrowserRouter as Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import './usersText.css'
 
-import MemberTextTitle from './style.js'
+import UsersTitle from '../components/usersTitle'
 
 import dodi from '../img/dodi.png'
 
 function UsersText() {
   return (
     <>
-      {/* <p className="memberTextTitle">會員中心</p> */}
-      <MemberTextTitle>會員中心</MemberTextTitle>
-      <div className="memberConnect">
-        <Link to="">會員資料</Link>
-        <Link to="">會員商品追蹤</Link>
-        <Link to="">會員消費紀錄</Link>
-      </div>
+      <UsersTitle />
       <div className="memberTextOutput memberBg">
         <div className="memberTextL">
           <img src={dodi} alt="" />
@@ -34,8 +28,12 @@ function UsersText() {
               <div className="">打籃球、跳舞、游泳</div>
             </div>
           </div>
-          <button className="creditCard">信用卡登錄/刪除事項</button>
-          <button className="discount">折扣碼</button>
+          <Link to="./usersText/usersCreaditCard" className="usersTextBtn">
+            信用卡登錄/刪除事項
+          </Link>
+          <Link to="./usersText/usersDiscount" className="usersTextBtn">
+            折扣碼
+          </Link>
         </div>
         <div className="memberTextC">
           <div>姓名</div>
@@ -45,7 +43,9 @@ function UsersText() {
           <div>出生年月日</div>
           <div>地址</div>
           <div>個人描述</div>
-          <button className="edit">編輯</button>
+          <Link to="./usersEdit" className="usersTextBtn">
+            編輯
+          </Link>
         </div>
         <div className="memberTextR">
           <div>王老白</div>

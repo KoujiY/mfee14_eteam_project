@@ -9,4 +9,14 @@ const MemberTextTitle = styled.p`
   margin-bottom: 60px;
 `
 
-export default MemberTextTitle
+const MemberConnect = styled.div`
+  margin: 0 auto;
+  width: 1200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border-bottom: 1px solid #0065b4;
+  margin-bottom: 60px;
+`
+
+export { MemberTextTitle, MemberConnect }
