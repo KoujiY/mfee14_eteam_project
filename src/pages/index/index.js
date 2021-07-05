@@ -52,7 +52,7 @@ function Index(props) {
       alert('你好喔我不好'+data)
     })
   }, [])
-  )
+  
   return (
     <>
       
