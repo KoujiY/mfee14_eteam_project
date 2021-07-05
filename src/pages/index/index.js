@@ -44,29 +44,42 @@ function Index(props) {
     console.log(data)
   }
 
-  const [data, setData] = useState(123)
-
-  const buttonRef = useRef()
+  //jquery練習 button
+  const [data, setData] = useState('老師說123')
+  const [didMount, setDidMount] = useState(false)
 
   // componentDidMount
   useEffect(() => {
-    // jquery程式碼寫在這裡, 確保dom已經出現在網頁
-    // 使用id
-    $('#one').on('click', () => {
-      alert('data is ' + data)
+    $('.yes').on('click', () => {
+      let a = 5
+      alert(a, data)
     })
-
-    // 使用refs(推薦)
-    $(buttonRef.current).on('click', () => {
-      alert('data is ' + data)
-    })
+    setDidMount(true)
   }, [])
+  ///更新
+  useEffect(() => {
+    if (!didMount) return
+
+    $('.one').off('click')
+    $('.one').on('click', () => {
+      let a = 5
+      console.log('111111111111', data)
+    })
+  }, [data, didMount])
 
   return (
     <>
-      <button id="one">Click(use id)</button>
-      {/* 使用ref，確保重覆使用元件時不會衝突到dom元素參照 */}
-      <button ref={buttonRef}>Click(use refs)</button>
+      <Link class="yes" to="#/">
+        click你好嗎
+      </Link>
+      <br />
+      <Link class="one" to="#/">
+        click我不好
+      </Link>
+      <br />
+      <Link class="yes" to="#/">
+        click你不好
+      </Link>
       <div className="container">
         <div className="herro-section">
           <div className="onepage-pic">
