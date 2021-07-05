@@ -11,7 +11,6 @@ import threesection from './img/threesection.jpg'
 import phonethreesection from './img/phone-threesection.jpg'
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import { withRouter } from 'react-router-dom'
-import $ from 'jquery'
 
 function Index(props) {
   const [users, setUsers] = useState([])
@@ -44,19 +43,8 @@ function Index(props) {
     console.log(data)
   }
 
-  const [data, setData] = useState(123)
-
-  useEffect(() => {
-    //jq程式
-    $(#one).on('click',()=>{
-      alert('你好喔我不好'+data)
-    })
-  }, [])
-  )
   return (
     <>
-      
-      <button id="one">click(use id)</button>
       <div className="container">
         <div className="herro-section">
           <div className="onepage-pic">

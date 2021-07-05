@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import './index.css'
+
 import onepagepic from './img/herrosection.jpg'
 import phoneherrosection from './img/phone-herrosection.jpg'
 import colorshlip from './img/colorshlip.png'
@@ -10,53 +11,10 @@ import productcard from './img/productcard.jpg'
 import threesection from './img/threesection.jpg'
 import phonethreesection from './img/phone-threesection.jpg'
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
-import { withRouter } from 'react-router-dom'
-import $ from 'jquery'
 
-function Index(props) {
-  const [users, setUsers] = useState([])
-  const [dataLoading, setDataLoading] = useState(false)
-  async function getUsersFromServer() {
-    // 開啟載入指示
-    setDataLoading(true)
-
-    // 連接的伺服器資料網址
-    const url = 'http://localhost:7000/home/read'
-
-    // 注意header資料格式要設定，伺服器才知道是json格式
-    //request代表是要跟伺服器要求
-    const request = new Request(url, {
-      method: 'GET',
-      headers: new Headers({
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      }),
-    })
-    //29.設定檔頭為json
-    //27~33.先告訴伺服器說我等傳過來是json
-    //37.用await等伺服器做fetch,fetch回來接收到response
-    //39.解出這個json
-    const response = await fetch(request)
-    const data = await response.json()
-    console.log(data)
-    // 設定資料
-    setUsers(data)
-    console.log(data)
-  }
-
-  const [data, setData] = useState(123)
-
-  useEffect(() => {
-    //jq程式
-    $(#one).on('click',()=>{
-      alert('你好喔我不好'+data)
-    })
-  }, [])
-  )
+function Index() {
   return (
     <>
-      
-      <button id="one">click(use id)</button>
       <div className="container">
         <div className="herro-section">
           <div className="onepage-pic">
@@ -170,6 +128,9 @@ function Index(props) {
           </div>
           <div className="button-black fontsize-20">
             <Link to="#/"> ALL</Link>
+            <div>
+              <img src alt="" />
+            </div>
           </div>
           <div className="box">
             <div className="box1">
@@ -358,6 +319,9 @@ function Index(props) {
             </div>
             <div className=" button-blue-bg fontsize-20">
               <Link to="#/"> ALL </Link>
+              <div>
+                <img src alt="" />
+              </div>
             </div>
           </div>
           <div className="best-selling-item">
@@ -442,7 +406,6 @@ function Index(props) {
     </>
   )
 }
-
 //我的爸爸是app.js
 //小孩
-export default withRouter(Index)
+export default Index

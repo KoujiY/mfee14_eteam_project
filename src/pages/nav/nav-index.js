@@ -1,6 +1,5 @@
 import React from 'react'
 import './nav.css'
-
 import Logo from './svg/LOGO.svg'
 
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
@@ -11,7 +10,7 @@ function Nav() {
       <div className="container">
         <div className="nav ">
           <div className="icon-s-none ">
-            <a href="#/">
+            <Link to="/">
               {/*?xml version="1.0" encoding="iso-8859-1"?*/}
               {/* Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  */}
               <svg
@@ -63,17 +62,17 @@ function Nav() {
                 <g></g>
                 <g></g>
               </svg>
-            </a>
+            </Link>
           </div>
           <div className="logo">
-            <a href="#/">
+            <Link to="/">
               <img src={Logo} alt="Logo" />
-            </a>
+            </Link>
           </div>
           <div className="navbar">
             <li>
               <div className=" nav-three-gp">
-                <a href="#/">
+                <Link to="/">
                   <div className="three-gp-flex">
                     <div className="nav-icon">
                       <svg
@@ -100,12 +99,12 @@ function Nav() {
                       <div>store map</div>
                     </div>
                   </div>
-                </a>
+                </Link>
               </div>
             </li>
             <li>
               <div className=" nav-three-gp">
-                <a href="#/">
+                <Link to="/">
                   <div className="three-gp-flex">
                     <div className=" nav-icon-1">
                       <svg
@@ -132,12 +131,12 @@ function Nav() {
                       <div>store map</div>
                     </div>
                   </div>
-                </a>
+                </Link>
               </div>
             </li>
             <li>
               <div className=" nav-three-gp">
-                <a href="#/">
+                <Link to="/">
                   <div className="three-gp-flex">
                     <div className="nav-icon-2">
                       <svg
@@ -163,12 +162,12 @@ function Nav() {
                       <div>store map</div>
                     </div>
                   </div>
-                </a>
+                </Link>
               </div>
             </li>
             <li>
               <div className=" nav-three-gp  d-play-none">
-                <a href="#/">
+                <Link to="/">
                   <div className="three-gp-flex ">
                     <div className="nav-icon-3">
                       <svg
@@ -217,12 +216,12 @@ function Nav() {
                       <div>store map</div>
                     </div>
                   </div>
-                </a>
+                </Link>
               </div>
             </li>
           </div>
           <div className="loginbar">
-            <a href="#/">
+            <Link to="/">
               <div className="three-gp-flex">
                 <div className="nav-icon-4">
                   {/*?xml version="1.0" encoding="iso-8859-1"?*/}
@@ -268,8 +267,8 @@ function Nav() {
                 </div>
                 <div>登入/註冊</div>
               </div>
-            </a>
-            <a href="#/">
+            </Link>
+            <Link to="/">
               <div className="three-gp-flex">
                 <div className="nav-icon-4">
                   {/*?xml version="1.0" encoding="iso-8859-1"?*/}
@@ -316,8 +315,8 @@ function Nav() {
                 </div>
                 <div>店家專區</div>
               </div>
-            </a>
-            <a href="#/">
+            </Link>
+            <Link to="#/">
               <div className="three-gp-flex">
                 <div className="nav-icon-1">
                   {/*?xml version="1.0" encoding="iso-8859-1"?*/}
@@ -377,10 +376,10 @@ function Nav() {
                   </svg>
                 </div>
               </div>
-            </a>
+            </Link>
           </div>
           <div className="icon-s-none ">
-            <a href="#/">
+            <Link to="#/">
               {/*?xml version="1.0" encoding="iso-8859-1"?*/}
               {/* Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  */}
               <svg
@@ -437,7 +436,7 @@ function Nav() {
                 <g></g>
                 <g></g>
               </svg>
-            </a>
+            </Link>
           </div>
         </div>
       </div>
