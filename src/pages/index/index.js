@@ -61,17 +61,17 @@ function Index(props) {
   // }, [])
   //jquery練習 滑鼠滾頓事件
   // // componentDidMount
-  // useEffect(() => {
-  //   $(window).scroll(function () {
-  //     let scrolltop = $(this).scrollTop() //console.log(scrolltop);
-  //     let windowheight = $(window).height() //為可視範圍console.log(windowheight);
-  //     let websideheight = $('body').height() //console.log(websideheight);
-  //     let persent = Math.floor(
-  //       (scrolltop / (websideheight - windowheight)) * 100
-  //     )
-  //     console.log(persent) //等於 scrolltop/scrolltop
-  //   })
-  // }, [])
+  useEffect(() => {
+    $(window).scroll(function () {
+      let scrolltop = $(this).scrollTop() //console.log(scrolltop);
+      let windowheight = $(window).height() //為可視範圍console.log(windowheight);
+      let websideheight = $('body').height() //console.log(websideheight);
+      let persent = Math.floor(
+        (scrolltop / (websideheight - windowheight)) * 100
+      )
+      console.log(persent) //等於 scrolltop/scrolltop
+    })
+  }, [])
 
   return (
     <>
