@@ -1,13 +1,13 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import './index.css'
 import onepagepic from './img/herrosection.jpg'
 import phoneherrosection from './img/phone-herrosection.jpg'
 import colorshlip from './img/colorshlip.png'
-import twosection from './img/twosection.jpg'
+
 import phonetwosection from './img/phone-twosection.jpg'
 import longcolorship from './img/long-colorship.png'
 import productcard from './img/productcard.jpg'
-import threesection from './img/threesection.jpg'
+
 import phonethreesection from './img/phone-threesection.jpg'
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import { withRouter } from 'react-router-dom'
@@ -44,42 +44,37 @@ function Index(props) {
     console.log(data)
   }
 
-  //jquery練習 button
-  const [data, setData] = useState('老師說123')
-  const [didMount, setDidMount] = useState(false)
+  useEffect(() => {
+    getUsersFromServer()
+    //呼叫伺服器JSON資料
+    // console.log(data)
+  }, [])
+
+  //click練習 滑鼠滾頓事件
+  // const [data, setData] = useState('老師說123')
 
   // componentDidMount
-  useEffect(() => {
-    $('.yes').on('click', () => {
-      let a = 5
-      alert(a, data)
-    })
-    setDidMount(true)
-  }, [])
-  ///更新
-  useEffect(() => {
-    if (!didMount) return
-
-    $('.one').off('click')
-    $('.one').on('click', () => {
-      let a = 5
-      console.log('111111111111', data)
-    })
-  }, [data, didMount])
+  // useEffect(() => {
+  //   $('.yes').on('click', () => {
+  //     console.log(data)
+  //   })
+  // }, [])
+  //jquery練習 滑鼠滾頓事件
+  // // componentDidMount
+  // useEffect(() => {
+  //   $(window).scroll(function () {
+  //     let scrolltop = $(this).scrollTop() //console.log(scrolltop);
+  //     let windowheight = $(window).height() //為可視範圍console.log(windowheight);
+  //     let websideheight = $('body').height() //console.log(websideheight);
+  //     let persent = Math.floor(
+  //       (scrolltop / (websideheight - windowheight)) * 100
+  //     )
+  //     console.log(persent) //等於 scrolltop/scrolltop
+  //   })
+  // }, [])
 
   return (
     <>
-      <Link class="yes" to="#/">
-        click你好嗎
-      </Link>
-      <br />
-      <Link class="one" to="#/">
-        click我不好
-      </Link>
-      <br />
-      <Link class="yes" to="#/">
-        click你不好
-      </Link>
       <div className="container">
         <div className="herro-section">
           <div className="onepage-pic">
@@ -147,7 +142,7 @@ function Index(props) {
             <img src={colorshlip} alt="colorship" />
           </div>
           <div className=" twopage-pic">
-            <img src={twosection} alt="twosection" />
+            <div className="twopage-pic-bg"></div>
           </div>
           <div className=" phone-twopage-pic">
             <img src={phonetwosection} alt="phonetwosection" />
@@ -172,9 +167,7 @@ function Index(props) {
           <img src={longcolorship} alt="longcolorship" />
         </div>
         <div className="three-section">
-          <div className="threepage-pic">
-            <img src={threesection} alt="threesection" />
-          </div>
+          <div className="threepage-pic-bg"></div>
           <div className="phone-three-pic">
             <img src={phonethreesection} alt="phonethreesection" />
           </div>

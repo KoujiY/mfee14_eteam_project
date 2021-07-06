@@ -128,10 +128,6 @@ table {
   border-spacing: 0;
 }
 
-.yes:hover {
-  color: #54bbff;
-}
-
 *,
 *::before,
 *::after {
@@ -214,137 +210,6 @@ li {
   }
   .nav > .three-gp-flex {
     display: none;
-  }
-}
-
-/*container    nav */
-
-@media screen and (max-width: 1920px) {
-  .nav {
-    background-color: #0065b4;
-    max-width: 100%;
-    height: 120px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    padding: 0 4%;
-  }
-
-  .logo {
-    width: 20%;
-    display: flex;
-
-    width: 170px;
-    height: 50px;
-  }
-
-  .logo img {
-    width: 100%;
-    height: 100%;
-  }
-
-  .navbar {
-    display: flex;
-    width: 60%;
-    flex-wrap: nowrap;
-    justify-content: center;
-
-    align-items: center;
-  }
-
-  .nav-three-gp {
-    display: flex;
-    align-items: center;
-    margin: 0 50px;
-  }
-  .three-gp-flex {
-    display: flex;
-
-    align-items: center;
-  }
-
-  .nav-three-gp > a {
-    display: block;
-    color: #f9f9f9;
-    text-decoration: none;
-  }
-
-  .loginbar {
-    width: 20%;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-  }
-  .loginbar > a {
-    display: block;
-    margin: 0 6px;
-    color: #f9f9f9;
-    text-decoration: none;
-  }
-
-  .nav-icon {
-    width: 35px;
-    height: 40px;
-    fill: #f9f9f9;
-  }
-
-  .nav-icon-1 {
-    width: 30px;
-    height: 40px;
-    fill: #f9f9f9;
-  }
-  .nav-icon-2 {
-    width: 25px;
-    height: 40px;
-    fill: #f9f9f9;
-  }
-  .nav-icon-3 {
-    width: 43px;
-    height: 36px;
-    fill: #f9f9f9;
-  }
-
-  .nav-icon-4 {
-    width: 20px;
-    height: 20px;
-    fill: #f9f9f9;
-  }
-
-  .d-flex a {
-    display: block;
-  }
-
-  .icon-s-none {
-    display: none;
-  }
-}
-
-@media screen and (min-width: 320px) and (max-width: 576px) {
-  .navbar,
-  .loginbar {
-    display: none !important;
-  }
-
-  .nav {
-    background-color: #0065b4;
-    max-width: 100%;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 2%;
-  }
-
-  .logo {
-    max-width: 30%;
-    display: flex;
-
-    /* width: 140px; */
-  }
-
-  .icon-s-none {
-    display: block;
   }
 }
 
@@ -510,11 +375,14 @@ li {
     max-width: 80%;
     margin-left: auto;
     padding-top: 60px;
-    padding-bottom: 170px;
   }
 
-  .twopage-pic img {
-    width: 100%;
+  .twopage-pic-bg {
+    background: url('./img/twosection.jpg') center center no-repeat;
+    min-height: 769px;
+    background-attachment: fixed;
+    background-size: cover;
+    min-width: 1313px;
   }
 
   .cardtwo {
@@ -528,6 +396,23 @@ li {
     z-index: 3;
     text-align: center;
     padding-top: 50px;
+  }
+  .chartbox-icon {
+    width: 30px;
+    height: 31px;
+    fill: #f9f9f9;
+  }
+  .chart-box {
+    background-color: #ff5554;
+    width: 45px;
+    height: 45px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    right: 0;
+    top: 25%;
   }
 
   .fontsize34-group > .fontsize34 {
@@ -690,7 +575,12 @@ li {
     margin-bottom: 380px;
     position: relative;
   }
-  .threepage-pic {
+  .threepage-pic-bg {
+    background: url('./img/threesection.jpg') center center no-repeat;
+    min-height: 858px;
+    background-attachment: scroll;
+    background-attachment: fixed;
+    background-size: cover;
     width: 100%;
   }
   .phone-three-pic {
@@ -1024,23 +914,6 @@ li {
     bottom: 2.5%;
     z-index: -1;
   }
-  .chartbox-icon {
-    width: 30px;
-    height: 31px;
-    fill: #f9f9f9;
-  }
-  .chart-box {
-    background-color: #ff5554;
-    width: 45px;
-    height: 45px;
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    right: 0;
-    top: 50%;
-  }
   .top-box {
     background-color: #ff5554;
     color: #f9f9f9;
@@ -1053,7 +926,7 @@ li {
     text-align: center;
     right: 0;
     z-index: 5;
-    bottom: 30%;
+    bottom: 1%;
   }
 }
 @media screen and (min-width: 320px) and (max-width: 576px) {
@@ -1123,202 +996,5 @@ li {
     position: absolute;
     bottom: 2.5%;
     z-index: -1;
-  }
-}
-
-/**/
-
-/*footer的背景 rwd*/
-@media screen and (max-width: 1920px) {
-  .footer-bg {
-    width: 100%;
-    height: 460px;
-    background-color: #0065b4;
-    color: #f9f9f9;
-    text-decoration: none;
-  }
-
-  /*footer的群組*/
-  .footer-group {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-
-    padding-top: 70px;
-  }
-
-  .footer-left {
-    width: 25%;
-  }
-  .footer-center {
-    width: 60%;
-  }
-  .footer-right {
-    width: 15%;
-  }
-
-  .four-information {
-    display: flex;
-  }
-  .four-information a {
-    color: #f9f9f9;
-    text-decoration: none;
-  }
-
-  .footer-icon {
-    display: flex;
-  }
-
-  .phone-footer-icon {
-    display: none;
-  }
-
-  .map,
-  .coffee,
-  .product,
-  .partner {
-    width: 25%;
-  }
-
-  .logo2 {
-    width: 20%;
-    width: 170px;
-    height: 50px;
-  }
-
-  .footer-left > ul > li {
-    padding-bottom: 15px;
-  }
-  .map > ul > li {
-    padding-bottom: 15px;
-  }
-
-  .coffee > ul > li {
-    padding-bottom: 15px;
-  }
-  .product > ul > li {
-    padding-bottom: 15px;
-  }
-  .partner > ul > li {
-    padding-bottom: 15px;
-  }
-
-  .footer-right > a {
-    padding-bottom: 15px;
-  }
-  /*.button-w =白色方形按鈕*/
-  .button-w {
-    text-align: center;
-    padding: 10px 0;
-
-    width: 210px;
-    height: 40px;
-
-    color: #f9f9f9;
-    border: 2px solid #f9f9f9;
-  }
-  .button-w > a {
-    text-decoration: none;
-    color: #f9f9f9;
-  }
-  /*手機板的文字*/
-  .phone-item {
-    display: none;
-  }
-
-  /*手機板的logo*/
-  .phone-logo {
-    display: none;
-  }
-
-  .copyright {
-    text-align: center;
-    margin-top: 10%;
-  }
-}
-@media screen and (min-width: 320px) and (max-width: 576px) {
-  .footer-bg {
-    width: 100%;
-    height: 460px;
-    background-color: #0065b4;
-    color: #f9f9f9;
-    text-decoration: none;
-  }
-  /*footer的群組*/
-  .footer-group {
-    padding-top: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  /*手機板的圖片*/
-  .phonelogo2 {
-    width: 60%;
-    height: 40px;
-    margin-bottom: 15px;
-  }
-  .phonelogo2 > img {
-    width: 100%;
-    height: 100%;
-  }
-
-  .map,
-  .coffee,
-  .product,
-  .partner {
-    display: none;
-  }
-
-  .logo2 {
-    display: flex;
-
-    width: 150px;
-
-    height: 100%;
-  }
-  .logo2 > img {
-    width: 100%;
-
-    height: 100%;
-  }
-  .footer-left {
-    display: none;
-  }
-  .footer-icon {
-    display: none;
-  }
-
-  .phone-footer-icon {
-    display: flex;
-  }
-
-  /*.button-w =白色方形按鈕*/
-  .button-w {
-    text-align: center;
-    padding: 10px 0;
-
-    width: 210px;
-    height: 40px;
-
-    color: #f9f9f9;
-    border: 2px solid #f9f9f9;
-  }
-  .button-w > a {
-    text-decoration: none;
-    color: #f9f9f9;
-  }
-  /*手機板的文字*/
-  .phone-item {
-    display: block;
-  }
-
-  /*手機板的logo*/
-  .phone-logo {
-    display: block;
-  }
-
-  .copyright {
-    text-align: center;
-    margin-bottom: 100px;
   }
 }
