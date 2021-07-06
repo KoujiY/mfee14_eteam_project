@@ -53,12 +53,12 @@ function Index(props) {
   //click練習 滑鼠滾頓事件
   // const [data, setData] = useState('老師說123')
 
-  // componentDidMount
-  // useEffect(() => {
-  //   $('.yes').on('click', () => {
-  //     console.log(data)
-  //   })
-  // }, [])
+  componentDidMount
+  useEffect(() => {
+    $('.yes').on('click', () => {
+      console.log(data)
+    })
+  }, [])
   //jquery練習 滑鼠滾頓事件
   // // componentDidMount
   useEffect(() => {
@@ -70,6 +70,11 @@ function Index(props) {
         (scrolltop / (websideheight - windowheight)) * 100
       )
       console.log(persent) //等於 scrolltop/scrolltop
+      if (persent >= 18) {
+        $('.chart-box').css('display', 'block').css('position', 'fixed')
+      } else {
+        $('.chart-box').css('display', 'none')
+      }
     })
   }, [])
 
