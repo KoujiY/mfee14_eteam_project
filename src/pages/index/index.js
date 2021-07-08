@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import './index.css'
 import onepagepic from './img/herrosection.jpg'
+import onepagepic02 from './img/herrosection02.jpg'
+import onepagepic03 from './img/herrosection03.jpg'
+import onepagepic04 from './img/herrosection04.jpg'
 import phoneherrosection from './img/phone-herrosection.jpg'
 import colorshlip from './img/colorshlip.png'
-
 import phonetwosection from './img/phone-twosection.jpg'
 import longcolorship from './img/long-colorship.png'
 import productcard from './img/productcard.jpg'
-
 import phonethreesection from './img/phone-threesection.jpg'
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import { withRouter } from 'react-router-dom'
@@ -49,18 +50,79 @@ function Index(props) {
     //呼叫伺服器JSON資料
     // console.log(data)
   }, [])
+  /////////////////////////////////////////////////////
 
-  //click練習 滑鼠滾頓事件
+  /////////////////////自動輪播軸/////////////////////////
   // const [data, setData] = useState('老師說123')
-
-  componentDidMount
+  let nowpage = 0
   useEffect(() => {
-    $('.yes').on('click', () => {
-      console.log(data)
+    $('.slider-dots .dot').mouseenter(function () {
+      // console.log($(this)); 確定滑到哪個物件
+      $(this).css('color', '#FF5554').siblings().css('color', '#0065b4')
+      let moveX = $(this).index() * -1920
+      // console.log(moveX);
+      nowpage = $(this).index()
+      $('.img-wrap').css('Transform', ` translateX(${moveX}px)`)
     })
   }, [])
-  //jquery練習 滑鼠滾頓事件
-  // // componentDidMount
+  useEffect(() => {
+    let myInterval = 0
+    function changepage() {
+      let moveX = nowpage * -1920
+      $('.img-wrap').css('transform', `translateX(${moveX}px)`)
+      $('.slider-dots .dot')
+        .eq(nowpage)
+        .css('color', '#FF5554')
+        .siblings()
+        .css('color', '#0065b4')
+    }
+    function startmyInterval() {
+      myInterval = setInterval(() => {
+        if (nowpage < 4) {
+          nowpage++
+        } else {
+          nowpage = 0
+        }
+        changepage()
+      }, 3000)
+    }
+    startmyInterval()
+  }, [])
+
+  //////////////滑鼠移下來card往上////////
+  // useEffect(() => {
+  //   $('.slider-dots .dot').hover(function () {
+
+  // }, [])
+
+  /////////////// click事件移動商品功能/////////////////
+  // const [data, setData] = useState('老師說123')
+  // componentDidMount
+  let count = 0
+
+  useEffect(() => {
+    $('.button-box-left').on('click', () => {
+      if (count === -7) {
+        return
+      }
+      count--
+      let movex = count * 100
+      $('.box1').css('Transform', ` translateX(${movex}px`)
+    })
+  }, [])
+
+  useEffect(() => {
+    $('.button-box-right').on('click', () => {
+      if (count === 1) {
+        return
+      }
+      count++
+      let movex = count * 100
+      $('.box1').css('Transform', ` translateX(${movex}px`)
+    })
+  }, [])
+
+  ////////////////////////// jquery 購物車懸浮功能/////////////////////////////
   useEffect(() => {
     $(window).scroll(function () {
       let scrolltop = $(this).scrollTop() //console.log(scrolltop);
@@ -82,66 +144,174 @@ function Index(props) {
     <>
       <div className="container">
         <div className="herro-section">
-          <div className="onepage-pic">
-            <img src={onepagepic} alt="onepage-pic" />
-          </div>
-          <div className="phone-onepage-pic">
-            <img src={phoneherrosection} alt=" phone-herrosection" />
-          </div>
-          <div className="herro-text">
-            <div>
-              {/*?xml version="1.0" encoding="iso-8859-1"?*/}
-              {/* Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  */}
-              <svg
-                className="nav-icon"
-                version="1.1"
-                id="Capa_1"
-                xmlns="http://www.w3.org/2000/svg"
-                xmlnsXlink="http://www.w3.org/1999/xlink"
-                x="0px"
-                y="0px"
-                viewBox="0 0 512 512"
-                style={{ enableBackground: 'new 0 0 512 512' }}
-                xmlSpace="preserve"
-              >
-                <g>
-                  <g>
-                    <polygon
-                      points="447.894,263.57 275.989,435.474 275.989,0 236.011,0 236.011,435.474 64.106,263.57 35.838,291.838 256,512 
-			476.162,291.838 		"
-                    />
-                  </g>
-                </g>
-                <g></g>
-                <g></g>
-                <g></g>
-                <g></g>
-                <g></g>
-                <g></g>
-                <g></g>
-                <g></g>
-                <g></g>
-                <g></g>
-                <g></g>
-                <g></g>
-                <g></g>
-                <g></g>
-                <g></g>
-              </svg>
+          <div className="img-wrap">
+            <div className="onepage-pic">
+              <img src={onepagepic} alt="onepage-pic" />
+              <div className="one-herro-button-left">
+                <Link to="#/">尋找咖啡</Link>
+              </div>
+              <div className="one-herro-button-right">
+                <Link to="#/">尋找店家</Link>
+              </div>
             </div>
-            <div className="d-flex-columm">
-              <div>旅行‧寧靜‧生活</div>
-              <div>Mercurius Coffee</div>
+            <div className="onepage-pic">
+              <img src={onepagepic02} alt="onepage-pic02" />
+              <div className="two-herro-button-left">
+                <Link to="#/">尋找咖啡</Link>
+              </div>
+              <div className="two-herro-button-right">
+                <Link to="#/">尋找店家</Link>
+              </div>
             </div>
-          </div>
-          <div className="onepage-rectangle" />
-          <div className="herro-button-left">
-            <Link to="#/">尋找咖啡</Link>
-          </div>
-          <div className="herro-button-right">
-            <Link to="#/">尋找店家</Link>
+            <div className="onepage-pic">
+              <img src={onepagepic03} alt="onepage-pic03" />
+              <div className="three-herro-button-left">
+                <Link to="#/">尋找咖啡</Link>
+              </div>
+              <div className="three-herro-button-right">
+                <Link to="#/">尋找店家</Link>
+              </div>
+            </div>
+            <div className="onepage-pic">
+              <img src={onepagepic04} alt="onepage-pic04" />
+              <div className="four-herro-button-left">
+                <Link to="#/">尋找咖啡</Link>
+              </div>
+              <div className="four-herro-button-right">
+                <Link to="#/">尋找店家</Link>
+              </div>
+            </div>
+            <div className="onepage-pic">
+              <img src={onepagepic03} alt="onepage-pic03" />
+              <div className="five-herro-button-left">
+                <Link to="#/">尋找咖啡</Link>
+              </div>
+              <div className="five-herro-button-right">
+                <Link to="#/">尋找店家</Link>
+              </div>
+            </div>
           </div>
         </div>
+        <div className="slider-dots">
+          <div className="dot">01</div>
+          <div className="dot">02</div>
+          <div className="dot">03</div>
+          <div className="dot">04</div>
+          <div className="dot">05</div>
+        </div>
+        {/* ////////////////////////////////////////////////////// */}
+        <div className="herro-text">
+          <div>
+            {/*?xml version="1.0" encoding="iso-8859-1"?*/}
+            {/* Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  */}
+            <svg
+              className="nav-icon"
+              version="1.1"
+              id="Capa_1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlnsXlink="http://www.w3.org/1999/xlink"
+              x="0px"
+              y="0px"
+              viewBox="0 0 512 512"
+              style={{ enableBackground: 'new 0 0 512 512' }}
+              xmlSpace="preserve"
+            >
+              <g>
+                <g>
+                  <polygon
+                    points="447.894,263.57 275.989,435.474 275.989,0 236.011,0 236.011,435.474 64.106,263.57 35.838,291.838 256,512 
+			476.162,291.838 		"
+                  />
+                </g>
+              </g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+            </svg>
+          </div>
+          <div className="d-flex-columm">
+            <div>旅行‧寧靜‧生活</div>
+            <div>Mercurius Coffee</div>
+          </div>
+        </div>
+        <div className="onepage-rectangle" />
+      </div>
+      {/* //////////////手機板的 herrosection////////////////// */}
+      <div className="phone-herro-section">
+        <div className="phone-onepage-pic">
+          <img src={phoneherrosection} alt=" phone-herrosection" />
+        </div>
+
+        <div className="herro-text">
+          <div>
+            {/*?xml version="1.0" encoding="iso-8859-1"?*/}
+            {/* Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  */}
+            <svg
+              className="nav-icon"
+              version="1.1"
+              id="Capa_1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlnsXlink="http://www.w3.org/1999/xlink"
+              x="0px"
+              y="0px"
+              viewBox="0 0 512 512"
+              style={{ enableBackground: 'new 0 0 512 512' }}
+              xmlSpace="preserve"
+            >
+              <g>
+                <g>
+                  <polygon
+                    points="447.894,263.57 275.989,435.474 275.989,0 236.011,0 236.011,435.474 64.106,263.57 35.838,291.838 256,512 
+			476.162,291.838 		"
+                  />
+                </g>
+              </g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+            </svg>
+          </div>
+          <div className="d-flex-columm">
+            <div>旅行‧寧靜‧生活</div>
+            <div>Mercurius Coffee</div>
+          </div>
+        </div>
+        <div className="onepage-rectangle" />
+        <div className="one-herro-button-left">
+          <Link to="#/">尋找咖啡</Link>
+        </div>
+        <div className="one-herro-button-right">
+          <Link to="#/">尋找店家</Link>
+        </div>
+      </div>
+
+      {/* //////////////////////////////// */}
+
+      <div className="container">
         <div className="two-section">
           <div className="two-colorship">
             <img src={colorshlip} alt="colorship" />
@@ -153,11 +323,11 @@ function Index(props) {
             <img src={phonetwosection} alt="phonetwosection" />
           </div>
           <div className="cardtwo">
-            <div className="fontsize-34">我們相遇在世界的角落</div>
+            <div className="fontsize-34">我們相遇在世ge界的角落</div>
             <div className="mt-30">
-              <div className="fontsize-34 px-15">在台灣再度重逢</div>
-              <div className="fontsize-34 px-15">在你手中</div>
-              <div className="fontsize-34 px-15">為你研磨最好的一品</div>
+              <div className="fontsize-34 px-15">在台灣vfd再度重逢</div>
+              <div className="fontsize-34 px-15">在你手fr中</div>
+              <div className="fontsize-34 px-15">為你研gr磨最好的一品</div>
             </div>
             <div className="button-blue-left">
               <Link to="#/">尋找咖啡</Link>
@@ -166,7 +336,7 @@ function Index(props) {
               <Link to="#/">尋找店家</Link>
             </div>
           </div>
-          <div className="twopage-rectangle" />
+          <div className="twopage-rectangle"></div>
         </div>
         <div className="phone-long-colorship">
           <img src={longcolorship} alt="longcolorship" />
@@ -297,12 +467,82 @@ function Index(props) {
             </div>
           </div>
         </div>
-        <div className="button03">
-          <div>
-            <button>左</button>
+        <div className="button-click">
+          <div className="button-box-left">
+            <div className="button-icon">
+              {/*?xml version="1.0" encoding="iso-8859-1"?*/}
+              {/* Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  */}
+              <svg
+                version="1.1"
+                id="Capa_1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlnsXlink="http://www.w3.org/1999/xlink"
+                x="0px"
+                y="0px"
+                viewBox="0 0 512 512"
+                style={{ enableBackground: 'new 0 0 512 512' }}
+                xmlSpace="preserve"
+              >
+                <g>
+                  <g>
+                    <path d="M101.682,256l308.636,256V0L101.682,256z M370.407,427.043L164.196,256L370.407,84.957V427.043z" />
+                  </g>
+                </g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+              </svg>
+            </div>
           </div>
-          <div>
-            <button>右</button>
+          <div className="button-box-right">
+            <div className="button-icon">
+              {/*?xml version="1.0" encoding="iso-8859-1"?*/}
+              {/* Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  */}
+              <svg
+                version="1.1"
+                id="Capa_1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlnsXlink="http://www.w3.org/1999/xlink"
+                x="0px"
+                y="0px"
+                viewBox="0 0 512 512"
+                style={{ enableBackground: 'new 0 0 512 512' }}
+                xmlSpace="preserve"
+              >
+                <g>
+                  <g>
+                    <path d="M101.682,0v512l308.636-256L101.682,0z M141.593,84.957L347.804,256L141.593,427.043V84.957z" />
+                  </g>
+                </g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+              </svg>
+            </div>
           </div>
         </div>
         <div className="long-colorship">

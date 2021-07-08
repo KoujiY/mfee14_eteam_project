@@ -192,6 +192,7 @@ li {
     margin: 0 auto;
     max-width: 1920px;
     overflow: hidden;
+
     position: relative;
   }
   .container-1 {
@@ -219,10 +220,49 @@ li {
   /*主視覺畫面*/
 
   .herro-section {
-    max-width: 100%;
+    max-width: 1920px;
     height: 100%;
-    margin-left: auto;
+    overflow: hidden;
     position: relative;
+  }
+
+  .img-wrap {
+    overflow: hidden;
+    width: 9600px;
+    display: flex;
+    transform: translateX(0px);
+    height: 100%;
+  }
+
+  .onepage-pic {
+    position: relative;
+    overflow: hidden;
+    max-width: 100%;
+    flex-shrink: 1;
+  }
+
+  .onepage-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* /頁碼數字/ */
+  .slider-dots {
+    color: #0065b4;
+    display: flex;
+    position: absolute;
+    font-size: 16px;
+    bottom: 9%;
+    right: 5%;
+    z-index: 33;
+  }
+  .dot {
+    margin: 0 10px;
+  }
+
+  .phone-herro-section {
+    display: none;
   }
   .phone-onepage-pic {
     display: none;
@@ -237,7 +277,17 @@ li {
     z-index: 4;
   }
 
-  .herro-button-left {
+  /* /這是輪播軸每一頁的的按紐/ */
+  .one-herro-button-left,
+  .one-herro-button-right,
+  .two-herro-button-left,
+  .two-herro-button-right,
+  .three-herro-button-left,
+  .three-herro-button-right,
+  .four-herro-button-left,
+  .four-herro-button-right,
+  .five-herro-button-left,
+  .five-herro-button-right {
     width: 110px;
     height: 40px;
     border-radius: 40px;
@@ -249,33 +299,64 @@ li {
     right: 35%;
     z-index: 2;
   }
-
-  .herro-button-right {
-    width: 110px;
-    height: 40px;
-    border-radius: 40px;
-    text-align: center;
-    padding: 10px 0;
-    border: 2px solid #002875;
-    position: absolute;
+  .one-herro-button-right {
     bottom: 25%;
     right: 25%;
-    z-index: 2;
   }
-  .herro-button-left > a,
-  .herro-button-right > a {
+  .two-herro-button-left {
+    bottom: 40%;
+    right: 30%;
+  }
+  .two-herro-button-right {
+    bottom: 40%;
+    right: 40%;
+  }
+  .two-herro-button-left {
+    bottom: 30%;
+    right: 15%;
+  }
+  .two-herro-button-right {
+    bottom: 30%;
+    right: 25%;
+  }
+  .three-herro-button-left {
+    bottom: 45%;
+    right: 40%;
+  }
+  .three-herro-button-right {
+    bottom: 45%;
+    right: 50%;
+  }
+  .four-herro-button-left {
+    bottom: 45%;
+    right: 40%;
+  }
+  .four-herro-button-right {
+    bottom: 45%;
+    right: 50%;
+  }
+  .five-herro-button-left {
+    bottom: 45%;
+    right: 40%;
+  }
+  .five-herro-button-right {
+    bottom: 25%;
+    right: 25%;
+  }
+  .one-herro-button-left > a,
+  .one-herro-button-right > a,
+  .two-herro-button-left > a,
+  .two-herro-button-right > a,
+  .three-herro-button-left > a,
+  .three-herro-button-right > a,
+  .four-herro-button-left > a,
+  .four-herro-button-right > a,
+  .five-herro-button-left > a,
+  .five-herro-button-right > a {
     color: #002875;
     text-decoration: none;
   }
-
-  .onepage-pic {
-    max-width: 100%;
-  }
-
-  .onepage-pic img {
-    width: 100%;
-  }
-
+  /* /這是重疊在輪播軸上的矩形/ */
   .onepage-rectangle {
     width: 40%;
     height: 10%;
@@ -288,6 +369,10 @@ li {
 
 @media screen and (min-width: 320px) and (max-width: 576px) {
   .herro-section {
+    display: none;
+  }
+  .phone-herro-section {
+    display: block;
     max-width: 100%;
     height: 100%;
     margin-left: auto;
@@ -298,8 +383,8 @@ li {
     display: none;
   }
   .phone-onepage-pic {
-    width: 100%;
     display: block;
+    width: 100%;
   }
   .phone-onepage-pic img {
     width: 100%;
@@ -315,7 +400,7 @@ li {
     z-index: 4;
   }
 
-  .herro-button-left {
+  .one-herro-button-left {
     margin-top: 5px;
     width: 60%;
     height: 7%;
@@ -330,7 +415,7 @@ li {
     z-index: 2;
   }
 
-  .herro-button-right {
+  .one-herro-button-right {
     width: 60%;
     height: 7%;
     border-radius: 40px;
@@ -342,8 +427,8 @@ li {
     right: 23%;
     z-index: 2;
   }
-  .herro-button-left > a,
-  .herro-button-right > a {
+  .one-herro-button-left > a,
+  .one-herro-button-right > a {
     color: #f9f9f9;
     text-decoration: none;
   }
@@ -375,6 +460,10 @@ li {
     max-width: 80%;
     margin-left: auto;
     padding-top: 60px;
+    padding-bottom: 170px;
+  }
+  .twopage-pic img {
+    width: 100%;
   }
 
   .twopage-pic-bg {
@@ -560,6 +649,12 @@ li {
   .twopage-pic {
     display: none;
   }
+  .twopage-pic-bg {
+    display: none;
+  }
+  .threepage-pic-bg {
+    display: none;
+  }
 
   .phone-long-colorship {
     display: block;
@@ -569,6 +664,13 @@ li {
 
 /*第三頁*/
 @media screen and (max-width: 1920px) {
+  .threepage-pic {
+    width: 100%;
+  }
+  .threepage-pic > img {
+    width: 100%;
+  }
+
   .three-section {
     max-width: 100%;
     height: 100%;
@@ -585,9 +687,6 @@ li {
   }
   .phone-three-pic {
     display: none;
-  }
-  .threepage-pic > img {
-    width: 100%;
   }
 
   .three-content {
@@ -645,7 +744,8 @@ li {
     position: absolute;
     z-index: 2;
     bottom: -45%;
-    right: -30%;
+    left: 26%;
+    right: -35%;
   }
 
   .box1 {
@@ -711,10 +811,36 @@ li {
     text-decoration: none;
   }
 
-  .button03 {
+  .button-click {
+    margin-top: 460px;
     margin-bottom: 146px;
     margin-left: 27%;
     display: flex;
+  }
+  .button-box-left,
+  .button-box-right {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    padding-top: 3px;
+    justify-content: center;
+    align-items: center;
+    background-color: #0065b4;
+    margin: 0 2%;
+    border-radius: 5px;
+  }
+
+  .button-box-left {
+    padding-right: 5px;
+  }
+  .button-box-right {
+    padding-left: 5px;
+  }
+  .button-icon {
+    width: 35px;
+    height: 40px;
+    fill: #f9f9f9;
+    margin: 0 1%;
   }
 }
 @media screen and (min-width: 320px) and (max-width: 576px) {
@@ -771,13 +897,13 @@ li {
     border-bottom: 3px solid #f9f9f9;
   }
 
-  /* .border-bottom-blue {
+  .border-bottom-blue {
     position: relative;
     left: 0px;
     width: 60px;
     height: 20px;
     border-bottom: 3px solid #659de1;
-  } */
+  }
 
   .button-black {
     display: none;
@@ -787,10 +913,11 @@ li {
     width: 960px;
     display: flex;
     height: 100%;
+
     position: absolute;
     z-index: 2;
-    bottom: -65%;
-    left: 0%;
+    bottom: -75%;
+    left: 0;
   }
 
   .box1 {
@@ -832,12 +959,7 @@ li {
     width: 100px;
     border: 2px solid #659de1;
   }
-  .button03 {
-    display: none;
-    margin-bottom: 64px;
-    margin-left: 4%;
-    display: flex;
-  }
+
   .long-colorship {
     width: 60%;
     height: 15px;
@@ -957,6 +1079,7 @@ li {
     margin-top: 60px;
     margin-bottom: 120px;
   }
+
   .box2 {
     width: 48%;
   }
