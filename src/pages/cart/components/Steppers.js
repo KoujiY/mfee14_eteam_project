@@ -14,22 +14,19 @@ import {
 } from '@material-ui/core'
 import { Link } from 'react-router-dom'
 import '../Cart.css'
-
 import IconCart from './IconCart'
 
 //分頁切換
-import MyCart from '../MyCart'
-import Address from '../Address'
+import MyCartTest from '../test-components/MyCartTest'
+import Address from '../test-components/Address'
 import CreditForm from '../CreditForm'
 import FinalCheck from '../FinalCheck'
 import Completed from '../Completed'
+import { useForm } from 'react-hook-form'
 
+//流程圖連結線外觀設定
 const ColorlibConnector = withStyles({
   alternativeLabel: {
-    '& $text': {
-      color: '#fcf5e9',
-    },
-    // padding: 0,
     top: 95,
     margin: 'auto 0px',
     color: '#fcf5e9',
@@ -57,6 +54,7 @@ const ColorlibConnector = withStyles({
   },
 })(StepConnector)
 
+//icon 外觀設定:初始、當前、完成
 const useColorlibStepIconStyles = makeStyles({
   root: {
     border: '2px solid #fcf5e9',
@@ -83,9 +81,13 @@ const useColorlibStepIconStyles = makeStyles({
     color: '#659de1',
     border: '2px solid #659de1',
     fill: '#659de1',
+    label: {
+      color: '#659de1',
+    },
   },
 })
 
+//引入 svg icon圖
 function ColorlibStepIcon(props) {
   const classes = useColorlibStepIconStyles()
   const { active, completed } = props
@@ -174,6 +176,7 @@ ColorlibStepIcon.propTypes = {
   icon: PropTypes.node,
 }
 
+//全頁設定，有搭配 cart.css
 const useStyles = makeStyles((theme) => ({
   root: {
     margin: '0px auto',
@@ -183,6 +186,8 @@ const useStyles = makeStyles((theme) => ({
   },
   button: {
     marginLeft: theme.spacing(1),
+    color: '#ffffff',
+    backgroundColor: '#0065B4',
   },
   instructions: {
     marginTop: theme.spacing(1),
@@ -195,23 +200,70 @@ function getSteps() {
   return ['我的購物車', '收貨地址', '付款方式', '確認訂單']
 }
 
-//下方分頁傳遞
-function getStepContent(step) {
-  switch (step) {
-    case 0:
-      return <MyCart />
-    case 1:
-      return <Address />
-    case 2:
-      return <CreditForm />
-    case 3:
-      return <FinalCheck />
-    default:
-      return <Completed /> // lOGIN驗證頁
-  }
-}
+export default function Steppers(props) {
+  const { watch, register } = useForm()
+  //test:(拆解state成 3 step)
+  const {
+    step1,
+    setStep1,
+    step2,
+    setStep2,
+    step3,
+    setStep3,
+    // state,
+    // setState,
+    cateLabels,
+    cateLabel,
+    setCateLabel,
+    price,
+    setPrice,
+    handleChange,
+    count,
+    setCount,
+    handleStep2Change,
+    step2Errors,
+    setStep2Errors,
+  } = props
 
-export default function Steppers() {
+  //下一步分頁傳遞
+  function getStepContent(step) {
+    switch (step) {
+      case 0:
+        return (
+          <MyCartTest
+            step1={step1}
+            setStep1={setStep1}
+            // state={state}
+            // setState={setState}
+            cateLabels={cateLabels}
+            cateLabel={cateLabel}
+            setCateLabel={setCateLabel}
+            price={price}
+            setPrice={setPrice}
+            handleChange={handleChange}
+            count={count}
+            setCount={setCount}
+          />
+        )
+      case 1:
+        return (
+          <Address
+            step2={step2}
+            setStep2={setStep2}
+            handleStep2Change={handleStep2Change}
+            step2Errors={step2Errors}
+            setStep2Errors={setStep2Errors}
+          />
+        )
+      case 2:
+        return <CreditForm />
+      case 3:
+        return <FinalCheck />
+      default:
+        return <Completed /> // lOGIN驗證頁
+    }
+  }
+
   const classes = useStyles()
   const [activeStep, setActiveStep] = React.useState(0)
   const steps = getSteps()
@@ -224,67 +276,77 @@ export default function Steppers() {
     setActiveStep((prevActiveStep) => prevActiveStep - 1)
   }
 
-  const handleReset = () => {
-    setActiveStep(0)
-  }
+  //重設
+  // const handleReset = () => {
+  //   setActiveStep(0)
+  // }
 
   return (
     <div className={classes.root}>
-      <Stepper
-        alternativeLabel
-        activeStep={activeStep}
-        connector={<ColorlibConnector />}
-        className={classes.root}
-      >
-        {steps.map((label) => (
-          <Step key={label}>
-            <StepLabel
-              alternativeLabel={true}
-              StepIconComponent={ColorlibStepIcon}
-              className={classes.root}
-            >
-              {label}
-            </StepLabel>
-          </Step>
-        ))}
-      </Stepper>
       <div>
         {activeStep === steps.length ? (
           <div>
+            {/* 結帳完成頁 */}
             <Typography alternativeLabel className={classes.instructions}>
               <Completed />
             </Typography>
-            <Button onClick={handleReset} className={classes.button}>
+            {/* <Button onClick={handleReset} className={classes.button}>
               Reset
-            </Button>
+            </Button> */}
           </div>
         ) : (
           <div>
-            <Typography className={classes.instructions}>
-              {getStepContent(activeStep)}
-            </Typography>
+            {/* 結帳流程圖 */}
+            <Stepper
+              alternativeLabel
+              activeStep={activeStep}
+              connector={<ColorlibConnector />}
+              className={classes.root}
+            >
+              {/* onClick流程圖回上一頁還有 bug(不能跳回指定那頁，只能返回第一頁) */}
+              {steps.map((label) => (
+                <Step key={label}>
+                  <StepLabel
+                    alternativeLabel={true}
+                    StepIconComponent={ColorlibStepIcon}
+                    className={classes.root}
+                    disabled={activeStep === 0}
+                    onClick={activeStep === 0 ? 'disabled' : handleBack}
+                  >
+                    {label}
+                  </StepLabel>
+                </Step>
+              ))}
+            </Stepper>
+            <form>
+              {/* 購物車步驟內容 */}
+              <Typography className={classes.instructions}>
+                {getStepContent(activeStep)}
+              </Typography>
+            </form>
             <div>
-              <Button
+              {/* <Button
                 disabled={activeStep === 0}
                 onClick={handleBack}
                 className={classes.button}
-                as="a"
-                to="/cart-address"
               >
-                Back
-              </Button>
+                上一頁
+              </Button> */}
               <Button
                 variant="contained"
                 color="primary"
                 onClick={handleNext}
                 className={classes.button}
               >
-                {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
+                {activeStep === steps.length - 1 ? '結帳' : '下一頁'}
               </Button>
             </div>
           </div>
         )}
       </div>
+      <pre>{JSON.stringify(watch(), null, 2)}</pre>
+      <pre>{JSON.stringify(step2, null, 2)}</pre>
+      <pre>{JSON.stringify(step3, null, 2)}</pre>
     </div>
   )
 }
