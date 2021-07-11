@@ -222,6 +222,7 @@ li {
     max-width: 1920px;
     height: 100%;
     /* overflow: hidden; */
+
     position: relative;
   }
 
@@ -231,6 +232,7 @@ li {
     display: flex;
     transform: translateX(0px);
     height: 100%;
+    z-index: -50;
     /* transition: 5s; */
   }
 
