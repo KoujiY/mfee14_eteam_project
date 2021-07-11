@@ -29,6 +29,8 @@ const cateLabels = [
 ]
 
 const TestForm = () => {
+
+
   //分步驟為 3 step
   const [step1, setStep1] = useState([
     {
@@ -52,6 +54,8 @@ const TestForm = () => {
     name: '',
     phone: '',
     email: '',
+    to711city: '',
+    to711Store: '',
   })
 
   const [step3, setStep3] = useState({
@@ -123,6 +127,16 @@ const TestForm = () => {
     },
   })
 
+  //變更欄位內容(step1)
+  const handleStep1Change = (e) => {
+    const updatedField = {
+      ...step1,
+      [e.target.name]:
+        e.target.type === 'checkbox' ? e.target.checked : e.target.value,
+    }
+    setStep1(updatedField)
+  }
+
   //變更欄位內容(step2)
   const handleStep2Change = (e) => {
     const updatedField = {
@@ -141,20 +155,20 @@ const TestForm = () => {
 
   //變更欄位內容(step3)
   const handleStep3Change = (e) => {
-    const updatedField = {
+    const updatedStep3 = {
       ...step3,
       [e.target.name]:
         e.target.type === 'checkbox' ? e.target.checked : e.target.value,
     }
-    setStep3(updatedField)
+    setStep3(updatedStep3)
   }
 
   //表單送出
-  const handleSubmit = (e) => {
-    e.preventDefault()
+  // const handleSubmit = (e) => {
+  //   e.preventDefault()
 
-    const data = new FormData(e.target)
-  }
+  //   const data = new FormData(e.target)
+  // }
 
   const handleChange = (e) => {
     // const updatedFieldErrors = {

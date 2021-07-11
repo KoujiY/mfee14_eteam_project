@@ -1,8 +1,9 @@
 /**
- * 1. 信用卡區顯示條件未完成
+ * 1. 信用卡更新按鈕未完成
  * 2. 3欄樣式、排版未完成
  * 3. 更新按鈕功能未完成
  * 4. 存取信用卡資料未完成(sql)
+ * 5. 驗證無法及時更新
  *
  */
 import {
@@ -17,6 +18,7 @@ import {
   AccordionSummary,
 } from '@material-ui/core'
 import React, { useState } from 'react'
+import { useForm } from 'react-hook-form'
 import styled from 'styled-components'
 // import './App.css'
 
@@ -31,7 +33,7 @@ const CreditField = styled(FormGroup)`
 `
 
 function CreditForm(props) {
-  const { step3, setStep3, handleStep3Change } = props
+  const { step3, setStep3, handleStep3Change, register, errors } = props
 
   return (
     <>
@@ -85,9 +87,16 @@ function CreditForm(props) {
                   type="text"
                   placeholder="****-****-****-****"
                   name="creditNum"
-                  maxLength="16"
+                  inputProps={{ pattern: '4/d{15}', maxLength: '16' }}
                   defaultValue={step3.creditNum}
-                  onChange={handleStep3Change}
+                  onChange={(e) => {
+                    const regex = '^4d{15}$'
+                    if (e.target.value !== '' && regex.test(e.target.value)) {
+                      setStep3({ ...step3, [e.target.name]: e.target.value })
+                    } else {
+                      return 'error'
+                    }
+                  }}
                 ></TextField>
               </div>
               <div className="inputName">
@@ -109,6 +118,7 @@ function CreditForm(props) {
                   name="ccv"
                   maxLength="3"
                   minLength="3"
+                  inputProps={{ pattern: '/d{3}$' }}
                   defaultValue={step3.ccv}
                   onChange={handleStep3Change}
                 ></TextField>
@@ -116,9 +126,13 @@ function CreditForm(props) {
               <div class="inputName">
                 <input type="checkbox" name="agree" />
                 幫我記住聯絡資訊，下次使用
-                <button type="button" onClick={() => {
-                    document.getElementsByClassName('changeInner').innerHtml = '**'+step3.creditNum.slice(11,16)
-                }}>
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    document.getElementsByClassName('changeText').innerHtml =
+                      '**' + step3.creditNum.slice(11, 16)
+                  }}
+                >
                   更新
                 </button>
               </div>
@@ -141,6 +155,7 @@ function CreditForm(props) {
               // size="small"
               onChange={handleStep3Change}
             />
+            <div className="changeText"></div>
             <img alt="icon" />
           </FormGroup>
           {step3.payment !== '' && step3.payment === 'credit' ? (
@@ -154,7 +169,11 @@ function CreditForm(props) {
                   valdefaultValueue={step3.creditName}
                   onChange={handleStep3Change}
                   required
-                ></TextField>
+                >
+                  {errors.creditName && (
+                    <small>{errors.creditName.message}</small>
+                  )}
+                </TextField>
               </div>
               <div className="inputName">
                 <label htmlFor="creditNum">卡號</label>
@@ -187,13 +206,26 @@ function CreditForm(props) {
                   maxLength="3"
                   minLength="3"
                   defaultValue={step3.ccv}
-                  onChange={handleStep3Change}
+                  //驗證失敗
+                  onChange={(e) =>
+                    handleStep3Change(e) && step3.ccv.length === 3 ? (
+                      step3.ccv
+                    ) : (
+                      <p>長度錯誤</p>
+                    )
+                  }
                 ></TextField>
               </div>
               <div class="inputName">
                 <input type="checkbox" name="agree" />
                 幫我記住聯絡資訊，下次使用
-                <button type="button" onClick={() => {}}>
+                <button
+                  type="button"
+                  // onClick={(e) => {
+                  //   document.getElementsByClassName('changeText').innerHtml =
+                  //     '**' + step3.creditNum.slice(11, 16)
+                  // }}
+                >
                   更新
                 </button>
               </div>

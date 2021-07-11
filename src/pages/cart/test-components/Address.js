@@ -20,7 +20,6 @@ import {
 import styled from 'styled-components'
 import { cities, townships } from '../data/townships'
 
-
 //組件
 import MyCartCheck from '../components/MyCartCheck'
 import TotalBar from '../components/TotalBar'
@@ -30,14 +29,8 @@ const DropDown = styled.div`
 `
 
 function Address(props) {
-  const {
-    step2,
-    setStep2,
-    handleStep2Change,
-    handleChange,
-    step2Errors,
-    setStep2Errors,
-  } = props
+  const { step2, setStep2, handleStep2Change, step2Errors, setStep2Errors } =
+    props
   const [radio, setRadio] = useState('toHome')
 
   const [city, setCity] = useState(-1)
@@ -45,47 +38,6 @@ function Address(props) {
   const handleChoose = (e) => {
     setRadio(e.target.value)
   }
-
-  // const [fieldErrors, setFieldErrors] = useState({
-  //   agree: false,
-  //   error: '',
-  //   country: '',
-  //   city: '',
-  //   township: '',
-  //   street: '',
-  //   choose: '宅配', //單選 value
-  //   name: '',
-  //   phone: '',
-  //   email: '',
-  // })
-
-  //表單送出
-  const handleSubmit = (e) => {
-    e.preventDefault()
-
-    const data = new FormData(e.target)
-  }
-
-  // const handleChange = (e) => {
-  //   const updatedFieldErrors = {
-  //     ...fieldErrors,
-  //     [e.target.name]: '',
-  //   }
-
-  //   setFieldErrors(updatedFieldErrors)
-  // }
-
-  // 有錯誤的訊息會觸發在這裡
-  // const handleInvalid = (e) => {
-  //   e.preventDefault()
-
-  //   const updatedFieldErrors = {
-  //     ...fieldErrors,
-  //     [e.target.name]: e.target.validationMessage,
-  //   }
-
-  //   setFieldErrors(updatedFieldErrors)
-  // }
 
   return (
     <>
@@ -200,18 +152,18 @@ function Address(props) {
           ) : (
             <div className="to711">
               <div className="inputName">
-                <label htmlFor="711city">縣市名</label>
-                <select name="711city">
+                <label htmlFor="to711city">縣市名</label>
+                <select name="to711city">
                   <option value="0">請選擇縣市</option>
                 </select>
               </div>
               <div className="inputName">
-                <label htmlFor="store">店名</label>
-                <select name="store">
+                <label htmlFor="to711Store">店名</label>
+                <select name="to711Store">
                   <option value="0">請選擇店名</option>
                 </select>
               </div>
-              <span>目前僅支持7-11超商店取，不便之處還請見諒</span>
+              <small>目前僅支持7-11超商店取，不便之處還請見諒</small>
             </div>
           )}
 

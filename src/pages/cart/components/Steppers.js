@@ -13,6 +13,8 @@ import {
   Typography,
 } from '@material-ui/core'
 import '../Cart.css'
+import { useForm } from 'react-hook-form'
+
 import IconCart from './IconCart'
 
 //分頁切換
@@ -21,7 +23,6 @@ import Address from '../test-components/Address'
 import CreditForm from '../test-components/CreditForm'
 import FinalCheck from '../FinalCheck'
 import Completed from '../Completed'
-import { useForm } from 'react-hook-form'
 
 //流程圖連結線外觀設定
 const ColorlibConnector = withStyles({
@@ -200,8 +201,13 @@ function getSteps() {
 }
 
 export default function Steppers(props) {
-  const { watch, register } = useForm()
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = useForm({ model: 'onChange' })
   //test:(拆解state成 3 step)
+
   const {
     step1,
     setStep1,
@@ -259,6 +265,8 @@ export default function Steppers(props) {
             step3={step3}
             setStep3={setStep3}
             handleStep3Change={handleStep3Change}
+            register={register}
+            errors={errors}
           />
         )
       case 3:
@@ -322,11 +330,12 @@ export default function Steppers(props) {
                 </Step>
               ))}
             </Stepper>
-            <form>
+            <form onSubmit={handleSubmit}>
               {/* 購物車步驟內容 */}
               <Typography className={classes.instructions}>
                 {getStepContent(activeStep)}
               </Typography>
+              <input type="submit" />
             </form>
             <div>
               {/* <Button
