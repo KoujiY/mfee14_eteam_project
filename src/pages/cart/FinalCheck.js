@@ -14,7 +14,7 @@ function FinalCheck(props) {
       <div className="cartBody dropDown">
         <h2>我的購物車</h2>
         <img alt="收合icon" onClick={() => {}}></img>
-        <MyCartCheck />
+        {/* <MyCartCheck /> */}
       </div>
       <div className="cartBody dropDown">
         <h2>收貨地址</h2>

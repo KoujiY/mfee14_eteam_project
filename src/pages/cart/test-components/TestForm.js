@@ -58,7 +58,7 @@ const TestForm = () => {
     creditName: '',
     creditNum: '',
     validity: '',
-    securityCode: '',
+    ccv: '',
     payment: '',
     agree: false,
   })

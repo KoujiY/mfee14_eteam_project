@@ -344,9 +344,9 @@ export default function Steppers(props) {
               >
                 {activeStep === steps.length - 1
                   ? '結帳'
-                  : activeStep > 2
-                  ? '確認訂單'
-                  : '下一頁'}
+                  : activeStep < 2
+                  ? '下一頁'
+                  : '確認訂單'}
               </Button>
             </div>
           </div>
