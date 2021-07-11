@@ -20,7 +20,6 @@ import {
 import styled from 'styled-components'
 import { cities, townships } from '../data/townships'
 
-// import './App.css'
 
 //組件
 import MyCartCheck from '../components/MyCartCheck'

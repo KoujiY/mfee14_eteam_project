@@ -1,9 +1,9 @@
 import React from 'react'
 
 //組件
-import MyCartCheck from './pages/cart/components/MyCartCheck'
-import AddressCheck from './pages/cart/components/AddressCheck'
-import CreditCheck from './pages/cart/components/CreditCheck'
+import MyCartCheck from './components/MyCartCheck'
+import AddressCheck from './components/AddressCheck'
+import CreditCheck from './components/CreditCheck'
 
 function FinalCheck(props) {
   return (

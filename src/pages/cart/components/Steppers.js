@@ -12,14 +12,13 @@ import {
   Button,
   Typography,
 } from '@material-ui/core'
-import { Link } from 'react-router-dom'
 import '../Cart.css'
 import IconCart from './IconCart'
 
 //分頁切換
 import MyCartTest from '../test-components/MyCartTest'
 import Address from '../test-components/Address'
-import CreditForm from '../CreditForm'
+import CreditForm from '../test-components/CreditForm'
 import FinalCheck from '../FinalCheck'
 import Completed from '../Completed'
 import { useForm } from 'react-hook-form'
@@ -210,8 +209,6 @@ export default function Steppers(props) {
     setStep2,
     step3,
     setStep3,
-    // state,
-    // setState,
     cateLabels,
     cateLabel,
     setCateLabel,
@@ -223,6 +220,7 @@ export default function Steppers(props) {
     handleStep2Change,
     step2Errors,
     setStep2Errors,
+    handleStep3Change,
   } = props
 
   //下一步分頁傳遞
@@ -256,7 +254,13 @@ export default function Steppers(props) {
           />
         )
       case 2:
-        return <CreditForm />
+        return (
+          <CreditForm
+            step3={step3}
+            setStep3={setStep3}
+            handleStep3Change={handleStep3Change}
+          />
+        )
       case 3:
         return <FinalCheck />
       default:
@@ -338,13 +342,17 @@ export default function Steppers(props) {
                 onClick={handleNext}
                 className={classes.button}
               >
-                {activeStep === steps.length - 1 ? '結帳' : '下一頁'}
+                {activeStep === steps.length - 1
+                  ? '結帳'
+                  : activeStep > 2
+                  ? '確認訂單'
+                  : '下一頁'}
               </Button>
             </div>
           </div>
         )}
       </div>
-      <pre>{JSON.stringify(watch(), null, 2)}</pre>
+      <pre>{JSON.stringify(step1, null, 2)}</pre>
       <pre>{JSON.stringify(step2, null, 2)}</pre>
       <pre>{JSON.stringify(step3, null, 2)}</pre>
     </div>

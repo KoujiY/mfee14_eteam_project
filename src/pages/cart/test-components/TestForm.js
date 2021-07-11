@@ -2,15 +2,8 @@
 
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
-// import { CartInfo } from './CartInfo'
-import { cities, townships } from '../data/townships'
-import { MenuItem } from '@material-ui/core'
 
 import Steppers from '../components/Steppers'
-import MyCartTest from './MyCartTest'
-import Address from '../Address'
-import CreditForm from '../CreditForm'
-import Completed from '../Completed'
 
 const cateLabels = [
   {
@@ -36,6 +29,7 @@ const cateLabels = [
 ]
 
 const TestForm = () => {
+  //分步驟為 3 step
   const [step1, setStep1] = useState([
     {
       iId: '9999',
@@ -65,7 +59,7 @@ const TestForm = () => {
     creditNum: '',
     validity: '',
     securityCode: '',
-    payment: false,
+    payment: '',
     agree: false,
   })
   //欄位名
@@ -145,6 +139,16 @@ const TestForm = () => {
     setStep2(updatedField)
   }
 
+  //變更欄位內容(step3)
+  const handleStep3Change = (e) => {
+    const updatedField = {
+      ...step3,
+      [e.target.name]:
+        e.target.type === 'checkbox' ? e.target.checked : e.target.value,
+    }
+    setStep3(updatedField)
+  }
+
   //表單送出
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -198,6 +202,7 @@ const TestForm = () => {
         setCount={setCount}
         step2Errors={step2Errors}
         setStep2Errors={setStep2Errors}
+        handleStep3Change={handleStep3Change}
       />
 
       {/* <Address />

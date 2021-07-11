@@ -21,7 +21,7 @@ function CreditForm(props) {
         <h2>我的購物車</h2>
         <img alt="收合icon" onClick={() => {}}></img>
         <DropDown>
-          <MyCartCheck />
+          {/* <MyCartCheck /> */}
         </DropDown>
       </div>
       <div className="cartBody dropDown">

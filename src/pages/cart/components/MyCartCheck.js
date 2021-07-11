@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 //組件
-import CartCard2 from './CartCard2'
+import CartCard from './CartCard'
 
 const CartFunc = styled.div`
   display: none;
@@ -22,7 +22,7 @@ function MyCartCheck(props) {
           <div className="cart-th">操作</div>
         </CartFunc>
       </div>
-      <CartCard2 />
+      <CartCard />
     </>
   )
 }
