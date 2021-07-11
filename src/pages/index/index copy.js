@@ -110,6 +110,22 @@ function Index(props) {
     })
   }, [])
 
+  //////////////滑鼠移下來card往上////////
+  useEffect(() => { $(window).scroll(function () {
+    const a = 30
+    let scrolltop = $(this).scrollTop() //console.log(scrolltop);
+    let windowheight = $(window).height() //為可視範圍console.log(windowheight);
+    let websideheight = $('body').height() //console.log(websideheight);
+    let persent = Math.floor((scrolltop / (websideheight - windowheight)) * 100)
+    console.log(persent) //等於 scrolltop/scrolltop
+    if (persent >= 22) {
+      $('.cardtwo').css('transition','0.5s').css('transform',`translateX(${a}px)`);
+    }
+
+
+
+  }, [])
+
   /////////////// click事件移動商品功能/////////////////
   // const [data, setData] = useState('老師說123')
   // componentDidMount
@@ -138,46 +154,22 @@ function Index(props) {
   }, [])
 
   ////////////////////////// jquery 購物車懸浮功能/////////////////////////////
-  useEffect(() => {
-    $(window).scroll(function () {
-      let scrolltop = $(this).scrollTop() //console.log(scrolltop);
-      let windowheight = $(window).height() //為可視範圍console.log(windowheight);
-      let websideheight = $('body').height() //console.log(websideheight);
-      let persent = Math.floor(
-        (scrolltop / (websideheight - windowheight)) * 100
-      )
-      console.log(persent) //等於 scrolltop/scrolltop
-      if (persent >= 18) {
-        $('.chart-box').css('display', 'block').css('position', 'fixed')
-      } else {
-        $('.chart-box').css('display', 'none')
-      }
-
-      //////////////滑鼠移下來card移動////////
-      if (persent >= 10) {
-        $('.onepage-rectangle')
-          .css('transition', '1.5s')
-          .css('transform', `translateX(${-20}px`)
-      }
-
-      if (persent >= 22) {
-        $('.cardtwo')
-          .css('transition', '1.5s')
-          .css('transform', `translate(${130}px,${-130}px)`)
-      }
-      if (persent >= 22) {
-        $('.twopage-rectangle')
-          .css('transform', `translate(${80}px,${-80}px)`)
-          .css('transition', '1.5s')
-      }
-
-      if (persent >= 80) {
-        $('.four-rectangle')
-          .css('transition', '1.5s')
-          .css('background', '#C5F5F4')
-      }
-    })
-  }, [])
+  // useEffect(() => {
+  //   $(window).scroll(function () {
+  //     let scrolltop = $(this).scrollTop() //console.log(scrolltop);
+  //     let windowheight = $(window).height() //為可視範圍console.log(windowheight);
+  //     let websideheight = $('body').height() //console.log(websideheight);
+  //     let persent = Math.floor(
+  //       (scrolltop / (websideheight - windowheight)) * 100
+  //     )
+  //     console.log(persent) //等於 scrolltop/scrolltop
+  //     if (persent >= 18) {
+  //       $('.chart-box').css('display', 'block').css('position', 'fixed')
+  //     } else {
+  //       $('.chart-box').css('display', 'none')
+  //     }
+  //   })
+  // }, [])
 
   return (
     <>
@@ -405,12 +397,7 @@ function Index(props) {
           <div className="box">
             <div className="box1">
               <div className="box1-pic">
-                <img
-                  src={`http://localhost:3000/img/${
-                    users.length > 0 && users[0].iImg
-                  }`}
-                  alt="123"
-                />
+                {/* <img src={productcard} alt="productcard" /> */}
               </div>
               <div className="item-1">
                 <div className="item-2">
@@ -427,12 +414,7 @@ function Index(props) {
             </div>
             <div className="box1">
               <div className="box1-pic">
-                <img
-                  src={`http://localhost:3000/img/${
-                    users.length > 0 && users[1].iImg
-                  }`}
-                  alt="123"
-                />
+                {/* <img src={productcard} alt="productcard" /> */}
               </div>
               <div className="item-1">
                 <div className="item-2">
@@ -449,12 +431,7 @@ function Index(props) {
             </div>
             <div className="box1">
               <div className="box1-pic">
-                <img
-                  src={`http://localhost:3000/img/${
-                    users.length > 0 && users[2].iImg
-                  }`}
-                  alt="123"
-                />
+                {/* <img src={productcard} alt="productcard" /> */}
               </div>
               <div className="item-1">
                 <div className="item-2">
@@ -471,12 +448,7 @@ function Index(props) {
             </div>
             <div className="box1">
               <div className="box1-pic">
-                <img
-                  src={`http://localhost:3000/img/${
-                    users.length > 0 && users[3].iImg
-                  }`}
-                  alt="123"
-                />
+                {/* <img src={productcard} alt="productcard" /> */}
               </div>
               <div className="item-1">
                 <div className="item-2">
@@ -493,12 +465,7 @@ function Index(props) {
             </div>
             <div className="box1">
               <div className="box1-pic">
-                <img
-                  src={`http://localhost:3000/img/${
-                    users.length > 0 && users[4].iImg
-                  }`}
-                  alt="123"
-                />
+                {/* <img src={productcard} alt="productcard" /> */}
               </div>
               <div className="item-1">
                 <div className="item-2">
@@ -515,12 +482,7 @@ function Index(props) {
             </div>
             <div className="box1">
               <div className="box1-pic">
-                <img
-                  src={`http://localhost:3000/img/${
-                    users.length > 0 && users[5].iImg
-                  }`}
-                  alt="123"
-                />
+                {/* <img src={productcard} alt="productcard" /> */}
               </div>
               <div className="item-1">
                 <div className="item-2">
@@ -774,6 +736,5 @@ function Index(props) {
   )
 }
 
-//我的爸爸是app.js
-//小孩
+
 export default withRouter(Index)

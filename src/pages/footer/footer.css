@@ -183,7 +183,7 @@ li {
   .container {
     margin: 0 auto;
     max-width: 1920px;
-    overflow: hidden;
+
     position: relative;
   }
   .container-1 {
