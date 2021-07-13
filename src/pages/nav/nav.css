@@ -6,6 +6,11 @@
   padding: 0;
   box-sizing: border-box;
 }
+.nav-icon-4 {
+  width: 20px;
+  height: 20px;
+  fill: #f9f9f9;
+}
 nav {
   position: fixed;
   z-index: 100;
@@ -55,6 +60,19 @@ nav .navbar .nav-links .links li a {
   font-size: 16px;
   font-weight: 500;
 }
+nav .navbar .nav-links .links li .arrow {
+  height: 100%;
+  width: 22px;
+  text-align: center;
+  color: #f9f9f9;
+  line-height: 70px;
+  transition: all 0.3 ease;
+}
+.navbar .nav-links .links li:hover .htmlcss-arrow,
+.navbar .nav-links .links li:hover .js-arrow {
+  transform: rotate(180deg);
+}
+
 .navbar .nav-links .links .sub-menu {
   position: absolute;
   top: 120px;
