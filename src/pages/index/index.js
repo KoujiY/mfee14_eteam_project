@@ -17,14 +17,13 @@ import { TableSortLabel } from '@material-ui/core'
 
 function Index(props) {
   const [users, setUsers] = useState([])
+  const [general, setgeneral] = useState([])
   const [dataLoading, setDataLoading] = useState(false)
   async function getUsersFromServer() {
     // 開啟載入指示
     setDataLoading(true)
-
     // 連接的伺服器資料網址
     const url = 'http://localhost:7000/home/read'
-
     // 注意header資料格式要設定，伺服器才知道是json格式
     //request代表是要跟伺服器要求
     const request = new Request(url, {
@@ -43,17 +42,41 @@ function Index(props) {
     // const homedata = data[0] //data的第幾筆資料
     // // console.log(homedata)
     // 設定資料
-
     setUsers(data)
-    // console.log(setUsers(data))
+    // // console.log(setUsers(data))
     // console.log(data)
-    console.log(users)
+    // console.log(users)
   }
 
-  // 一開始就會開始載入資料
+  //////////////一般商品
+  async function generalServer() {
+    // 開啟載入指示
+    setDataLoading(true)
+
+    // 連接的伺服器資料網址
+    const url = 'http://localhost:7000/home/general'
+    // 注意header資料格式要設定，伺服器才知道是json格式
+    const request = new Request(url, {
+      method: 'GET',
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'appliaction/json',
+      }),
+    })
+    const response = await fetch(request)
+    const data = await response.json()
+    // console.log(data)
+    setgeneral(data)
+  }
+
+  // // 一開始就會開始載入資料
   useEffect(() => {
     // taste()  //假如這是新增的async function taste()
     getUsersFromServer()
+  }, [])
+  // // 一開始就會開始載入資料
+  useEffect(() => {
+    generalServer()
   }, [])
 
   /////////////////////////////////////////////////////
@@ -406,7 +429,7 @@ function Index(props) {
             <div className="box1">
               <div className="box1-pic">
                 <img
-                  src={`http://localhost:3000/img/${
+                  src={`http://localhost:3000/img/index/newproduct/${
                     users.length > 0 && users[0].iImg
                   }`}
                   alt="123"
@@ -420,6 +443,7 @@ function Index(props) {
                   <div>svg</div>
                 </div>
                 <div>{users.length > 0 && users[0].iDiscr}</div>
+                <div>特價:{users.length > 0 && users[0].iPrice}元</div>
                 <div className="card-button">
                   <a href="#/"> 購買</a>
                 </div>
@@ -428,7 +452,7 @@ function Index(props) {
             <div className="box1">
               <div className="box1-pic">
                 <img
-                  src={`http://localhost:3000/img/${
+                  src={`http://localhost:3000/img/index/newproduct/${
                     users.length > 0 && users[1].iImg
                   }`}
                   alt="123"
@@ -442,6 +466,7 @@ function Index(props) {
                   <div>svg</div>
                 </div>
                 <div>{users.length > 0 && users[1].iDiscr}</div>
+                <div>特價:{users.length > 0 && users[1].iPrice}元</div>
                 <div className="card-button">
                   <a href="#/"> 購買</a>
                 </div>
@@ -450,7 +475,7 @@ function Index(props) {
             <div className="box1">
               <div className="box1-pic">
                 <img
-                  src={`http://localhost:3000/img/${
+                  src={`http://localhost:3000/img/index/newproduct/${
                     users.length > 0 && users[2].iImg
                   }`}
                   alt="123"
@@ -464,6 +489,7 @@ function Index(props) {
                   <div>svg</div>
                 </div>
                 <div>{users.length > 0 && users[2].iDiscr}</div>
+                <div>特價:{users.length > 0 && users[2].iPrice}元</div>
                 <div className="card-button">
                   <a href="#/"> 購買</a>
                 </div>
@@ -472,7 +498,7 @@ function Index(props) {
             <div className="box1">
               <div className="box1-pic">
                 <img
-                  src={`http://localhost:3000/img/${
+                  src={`http://localhost:3000/img/index/newproduct/${
                     users.length > 0 && users[3].iImg
                   }`}
                   alt="123"
@@ -486,6 +512,7 @@ function Index(props) {
                   <div>svg</div>
                 </div>
                 <div>{users.length > 0 && users[3].iDiscr}</div>
+                <div>特價:{users.length > 0 && users[3].iPrice}元</div>
                 <div className="card-button">
                   <a href="#/"> 購買</a>
                 </div>
@@ -494,7 +521,7 @@ function Index(props) {
             <div className="box1">
               <div className="box1-pic">
                 <img
-                  src={`http://localhost:3000/img/${
+                  src={`http://localhost:3000/img/index/newproduct/${
                     users.length > 0 && users[4].iImg
                   }`}
                   alt="123"
@@ -508,6 +535,7 @@ function Index(props) {
                   <div>svg</div>
                 </div>
                 <div>{users.length > 0 && users[4].iDiscr}</div>
+                <div>特價:{users.length > 0 && users[4].iPrice}元</div>
                 <div className="card-button">
                   <Link to="#/"> 購買</Link>
                 </div>
@@ -516,7 +544,7 @@ function Index(props) {
             <div className="box1">
               <div className="box1-pic">
                 <img
-                  src={`http://localhost:3000/img/${
+                  src={`http://localhost:3000/img/index/newproduct/${
                     users.length > 0 && users[5].iImg
                   }`}
                   alt="123"
@@ -530,6 +558,7 @@ function Index(props) {
                   <div>svg</div>
                 </div>
                 <div>{users.length > 0 && users[5].iDiscr}</div>
+                <div>特價:{users.length > 0 && users[5].iPrice}元</div>
                 <div className="card-button">
                   <Link to="#/"> 購買</Link>
                 </div>
@@ -695,16 +724,22 @@ function Index(props) {
             <div className="box2">
               <div className="box2-group">
                 <div className="box2-pic">
-                  {/* <img src={productcard} alt="productcard" /> */}
+                  <img
+                    src={`http://localhost:3000/img/index/generalproduct/${
+                      general.length > 0 && general[0].iImg
+                    }`}
+                    alt="123"
+                  />
                 </div>
                 <div className="item-1">
                   <div className="item-2">
-                    <div className="fontsize-20">精選咖啡豆</div>
+                    <div className="fontsize-20">
+                      {general.length > 0 && general[0].iName}
+                    </div>
                     <div>svg</div>
                   </div>
-                  <div>
-                    超好喝的超好喝的超好喝的超好喝的超好喝的超好喝的=超好喝的超好喝的超好喝的
-                  </div>
+                  <div>{general.length > 0 && general[0].iDiscr}</div>
+                  <div>特價:{general.length > 0 && general[0].iPrice}元</div>
                   <div className="card-button">
                     <Link to="#/"> 購買</Link>
                   </div>
@@ -713,16 +748,22 @@ function Index(props) {
             </div>
             <div className="box3">
               <div className="box2-pic">
-                {/* <img src={productcard} alt="productcard" /> */}
+                <img
+                  src={`http://localhost:3000/img/index/generalproduct/${
+                    general.length > 0 && general[1].iImg
+                  }`}
+                  alt="123"
+                />
               </div>
               <div className="item-1">
                 <div className="item-2">
-                  <div className="fontsize-20">精選咖啡豆</div>
+                  <div className="fontsize-20">
+                    {general.length > 0 && general[1].iName}
+                  </div>
                   <div>svg</div>
                 </div>
-                <div>
-                  超好喝的超好喝的超好喝的超好喝的超好喝的超好喝的=超好喝的超好喝的超好喝的
-                </div>
+                <div>{general.length > 0 && general[1].iDiscr}</div>
+                <div>特價:{general.length > 0 && general[1].iPrice}元</div>
                 <div className="card-button">
                   <Link to="#/"> 購買</Link>
                 </div>
@@ -731,16 +772,22 @@ function Index(props) {
             <div className="box4">
               <div className="aaa">
                 <div className="box2-pic">
-                  {/* <img src={productcard} alt="productcard" /> */}
+                  <img
+                    src={`http://localhost:3000/img/index/generalproduct/${
+                      general.length > 0 && general[2].iImg
+                    }`}
+                    alt="123"
+                  />
                 </div>
                 <div className="item-1">
                   <div className="item-2">
-                    <div className="fontsize-20">精選咖啡豆</div>
+                    <div className="fontsize-20">
+                      {general.length > 0 && general[2].iName}
+                    </div>
                     <div>svg</div>
                   </div>
-                  <div>
-                    超好喝的超好喝的超好喝的超好喝的超好喝的超好喝的=超好喝的超好喝的超好喝的
-                  </div>
+                  <div>{general.length > 0 && general[2].iDiscr}</div>
+                  <div>特價:{general.length > 0 && general[1].iPrice}元</div>
                   <div className="card-button">
                     <Link to="#/"> 購買</Link>
                   </div>
@@ -750,16 +797,22 @@ function Index(props) {
             <div className="box5">
               <div className="aaa">
                 <div className="box2-pic">
-                  {/* <img src={productcard} alt="productcard" /> */}
+                  <img
+                    src={`http://localhost:3000/img/index/generalproduct/${
+                      general.length > 0 && general[3].iImg
+                    }`}
+                    alt="123"
+                  />
                 </div>
                 <div className="item-1">
                   <div className="item-2">
-                    <div className="fontsize-20">精選咖啡豆</div>
+                    <div className="fontsize-20">
+                      {general.length > 0 && general[3].iName}
+                    </div>
                     <div>svg</div>
                   </div>
-                  <div>
-                    超好喝的超好喝的超好喝的超好喝的超好喝的超好喝的=超好喝的超好喝的超好喝的
-                  </div>
+                  <div>{general.length > 0 && general[3].iDiscr}</div>
+                  <div>特價:{general.length > 0 && general[3].iPrice}元</div>
                   <div className="card-button">
                     <a href="#/"> 購買</a>
                   </div>
