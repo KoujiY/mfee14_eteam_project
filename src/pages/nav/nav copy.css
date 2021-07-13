@@ -187,7 +187,7 @@ li {
 @media screen and (max-width: 1920px) {
   .container {
     margin: 0 auto;
-    max-width: 1.92px;
+    max-width: 1920px;
     overflow: hidden;
     position: relative;
   }

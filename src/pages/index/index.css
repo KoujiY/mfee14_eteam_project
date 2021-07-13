@@ -191,7 +191,6 @@ li {
   .container {
     margin: 0 auto;
     max-width: 1920px;
-
     position: relative;
   }
   .container-1 {
@@ -221,19 +220,16 @@ li {
   .herro-section {
     max-width: 1920px;
     height: 100%;
-    /* overflow: hidden; */
 
     position: relative;
   }
 
   .img-wrap {
-    /* overflow: hidden; */
     width: 9600px;
     display: flex;
     transform: translateX(0px);
     height: 100%;
     z-index: -50;
-    /* transition: 5s; */
   }
 
   .onepage-pic {

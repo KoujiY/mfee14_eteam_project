@@ -1,0 +1,222 @@
+.d-flex {
+  display: flex;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.nav-icon-4 {
+  width: 20px;
+  height: 20px;
+  fill: #f9f9f9;
+}
+nav {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  background-color: #0065b4;
+  box-shadow: 0 1px 2px #0065b4;
+  opacity: 1;
+}
+
+nav .navbar {
+  height: 100%;
+  max-width: 1920px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 50px;
+}
+nav .navbar .logo a {
+  color: #fff;
+  font-size: 30px;
+  font-weight: 600;
+  text-decoration: none;
+}
+nav .navbar .nav-links {
+  height: 100%;
+  line-height: 120px;
+}
+nav .navbar .nav-links .links {
+  display: flex;
+}
+nav .navbar .nav-links .links li {
+  list-style: none;
+  position: relative;
+  display: flex;
+  list-style: none;
+  padding: 0 14px;
+}
+nav .navbar .nav-links .links li a {
+  height: 100%;
+  color: #fff;
+  text-decoration: none;
+  white-space: nowrap;
+  font-size: 16px;
+  font-weight: 500;
+}
+nav .navbar .nav-links .links li .arrow {
+  height: 100%;
+  width: 15px;
+  text-align: center;
+  color: #f9f9f9;
+  line-height: 70px;
+  transition: all 0.3 ease;
+}
+.navbar .nav-links .links li:hover .htmlcss-arrow,
+.navbar .nav-links .links li:hover .js-arrow,
+.navbar .nav-links .links li:hover .all-arrow {
+  transform: rotate(180deg);
+}
+
+.navbar .nav-links .links .sub-menu {
+  position: absolute;
+  top: 120px;
+  left: 0;
+  background-color: #f9f9f9;
+  line-height: 40px;
+  border-radius: 0 0 4px 4;
+  box-shadow: 0 1px 2px #0065b4;
+  display: none;
+}
+.navbar .nav-links .links .sub-menu li {
+  padding: 0 16px;
+  border-bottom: 1px solid #0065b4;
+}
+.navbar .nav-links .links .sub-menu li a {
+  color: #0065b4;
+  font-size: 14px;
+  font: 500;
+}
+
+nav .navbar .nav-links .links li:hover .htmlCss-sub-menu,
+nav .navbar .nav-links .links li:hover .js-sub-menu,
+nav .navbar .nav-links .links li:hover .all-sub-menu {
+  display: block;
+}
+
+.sidebar-logo {
+  display: none;
+}
+.navbar .bx-menu,
+.nav-links .sidebar-logo .logo_name {
+  display: none;
+}
+
+@media screen and (max-width: 954px) {
+  nav .navbar {
+    max-width: 100%;
+    padding: 0 25px;
+  }
+  /* //等等會改 */
+  nav .navbar .logo a {
+    font-size: 26px;
+  }
+  nav .navbar .nav-links .links li {
+    padding: 0 10px;
+  }
+  nav .navbar .nav-links .links li a {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  nav .navbar .nav-links {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    max-width: 100%;
+    width: 100%;
+    background: #d9e1e7;
+    padding: 20px;
+    line-height: 40px;
+    transition: all 0.5s ease;
+    z-index: 100;
+  }
+
+  /* //換成logo */
+  nav .navbar .nav-links .sidebar-logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-links .sidebar-logo .logo_name,
+  .nav-links .sidebar-logo .bx-x {
+    color: #f9f9f9;
+    font-size: 25px;
+    font-weight: 500;
+  }
+
+  .nav-links .sidebar-logo .logo_name,
+  .navbar .bx-menu,
+  .nav-links .sidebar-logo .bx-x {
+    display: block;
+  }
+
+  nav .navbar .nav-links .links {
+    display: block;
+    margin-top: 20px;
+  }
+  nav .navbar .nav-links .links li {
+    display: block;
+    border-bottom: none;
+  }
+  .navbar .nav-links .links .sub-menu {
+    display: none;
+    position: relative;
+    top: 0;
+    left: 0;
+    box-shadow: none;
+  }
+  nav .navbar .nav-links .links li:hover .htmlCss-sub-menu,
+  nav .navbar .nav-links .links li:hover .js-sub-menu,
+  nav .navbar .nav-links .links li:hover .all-sub-menu {
+    display: none;
+  }
+  nav .navbar .nav-links .links li .arrow {
+    line-height: 40px;
+  }
+  .navbar .nav-links .links li:hover .htmlcss-arrow,
+  .navbar .nav-links .links li:hover .js-arrow,
+  .navbar .nav-links .links li:hover .all-arrow {
+    transform: rotate(0deg);
+  }
+
+  .navbar .nav-links.show1 .links .sub-menu.htmlCss-sub-menu {
+    display: block;
+  }
+
+  .navbar .nav-links.show2 .links .sub-menu.js-sub-menu {
+    display: block;
+  }
+  .navbar .nav-links.show3 .links .sub-menu.all-sub-menu {
+    display: block;
+  }
+
+  .phone-nav-icon {
+    width: 40px;
+    height: 30px;
+    fill: #f9f9f9;
+  }
+  .phone-nav-x {
+    width: 15px;
+    height: 15px;
+    fill: #f9f9f9;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 576px) {
+  nav .navbar .nav-link {
+    max-width: 100%;
+  }
+  nav {
+    height: 60px;
+  }
+}
