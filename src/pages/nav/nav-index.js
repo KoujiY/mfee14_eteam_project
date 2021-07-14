@@ -52,57 +52,59 @@ function Nav() {
       <div className="container">
         <nav>
           <div className="navbar">
-            {/*?xml version="1.0" encoding="iso-8859-1"?*/}
-            {/* Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  */}
-            <svg
-              className="bx bx-menu phone-nav-icon "
-              version="1.1"
-              id="Layer_1"
-              xmlns="http://www.w3.org/2000/svg"
-              xmlnsXlink="http://www.w3.org/1999/xlink"
-              x="0px"
-              y="0px"
-              viewBox="0 0 469.333 469.333"
-              style={{ enableBackground: 'new 0 0 469.333 469.333' }}
-              xmlSpace="preserve"
-            >
-              <g>
+            <div className="phone-hamburger">
+              {/*?xml version="1.0" encoding="iso-8859-1"?*/}
+              {/* Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  */}
+              <svg
+                className="bx bx-menu phone-nav-icon-hamburger "
+                version="1.1"
+                id="Layer_1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlnsXlink="http://www.w3.org/1999/xlink"
+                x="0px"
+                y="0px"
+                viewBox="0 0 469.333 469.333"
+                style={{ enableBackground: 'new 0 0 469.333 469.333' }}
+                xmlSpace="preserve"
+              >
                 <g>
                   <g>
-                    <path
-                      d="M53.333,106.667H416c29.417,0,53.333-23.927,53.333-53.333S445.417,0,416,0H53.333C23.917,0,0,23.927,0,53.333
+                    <g>
+                      <path
+                        d="M53.333,106.667H416c29.417,0,53.333-23.927,53.333-53.333S445.417,0,416,0H53.333C23.917,0,0,23.927,0,53.333
 				S23.917,106.667,53.333,106.667z M53.333,21.333H416c17.646,0,32,14.354,32,32c0,17.646-14.354,32-32,32H53.333
 				c-17.646,0-32-14.354-32-32C21.333,35.687,35.687,21.333,53.333,21.333z"
-                    />
-                    <path
-                      d="M416,181.333H53.333C23.917,181.333,0,205.26,0,234.667S23.917,288,53.333,288H416c29.417,0,53.333-23.927,53.333-53.333
+                      />
+                      <path
+                        d="M416,181.333H53.333C23.917,181.333,0,205.26,0,234.667S23.917,288,53.333,288H416c29.417,0,53.333-23.927,53.333-53.333
 				S445.417,181.333,416,181.333z M416,266.667H53.333c-17.646,0-32-14.354-32-32s14.354-32,32-32H416c17.646,0,32,14.354,32,32
 				S433.646,266.667,416,266.667z"
-                    />
-                    <path
-                      d="M416,362.667H53.333C23.917,362.667,0,386.594,0,416s23.917,53.333,53.333,53.333H416
+                      />
+                      <path
+                        d="M416,362.667H53.333C23.917,362.667,0,386.594,0,416s23.917,53.333,53.333,53.333H416
 				c29.417,0,53.333-23.927,53.333-53.333S445.417,362.667,416,362.667z M416,448H53.333c-17.646,0-32-14.354-32-32
 				c0-17.646,14.354-32,32-32H416c17.646,0,32,14.354,32,32C448,433.646,433.646,448,416,448z"
-                    />
+                      />
+                    </g>
                   </g>
                 </g>
-              </g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-              <g></g>
-            </svg>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+                <g></g>
+              </svg>
+            </div>
 
             <div className="nav-logo">
               <div className="logo">
@@ -154,10 +156,11 @@ function Nav() {
                   <g></g>
                 </svg>
               </div>
+
               <ul className="links">
-                {/* <li className="phone-shop">
+                <li className="phone-shop">
                   <a href="#/">店家專區</a>
-                </li> */}
+                </li>
                 <li>
                   <a href="#/">店家地圖</a>
 
@@ -496,11 +499,12 @@ function Nav() {
                 </svg>
               </div>
             </div>
-            <div className="phone-cart">
-              <div className="phone-nav-icon-1">
+            <div className="phone-loginbar">
+              <div className="margin-x-2">
                 {/*?xml version="1.0" encoding="iso-8859-1"?*/}
                 {/* Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  */}
                 <svg
+                  className="phone-nav-icon-user-chart"
                   version="1.1"
                   id="Capa_1"
                   xmlns="http://www.w3.org/2000/svg"
@@ -539,10 +543,11 @@ function Nav() {
                   <g></g>
                 </svg>
               </div>
-              <div className="phone-nav-icon-1">
+              <div className="margin-x-2">
                 {/*?xml version="1.0" encoding="iso-8859-1"?*/}
                 {/* Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  */}
                 <svg
+                  className="phone-nav-icon-user-chart"
                   version="1.1"
                   id="Capa_1"
                   xmlns="http://www.w3.org/2000/svg"

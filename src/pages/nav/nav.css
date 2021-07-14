@@ -1,5 +1,9 @@
+/* ///////////常用工具//// */
 .d-flex {
   display: flex;
+}
+.margin-x-2 {
+  margin: 0 6%;
 }
 * {
   margin: 0;
@@ -173,6 +177,9 @@
   .phone-shop a {
     display: none;
   }
+  .phone-loginbar {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 954px) {
@@ -190,52 +197,8 @@
 }
 
 @media screen and (max-width: 800px) {
-  nav .navbar .nav-links {
-    display: block;
-    position: fixed;
-    top: 120px;
-    left: -100%;
-    max-width: 100%;
-    background: #d9e1e7;
-    padding: 20px;
-    line-height: 40px;
-    transition: all 0.5s ease;
-    z-index: 100;
-  }
-
-  /* //漢堡選單的叉叉 */
-  nav .navbar .nav-links .sidebar-logo svg {
-    margin-left: auto;
-  }
-
-  .nav-links .sidebar-logo,
-  .nav-links .sidebar-logo .bx-x {
-    font-size: 24px;
-    color: #0065b4;
-    font-weight: 500;
-  }
-
-  .nav-links .sidebar-logo,
-  .navbar .bx-menu,
-  .nav-links .sidebar-logo .bx-x {
-    display: block;
-  }
-
-  nav .navbar .nav-links .links {
-    display: block;
-    margin-top: 20px;
-  }
-  nav .navbar .nav-links .links a {
-    display: block;
-  }
-  nav .navbar .nav-links .links li {
-    display: block;
-    border-bottom: none;
-  }
-  /* /漢堡選單字的顏色/ */
-  nav .navbar .nav-links .links li a {
-    color: #0065b4;
-  }
+  /* ///////////重要資訊////////////////// */
+  /* // 將桌機板的navbar資訊隱藏//// */
   .navbar .nav-links .links .sub-menu {
     display: none;
     position: relative;
@@ -247,8 +210,57 @@
     border-bottom: none;
   }
 
-  /* //////////////////////////////////////////////////重要改道這 */
+  /* /平板板的nav右側資訊消失// */
+  .loginbar {
+    display: none;
+  }
+  /* //漢堡選單裡面內容// */
+  nav .navbar .nav-links {
+    display: block;
+    position: fixed;
+    top: 120px;
+    left: -100%;
+    width: 80%;
+    background: #fcf5e9;
+    padding: 20px;
+    line-height: 40px;
+    transition: all 0.5s ease;
+    z-index: 100;
+  }
 
+  /* //漢堡選單的叉叉 */
+  nav .navbar .nav-links .sidebar-logo svg {
+    margin-left: auto;
+  }
+
+  /* //在平板板顯示漢堡選單內容/// */
+  .nav-links .sidebar-logo,
+  .navbar .bx-menu,
+  .nav-links .sidebar-logo .bx-x {
+    display: block;
+  }
+
+  /* //讓內文字中對齊// */
+  nav .navbar .nav-links .links {
+    display: block;
+    text-align: center;
+    /* margin-top: 20px; */
+  }
+  /* /平板時將連結打開/ */
+  nav .navbar .nav-links .links a {
+    display: block;
+  }
+  /* /調整間距/ */
+  nav .navbar .nav-links .links li {
+    display: block;
+    border-bottom: none;
+  }
+  /* /漢堡選單字的顏色/ */
+  nav .navbar .nav-links .links li a {
+    color: #0065b4;
+  }
+
+  /* //滑鼠事件預設是隱藏 // */
   nav .navbar .nav-links .links li:hover .htmlCss-sub-menu,
   nav .navbar .nav-links .links li:hover .js-sub-menu,
   nav .navbar .nav-links .links li:hover .all-sub-menu {
@@ -258,30 +270,31 @@
   nav .navbar .nav-links .links li .arrow {
     line-height: 40px;
   }
-
+  /* //滑鼠事件滑鼠滑過前預設是0度 // */
   .navbar .nav-links .links li:hover .htmlcss-arrow,
   .navbar .nav-links .links li:hover .js-arrow,
   .navbar .nav-links .links li:hover .all-arrow {
     transform: rotate(0deg);
   }
-
+  /* //滑鼠事件滑鼠滑過後預設是180度 // */
   .navbar .nav-links.show1 .links .links li .htmlcss-arrow,
   .navbar .nav-links.show2 .links .links li .js-arrow,
   .navbar .nav-links.show3 .links .links li .all-arrow {
     transform: rotate(180deg);
   }
-
+  /* ///有套用js語法 當滑鼠點擊即可顯現漢堡選蛋內容1// */
   .navbar .nav-links.show1 .links .sub-menu.htmlCss-sub-menu {
     display: block;
   }
-
+  /* ///有套用js語法 當滑鼠點擊即可顯現漢堡選蛋內容2// */
   .navbar .nav-links.show2 .links .sub-menu.js-sub-menu {
     display: block;
   }
+  /* ///有套用js語法 當滑鼠點擊即可顯現漢堡選蛋內容3// */
   .navbar .nav-links.show3 .links .sub-menu.all-sub-menu {
     display: block;
   }
-  .phone-nav-icon {
+  .phone-nav-icon-hamburger {
     width: 35px;
     height: 25px;
     fill: #f9f9f9;
@@ -292,15 +305,36 @@
     height: 15px;
     fill: #ff5554;
   }
-  .nav-icon-4 {
-    width: 20px;
-    height: 20px;
-    fill: #b81b1b;
+  /* ///////////// 把桌機板的箭頭顏色改變/////////////////////// */
+  .nav-icon-user-home-arrow {
+    fill: #a53737;
   }
 }
 
 @media screen and (min-width: 320px) and (max-width: 576px) {
-  /* /漢堡選單/// */
+  /* /桌機板的nav右側資訊消失// */
+  .loginbar {
+    display: none;
+  }
+  /* //手機板navbar 最外層// */
+  nav .navbar {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 3%;
+  }
+  /* ////////////////////////////////////////////////// */
+
+  /* /nav左側局部 漢堡選單部分 15%/  */
+  .phone-hamburger {
+    width: 15%;
+    display: flex;
+    justify-content: center;
+  }
+
+  /* /漢堡選單內容佔滿整個畫面/// */
   nav .navbar .nav-links {
     display: block;
     position: fixed;
@@ -314,24 +348,40 @@
     transition: all 0.5s ease;
     z-index: 100;
   }
-  /* //手機板navbar// */
-  nav .navbar {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 3%;
+
+  /* //漢堡選單的叉叉 */
+  nav .navbar .nav-links .sidebar-logo svg {
+    margin-left: auto;
   }
-  /* /手機板logo/ */
-  .logo {
-    width: 40%;
+
+  /* ///////////////////////////////// */
+
+  /* /nav中間局部 logo部分 60%/ */
+  .nav-logo {
+    width: 70%;
+    /* width: 250px; */
     height: 50%;
+    display: flex;
+    justify-content: center;
+  }
+  .logo {
+    width: 60%;
+    height: 80%;
   }
   .logo img {
     width: 100%;
     height: 100%;
   }
+  /* /////////////////////////////////////////////////// */
+
+  /* //桌機板的右側局部 資訊顯示 25%/ */
+  .phone-loginbar {
+    display: block;
+    width: 15%;
+    display: flex;
+    justify-content: center;
+  }
+  /* //////////////////////////////////////// */
 
   nav .navbar .nav-link {
     width: 100%;
@@ -339,21 +389,11 @@
   nav {
     height: 60px;
   }
-  .phone-cart {
-    display: flex;
-  }
-  /* /登入註冊文字消失/ */
-  .loginbar {
-    display: none;
-  }
 
-  .phone-nav-icon-1 {
+  .phone-nav-icon-user-chart {
     width: 20px;
-    height: 25px;
+    height: 20px;
     fill: #f9f9f9;
-  }
-  .phone-shop a {
-    display: flex;
   }
   /* /漢堡選單字的顏色/ */
   nav .navbar .nav-links .links li a {
