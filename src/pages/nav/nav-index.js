@@ -50,7 +50,7 @@ function Nav() {
   return (
     <>
       <div className="container">
-        <div className="nav">
+        <nav>
           <div className="navbar">
             {/*?xml version="1.0" encoding="iso-8859-1"?*/}
             {/* Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  */}
@@ -104,17 +104,19 @@ function Nav() {
               <g></g>
             </svg>
 
-            <div className="logo">
-              <a href="#/">
-                <img src={Logo} alt="Logo" />
-              </a>
+            <div className="nav-logo">
+              <div className="logo">
+                <a href="#/">
+                  <img src={Logo} alt="Logo" />
+                </a>
+              </div>
             </div>
             <div className="nav-links">
               <div className="sidebar-logo">
                 {/*?xml version="1.0" encoding="iso-8859-1"?*/}
                 {/* Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  */}
                 <svg
-                  className="bx bx-x phone-nav-x"
+                  className="bx bx-x  phone-nav-x"
                   version="1.1"
                   id="Capa_1"
                   xmlns="http://www.w3.org/2000/svg"
@@ -153,11 +155,12 @@ function Nav() {
                 </svg>
               </div>
               <ul className="links">
-                <li className="phone-shop">
+                {/* <li className="phone-shop">
                   <a href="#/">店家專區</a>
-                </li>
+                </li> */}
                 <li>
                   <a href="#/">店家地圖</a>
+
                   {/*?xml version="1.0" encoding="iso-8859-1"?*/}
                   {/* Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  */}
                   <svg
@@ -210,6 +213,7 @@ function Nav() {
                 </li>
                 <li>
                   <a href="#/">咖啡介紹</a>
+
                   {/*?xml version="1.0" encoding="iso-8859-1"?*/}
                   {/* Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  */}
                   <svg
@@ -274,6 +278,7 @@ function Nav() {
                 </li>
                 <li>
                   <a href="#/">全部商品</a>
+
                   {/*?xml version="1.0" encoding="iso-8859-1"?*/}
                   {/* Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  */}
                   <svg
@@ -444,7 +449,7 @@ function Nav() {
               </div>
             </div>
           </div>
-        </div>
+        </nav>
       </div>
     </>
   )

@@ -13,48 +13,69 @@
     max-width: 1920px;
     position: relative;
   }
-  .nav {
+  /* /nav整個部分/ */
+  nav {
     position: fixed;
     z-index: 100;
-    top: 0;
-    left: 0;
+    /* top: 0;
+    left: 0; */
     width: 100%;
     height: 120px;
     background-color: #0065b4;
-    box-shadow: 0 1px 2px #0065b4;
+    box-shadow: 0 1px 5px #1e4766;
     opacity: 1;
   }
 
-  .nav .navbar {
+  /* /nav整個navbar部分/ */
+
+  nav .navbar {
     height: 100%;
-    max-width: 1920px;
+    max-width: 100%;
     margin: auto;
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    padding: 0 50px;
+    justify-content: space-between;
+    /* padding: 0 50px; */
   }
-  .nav .navbar .logo a {
-    color: #fff;
-    font-size: 30px;
-    font-weight: 600;
-    text-decoration: none;
+  /* /nav局部 logo部分/ */
+  .nav-logo {
+    width: 20%;
+    display: flex;
+    justify-content: center;
   }
-  .nav .navbar .nav-links {
+  .logo {
+    width: 60%;
+    height: 50%;
+  }
+
+  .logo img {
+    width: 100%;
     height: 100%;
+  }
+  /* /////////////// */
+  /* ////////navbar中間部分///////////// */
+  nav .navbar .nav-links {
+    width: 60%;
+    height: 100%;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
     line-height: 120px;
   }
-  .nav .navbar .nav-links .links {
+  nav .navbar .nav-links .links {
     display: flex;
+    justify-content: center;
   }
-  .nav .navbar .nav-links .links li {
+  nav .navbar .nav-links .links li {
     list-style: none;
     position: relative;
     display: flex;
     list-style: none;
-    padding: 0 14px;
+    padding: 0 40px;
   }
-  .nav .navbar .nav-links .links li a {
+  /* ////////////////////////////// */
+  /* //nav箭頭svg// */
+  nav .navbar .nav-links .links li a {
     height: 100%;
     color: #fff;
     text-decoration: none;
@@ -62,7 +83,7 @@
     font-size: 16px;
     font-weight: 500;
   }
-  .nav .navbar .nav-links .links li .arrow {
+  nav .navbar .nav-links .links li .arrow {
     height: 100%;
     width: 15px;
     text-align: center;
@@ -75,30 +96,35 @@
   .navbar .nav-links .links li:hover .all-arrow {
     transform: rotate(180deg);
   }
-
+  /* //nav下拉選單menu/// */
   .navbar .nav-links .links .sub-menu {
     position: absolute;
     top: 120px;
     left: 0;
+    right: 0;
+    width: 100%;
     background-color: #f9f9f9;
     line-height: 40px;
-    border-radius: 0 0 4px 4;
-    box-shadow: 0 1px 2px #0065b4;
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 0px 2px #0065b4;
     display: none;
   }
+  /* //裡面的間格// */
   .navbar .nav-links .links .sub-menu li {
-    padding: 0 16px;
+    padding: 0 8px;
     border-bottom: 1px solid #0065b4;
+    display: flex;
+    justify-content: center;
   }
   .navbar .nav-links .links .sub-menu li a {
     color: #0065b4;
-    font-size: 14px;
+    font-size: 16px;
     font: 500;
   }
 
-  .nav .navbar .nav-links .links li:hover .htmlCss-sub-menu,
-  .nav .navbar .nav-links .links li:hover .js-sub-menu,
-  .nav .navbar .nav-links .links li:hover .all-sub-menu {
+  nav .navbar .nav-links .links li:hover .htmlCss-sub-menu,
+  nav .navbar .nav-links .links li:hover .js-sub-menu,
+  nav .navbar .nav-links .links li:hover .all-sub-menu {
     display: block;
   }
 
@@ -109,20 +135,11 @@
   .nav-links .sidebar-logo {
     display: none;
   }
-  .logo {
+
+  .loginbar {
     width: 20%;
     display: flex;
-
-    width: 170px;
-    height: 50px;
-  }
-
-  .logo img {
-    width: 100%;
-    height: 100%;
-  }
-  .loginbar {
-    display: flex;
+    justify-content: center;
   }
   .phone-shop a {
     display: none;
@@ -135,27 +152,26 @@
 }
 
 @media screen and (max-width: 954px) {
-  .nav .navbar {
+  nav .navbar {
     max-width: 100%;
     padding: 0 25px;
   }
 
-  .nav .navbar .nav-links .links li {
+  nav .navbar .nav-links .links li {
     padding: 0 10px;
   }
-  .nav .navbar .nav-links .links li a {
+  nav .navbar .nav-links .links li a {
     font-size: 15px;
   }
 }
 
 @media screen and (max-width: 800px) {
-  .nav .navbar .nav-links {
+  nav .navbar .nav-links {
     display: block;
     position: fixed;
     top: 120px;
     left: -100%;
     max-width: 100%;
-    width: 100%;
     background: #d9e1e7;
     padding: 20px;
     line-height: 40px;
@@ -163,8 +179,8 @@
     z-index: 100;
   }
 
-  /* //換成logo */
-  .nav .navbar .nav-links .sidebar-logo svg {
+  /* //漢堡選單的叉叉 */
+  nav .navbar .nav-links .sidebar-logo svg {
     margin-left: auto;
   }
 
@@ -181,20 +197,19 @@
     display: block;
   }
 
-  .nav .navbar .nav-links .links {
-    display: block;
-    /* margin-top: 20px; */
-  }
-  .nav .navbar .nav-links .links a {
+  nav .navbar .nav-links .links {
     display: block;
     margin-top: 20px;
   }
-  .nav .navbar .nav-links .links li {
+  nav .navbar .nav-links .links a {
+    display: block;
+  }
+  nav .navbar .nav-links .links li {
     display: block;
     border-bottom: none;
   }
   /* /漢堡選單字的顏色/ */
-  .nav .navbar .nav-links .links li a {
+  nav .navbar .nav-links .links li a {
     color: #0065b4;
   }
   .navbar .nav-links .links .sub-menu {
@@ -204,24 +219,19 @@
     left: 0;
     box-shadow: none;
   }
+  .navbar .nav-links .links .sub-menu li {
+    border-bottom: none;
+  }
+
   /* //////////////////////////////////////////////////重要改道這 */
-  /* .navbar .nav-links .links .sub-menu {
-    position: absolute;
-    top: 60px;
-    left: 20px;
-    background-color: #f9f9f9;
-    line-height: 40px;
-    border-radius: 0 0 4px 4;
-    box-shadow: 0 1px 2px #0065b4;
-    display: none;
-  } */
-  .nav .navbar .nav-links .links li:hover .htmlCss-sub-menu,
-  .nav .navbar .nav-links .links li:hover .js-sub-menu,
-  .nav .navbar .nav-links .links li:hover .all-sub-menu {
+
+  nav .navbar .nav-links .links li:hover .htmlCss-sub-menu,
+  nav .navbar .nav-links .links li:hover .js-sub-menu,
+  nav .navbar .nav-links .links li:hover .all-sub-menu {
     display: none;
   }
 
-  .nav .navbar .nav-links .links li .arrow {
+  nav .navbar .nav-links .links li .arrow {
     line-height: 40px;
   }
 
@@ -229,6 +239,12 @@
   .navbar .nav-links .links li:hover .js-arrow,
   .navbar .nav-links .links li:hover .all-arrow {
     transform: rotate(0deg);
+  }
+
+  .navbar .nav-links.show1 .links .links li .htmlcss-arrow,
+  .navbar .nav-links.show2 .links .links li .js-arrow,
+  .navbar .nav-links.show3 .links .links li .all-arrow {
+    transform: rotate(180deg);
   }
 
   .navbar .nav-links.show1 .links .sub-menu.htmlCss-sub-menu {
@@ -261,7 +277,7 @@
 
 @media screen and (min-width: 320px) and (max-width: 576px) {
   /* /漢堡選單/// */
-  .nav .navbar .nav-links {
+  nav .navbar .nav-links {
     display: block;
     position: fixed;
     top: 60px;
@@ -275,7 +291,7 @@
     z-index: 100;
   }
   /* //手機板navbar// */
-  .nav .navbar {
+  nav .navbar {
     height: 100%;
     width: 100%;
     display: flex;
@@ -293,10 +309,10 @@
     height: 100%;
   }
 
-  .nav .navbar .nav-link {
+  nav .navbar .nav-link {
     width: 100%;
   }
-  .nav {
+  nav {
     height: 60px;
   }
   .phone-cart {
@@ -316,7 +332,7 @@
     display: flex;
   }
   /* /漢堡選單字的顏色/ */
-  .nav .navbar .nav-links .links li a {
+  nav .navbar .nav-links .links li a {
     color: #0065b4;
   }
 }
