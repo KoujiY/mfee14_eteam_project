@@ -132,10 +132,8 @@
   nav .navbar .nav-links .links li:hover .all-sub-menu {
     display: block;
   }
-  /* 手機板的logo先隱藏*/
-  .sidebar-logo {
-    display: none;
-  }
+
+  /* 手機板的資訊先隱藏*/
   .navbar .bx-menu,
   .nav-links .sidebar-logo {
     display: none;
@@ -209,6 +207,11 @@
   .navbar .nav-links .links .sub-menu li {
     border-bottom: none;
   }
+  /* /平板和手機店家專區的內容顯現/ */
+  .phone-shop a {
+    display: block;
+    margin-bottom: 10%;
+  }
 
   /* /平板板的nav右側資訊消失// */
   .loginbar {
@@ -227,6 +230,7 @@
     transition: all 0.5s ease;
     z-index: 100;
   }
+
 
   /* //漢堡選單的叉叉 */
   nav .navbar .nav-links .sidebar-logo svg {
@@ -252,6 +256,7 @@
   }
   /* /調整間距/ */
   nav .navbar .nav-links .links li {
+    margin-bottom: 6%;
     display: block;
     border-bottom: none;
   }
