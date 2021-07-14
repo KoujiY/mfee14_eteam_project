@@ -681,7 +681,6 @@ li {
   .threepage-pic-bg {
     background: url('./img/threesection.jpg') center center no-repeat;
     min-height: 858px;
-    background-attachment: scroll;
     background-attachment: fixed;
     background-size: cover;
     width: 100%;
