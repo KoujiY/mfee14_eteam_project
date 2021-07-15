@@ -15,14 +15,13 @@
   .container {
     margin: 0 auto;
     max-width: 1920px;
+    width: 100%;
     position: relative;
   }
   /* /nav整個部分/ */
   nav {
     position: fixed;
     z-index: 100;
-    /* top: 0;
-    left: 0; */
     width: 100%;
     height: 120px;
     background-color: #0065b4;
@@ -39,7 +38,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* padding: 0 50px; */
   }
   /* /nav局部 logo部分 15%/ */
   .nav-logo {
@@ -230,7 +228,6 @@
     transition: all 0.5s ease;
     z-index: 100;
   }
-
 
   /* //漢堡選單的叉叉 */
   nav .navbar .nav-links .sidebar-logo svg {

@@ -1,9 +1,9 @@
 import React from 'react'
 
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
-import Nav from './pages/nav/nav-index'
+// import Nav from './pages/nav/nav-index'
 import Index from './pages/index/index'
-import Footer from './pages/footer/footer-index'
+// import Footer from './pages/footer/footer-index'
 
 function App() {
   return (
@@ -12,9 +12,9 @@ function App() {
       <>
         <Switch>
           <Route exact path="/">
-            <Nav />
+            {/* <Nav /> */}
             <Index />
-            <Footer />
+            {/* <Footer /> */}
           </Route>
         </Switch>
       </>
