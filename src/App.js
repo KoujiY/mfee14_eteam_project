@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import Nav from './pages/nav/nav-index'
 import Index from './pages/index/index'
 import Footer from './pages/footer/footer-index'
+// import Herrosection from './pages/index/components/Herrosection'
 
 function App() {
   return (
@@ -15,10 +16,10 @@ function App() {
           <Switch>
             <Route exact path="/">
               <Index />
-              <Footer />
             </Route>
           </Switch>
         </>
+        <Footer />
       </Router>
     </>
   )

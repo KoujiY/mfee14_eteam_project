@@ -36,7 +36,7 @@ function Footer() {
                       </a>
                     </li>
                     <li className="nav-icon-2">
-                      <Link to="/">
+                      <Link to="#/">
                         <svg
                           viewBox="0 0 512.00096 512.00096"
                           xmlns="http://www.w3.org/2000/svg"

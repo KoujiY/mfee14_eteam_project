@@ -17,14 +17,13 @@ import { TableSortLabel } from '@material-ui/core'
 
 function Index(props) {
   const [users, setUsers] = useState([])
+  const [general, setgeneral] = useState([])
   const [dataLoading, setDataLoading] = useState(false)
   async function getUsersFromServer() {
     // 開啟載入指示
     setDataLoading(true)
-
     // 連接的伺服器資料網址
     const url = 'http://localhost:7000/home/read'
-
     // 注意header資料格式要設定，伺服器才知道是json格式
     //request代表是要跟伺服器要求
     const request = new Request(url, {
@@ -43,17 +42,41 @@ function Index(props) {
     // const homedata = data[0] //data的第幾筆資料
     // // console.log(homedata)
     // 設定資料
-
     setUsers(data)
-    // console.log(setUsers(data))
+    // // console.log(setUsers(data))
     // console.log(data)
-    console.log(users)
+    // console.log(users)
   }
 
-  // 一開始就會開始載入資料
+  //////////////一般商品
+  async function generalServer() {
+    // 開啟載入指示
+    setDataLoading(true)
+
+    // 連接的伺服器資料網址
+    const url = 'http://localhost:7000/home/general'
+    // 注意header資料格式要設定，伺服器才知道是json格式
+    const request = new Request(url, {
+      method: 'GET',
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'appliaction/json',
+      }),
+    })
+    const response = await fetch(request)
+    const data = await response.json()
+    // console.log(data)
+    setgeneral(data)
+  }
+
+  // // 一開始就會開始載入資料
   useEffect(() => {
     // taste()  //假如這是新增的async function taste()
     getUsersFromServer()
+  }, [])
+  // // 一開始就會開始載入資料
+  useEffect(() => {
+    generalServer()
   }, [])
 
   /////////////////////////////////////////////////////
@@ -110,22 +133,6 @@ function Index(props) {
     })
   }, [])
 
-  //////////////滑鼠移下來card往上////////
-  useEffect(() => { $(window).scroll(function () {
-    const a = 30
-    let scrolltop = $(this).scrollTop() //console.log(scrolltop);
-    let windowheight = $(window).height() //為可視範圍console.log(windowheight);
-    let websideheight = $('body').height() //console.log(websideheight);
-    let persent = Math.floor((scrolltop / (websideheight - windowheight)) * 100)
-    console.log(persent) //等於 scrolltop/scrolltop
-    if (persent >= 22) {
-      $('.cardtwo').css('transition','0.5s').css('transform',`translateX(${a}px)`);
-    }
-
-
-
-  }, [])
-
   /////////////// click事件移動商品功能/////////////////
   // const [data, setData] = useState('老師說123')
   // componentDidMount
@@ -154,22 +161,46 @@ function Index(props) {
   }, [])
 
   ////////////////////////// jquery 購物車懸浮功能/////////////////////////////
-  // useEffect(() => {
-  //   $(window).scroll(function () {
-  //     let scrolltop = $(this).scrollTop() //console.log(scrolltop);
-  //     let windowheight = $(window).height() //為可視範圍console.log(windowheight);
-  //     let websideheight = $('body').height() //console.log(websideheight);
-  //     let persent = Math.floor(
-  //       (scrolltop / (websideheight - windowheight)) * 100
-  //     )
-  //     console.log(persent) //等於 scrolltop/scrolltop
-  //     if (persent >= 18) {
-  //       $('.chart-box').css('display', 'block').css('position', 'fixed')
-  //     } else {
-  //       $('.chart-box').css('display', 'none')
-  //     }
-  //   })
-  // }, [])
+  useEffect(() => {
+    $(window).scroll(function () {
+      let scrolltop = $(this).scrollTop() //console.log(scrolltop);
+      let windowheight = $(window).height() //為可視範圍console.log(windowheight);
+      let websideheight = $('body').height() //console.log(websideheight);
+      let persent = Math.floor(
+        (scrolltop / (websideheight - windowheight)) * 100
+      )
+      console.log(persent) //等於 scrolltop/scrolltop
+      if (persent >= 18) {
+        $('.chart-box').css('display', 'block').css('position', 'fixed')
+      } else {
+        $('.chart-box').css('display', 'none')
+      }
+
+      //////////////滑鼠移下來card移動////////
+      if (persent >= 10) {
+        $('.onepage-rectangle')
+          .css('transition', '1.5s')
+          .css('transform', `translateX(${-20}px`)
+      }
+
+      if (persent >= 22) {
+        $('.cardtwo')
+          .css('transition', '1.5s')
+          .css('transform', `translate(${130}px,${-130}px)`)
+      }
+      if (persent >= 22) {
+        $('.twopage-rectangle')
+          .css('transform', `translate(${80}px,${-80}px)`)
+          .css('transition', '1.5s')
+      }
+
+      if (persent >= 80) {
+        $('.four-rectangle')
+          .css('transition', '1.5s')
+          .css('background', '#C5F5F4')
+      }
+    })
+  }, [])
 
   return (
     <>
@@ -272,7 +303,7 @@ function Index(props) {
               <g></g>
             </svg>
           </div>
-          <div className="d-flex-columm">
+          <div>
             <div>旅行‧寧靜‧生活</div>
             <div>Mercurius Coffee</div>
           </div>
@@ -285,7 +316,7 @@ function Index(props) {
           <img src={phoneherrosection} alt=" phone-herrosection" />
         </div>
 
-        <div className="herro-text">
+        <div className="phone-herro-text">
           <div>
             {/*?xml version="1.0" encoding="iso-8859-1"?*/}
             {/* Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  */}
@@ -354,11 +385,11 @@ function Index(props) {
             <img src={phonetwosection} alt="phonetwosection" />
           </div>
           <div className="cardtwo">
-            <div className="fontsize-34">我們相遇在世ge界的角落</div>
-            <div className="mt-30">
-              <div className="fontsize-34 px-15">在台灣vfd再度重逢</div>
-              <div className="fontsize-34 px-15">在你手fr中</div>
-              <div className="fontsize-34 px-15">為你研gr磨最好的一品</div>
+            <div className="twopic-big-text">我們相遇在世界的角落</div>
+            <div className="">
+              <div className="twopic-big-text">在台灣再度重逢</div>
+              <div className="twopic-big-text">在你手中</div>
+              <div className="twopic-big-text">為你研磨最好的一品</div>
             </div>
             <div className="button-blue-left">
               <Link to="#/">尋找咖啡</Link>
@@ -372,128 +403,193 @@ function Index(props) {
         <div className="phone-long-colorship">
           <img src={longcolorship} alt="longcolorship" />
         </div>
+
         <div className="three-section">
           <div className="threepage-pic-bg"></div>
           <div className="phone-three-pic">
             <img src={phonethreesection} alt="phonethreesection" />
           </div>
           <div className="three-content">
-            <div className="fontsize60">
-              <div className="py-15">在車水馬龍的都會中，</div>
-              <div className="py-15">你渴求著片刻的喘息...</div>
+            <div className="">
+              <div className="threepic-big-text">在車水馬龍的都會中，</div>
+              <div className="threepic-big-text">你渴求著片刻的喘息...</div>
             </div>
-            <div className="fontsize16 py-15">
+            <div className="threepic-small-text">
               我們將守著那寧靜的角落，將一抹芬芳贈與給你
             </div>
           </div>
-          <div className=" fontsize-34 newproduct ">
+          <div className=" newproduct-text">
             New product listing
             <div className="border-bottom-white"></div>
           </div>
           <div className="button-black fontsize-20">
             <Link to="#/"> ALL</Link>
           </div>
-          {/* ///////////////////////////////////////////////// */}
-          <div className="box">
-            <div className="box1">
-              <div className="box1-pic">
-                {/* <img src={productcard} alt="productcard" /> */}
-              </div>
-              <div className="item-1">
-                <div className="item-2">
-                  <div className="fontsize-20">
-                    {users.length > 0 && users[0].iName}
+          {/* //////////phone點擊按鈕的card   /////////////////////////////////////// */}
+          <div className="phone-threesection-click-card">
+            <div className="">
+              <div className="box">
+                <div className="box1">
+                  <div className="box1-pic">
+                    <img
+                      src={`http://localhost:3000/img/index/newproduct/${
+                        users.length > 0 && users[0].iImg
+                      }`}
+                      alt="123"
+                    />
                   </div>
-                  <div>svg</div>
-                </div>
-                <div>{users.length > 0 && users[0].iDiscr}</div>
-                <div className="card-button">
-                  <a href="#/"> 購買</a>
-                </div>
-              </div>
-            </div>
-            <div className="box1">
-              <div className="box1-pic">
-                {/* <img src={productcard} alt="productcard" /> */}
-              </div>
-              <div className="item-1">
-                <div className="item-2">
-                  <div className="fontsize-20">
-                    {users.length > 0 && users[1].iName}
+                  <div className="item-1">
+                    <div className="item-2">
+                      <div className="product-card-text1">
+                        {users.length > 0 && users[0].iName}
+                      </div>
+                      <div>svg</div>
+                    </div>
+                    <div className="product-card-text2">
+                      {users.length > 0 && users[0].iDiscr}
+                    </div>
+                    <div className="product-card-text3">
+                      特價:{users.length > 0 && users[0].iPrice}元
+                    </div>
+                    <div className="card-button">
+                      <a href="#/"> 購買</a>
+                    </div>
                   </div>
-                  <div>svg</div>
                 </div>
-                <div>{users.length > 0 && users[1].iDiscr}</div>
-                <div className="card-button">
-                  <a href="#/"> 購買</a>
-                </div>
-              </div>
-            </div>
-            <div className="box1">
-              <div className="box1-pic">
-                {/* <img src={productcard} alt="productcard" /> */}
-              </div>
-              <div className="item-1">
-                <div className="item-2">
-                  <div className="fontsize-20">
-                    {users.length > 0 && users[2].iName}
+                <div className="box1">
+                  <div className="box1-pic">
+                    <img
+                      src={`http://localhost:3000/img/index/newproduct/${
+                        users.length > 0 && users[1].iImg
+                      }`}
+                      alt="123"
+                    />
                   </div>
-                  <div>svg</div>
-                </div>
-                <div>{users.length > 0 && users[2].iDiscr}</div>
-                <div className="card-button">
-                  <a href="#/"> 購買</a>
-                </div>
-              </div>
-            </div>
-            <div className="box1">
-              <div className="box1-pic">
-                {/* <img src={productcard} alt="productcard" /> */}
-              </div>
-              <div className="item-1">
-                <div className="item-2">
-                  <div className="fontsize-20">
-                    {users.length > 0 && users[3].iName}
+                  <div className="item-1">
+                    <div className="item-2">
+                      <div className="product-card-text1">
+                        {users.length > 0 && users[1].iName}
+                      </div>
+                      <div>svg</div>
+                    </div>
+                    <div className="product-card-text2">
+                      {users.length > 0 && users[1].iDiscr}
+                    </div>
+                    <div className="product-card-text3">
+                      特價:{users.length > 0 && users[1].iPrice}元
+                    </div>
+                    <div className="card-button">
+                      <a href="#/"> 購買</a>
+                    </div>
                   </div>
-                  <div>svg</div>
                 </div>
-                <div>{users.length > 0 && users[3].iDiscr}</div>
-                <div className="card-button">
-                  <a href="#/"> 購買</a>
-                </div>
-              </div>
-            </div>
-            <div className="box1">
-              <div className="box1-pic">
-                {/* <img src={productcard} alt="productcard" /> */}
-              </div>
-              <div className="item-1">
-                <div className="item-2">
-                  <div className="fontsize-20">
-                    {users.length > 0 && users[4].iName}
+                <div className="box1">
+                  <div className="box1-pic">
+                    <img
+                      src={`http://localhost:3000/img/index/newproduct/${
+                        users.length > 0 && users[2].iImg
+                      }`}
+                      alt="123"
+                    />
                   </div>
-                  <div>svg</div>
-                </div>
-                <div>{users.length > 0 && users[4].iDiscr}</div>
-                <div className="card-button">
-                  <Link to="#/"> 購買</Link>
-                </div>
-              </div>
-            </div>
-            <div className="box1">
-              <div className="box1-pic">
-                {/* <img src={productcard} alt="productcard" /> */}
-              </div>
-              <div className="item-1">
-                <div className="item-2">
-                  <div className="fontsize-20">
-                    {users.length > 0 && users[5].iName}
+                  <div className="item-1">
+                    <div className="item-2">
+                      <div className="product-card-text1">
+                        {users.length > 0 && users[2].iName}
+                      </div>
+                      <div>svg</div>
+                    </div>
+                    <div className="product-card-text2">
+                      {users.length > 0 && users[2].iDiscr}
+                    </div>
+                    <div className="product-card-text3">
+                      特價:{users.length > 0 && users[2].iPrice}元
+                    </div>
+                    <div className="card-button">
+                      <a href="#/"> 購買</a>
+                    </div>
                   </div>
-                  <div>svg</div>
                 </div>
-                <div>{users.length > 0 && users[5].iDiscr}</div>
-                <div className="card-button">
-                  <Link to="#/"> 購買</Link>
+                <div className="box1">
+                  <div className="box1-pic">
+                    <img
+                      src={`http://localhost:3000/img/index/newproduct/${
+                        users.length > 0 && users[3].iImg
+                      }`}
+                      alt="123"
+                    />
+                  </div>
+                  <div className="item-1">
+                    <div className="item-2">
+                      <div className="product-card-text1">
+                        {users.length > 0 && users[3].iName}
+                      </div>
+                      <div>svg</div>
+                    </div>
+                    <div className="product-card-text2">
+                      {users.length > 0 && users[3].iDiscr}
+                    </div>
+                    <div className="product-card-text3">
+                      特價:{users.length > 0 && users[3].iPrice}元
+                    </div>
+                    <div className="card-button">
+                      <a href="#/"> 購買</a>
+                    </div>
+                  </div>
+                </div>
+                <div className="box1">
+                  <div className="box1-pic">
+                    <img
+                      src={`http://localhost:3000/img/index/newproduct/${
+                        users.length > 0 && users[4].iImg
+                      }`}
+                      alt="123"
+                    />
+                  </div>
+                  <div className="item-1">
+                    <div className="item-2">
+                      <div className="product-card-text1">
+                        {users.length > 0 && users[4].iName}
+                      </div>
+                      <div>svg</div>
+                    </div>
+                    <div className="product-card-text2">
+                      {users.length > 0 && users[4].iDiscr}
+                    </div>
+                    <div className="product-card-text3">
+                      特價:{users.length > 0 && users[4].iPrice}元
+                    </div>
+                    <div className="card-button">
+                      <Link to="#/"> 購買</Link>
+                    </div>
+                  </div>
+                </div>
+                <div className="box1">
+                  <div className="box1-pic">
+                    <img
+                      src={`http://localhost:3000/img/index/newproduct/${
+                        users.length > 0 && users[5].iImg
+                      }`}
+                      alt="123"
+                    />
+                  </div>
+                  <div className="item-1">
+                    <div className="item-2">
+                      <div className="product-card-text1">
+                        {users.length > 0 && users[5].iName}
+                      </div>
+                      <div>svg</div>
+                    </div>
+                    <div className="product-card-text2">
+                      {users.length > 0 && users[5].iDiscr}
+                    </div>
+                    <div className="product-card-text3">
+                      特價:{users.length > 0 && users[5].iPrice}元
+                    </div>
+                    <div className="card-button">
+                      <Link to="#/"> 購買</Link>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -645,8 +741,8 @@ function Index(props) {
 
         <div className="container-1">
           <div className="best-selling-group">
-            <div className="fontsize-34 ">
-              Best-selling goods
+            <div className="Coffee products-text">
+              Coffee products
               <div className="border-bottom-blue"> </div>
             </div>
             <div className=" button-blue-bg fontsize-20">
@@ -657,15 +753,25 @@ function Index(props) {
             <div className="box2">
               <div className="box2-group">
                 <div className="box2-pic">
-                  {/* <img src={productcard} alt="productcard" /> */}
+                  <img
+                    src={`http://localhost:3000/img/index/generalproduct/${
+                      general.length > 0 && general[0].iImg
+                    }`}
+                    alt="123"
+                  />
                 </div>
                 <div className="item-1">
                   <div className="item-2">
-                    <div className="fontsize-20">精選咖啡豆</div>
+                    <div className="product-card-text1">
+                      {general.length > 0 && general[0].iName}
+                    </div>
                     <div>svg</div>
                   </div>
-                  <div>
-                    超好喝的超好喝的超好喝的超好喝的超好喝的超好喝的=超好喝的超好喝的超好喝的
+                  <div className="product-card-text2">
+                    {general.length > 0 && general[0].iDiscr}
+                  </div>
+                  <div className="product-card-text3">
+                    特價:{general.length > 0 && general[0].iPrice}元
                   </div>
                   <div className="card-button">
                     <Link to="#/"> 購買</Link>
@@ -675,15 +781,25 @@ function Index(props) {
             </div>
             <div className="box3">
               <div className="box2-pic">
-                {/* <img src={productcard} alt="productcard" /> */}
+                <img
+                  src={`http://localhost:3000/img/index/generalproduct/${
+                    general.length > 0 && general[1].iImg
+                  }`}
+                  alt="123"
+                />
               </div>
               <div className="item-1">
                 <div className="item-2">
-                  <div className="fontsize-20">精選咖啡豆</div>
+                  <div className="product-card-text1">
+                    {general.length > 0 && general[1].iName}
+                  </div>
                   <div>svg</div>
                 </div>
-                <div>
-                  超好喝的超好喝的超好喝的超好喝的超好喝的超好喝的=超好喝的超好喝的超好喝的
+                <div className="product-card-text2">
+                  {general.length > 0 && general[1].iDiscr}
+                </div>
+                <div className="product-card-text3">
+                  特價:{general.length > 0 && general[1].iPrice}元
                 </div>
                 <div className="card-button">
                   <Link to="#/"> 購買</Link>
@@ -693,15 +809,25 @@ function Index(props) {
             <div className="box4">
               <div className="aaa">
                 <div className="box2-pic">
-                  {/* <img src={productcard} alt="productcard" /> */}
+                  <img
+                    src={`http://localhost:3000/img/index/generalproduct/${
+                      general.length > 0 && general[2].iImg
+                    }`}
+                    alt="123"
+                  />
                 </div>
                 <div className="item-1">
                   <div className="item-2">
-                    <div className="fontsize-20">精選咖啡豆</div>
+                    <div className="product-card-text1">
+                      {general.length > 0 && general[2].iName}
+                    </div>
                     <div>svg</div>
                   </div>
-                  <div>
-                    超好喝的超好喝的超好喝的超好喝的超好喝的超好喝的=超好喝的超好喝的超好喝的
+                  <div className="product-card-text2">
+                    {general.length > 0 && general[2].iDiscr}
+                  </div>
+                  <div className="product-card-text3">
+                    特價:{general.length > 0 && general[1].iPrice}元
                   </div>
                   <div className="card-button">
                     <Link to="#/"> 購買</Link>
@@ -712,15 +838,25 @@ function Index(props) {
             <div className="box5">
               <div className="aaa">
                 <div className="box2-pic">
-                  {/* <img src={productcard} alt="productcard" /> */}
+                  <img
+                    src={`http://localhost:3000/img/index/generalproduct/${
+                      general.length > 0 && general[3].iImg
+                    }`}
+                    alt="123"
+                  />
                 </div>
                 <div className="item-1">
                   <div className="item-2">
-                    <div className="fontsize-20">精選咖啡豆</div>
+                    <div className="product-card-text1">
+                      {general.length > 0 && general[3].iName}
+                    </div>
                     <div>svg</div>
                   </div>
-                  <div>
-                    超好喝的超好喝的超好喝的超好喝的超好喝的超好喝的=超好喝的超好喝的超好喝的
+                  <div className="product-card-text2">
+                    {general.length > 0 && general[3].iDiscr}
+                  </div>
+                  <div className="product-card-text3">
+                    特價:{general.length > 0 && general[3].iPrice}元
                   </div>
                   <div className="card-button">
                     <a href="#/"> 購買</a>
@@ -736,5 +872,6 @@ function Index(props) {
   )
 }
 
-
+//我的爸爸是app.js
+//小孩
 export default withRouter(Index)
