@@ -1,9 +1,8 @@
-//cart-index
 
 import React, { useState } from 'react'
-import { useForm } from 'react-hook-form'
 
 import Steppers from '../components/Steppers'
+import { cities, townships } from '../data/townships'
 
 const cateLabels = [
   {
@@ -29,8 +28,6 @@ const cateLabels = [
 ]
 
 const TestForm = () => {
-
-
   //分步驟為 3 step
   const [step1, setStep1] = useState([
     {
@@ -103,54 +100,36 @@ const TestForm = () => {
   //單價跟規格連動
   const [cateLabel, setCateLabel] = useState(0)
   const [price, setPrice] = useState(0)
-  const [count, setCount] = useState(+step1[0].iCount)
+  const [count, setCount] = useState(1)
 
   const [step2Errors, setStep2Errors] = useState({
-    address: {
-      agree: false,
-      error: '',
-      country: '',
-      city: '',
-      township: '',
-      street: '',
-      name: '',
-      phone: '',
-      email: '',
-    },
-    credit: {
-      creditName: '',
-      creditNum: '',
-      validity: '',
-      securityCode: '',
-      payment: false,
-      agree: false,
-    },
+    country: '',
+    city: '',
+    township: -1,
+    street: -1,
+    name: '',
+    phone: '',
+    email: '',
+    to711city: '',
+    to711Store: '',
+  })
+
+  const [step3Errors, setStep3Errors] = useState({
+    creditName: '',
+    creditNum: '',
+    validity: '',
+    ccv: '',
+    payment: false,
   })
 
   //變更欄位內容(step1)
   const handleStep1Change = (e) => {
-    const updatedField = {
+    const updatedStep1 = {
       ...step1,
       [e.target.name]:
         e.target.type === 'checkbox' ? e.target.checked : e.target.value,
     }
-    setStep1(updatedField)
-  }
-
-  //變更欄位內容(step2)
-  const handleStep2Change = (e) => {
-    const updatedField = {
-      ...step2,
-      [e.target.name]:
-        e.target.type === 'checkbox'
-          ? e.target.checked
-          : e.target.name === 'city' && e.target.type === 'option'
-          ? e.target.name && step2.township === -1
-          : e.target.name === 'township' && e.target.type === 'option'
-          ? +e.option && step2.city > -1
-          : e.target.value,
-    }
-    setStep2(updatedField)
+    setStep1(updatedStep1)
   }
 
   //變更欄位內容(step3)
@@ -163,12 +142,93 @@ const TestForm = () => {
     setStep3(updatedStep3)
   }
 
-  //表單送出
-  // const handleSubmit = (e) => {
-  //   e.preventDefault()
+  const validEmail = RegExp(
+    /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
+  )
+  const validPhone = new RegExp(/09\d{2}-?\d{3}-?\d{3}$/i)
+  const validCreditNum = new RegExp(/\b(?:\d{4}[ -]?){3}(?=\d{4}\b)/)
 
-  //   const data = new FormData(e.target)
+  //變更欄位內容(step2)
+  const handleStep2Change = (e) => {
+    const updatedStep2 = {
+      ...step2,
+      [e.target.name]:
+        e.target.type === 'checkbox'
+          ? e.target.checked
+          : e.target.name === 'township' && e.target.type === 'option'
+          ? +e.target.value && step2.city > -1
+          : e.target.value,
+    }
+
+    setStep2(updatedStep2)
+  }
+
+  const handleErrors = (e) => {
+    e.preventDefault()
+    const { name, value } = e.target
+    let errors = Object.assign(step2Errors, step3Errors)
+    switch (name) {
+      case 'country':
+        errors.country = value.length - 1 < 1 ? '至少填寫2字以上' : ''
+        break
+      // case 'city':
+      //   errors.city  = -1 ? '請選擇縣市' : ''
+      //   break
+      // case 'township':
+      //   errors.township = -1 ? '請選擇地區' : ''
+      //   break
+      case 'street':
+        errors.street = value.length < 5 ? '地址必填，至少5字' : ''
+        break
+      case 'name':
+        errors.name = value.length < 2 ? '姓名至少填寫2字以上' : ''
+        break
+      case 'phone':
+        errors.phone = validPhone.test(value) ? '' : '請填正確手機號碼'
+        break
+      case 'email':
+        errors.email = validEmail.test(value) ? '' : '請填正確信箱'
+        break
+      case 'payment':
+        errors.payment = false ? '必選，快付錢' : ''
+        break
+      case 'creditName':
+        errors.creditName = value.length < 2 ? '姓名至少填寫2字以上' : ''
+        break
+      case 'creditNum':
+        errors.creditNum = validCreditNum.test(value) ? '' : '卡號必填'
+        break
+      case 'validity':
+        errors.validity = /^(0[1-9]|1[0-2])\/?([0-9]{2})$/.test(value)
+          ? ''
+          : '有效日期必填'
+        break
+      case 'ccv':
+        errors.ccv = /^\d{3}$/.test(value) ? '' : '安全碼必填'
+        break
+
+      default:
+        break
+    }
+    setStep2Errors({ errors })
+  }
+  const { errors } = Object.assign(step2Errors, step3Errors)
+
+  // const validateForm = (errors) => {
+  //   let valid = true
+  //   Object.values(errors).forEach((val) => val.length > 0 && (valid = false))
+  //   return valid
   // }
+  //表單送出
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    // if (validateForm(step2Errors.errors)) {
+    //   console.info('Valid Form')
+    // } else {
+    //   console.error('Invalid Form')
+    // }
+    const data = new FormData(e.target)
+  }
 
   const handleChange = (e) => {
     // const updatedFieldErrors = {
@@ -184,16 +244,27 @@ const TestForm = () => {
   const handleInvalid = (e) => {
     e.preventDefault()
 
-    const updatedFieldErrors = {
+    const updatedStep2Errors = {
       ...step2Errors,
-      [e.target.name]: e.target.validationMessage,
-    }
+      [e.target.name]: () => {
+        let temp = {}
+        // temp.country = step2.country || step2.street ? '' : '必填，不得為空'
+        temp.phone = RegExp(/^09\d{8}$/).test(step2.phone) ? '' : '請填手機號碼'
+        temp.email = RegExp(/\S+@\S+\.\S+/).test(step2.email) ? '' : '請填信箱'
 
-    setStep2Errors(updatedFieldErrors)
+        setStep2Errors({
+          ...temp,
+        })
+        return Object.values(temp).every((x) => x == '')
+      },
+    }
+    // const updatedStep3Errors = {
+    //   ...step3Errors,
+    //   [e.target.name]: e.target.validationMessage,
+    // }
+    setStep2Errors(updatedStep2Errors)
   }
 
-  const [formStep, setFormstep] = useState(0)
-  // const { CartInfo } = props
   return (
     <>
       <Steppers
@@ -203,8 +274,6 @@ const TestForm = () => {
         setStep2={setStep2}
         step3={step3}
         setStep3={setStep3}
-        // state={state}
-        // setState={setState}
         cateLabels={cateLabels}
         cateLabel={cateLabel}
         setCateLabel={setCateLabel}
@@ -217,11 +286,11 @@ const TestForm = () => {
         step2Errors={step2Errors}
         setStep2Errors={setStep2Errors}
         handleStep3Change={handleStep3Change}
+        handleInvalid={handleInvalid}
+        errors={errors}
+        handleErrors={handleErrors}
+        handleSubmit={handleSubmit}
       />
-
-      {/* <Address />
-      <CreditForm />
-      <Completed /> */}
     </>
   )
 }

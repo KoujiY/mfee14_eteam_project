@@ -1,4 +1,10 @@
-import React from 'react'
+/**
+ * 3. error(未連動 button)
+ * 
+ */
+
+
+import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import clsx from 'clsx'
 import {
@@ -11,6 +17,9 @@ import {
   StepConnector,
   Button,
   Typography,
+  Paper,
+  AppBar,
+  Toolbar,
 } from '@material-ui/core'
 import '../Cart.css'
 import { useForm } from 'react-hook-form'
@@ -57,7 +66,7 @@ const ColorlibConnector = withStyles({
 //icon 外觀設定:初始、當前、完成
 const useColorlibStepIconStyles = makeStyles({
   root: {
-    border: '2px solid #fcf5e9',
+    border: '2.5px solid #fcf5e9',
     margin: '60px auto 0px',
     zIndex: 1,
     width: '70px',
@@ -71,7 +80,7 @@ const useColorlibStepIconStyles = makeStyles({
   },
   active: {
     color: '#659de1', //icon填色
-    border: '2px solid #659de1',
+    border: '2.5px solid #659de1',
     fill: 'action',
     '& $label': {
       color: '#659de1',
@@ -79,7 +88,7 @@ const useColorlibStepIconStyles = makeStyles({
   },
   completed: {
     color: '#659de1',
-    border: '2px solid #659de1',
+    border: '2.5px solid #659de1',
     fill: '#659de1',
     label: {
       color: '#659de1',
@@ -202,13 +211,6 @@ function getSteps() {
 
 export default function Steppers(props) {
   const {
-    handleSubmit,
-    register,
-    formState: { errors },
-  } = useForm({ model: 'onChange' })
-  //test:(拆解state成 3 step)
-
-  const {
     step1,
     setStep1,
     step2,
@@ -227,7 +229,37 @@ export default function Steppers(props) {
     step2Errors,
     setStep2Errors,
     handleStep3Change,
+    handleInvalid,
+    handleErrors,
+    handleSubmit,
+    errors,
   } = props
+
+  //test:(拆解state成 3 step)
+
+  // useEffect(() => {
+  //   setError('country', {
+  //     types: {
+  //       required: '必填',
+  //       minLength: '最少為2',
+  //     },
+  //   })
+  // }, [setError])
+
+  // const [errors, setErrors] = useState({})
+
+  //errors驗證(FAIL)
+  // const validate = () => {
+  //   let temp = {}
+  //   temp.country = step2.country ? '' : '必填，不得為空'
+  //   temp.street = step2.street ? '' : '必填，不得為空'
+  //   temp.email = RegExp(/\S+@\S+\.\S+/).test(step2.email) ? '' : '請填信箱'
+  //   temp.phone = RegExp(/^09\d{8}$/).test(step2.phone) ? '' : '請填手機號碼'
+  //   setErrors({
+  //     ...temp,
+  //   })
+  //   return Object.values(temp).every((x) => x == '')
+  // }
 
   //下一步分頁傳遞
   function getStepContent(step) {
@@ -237,8 +269,6 @@ export default function Steppers(props) {
           <MyCartTest
             step1={step1}
             setStep1={setStep1}
-            // state={state}
-            // setState={setState}
             cateLabels={cateLabels}
             cateLabel={cateLabel}
             setCateLabel={setCateLabel}
@@ -252,11 +282,21 @@ export default function Steppers(props) {
       case 1:
         return (
           <Address
+            step1={step1}
             step2={step2}
             setStep2={setStep2}
             handleStep2Change={handleStep2Change}
             step2Errors={step2Errors}
             setStep2Errors={setStep2Errors}
+            errors={errors}
+            cateLabels={cateLabels}
+            cateLabel={cateLabel}
+            setCateLabel={setCateLabel}
+            price={price}
+            setPrice={setPrice}
+            handleChange={handleChange}
+            count={count}
+            setCount={setCount}
           />
         )
       case 2:
@@ -265,14 +305,27 @@ export default function Steppers(props) {
             step3={step3}
             setStep3={setStep3}
             handleStep3Change={handleStep3Change}
-            register={register}
             errors={errors}
+            step2={step2}
           />
         )
       case 3:
-        return <FinalCheck />
+        return <FinalCheck step2={step2} />
       default:
-        return <Completed /> // lOGIN驗證頁
+        return (
+          <MyCartTest
+            step1={step1}
+            setStep1={setStep1}
+            cateLabels={cateLabels}
+            cateLabel={cateLabel}
+            setCateLabel={setCateLabel}
+            price={price}
+            setPrice={setPrice}
+            handleChange={handleChange}
+            count={count}
+            setCount={setCount}
+          />
+        ) // 需加 lOGIN驗證頁
     }
   }
 
@@ -281,10 +334,13 @@ export default function Steppers(props) {
   const steps = getSteps()
 
   const handleNext = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep + 1)
+    if (step1.length > 0) setActiveStep((prevActiveStep) => prevActiveStep + 1)
+    // if (handleInvalid && activeStep === 1)
+    //   setActiveStep((prevActiveStep) => prevActiveStep + 1)
+    else setActiveStep((prevActiveStep) => prevActiveStep + 1)
   }
 
-  const handleBack = () => {
+  const handleBack = (e) => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1)
   }
 
@@ -330,39 +386,58 @@ export default function Steppers(props) {
                 </Step>
               ))}
             </Stepper>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} onChange={handleErrors}>
               {/* 購物車步驟內容 */}
               <Typography className={classes.instructions}>
                 {getStepContent(activeStep)}
               </Typography>
               <input type="submit" />
-            </form>
-            <div>
-              {/* <Button
+
+              <Paper position="fixed">
+                <Typography>
+                  總金額:NT$
+                  {step1.map((v, i) => {
+                    v.iPrice = step1[i].iPrice
+                    v.iCount = step1[i].iCount
+                    v.total = v.iPrice * v.iCount
+                    for (let i = 0; i < step1.length - 1; i++) {
+                      v.total += v.total[i]
+                      console.log(v.total)
+                    }
+                    return v.total
+                  })}
+                </Typography>
+                {/* <Button
                 disabled={activeStep === 0}
                 onClick={handleBack}
                 className={classes.button}
               >
                 上一頁
               </Button> */}
-              <Button
-                variant="contained"
-                color="primary"
-                onClick={handleNext}
-                className={classes.button}
-              >
-                {activeStep === steps.length - 1
-                  ? '結帳'
-                  : activeStep < 2
-                  ? '下一頁'
-                  : '確認訂單'}
-              </Button>
-            </div>
+                <Button
+                  onChange={handleSubmit}
+                  position="fixed"
+                  variant="contained"
+                  color="primary"
+                  onClick={handleNext}
+                  className={classes.button}
+                  disabled={activeStep === 0 && step1.length < 1}
+                  type={activeStep < steps.length - 1 ? 'button' : 'submit'}
+                >
+                  {activeStep === steps.length - 1
+                    ? '結帳'
+                    : activeStep < 2
+                    ? '下一頁'
+                    : '確認訂單'}
+                </Button>
+              </Paper>
+            </form>
           </div>
         )}
       </div>
       <pre>{JSON.stringify(step1, null, 2)}</pre>
       <pre>{JSON.stringify(step2, null, 2)}</pre>
+      <pre>{JSON.stringify(step3, null, 2)}</pre>
       <pre>{JSON.stringify(step3, null, 2)}</pre>
     </div>
   )

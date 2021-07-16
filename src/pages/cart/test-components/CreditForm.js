@@ -1,9 +1,7 @@
 /**
- * 1. 信用卡更新按鈕未完成
  * 2. 3欄樣式、排版未完成
  * 3. 更新按鈕功能未完成
  * 4. 存取信用卡資料未完成(sql)
- * 5. 驗證無法及時更新
  *
  */
 import {
@@ -24,16 +22,16 @@ import styled from 'styled-components'
 
 //組件
 // import MyCartCheck from './components/MyCartCheck'
-// import AddressCheck from './components/AddressCheck'
+import AddressCheck from '../components/AddressCheck'
 import TotalBar from '../components/TotalBar'
 
 //styled components
 const CreditField = styled(FormGroup)`
   display: ${(props) => (props.primary ? 'block' : 'hidden')};
 `
-
+const validCreditNum = new RegExp(/\b(?:\d{4}[ -]?){3}(?=\d{4}\b)/)
 function CreditForm(props) {
-  const { step3, setStep3, handleStep3Change, register, errors } = props
+  const { step3, setStep3, handleStep3Change, register, errors, step2 } = props
 
   return (
     <>
@@ -44,11 +42,18 @@ function CreditForm(props) {
         {/* <MyCartCheck /> */}
         {/* </DropDown> */}
       </div>
+
+      {/* <DropDown> */}
       <div className="cartBody dropDown">
-        <h2>收貨地址</h2>
-        <img alt="收合icon" onClick={() => {}}></img>
-        {/* <DropDown> */}
-        {/* <AddressCheck /> */}
+        <Accordion>
+          <AccordionSummary>
+            <h2>收貨地址</h2>
+          </AccordionSummary>
+          <AccordionDetails>
+            <AddressCheck step2={step2} />
+          </AccordionDetails>
+        </Accordion>
+
         {/* </DropDown> */}
       </div>
 
@@ -64,7 +69,16 @@ function CreditForm(props) {
               aria-controls="panel1a-content"
               id="panel1a-header"
             >
-              <Typography className="changeInner">Accordion 1</Typography>
+              <FormControlLabel
+                value="credit"
+                name="payment"
+                control={<Radio size="small" />}
+                label="信用卡"
+                labelPlacement="center"
+                color="default"
+                // size="small"
+                onChange={handleStep3Change}
+              />
             </AccordionSummary>
             <AccordionDetails>
               <FormGroup>
@@ -74,8 +88,14 @@ function CreditForm(props) {
                     type="text"
                     placeholder="您的姓名"
                     name="creditName"
-                    valdefaultValueue={step3.creditName}
+                    defaultValue={step3.creditName}
                     onChange={handleStep3Change}
+                    onBlur={step3.creditName.length < 2}
+                    helperText={
+                      step3.creditName.length > 0 && errors.creditName
+                        ? errors.creditName
+                        : ''
+                    }
                     required
                   ></TextField>
                 </div>
@@ -84,19 +104,19 @@ function CreditForm(props) {
               <div className="inputName">
                 <label htmlFor="creditNum">卡號</label>
                 <TextField
+                  input
                   type="text"
-                  placeholder="****-****-****-****"
+                  placeholder="XXXX XXXX XXXX XXXX"
                   name="creditNum"
-                  inputProps={{ pattern: '4/d{15}', maxLength: '16' }}
                   defaultValue={step3.creditNum}
-                  onChange={(e) => {
-                    const regex = '^4d{15}$'
-                    if (e.target.value !== '' && regex.test(e.target.value)) {
-                      setStep3({ ...step3, [e.target.name]: e.target.value })
-                    } else {
-                      return 'error'
-                    }
-                  }}
+                  onChange={handleStep3Change}
+                  onBlur={!validCreditNum.test(step3.creditNum)}
+                  helperText={
+                    step3.creditNum.length > 0 && errors.creditNum
+                      ? errors.creditNum
+                      : ''
+                  }
+                  inputProps={{ maxLength: 16 }}
                 ></TextField>
               </div>
               <div className="inputName">
@@ -107,6 +127,14 @@ function CreditForm(props) {
                   name="validity"
                   defaultValue={step3.validity}
                   onChange={handleStep3Change}
+                  onBlur={
+                    !/^(0[1-9]|1[0-2])\/?([0-9]{2})$/.test(step3.validity)
+                  }
+                  helperText={
+                    step3.validity.length > 0 && errors.validity
+                      ? errors.validity
+                      : ''
+                  }
                 ></TextField>
               </div>
               <div className="inputName">
@@ -118,9 +146,13 @@ function CreditForm(props) {
                   name="ccv"
                   maxLength="3"
                   minLength="3"
-                  inputProps={{ pattern: '/d{3}$' }}
+                  inputProps={{ pattern: /^\d{3}$/, maxLength: 3 }}
                   defaultValue={step3.ccv}
                   onChange={handleStep3Change}
+                  onBlur={!/^\d{3}$/.test(step3.ccv)}
+                  helperText={
+                    step3.ccv.length > 0 && errors.ccv ? errors.ccv : ''
+                  }
                 ></TextField>
               </div>
               <div class="inputName">
@@ -136,11 +168,7 @@ function CreditForm(props) {
                   更新
                 </button>
               </div>
-              <Typography>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-                eget.
-              </Typography>
+              <Typography></Typography>
             </AccordionDetails>
           </Accordion>
 
@@ -166,13 +194,13 @@ function CreditForm(props) {
                   type="text"
                   placeholder="您的姓名"
                   name="creditName"
-                  valdefaultValueue={step3.creditName}
+                  defaultValue={step3.creditName}
                   onChange={handleStep3Change}
                   required
                 >
-                  {errors.creditName && (
+                  {/* {errors.creditName && (
                     <small>{errors.creditName.message}</small>
-                  )}
+                  )} */}
                 </TextField>
               </div>
               <div className="inputName">

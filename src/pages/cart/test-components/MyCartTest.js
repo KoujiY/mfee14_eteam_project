@@ -39,8 +39,6 @@ function MyCartTest(props) {
   const {
     step1,
     setStep1,
-    // state,
-    // setState,
     cateLabels,
     cateLabel,
     setCateLabel,
@@ -75,9 +73,18 @@ function MyCartTest(props) {
     <>
       <Container>
         <div className="cartBody">
-          <section>
+          <table>
             <h2>我的購物車</h2>
-            <div className="cart-thead">
+            <thead className="cart-thead">
+              <th className="cart-th">商品圖片</th>
+              <th className="cart-th">商品名稱</th>
+              <th className="cart-th">規格</th>
+              <th className="cart-th">商品數量</th>
+              <th className="cart-th">商品價格</th>
+              <th className="cart-th">總價</th>
+              <th className="cart-th" colSpan="2"></th>
+            </thead>
+            {/* <div className="cart-thead">
               <div className="cart-th">商品圖片</div>
               <div className="cart-th">商品名稱</div>
               <div className="cart-th">規格</div>
@@ -86,22 +93,22 @@ function MyCartTest(props) {
               <div className="cart-th">總價</div>
               <div className="cart-th"> </div>
               <div> </div>
-            </div>
-            <CartCard
-              step1={step1}
-              setStep1={setStep1}
-              // state={state}
-              // setSetstate={setState}
-              count={count}
-              setCount={setCount}
-              cateLabel={cateLabel}
-              setCategory={setCateLabel}
-              handleChange={handleChange}
-              price={price}
-              setPrice={setPrice}
-              cateLabels={cateLabels}
-            />
-          </section>
+            </div> */}
+            <tbody className="item-card">
+              <CartCard
+                step1={step1}
+                setStep1={setStep1}
+                count={count}
+                setCount={setCount}
+                cateLabel={cateLabel}
+                setCategory={setCateLabel}
+                handleChange={handleChange}
+                price={price}
+                setPrice={setPrice}
+                cateLabels={cateLabels}
+              />
+            </tbody>
+          </table>
         </div>
         <TotalBar />
         <div className="cartBody">
