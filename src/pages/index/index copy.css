@@ -483,14 +483,17 @@ li {
 
   .three-section {
     max-width: 100%;
+    /* height: 900px; */
+    margin-bottom: 21%;
     position: relative;
-    overflow: hidden;
+    /* 
+    overflow: hidden; */
   }
   .threepage-pic-bg {
-    background: url('./img/threesection-bg.jpg') center center no-repeat;
-    min-height: 1250px;
-    /* background-attachment: fixed;
-    background-size: cover; */
+    background: url('./img/threesection.jpg') center center no-repeat;
+    min-height: 858px;
+    background-attachment: fixed;
+    background-size: cover;
     width: 100%;
   }
   .phone-three-pic {
@@ -544,20 +547,15 @@ li {
     color: #f9f9f9;
     text-decoration: none;
   }
-  .bbb {
-    max-width: 1920px;
-    height: 600px;
-    position: relative;
-    z-index: 100;
-    overflow: hidden;
-  }
+
   .box {
     max-width: 1920px;
     display: flex;
+
     height: 600px;
     position: absolute;
     z-index: 2;
-    bottom: 0%;
+    bottom: -45%;
     left: 26%;
     right: -35%;
   }
@@ -645,7 +643,7 @@ li {
   }
 
   .button-click {
-    margin-top: 3%;
+    margin-top: 14%;
     margin-bottom: 5%;
     margin-left: 24%;
     display: flex;
@@ -757,10 +755,13 @@ li {
     width: 100%;
   }
   .container-1 {
-    max-width: 576px;
+    width: 320px;
     margin: 0 auto;
   }
-
+  /* .container-1 {
+    max-width: 576px;
+    margin: 0 auto;
+  } */
   .nav > .three-gp-flex {
     display: none;
   }
@@ -856,7 +857,6 @@ li {
     position: relative;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
   }
   .two-colorship {
     display: none;
@@ -890,8 +890,8 @@ li {
     background-color: #f9f9f9;
     position: absolute;
     box-shadow: 3px 5px 8px #0029758e;
-    bottom: -30%;
-    left: -35%;
+    bottom: -28%;
+    left: 10%;
 
     z-index: 3;
     text-align: center;
@@ -962,6 +962,7 @@ li {
   .three-section {
     width: 100%;
     height: 100%;
+    margin-bottom: 330px;
     position: relative;
   }
   /*桌機板的圖要隱藏掉*/
@@ -978,7 +979,7 @@ li {
   /*在桌機隱藏 在手機出現的圖*/
   .phone-three-pic > img {
     width: 100%;
-    height: 50%;
+    height: 100%;
   }
   /*重疊在圖片上的文字*/
   .three-content {
@@ -998,7 +999,7 @@ li {
 
   .newproduct-text {
     position: absolute;
-    bottom: 60%;
+    bottom: 40%;
     left: 4%;
     font-size: 16px;
     color: #f9f9f9;
@@ -1022,23 +1023,15 @@ li {
   .button-black {
     display: none;
   }
-  /* ////手機板phone點擊按鈕的card /// */
-  .phone-threesection-click-card {
-    display: block;
-    width: 100%;
-    height: 450px;
-    /* margin-bottom: 330px; */
-    position: relative;
-    overflow: hidden;
-  }
 
   .box {
     width: 960px;
     display: flex;
     height: 100%;
+
     position: absolute;
     z-index: 2;
-    bottom: 0;
+    bottom: -75%;
     left: 0;
   }
 
@@ -1089,7 +1082,7 @@ li {
     height: 100%;
   }
   .button-click {
-    margin-top: 10%;
+    margin-top: 20%;
     margin-bottom: 15%;
     margin-left: 27%;
     display: flex;
@@ -1117,7 +1110,6 @@ li {
   .best-selling-item {
     display: flex;
     flex-wrap: wrap;
-    margin: 0 auto;
     width: 98%;
     height: 100%;
     margin-top: 5%;
@@ -1125,7 +1117,7 @@ li {
   }
 
   .box2 {
-    width: 49%;
+    width: 48%;
   }
   .box2-pic {
     width: 100%;
@@ -1141,17 +1133,17 @@ li {
   }
 
   .box3 {
-    width: 49%;
+    width: 48%;
     height: 100%;
 
     margin-top: 40px;
   }
   .box4 {
-    width: 49%;
+    width: 48%;
     height: 100%;
   }
   .box5 {
-    width: 49%;
+    width: 48%;
     height: 100%;
 
     margin-top: 40px;
@@ -1159,10 +1151,10 @@ li {
 
   .four-rectangle {
     width: 100%;
-    height: 30%;
+    height: 552px;
     background-color: #fcf5e9;
     position: absolute;
-    bottom: -1%;
+    bottom: 2.5%;
     z-index: -1;
   }
 }

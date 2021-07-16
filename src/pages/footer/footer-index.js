@@ -1,9 +1,10 @@
-import React from 'react'
+// import React from 'react'
 import './footer.css'
-
+import React, { useState, useEffect } from 'react'
 import Logo from './svg/LOGO.svg'
 import phoneLOGO from './svg/phoneLOGO.svg'
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 
 function Footer() {
   return (

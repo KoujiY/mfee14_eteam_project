@@ -1,3 +1,132 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+li,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
 /* ///////////常用工具//// */
 .d-flex {
   display: flex;
@@ -12,41 +141,41 @@
 }
 
 @media screen and (max-width: 1920px) {
-  .container {
+  /* .container {
     margin: 0 auto;
     max-width: 1920px;
-    width: 100%;
     position: relative;
-  }
+  } */
   /* /nav整個部分/ */
   nav {
-    position: fixed;
-    z-index: 100;
+    max-width: 100vw;
     width: 100%;
     height: 120px;
     background-color: #0065b4;
     box-shadow: 0 1px 5px #1e4766;
     opacity: 1;
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
   }
 
   /* /nav整個navbar部分/ */
-
   nav .navbar {
     height: 100%;
-    max-width: 100%;
-    margin: auto;
+    width: 100%;
+    margin: 0 auto;
     display: flex;
     align-items: center;
-    justify-content: space-between;
   }
-  /* /nav局部 logo部分 15%/ */
+  /* /nav局部 logo部分 20%/ */
   .nav-logo {
-    width: 15%;
+    width: 20%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
   }
   .logo {
-    width: 60%;
+    width: 50%;
     height: 50%;
   }
 
@@ -59,9 +188,6 @@
   nav .navbar .nav-links {
     width: 60%;
     height: 100%;
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
     line-height: 120px;
   }
   nav .navbar .nav-links .links {
@@ -137,13 +263,14 @@
     display: none;
   }
   /* //////////////////////////////////////////////////////////////// */
-  /* ///navbar局部右側資訊 25%/// */
+  /* ///navbar局部右側資訊 20%/// */
 
   .loginbar {
-    width: 25%;
+    width: 20%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    text-align: center;
   }
   /* /連結/ */
   .loginbar a {
@@ -180,7 +307,7 @@
 
 @media screen and (max-width: 954px) {
   nav .navbar {
-    max-width: 100%;
+    width: 100%;
     padding: 0 25px;
   }
 
