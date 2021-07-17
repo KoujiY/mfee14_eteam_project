@@ -4,16 +4,19 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import Nav from './pages/nav/nav-index'
 import Index from './pages/index/index'
 import Footer from './pages/footer/footer-index'
-// import Herrosection from './pages/index/components/Herrosection'
+import About from './pages/about-us/about-index'
 
 function App() {
   return (
     //路由器
     <>
-      <Nav />
       <Router>
+        <Nav />
         <>
           <Switch>
+            <Route path="/about">
+              <About />
+            </Route>
             <Route exact path="/">
               <Index />
             </Route>

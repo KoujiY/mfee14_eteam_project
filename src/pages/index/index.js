@@ -206,6 +206,21 @@ function Index(props) {
       }
     })
   }, [])
+  /////////////top返回上///////////////////////
+
+  useEffect(() => {
+    $(document).ready(function () {
+      $('.top-box a').click(function (event) {
+        event.preventDefault()
+        $('html,body').animate(
+          {
+            scrollTop: 0,
+          },
+          3000
+        )
+      })
+    })
+  }, [])
 
   return (
     <>

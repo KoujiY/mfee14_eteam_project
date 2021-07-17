@@ -3,8 +3,12 @@ import './nav.css'
 import Logo from './svg/LOGO.svg'
 import $ from 'jquery'
 import { withRouter } from 'react-router-dom'
+import location1 from './svg/location1.svg'
 
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
+import coffeecup from './svg/coffeecup.svg'
+import coffeebag from './svg/coffeebag.svg'
+import aboutus from './svg/about us.svg'
 
 function Nav() {
   useEffect(() => {
@@ -40,6 +44,9 @@ function Nav() {
         (scrolltop / (websideheight - windowheight)) * 100
       )
       console.log(persent) //等於 scrolltop/scrolltop
+      // if (persent >= 0) {
+      //   $('nav').css(' position', 'fixed').css('z-index', '6')
+      // }
       if (persent >= 15) {
         $('nav').css('opacity', '0')
       } else {
@@ -112,7 +119,7 @@ function Nav() {
               </a>
             </div>
           </div>
-          <div className="nav-links">
+          <div className="nav-links phone-nav-links">
             <div className="sidebar-logo">
               {/*?xml version="1.0" encoding="iso-8859-1"?*/}
               {/* Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  */}
@@ -161,104 +168,129 @@ function Nav() {
                 <a href="#/">店家專區</a>
               </li>
               <li>
-                <a href="#/">店家地圖</a>
-
-                {/*?xml version="1.0" encoding="iso-8859-1"?*/}
-                {/* Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  */}
-                <svg
-                  className="nav-icon-user-home-arrow  bx bxs-chevron-down arrow htmlcss-arrow"
-                  version="1.1"
-                  id="Capa_1"
-                  xmlns="http://www.w3.org/2000/svg"
-                  xmlnsXlink="http://www.w3.org/1999/xlink"
-                  x="0px"
-                  y="0px"
-                  viewBox="0 0 490.688 490.688"
-                  style={{ enableBackground: 'new 0 0 490.688 490.688' }}
-                  xmlSpace="preserve"
-                >
-                  <path
-                    style={{ fill: '#FFC107' }}
-                    d="M472.328,120.529L245.213,347.665L18.098,120.529c-4.237-4.093-10.99-3.975-15.083,0.262
+                <a href="#/">
+                  <div className="phone-allicon-star-close">
+                    店家地圖 {/*?xml version="1.0" encoding="iso-8859-1"?*/}
+                    {/* Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  */}
+                    <svg
+                      className="nav-icon-user-home-arrow  bx bxs-chevron-down arrow htmlcss-arrow"
+                      version="1.1"
+                      id="Capa_1"
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlnsXlink="http://www.w3.org/1999/xlink"
+                      x="0px"
+                      y="0px"
+                      viewBox="0 0 490.688 490.688"
+                      style={{ enableBackground: 'new 0 0 490.688 490.688' }}
+                      xmlSpace="preserve"
+                    >
+                      <path
+                        style={{ fill: '#FFC107' }}
+                        d="M472.328,120.529L245.213,347.665L18.098,120.529c-4.237-4.093-10.99-3.975-15.083,0.262
 	c-3.992,4.134-3.992,10.687,0,14.82l234.667,234.667c4.165,4.164,10.917,4.164,15.083,0l234.667-234.667
 	c4.237-4.093,4.354-10.845,0.262-15.083c-4.093-4.237-10.845-4.354-15.083-0.262c-0.089,0.086-0.176,0.173-0.262,0.262
 	L472.328,120.529z"
-                  />
-                  <path
-                    d="M245.213,373.415c-2.831,0.005-5.548-1.115-7.552-3.115L2.994,135.633c-4.093-4.237-3.975-10.99,0.262-15.083
+                      />
+                      <path
+                        d="M245.213,373.415c-2.831,0.005-5.548-1.115-7.552-3.115L2.994,135.633c-4.093-4.237-3.975-10.99,0.262-15.083
 	c4.134-3.992,10.687-3.992,14.82,0l227.136,227.115l227.115-227.136c4.093-4.237,10.845-4.354,15.083-0.262
 	c4.237,4.093,4.354,10.845,0.262,15.083c-0.086,0.089-0.173,0.176-0.262,0.262L252.744,370.279
 	C250.748,372.281,248.039,373.408,245.213,373.415z"
-                  />
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                </svg>
-
+                      />
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                    </svg>
+                  </div>
+                  <div className="d-flex arrow  bx ">
+                    <img
+                      src={location1}
+                      className="nav-icon-1 icon-close "
+                      alt="coffeecup"
+                    />
+                    <div className="map-item ">
+                      <p>店家地圖</p>
+                      <p className=" ">store map</p>
+                    </div>
+                  </div>
+                </a>
                 <ul className="htmlCss-sub-menu sub-menu">
                   <li>
-                    <a href="#/">店家畫面</a>
+                    <a href="32">店家畫面</a>
                   </li>
                 </ul>
               </li>
               <li>
-                <a href="#/">咖啡介紹</a>
-
-                {/*?xml version="1.0" encoding="iso-8859-1"?*/}
-                {/* Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  */}
-                <svg
-                  className="nav-icon-user-home-arrow bx bxs-chevron-down arrow js-arrow"
-                  version="1.1"
-                  id="Capa_1"
-                  xmlns="http://www.w3.org/2000/svg"
-                  xmlnsXlink="http://www.w3.org/1999/xlink"
-                  x="0px"
-                  y="0px"
-                  viewBox="0 0 490.688 490.688"
-                  style={{ enableBackground: 'new 0 0 490.688 490.688' }}
-                  xmlSpace="preserve"
-                >
-                  <path
-                    style={{ fill: '#FFC107' }}
-                    d="M472.328,120.529L245.213,347.665L18.098,120.529c-4.237-4.093-10.99-3.975-15.083,0.262
+                <a href="#/">
+                  <div className="phone-allicon-star-close ">
+                    咖啡介紹 {/*?xml version="1.0" encoding="iso-8859-1"?*/}
+                    {/* Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  */}
+                    <svg
+                      className="nav-icon-user-home-arrow  bx bxs-chevron-down arrow js-arrow"
+                      version="1.1"
+                      id="Capa_1"
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlnsXlink="http://www.w3.org/1999/xlink"
+                      x="0px"
+                      y="0px"
+                      viewBox="0 0 490.688 490.688"
+                      style={{ enableBackground: 'new 0 0 490.688 490.688' }}
+                      xmlSpace="preserve"
+                    >
+                      <path
+                        style={{ fill: '#FFC107' }}
+                        d="M472.328,120.529L245.213,347.665L18.098,120.529c-4.237-4.093-10.99-3.975-15.083,0.262
 	c-3.992,4.134-3.992,10.687,0,14.82l234.667,234.667c4.165,4.164,10.917,4.164,15.083,0l234.667-234.667
 	c4.237-4.093,4.354-10.845,0.262-15.083c-4.093-4.237-10.845-4.354-15.083-0.262c-0.089,0.086-0.176,0.173-0.262,0.262
 	L472.328,120.529z"
-                  />
-                  <path
-                    d="M245.213,373.415c-2.831,0.005-5.548-1.115-7.552-3.115L2.994,135.633c-4.093-4.237-3.975-10.99,0.262-15.083
+                      />
+                      <path
+                        d="M245.213,373.415c-2.831,0.005-5.548-1.115-7.552-3.115L2.994,135.633c-4.093-4.237-3.975-10.99,0.262-15.083
 	c4.134-3.992,10.687-3.992,14.82,0l227.136,227.115l227.115-227.136c4.093-4.237,10.845-4.354,15.083-0.262
 	c4.237,4.093,4.354,10.845,0.262,15.083c-0.086,0.089-0.173,0.176-0.262,0.262L252.744,370.279
 	C250.748,372.281,248.039,373.408,245.213,373.415z"
-                  />
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                </svg>
+                      />
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                    </svg>
+                  </div>
+                  <div className="d-flex bx arrow ">
+                    <img
+                      src={coffeecup}
+                      className="nav-icon-1 icon-close  "
+                      alt="coffeecup"
+                    />
+                    <div className="coffee-indroduce-item">
+                      <p>咖啡介紹</p>
+                      <p>indroduce</p>
+                    </div>
+                  </div>
+                </a>
 
                 <ul className="js-sub-menu sub-menu">
                   <li>
@@ -279,51 +311,64 @@ function Nav() {
                 </ul>
               </li>
               <li>
-                <a href="#/">全部商品</a>
-
-                {/*?xml version="1.0" encoding="iso-8859-1"?*/}
-                {/* Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  */}
-                <svg
-                  className="nav-icon-user-home-arrow bx bxs-chevron-down arrow all-arrow"
-                  version="1.1"
-                  id="Capa_1"
-                  xmlns="http://www.w3.org/2000/svg"
-                  xmlnsXlink="http://www.w3.org/1999/xlink"
-                  x="0px"
-                  y="0px"
-                  viewBox="0 0 490.688 490.688"
-                  style={{ enableBackground: 'new 0 0 490.688 490.688' }}
-                  xmlSpace="preserve"
-                >
-                  <path
-                    style={{ fill: '#FFC107' }}
-                    d="M472.328,120.529L245.213,347.665L18.098,120.529c-4.237-4.093-10.99-3.975-15.083,0.262
+                <a href="#/">
+                  <div className="phone-allicon-star-close">
+                    全部商品 {/*?xml version="1.0" encoding="iso-8859-1"?*/}
+                    {/* Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  */}
+                    <svg
+                      className="nav-icon-user-home-arrow  bx bxs-chevron-down arrow all-arrow"
+                      version="1.1"
+                      id="Capa_1"
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlnsXlink="http://www.w3.org/1999/xlink"
+                      x="0px"
+                      y="0px"
+                      viewBox="0 0 490.688 490.688"
+                      style={{ enableBackground: 'new 0 0 490.688 490.688' }}
+                      xmlSpace="preserve"
+                    >
+                      <path
+                        style={{ fill: '#FFC107' }}
+                        d="M472.328,120.529L245.213,347.665L18.098,120.529c-4.237-4.093-10.99-3.975-15.083,0.262
 	c-3.992,4.134-3.992,10.687,0,14.82l234.667,234.667c4.165,4.164,10.917,4.164,15.083,0l234.667-234.667
 	c4.237-4.093,4.354-10.845,0.262-15.083c-4.093-4.237-10.845-4.354-15.083-0.262c-0.089,0.086-0.176,0.173-0.262,0.262
 	L472.328,120.529z"
-                  />
-                  <path
-                    d="M245.213,373.415c-2.831,0.005-5.548-1.115-7.552-3.115L2.994,135.633c-4.093-4.237-3.975-10.99,0.262-15.083
+                      />
+                      <path
+                        d="M245.213,373.415c-2.831,0.005-5.548-1.115-7.552-3.115L2.994,135.633c-4.093-4.237-3.975-10.99,0.262-15.083
 	c4.134-3.992,10.687-3.992,14.82,0l227.136,227.115l227.115-227.136c4.093-4.237,10.845-4.354,15.083-0.262
 	c4.237,4.093,4.354,10.845,0.262,15.083c-0.086,0.089-0.173,0.176-0.262,0.262L252.744,370.279
 	C250.748,372.281,248.039,373.408,245.213,373.415z"
-                  />
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                  <g></g>
-                </svg>
+                      />
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                      <g></g>
+                    </svg>
+                  </div>
+                  <div className="d-flex bx arrow">
+                    <img
+                      src={coffeebag}
+                      className="nav-icon-1 icon-close  "
+                      alt="coffeecup"
+                    />
+                    <div className="allproduce-item">
+                      <p>全部商品</p>
+                      <p className=" ">products</p>
+                    </div>
+                  </div>
+                </a>
 
                 <ul className="all-sub-menu sub-menu">
                   <li>
@@ -341,7 +386,20 @@ function Nav() {
                 </ul>
               </li>
               <li>
-                <a href="#/">關於我們</a>
+                <Link to="/about">
+                  <div className="phone-allicon-star-close">關於我們</div>
+                  <div className="d-flex bx arrow">
+                    <img
+                      src={aboutus}
+                      className="nav-icon-2  icon-close "
+                      alt="coffeecup"
+                    />
+                    <div className="about-item  ">
+                      <p>關於我們</p>
+                      <p className=" ">about us</p>
+                    </div>
+                  </div>
+                </Link>
               </li>
             </ul>
           </div>

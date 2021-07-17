@@ -404,7 +404,9 @@ function Threesection() {
           </svg>
         </div>
       </div>
-      <div className="top-box">TOP</div>
+      <div className="top-box">
+        <a href="#">TOP</a>
+      </div>
       <div className="four-rectangle"></div>
     </>
   )

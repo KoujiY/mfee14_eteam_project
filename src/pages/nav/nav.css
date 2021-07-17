@@ -141,6 +141,17 @@ table {
 }
 
 @media screen and (max-width: 1920px) {
+  .nav-icon-1 {
+    width: 45px;
+    height: 35px;
+    fill: #f9f9f9;
+  }
+  .nav-icon-2 {
+    width: 56px;
+    height: 35px;
+    fill: #f9f9f9;
+    padding-right: 5px;
+  }
   /* .container {
     margin: 0 auto;
     max-width: 1920px;
@@ -154,8 +165,8 @@ table {
     background-color: #0065b4;
     box-shadow: 0 1px 5px #1e4766;
     opacity: 1;
-    position: fixed;
-    z-index: 100;
+    /* position: fixed;
+    z-index: 3; */
     top: 0;
     left: 0;
   }
@@ -186,9 +197,13 @@ table {
   /* ////////navbar中間部分 60%///////////// */
   nav .navbar .nav-links {
     width: 60%;
-    height: 100%;
-    line-height: 120px;
+    height: 37%;
+    /* line-height: 55px; */
   }
+  /* .phone-nav-links{
+    display: none;
+  } */
+
   nav .navbar .nav-links .links {
     display: flex;
     justify-content: center;
@@ -204,29 +219,29 @@ table {
   /* //nav箭頭svg// */
   nav .navbar .nav-links .links li a {
     height: 100%;
-    color: #fff;
+    color: #f9f9f9;
     text-decoration: none;
     white-space: nowrap;
     font-size: 16px;
     font-weight: 500;
   }
   nav .navbar .nav-links .links li .arrow {
-    height: 100%;
-    width: 15px;
+    height: 220%;
+    /* width: 15px; */
     text-align: center;
     color: #f9f9f9;
-    line-height: 70px;
+    line-height: 18px;
     transition: all 0.3 ease;
   }
-  .navbar .nav-links .links li:hover .htmlcss-arrow,
+  /* .navbar .nav-links .links li:hover .htmlcss-arrow,
   .navbar .nav-links .links li:hover .js-arrow,
   .navbar .nav-links .links li:hover .all-arrow {
     transform: rotate(180deg);
-  }
+  } */
   /* //nav下拉選單menu/// */
   .navbar .nav-links .links .sub-menu {
     position: absolute;
-    top: 120px;
+    top: 80px;
     left: 0;
     right: 0;
     width: 100%;
@@ -302,9 +317,35 @@ table {
   .phone-loginbar {
     display: none;
   }
+
+  /* ///////手機板的menu內容關起來/// */
+  .phone-allicon-star-close {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 954px) {
+  .map-item {
+    display: none;
+  }
+  .coffee-indroduce-item {
+    display: none;
+  }
+  .allproduce-item {
+    display: none;
+  }
+  .about-item {
+    display: none;
+  }
+
+  /* ///////手機板的menu內容打開/// */
+  .phone-allicon-star-close {
+    display: block;
+  }
+  .icon-close {
+    display: none;
+  }
+
   nav .navbar {
     width: 100%;
     padding: 0 25px;
@@ -435,7 +476,7 @@ table {
   }
   /* ///////////// 把桌機板的箭頭顏色改變/////////////////////// */
   .nav-icon-user-home-arrow {
-    fill: #a53737;
+    fill: #ff5554;
   }
 }
 
@@ -475,6 +516,8 @@ table {
     line-height: 30px;
     transition: all 0.5s ease;
     z-index: 100;
+    /* text-align: center;
+    margin: 0 auto; */
   }
 
   /* //漢堡選單的叉叉 */
@@ -526,5 +569,9 @@ table {
   /* /漢堡選單字的顏色/ */
   nav .navbar .nav-links .links li a {
     color: #0065b4;
+  }
+
+  nav .navbar .phone-nav-links {
+    height: 100%;
   }
 }

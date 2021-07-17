@@ -748,7 +748,11 @@ li {
     text-align: center;
     right: 0;
     z-index: 5;
-    bottom: 1%;
+    bottom: -36%;
+  }
+  .top-box a {
+    color: #f9f9f9;
+    text-decoration: none;
   }
 }
 
@@ -1093,6 +1097,11 @@ li {
     margin-bottom: 15%;
     margin-left: 27%;
     display: flex;
+  }
+  .top-box {
+    position: fixed;
+    right: 0;
+    bottom: 0;
   }
   /* /////////////////////////////////////////////// */
   /* 第四頁 */
