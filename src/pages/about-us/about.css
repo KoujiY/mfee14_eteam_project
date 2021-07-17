@@ -10,28 +10,58 @@
     margin: 0 auto;
     max-width: 1200px;
   }
-  .about-content-group {
-    background: #fcf5e9;
+  /* //////最外層//// */
+  .about-big-group {
     width: 100%;
-    height: 500px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+  }
+  /* //////上層///////// */
+  .herro-section-top-group {
+    width: 100%;
+    height: 100px;
     display: flex;
   }
+
   .about-titlebox {
+    width: 30%;
+    height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 30%;
-    height: 100px;
     background: #fcf5e9;
     border-bottom: 10px #659de198 solid;
   }
-  .about-box-title1 {
-    border-bottom: 10px #ff5554 solid;
+
+  /* //////下層///////// */
+  .herro-section-bottom-group {
+    overflow: hidden;
+    width: 100%;
+    height: 500px;
+    margin: 0 auto;
+    background-color: darkgray;
   }
-  .about-box-title2 {
+
+  .carousel-pic {
+    position: relative;
+    overflow: hidden;
+    width: 1200px;
+    height: 500px;
   }
-  .about-box-title3 {
+  .carousel-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
-  .about-box-title4 {
+
+  /* ////輪播軸的最長寬////////// */
+  .about-img-wrap {
+    display: flex;
+    width: 4800px;
+    /* transform: translateX(0px); */
+    height: 100%;
+    /* z-index: -5; */
   }
+  /* //////////////////////// */
 }
