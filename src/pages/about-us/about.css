@@ -67,6 +67,11 @@
   .pic-block4 {
     display: block;
   }
+  .likeicon svg {
+    width: 50px;
+    height: 50px;
+    fill: blueviolet;
+  }
   .ss {
     height: 1000px;
     width: 100%;
