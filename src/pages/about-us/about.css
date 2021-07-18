@@ -1,5 +1,3 @@
-.about-content-group {
-}
 @media screen and (max-width: 1920px) {
   .container {
     margin: 0 auto;
@@ -16,6 +14,7 @@
     height: 600px;
     display: flex;
     flex-direction: column;
+    margin: 100px 0;
   }
   /* //////上層///////// */
   .herro-section-top-group {
@@ -30,7 +29,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #fcf5e9;
+    background: #f9f9f9;
     border-bottom: 10px #659de198 solid;
   }
 
@@ -40,9 +39,11 @@
     width: 100%;
     height: 500px;
     margin: 0 auto;
-    background-color: darkgray;
+    position: relative;
   }
-
+  .d-flex {
+    display: flex;
+  }
   .carousel-pic {
     position: relative;
     overflow: hidden;
@@ -54,14 +55,26 @@
     height: 100%;
     object-fit: cover;
   }
+  .pic-block1 {
+    display: block;
+  }
+  .pic-block2 {
+    display: block;
+  }
+  .pic-block3 {
+    display: block;
+  }
+  .pic-block4 {
+    display: block;
+  }
 
   /* ////輪播軸的最長寬////////// */
-  .about-img-wrap {
+  /* .about-img-wrap {
     display: flex;
-    width: 4800px;
-    /* transform: translateX(0px); */
+    width: 1200px;
+    transform: translateX(0px);
     height: 100%;
-    /* z-index: -5; */
-  }
+    z-index: -5;
+  } */
   /* //////////////////////// */
 }

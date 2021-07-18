@@ -29,33 +29,32 @@ function About() {
   }, [])
 
   useEffect(() => {
-    $('.about-border-ck-bottom-2').on('click', () => {
-      $('.pic-block1').css('display', 'none')
-      $('.pic-block2').css('display', 'block')
-      $('.pic-block3').css('display', 'none')
-      $('.pic-block4').css('display', 'none')
-    })
-
     $('.about-border-ck-bottom-1').on('click', () => {
-      $('.pic-block1').css('display', 'block')
-      $('.pic-block2').css('display', 'none')
-      $('.pic-block3').css('display', 'none')
-      $('.pic-block4').css('display', 'none')
-      $('.about-border-ck-bottom-2').css('border-bottom', 'red solid 10px')
+      $('.pic-block1').fadeIn(1000)
+      $('.pic-block2').fadeOut(4000)
+      $('.pic-block3').fadeOut(4000)
+      $('.pic-block4').fadeOut(4000)
     })
+    // $('.about-border-ck-bottom-2').on('click', () => {
+    //   $('.pic-block1').fadeOut(4000)
+    //   $('.pic-block2').fadeIn(1000)
+    //   $('.pic-block3').fadeOut(4000)
+    //   $('.pic-block4').fadeOut(4000)
+    // })
 
-    $('.about-border-ck-bottom-3').on('click', () => {
-      $('.pic-block1').css('display', 'none')
-      $('.pic-block2').css('display', 'none')
-      $('.pic-block3').css('display', 'block')
-      $('.pic-block4').css('display', 'none')
-    })
-    $('.about-border-ck-bottom-4').on('click', () => {
-      $('.pic-block1').css('display', 'none')
-      $('.pic-block2').css('display', 'none')
-      $('.pic-block3').css('display', 'none')
-      $('.pic-block4').css('display', 'block')
-    })
+    // $('.about-border-ck-bottom-3').on('click', () => {
+    //   $('.pic-block1').fadeOut(4000)
+    //   $('.pic-block2').fadeOut(4000)
+    //   $('.pic-block3').fadeIn(1000)
+    //   $('.pic-block4').fadeOut(4000)
+    // })
+    // $('.about-border-ck-bottom-4').on('click', () => {
+    //   $('.pic-block1').fadeOut(4000)
+    //   $('.pic-block2').fadeOut(4000)
+    //   $('.pic-block3').fadeOut(4000)
+    //   $('.pic-block4').fadeIn(1000)
+    // })
+    ////////////////////////////////////////////////////////////////
     $('.about-border-ck-bottom-1').on('click', () => {
       $('.about-border-ck-bottom-1').css('border-bottom', '#FF5554 solid 10px')
       $('.about-border-ck-bottom-2').css(
