@@ -22,8 +22,13 @@ function About() {
       // if (persent >= 0) {
       //   $('nav').css(' position', 'fixed').css('z-index', '6')
       // }
-      if (persent >= 0) {
-        $('nav').css('opacity', '1')
+      // if (persent >= 0) {
+      //   $('nav').css('opacity', '1')
+      // }
+      if (persent >= 15) {
+        $('nav').css('opacity', '0')
+      } else {
+        $('nav').css('transition', '0.5s').css('opacity', '1')
       }
     })
   }, [])
@@ -153,6 +158,7 @@ function About() {
             </div>
           </div>
         </div>
+        <div className="ss">132132</div>
       </div>
     </>
   )

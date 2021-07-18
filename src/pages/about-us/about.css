@@ -14,7 +14,7 @@
     height: 600px;
     display: flex;
     flex-direction: column;
-    margin: 100px 0;
+    margin-top: 120px;
   }
   /* //////上層///////// */
   .herro-section-top-group {
@@ -66,6 +66,11 @@
   }
   .pic-block4 {
     display: block;
+  }
+  .ss {
+    height: 1000px;
+    width: 100%;
+    background-color: blue;
   }
 
   /* ////輪播軸的最長寬////////// */

@@ -165,8 +165,8 @@ table {
     background-color: #0065b4;
     box-shadow: 0 1px 5px #1e4766;
     opacity: 1;
-    /* position: fixed;
-    z-index: 3; */
+    position: fixed;
+    z-index: 3;
     top: 0;
     left: 0;
   }

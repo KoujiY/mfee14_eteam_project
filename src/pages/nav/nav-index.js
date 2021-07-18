@@ -44,10 +44,8 @@ function Nav() {
         (scrolltop / (websideheight - windowheight)) * 100
       )
       console.log(persent) //等於 scrolltop/scrolltop
-      // if (persent >= 0) {
-      //   $('nav').css(' position', 'fixed').css('z-index', '6')
-      // }
-      if (persent >= 15) {
+
+      if (persent >= 10) {
         $('nav').css('opacity', '0')
       } else {
         $('nav').css('transition', '0.5s').css('opacity', '1')

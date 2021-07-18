@@ -194,7 +194,7 @@ li {
   /*主視覺畫面*/
 
   .herro-section {
-    width: 1920px;
+    width: 100%;
     height: 100%;
     overflow: hidden;
     position: relative;
@@ -207,15 +207,12 @@ li {
     transform: translateX(0px);
     height: 100%;
     z-index: -5;
-    top: 0;
-    left: 0;
-    transition: 3s;
   }
 
   .onepage-pic {
     position: relative;
     overflow: hidden;
-    width: 1920px;
+    width: 100%;
     height: 100%;
   }
 

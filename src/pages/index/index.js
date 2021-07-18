@@ -84,6 +84,27 @@ function Index(props) {
     generalServer()
   }, [])
 
+  //////////nav/////////////////
+  useEffect(() => {
+    $(window).scroll(function () {
+      let scrolltop = $(this).scrollTop() //console.log(scrolltop);
+      let windowheight = $(window).height() //為可視範圍console.log(windowheight);
+      let websideheight = $('body').height() //console.log(websideheight);
+      let persent = Math.floor(
+        (scrolltop / (websideheight - windowheight)) * 100
+      )
+      console.log(persent) //等於 scrolltop/scrolltop
+      // if (persent >= 0) {
+      //   $('nav').css(' position', 'fixed').css('z-index', '6')
+      // }
+      if (persent >= 15) {
+        $('nav').css('opacity', '0')
+      } else {
+        $('nav').css('transition', '0.5s').css('opacity', '1')
+      }
+    })
+  }, [])
+
   /////////////////////////////////////////////////////
 
   /////////////////////自動輪播軸/////////////////////////
