@@ -2,22 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
-// const IconBox = styled.div`
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   color: #659de1;
-//   label {
-//     width: 70px;
-//     margin: 0px auto;
-//   }
-// `
 const IconBorder = styled.div`
-  ${
-    '' /* width: 70px;
-  height: 70px;
-  border-radius: 50%; */
-  }
   display: flex;
   justify-content: center;
   align-items: center;

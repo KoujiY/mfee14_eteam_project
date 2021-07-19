@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react'
 
 import Steppers from '../components/Steppers'
@@ -40,7 +39,6 @@ const TestForm = () => {
       total: '',
     },
   ])
-
   const [step2, setStep2] = useState({
     error: '',
     country: '',
@@ -61,41 +59,8 @@ const TestForm = () => {
     validity: '',
     ccv: '',
     payment: '',
-    agree: false,
+    // agree: false,
   })
-  //欄位名
-  // const [state, setState] = useState({
-  //   products: [
-  //     {
-  //       iId: '9999',
-  //       pic: 'https://fakeimg.pl/125x125/',
-  //       name: '範例咖啡豆',
-  //       category: '',
-  //       iPrice: 123,
-  //       iCount: 1,
-  //       total: '',
-  //     },
-  //   ],
-  //   address: {
-  //     error: '',
-  //     country: '',
-  //     city: '',
-  //     township: '',
-  //     street: '',
-  //     choose: '宅配', //單選 value
-  //     name: '',
-  //     phone: '',
-  //     email: '',
-  //   },
-  //   credit: {
-  //     creditName: '',
-  //     creditNum: '',
-  //     validity: '',
-  //     securityCode: '',
-  //     payment: false,
-  //     agree: false,
-  //   },
-  // })
 
   //單價跟規格連動
   const [cateLabel, setCateLabel] = useState(0)
@@ -190,7 +155,7 @@ const TestForm = () => {
         errors.email = validEmail.test(value) ? '' : '請填正確信箱'
         break
       case 'payment':
-        errors.payment = false ? '必選，快付錢' : ''
+        errors.payment = false ? '請選擇付款方式' : ''
         break
       case 'creditName':
         errors.creditName = value.length < 2 ? '姓名至少填寫2字以上' : ''

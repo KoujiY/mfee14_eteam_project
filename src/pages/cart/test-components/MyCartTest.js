@@ -1,7 +1,14 @@
 import React, { useState } from 'react'
 import TotalBar from '../components/TotalBar'
 import CartCard from '../components/CartCard'
-import { Container } from '@material-ui/core'
+import {
+  Container,
+  Grid,
+  makeStyles,
+  Paper,
+  Typography,
+  Hidden,
+} from '@material-ui/core'
 // let products = {
 //   iId: '',
 //   pic: 'https://fakeimg.pl/250x100/',
@@ -48,79 +55,82 @@ function MyCartTest(props) {
     count,
     setCount,
   } = props
-  // const [product, setProduct] = useState({
-  //   iId: '9999',
-  //   pic: 'https://fakeimg.pl/125x125/',
-  //   name: '範例咖啡豆',
-  //   category: '',
-  //   iPrice: 123,
-  //   count: '',
-  //   total: '',
-  // })
-
-  // //單價跟規格連動
-  // const [cateLabel, setCateLabel] = useState(0)
-  // const [price, setPrice] = useState(0)
-
-  // const handleChange = (e) => {
-  //   setCateLabel(e.target.value)
-  //   setPrice(e.target.value)
-  // }
-
-  // const [count, setCount] = useState(1)
-
+  const useStyles = makeStyles((theme) => ({
+    root: {
+      flexGrow: 1,
+    },
+    paper: {
+      padding: theme.spacing(0),
+      textAlign: 'center',
+      color: theme.palette.text.secondary,
+    },
+    typography: {
+      padding: theme.spacing(2),
+    },
+  }))
+  const classes = useStyles()
   return (
     <>
-      <Container>
-        <div className="cartBody">
-          <table>
-            <h2>我的購物車</h2>
-            <thead className="cart-thead">
-              <th className="cart-th">商品圖片</th>
-              <th className="cart-th">商品名稱</th>
-              <th className="cart-th">規格</th>
-              <th className="cart-th">商品數量</th>
-              <th className="cart-th">商品價格</th>
-              <th className="cart-th">總價</th>
-              <th className="cart-th" colSpan="2"></th>
-            </thead>
-            {/* <div className="cart-thead">
-              <div className="cart-th">商品圖片</div>
-              <div className="cart-th">商品名稱</div>
-              <div className="cart-th">規格</div>
-              <div className="cart-th">商品數量</div>
-              <div className="cart-th">商品價格</div>
-              <div className="cart-th">總價</div>
-              <div className="cart-th"> </div>
-              <div> </div>
-            </div> */}
-            <tbody className="item-card">
-              <CartCard
-                step1={step1}
-                setStep1={setStep1}
-                count={count}
-                setCount={setCount}
-                cateLabel={cateLabel}
-                setCategory={setCateLabel}
-                handleChange={handleChange}
-                price={price}
-                setPrice={setPrice}
-                cateLabels={cateLabels}
-              />
-            </tbody>
-          </table>
+      <div className="cartBody">
+        <Grid container xs={12} className={classes.root}>
+          <Grid item xs={12}>
+            <table>
+              <Hidden xsDown>
+                <Paper xs={6} elevation={0}>
+                  <Typography>
+                    <h2>我的購物車</h2>
+                  </Typography>
+
+                  <thead className="cart-thead">
+                    <th className="cart-th">商品圖片</th>
+                    <th className="cart-th">商品名稱</th>
+                    <th className="cart-th">規格</th>
+                    <th className="cart-th">商品數量</th>
+                    <th className="cart-th">商品價格</th>
+                    <th className="cart-th">總價</th>
+                    <th className="cart-th" colSpan="2"></th>
+                  </thead>
+                  {/* <div className="cart-thead">
+            <div className="cart-th">商品圖片</div>
+            <div className="cart-th">商品名稱</div>
+            <div className="cart-th">規格</div>
+            <div className="cart-th">商品數量</div>
+            <div className="cart-th">商品價格</div>
+            <div className="cart-th">總價</div>
+            <div className="cart-th"> </div>
+            <div> </div>
+          </div> */}
+                </Paper>
+              </Hidden>
+              <Paper elevation={0}>
+                <tbody>
+                  <CartCard
+                    step1={step1}
+                    setStep1={setStep1}
+                    count={count}
+                    setCount={setCount}
+                    cateLabel={cateLabel}
+                    setCategory={setCateLabel}
+                    handleChange={handleChange}
+                    price={price}
+                    setPrice={setPrice}
+                    cateLabels={cateLabels}
+                  />
+                </tbody>
+              </Paper>
+            </table>
+          </Grid>
+        </Grid>
+      </div>
+      <div className="cartBody itemRecom">
+        <h3>猜你喜歡</h3>
+        <div className="recommend-card">
+          <img src="" alt="商品圖片" />
+          <p>推薦商品</p>
+          <span>NT$ 700</span>
+          <button>購買</button>
         </div>
-        <TotalBar />
-        <div className="cartBody">
-          <h3>猜你喜歡</h3>
-          <div className="recommend-card">
-            <img src="" alt="商品圖片" />
-            <p>推薦商品</p>
-            <span>NT$ 700</span>
-            <button>購買</button>
-          </div>
-        </div>
-      </Container>
+      </div>
     </>
   )
 }

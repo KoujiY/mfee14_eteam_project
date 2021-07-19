@@ -14,6 +14,7 @@ import {
   AccordionDetails,
   Typography,
   AccordionSummary,
+  Grid
 } from '@material-ui/core'
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
@@ -21,9 +22,8 @@ import styled from 'styled-components'
 // import './App.css'
 
 //組件
-// import MyCartCheck from './components/MyCartCheck'
+import MyCartCheck from '../components/MyCartCheck'
 import AddressCheck from '../components/AddressCheck'
-import TotalBar from '../components/TotalBar'
 
 //styled components
 const CreditField = styled(FormGroup)`
@@ -31,19 +31,25 @@ const CreditField = styled(FormGroup)`
 `
 const validCreditNum = new RegExp(/\b(?:\d{4}[ -]?){3}(?=\d{4}\b)/)
 function CreditForm(props) {
-  const { step3, setStep3, handleStep3Change, register, errors, step2 } = props
+  const { step3, setStep3, handleStep3Change, register, errors, step2, step1 } =
+    props
 
   return (
     <>
       <div className="cartBody dropDown">
-        <h2>我的購物車</h2>
         <img alt="收合icon" onClick={() => {}}></img>
-        {/* <DropDown> */}
-        {/* <MyCartCheck /> */}
-        {/* </DropDown> */}
+        <Accordion>
+          <AccordionSummary>
+            <h2>我的購物車</h2>
+          </AccordionSummary>
+          <AccordionDetails>
+            {/* <Grid container> */}
+              <MyCartCheck step1={step1} />
+            {/* </Grid> */}
+          </AccordionDetails>
+        </Accordion>
       </div>
 
-      {/* <DropDown> */}
       <div className="cartBody dropDown">
         <Accordion>
           <AccordionSummary>
@@ -53,8 +59,6 @@ function CreditForm(props) {
             <AddressCheck step2={step2} />
           </AccordionDetails>
         </Accordion>
-
-        {/* </DropDown> */}
       </div>
 
       <div className="cartBody">
@@ -174,7 +178,7 @@ function CreditForm(props) {
 
           <FormGroup>
             <FormControlLabel
-              value="credit"
+              value="信用卡"
               name="payment"
               control={<Radio size="small" />}
               label="信用卡"
@@ -186,7 +190,7 @@ function CreditForm(props) {
             <div className="changeText"></div>
             <img alt="icon" />
           </FormGroup>
-          {step3.payment !== '' && step3.payment === 'credit' ? (
+          {step3.payment !== '' && step3.payment === '信用卡' ? (
             <CreditField type="primary" className="creditField">
               <div className="inputName">
                 <label htmlFor="creditName">持卡人姓名</label>
@@ -283,7 +287,6 @@ function CreditForm(props) {
           />
         </RadioGroup>
       </div>
-      <TotalBar></TotalBar>
     </>
   )
 }

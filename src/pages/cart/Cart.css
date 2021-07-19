@@ -1,58 +1,96 @@
-body{
-    background-color: #F9F9F9;
+body {
+  background-color: #f9f9f9;
 }
-h2{
-    display: flex;
-    justify-content: center;
-    margin: 0 auto 30px;
+h2 {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto 30px;
+  color: #0065b4;
+  height: 30px;
 }
-.cartBody{
-    margin: 60px auto;
-    padding-top: 30px;
-    width: 100%;
-    max-width: 1200px;
-    background-color: #ffffff;
-
-
+.cartBody {
+  margin: 30px auto 15px;
+  padding: 30px auto 60px;
+  width: 100%;
+  max-width: 1200px;
+  background-color: #ffffff;
 }
-.cart-thead{
-    margin: 10px auto;
-    width: 80%;
-    height: 80%;
-    max-height: 50px;
-    min-height: 30px;
-    max-width: 960px;
-    background-color: #659DE1;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    color: #ffffff;
-    padding:auto 3px;
+table {
+  width: 90%;
+  max-width: 960px;
+  display: flexbox;
+  justify-content: center;
+  margin: 0 auto;
 }
-
-.item-card{
-    max-width: 932px;
-    width: initial;
-    height: 150px;
-    display: flex;
-    flex-wrap: wrap;
-    /* display: flex; */
-    /* justify-content:stretch; */
-    margin:15px auto;
-    color:#0065B4;
-
-
+.cart-thead {
+  margin: 10px auto;
+  /* width: 80%; */
+  height: 80%;
+  max-height: 50px;
+  min-height: 30px;
+  background-color: #659de1;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: #ffffff;
+  padding: auto 3px;
 }
 
-.outlineChoose{
-    background-color: transparent;
-    border: 1px solid #002875;
-    padding:8px 15px;
-    color:#002875;
-    border-radius: 3px;
+.item-card {
+  margin: 10px auto;
+  max-width: 932px;
+  width: 932px;
+  height: 150px;
+  display: flex;
+  justify-content: stretch;
+  align-items: center;
+  margin: 15px auto;
+  color: #0065b4;
 }
-.outlineChoose:hover{
-    background-color: #0065B4;
-    color:#ffffff;
-    border:1px solid #0065B4;
+
+.outlineChoose {
+  background-color: transparent;
+  border: 1px solid #002875;
+  padding: 8px 15px;
+  color: #002875;
+  border-radius: 3px;
 }
+.outlineChoose:hover {
+  background-color: #0065b4;
+  color: #ffffff;
+  border: 1px solid #0065b4;
+}
+.formBody {
+  color: #002875;
+  border-top: 1px solid #0065b4;
+  display: flex;
+  justify-content: space-evenly;
+}
+.formContext {
+  color: #0065b4;
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+small {
+  text-align: right;
+}
+.addressPart {
+  margin: 30px auto;
+}
+.inputName {
+  height: 25px auto;
+  display: flex;
+  /* justify-content: space-between; */
+}
+.inputName label {
+  margin-right: 15px;
+  text-align: right;
+  width: 100px;
+}
+.line {
+    width: 1px;
+    background-color: rgb(185, 185, 185);
+    margin: 30px 35px;
+  }

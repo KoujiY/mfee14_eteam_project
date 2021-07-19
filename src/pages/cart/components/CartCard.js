@@ -4,7 +4,13 @@
  * 3.未連動資料庫(sql語法未完成)
  */
 import React, { useState } from 'react'
-import { TextField, MenuItem } from '@material-ui/core'
+import {
+  TextField,
+  MenuItem,
+  Container,
+  makeStyles,
+  Grid,
+} from '@material-ui/core'
 import styled from 'styled-components'
 
 //功能組件
@@ -28,58 +34,108 @@ function CartCard(props) {
     setCount,
     cateLabels,
   } = props
-
+  const useStyles = makeStyles((theme) => ({
+    root: {
+      flexGrow: 1,
+      padding: theme.spacing(2)
+    },
+    paper: {
+      padding: theme.spacing(2),
+      textAlign: 'center',
+      color: theme.palette.text.secondary,
+      height: '150px',
+    },
+    image: {
+      width: 125,
+      height: 125,
+    },
+    img: {
+      margin: 'auto',
+      display: 'block',
+      maxWidth: '100%',
+      maxHeight: '100%',
+    },
+    Grid: {},
+  }))
+  const classes = useStyles()
   return (
     <>
-      <div className="cart-tbody">
-        <div className="item-card">
-          <div>
-            {/* input id rwd作用 */}
-            <input type="hidden" className="cartId" value={step1[0].iId} />
-            <img src={step1[0].pic} alt="商品圖片" />
-          </div>
-          <div>{step1[0].name}</div>
-          <div>
-            <TextField select value={cateLabel} onChange={handleChange}>
-              {cateLabels.map((option) => (
-                <MenuItem key={option.value} value={option.value}>
-                  {option.label}
-                </MenuItem>
-              ))}
-            </TextField>
-          </div>
-          <div>
-            <button
-              type="button"
-              onClick={() => (count <= 1 ? 1 : setCount(count - 1))}
-            >
-              -
-            </button>
-            <input
-              type="text"
-              value={count}
-              onChange={count}
-              min="1"
-              max="10"
-              maxLength="2"
-            />
-            {count}
-            <button type="button" onClick={() => setCount(count + 1)}>
-              +
-            </button>
-          </div>
-          <div>{step1[0].iPrice}</div>
-          <div>{step1[0].iPrice * count}</div>
-          <CartFunc>
-            <button className="outlineChoose" onClick={() => {}}>
-              下次再買
-            </button>
-            <button onClick={() => {}}>
-              <img src="" alt="iconDelete" />
-            </button>
-          </CartFunc>
-        </div>
-      </div>
+      <tbody className="cart-tbody">
+        {step1.length < 0 ? (
+          <Container className="item-card">
+            購物車沒有商品QQ
+            <button>去選購</button>
+          </Container>
+        ) : (
+          step1.map((v, i) => {
+            v.name = step1[i].name
+            v.pic = step1[i].pic
+            v.iId = step1[i].iId
+            v.iCount = step1[i].iCount
+            v.iPrice = step1[i].iPrice
+            v.total = v.iCount * v.iPrice
+            return (
+              <tr key={i} value={i}>
+                {/* <Grid item xs className={classes.paper}> */}
+                <td className="item-td">
+                  {/* input id rwd作用 */}
+                  <input
+                    type="hidden"
+                    key={i}
+                    className="cartId"
+                    value={v.iId}
+                  />
+                  <img src={v.pic} alt="商品圖片" className={classes.img} />
+                </td>
+
+                <td key={i} value={i}>
+                  {v.name}
+                </td>
+
+                <td className="item-td">
+                  <TextField
+                    select
+                    value={v.cateLabel}
+                    key={i}
+                    onChange={v.handleChange}
+                  >
+                    {cateLabels.map((option) => (
+                      <MenuItem key={option.value} value={option.value}>
+                        {option.label}
+                      </MenuItem>
+                    ))}
+                  </TextField>
+                </td>
+
+                <td className="item-td">
+                  <button
+                    type="button"
+                    onClick={() => (v.iCount <= 1 ? 1 : setCount(v.iCount - 1))}
+                  >
+                    -
+                  </button>
+                  {v.iCount}
+                  <button type="button" onClick={setCount(v.iCount - 1)}>
+                    +
+                  </button>
+                </td>
+
+                <td className="item-td">{v.iPrice}</td>
+
+                <td className="item-td">{v.total}</td>
+
+                <td colSpan="2" className="item-td">
+                  <button className="outlineChoose" onClick={(e) => {}}>
+                    下次再買
+                  </button>
+                  <button className="outlineChoose">X</button>
+                </td>
+                {/* </Grid> */}
+              </tr>
+            )
+          })
+        )}
+      </tbody>
     </>
   )
 }

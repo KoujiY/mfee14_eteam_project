@@ -25,8 +25,6 @@ import '../Cart.css'
 import { useForm } from 'react-hook-form'
 //組件
 import MyCartCheck from '../components/MyCartCheck'
-import TotalBar from '../components/TotalBar'
-import Input from '../components/Input'
 
 function Address(props) {
   const {
@@ -141,8 +139,8 @@ function Address(props) {
                     //   errors.city === -1 ? <span>{errors.city}</span> : ''
                     // }
                   >
-                  {console.log(errors)}
-                  {/* {console.log(errors.city)} */}
+                    {console.log(errors)}
+                    {/* {console.log(errors.city)} */}
                     <MenuItem value="-1" option>
                       <em>請選擇縣市</em>
                     </MenuItem>
@@ -157,7 +155,6 @@ function Address(props) {
                       </MenuItem>
                     ))}
                   </TextField>
-                  
                 </div>
                 <div class="inputName">
                   <label htmlFor="township">鄉鎮區</label>
@@ -311,7 +308,6 @@ function Address(props) {
           </FormGroup>
         </Grid>
       </Container>
-      <TotalBar />
     </>
   )
 }
