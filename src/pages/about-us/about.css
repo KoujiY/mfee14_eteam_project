@@ -15,6 +15,7 @@
     display: flex;
     flex-direction: column;
     margin-top: 120px;
+    margin-bottom: 120px;
   }
   /* //////上層///////// */
   .herro-section-top-group {
@@ -67,16 +68,23 @@
   .pic-block4 {
     display: block;
   }
-  .likeicon svg {
-    width: 50px;
-    height: 50px;
-    fill: blueviolet;
+  /* ///////喜歡//////// */
+  /* .likeicon {
+    width: 60px;
+    height: 60px;
+    fill: rgb(139, 138, 139);
   }
-  .ss {
+  .likeicon.active {
+    fill: brown;
+  } */
+  /* .ss {
     height: 1000px;
     width: 100%;
-    background-color: blue;
+    background-color: cadetblue;
   }
+  .ss.active {
+    background-color: rgb(160, 95, 120);
+  } */
 
   /* ////輪播軸的最長寬////////// */
   /* .about-img-wrap {
@@ -87,4 +95,56 @@
     z-index: -5;
   } */
   /* //////////////////////// */
+  .about-banner-group {
+    margin-top: 160px;
+    max-width: 1200px;
+    height: 400px;
+
+    position: relative;
+    z-index: 100;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    margin: 120px auto;
+    /* margin-left: auto;
+    margin-right: auto; */
+    padding-right: 16px;
+    font-family: Noto sans-serif;
+  }
+  .about-banner-after {
+    content: '';
+    display: block;
+    width: 90%;
+    max-width: 1050px;
+    height: 400px;
+    position: absolute;
+    left: 50%;
+    top: 40px;
+    transform: translateX(-50%);
+    background-color: #f1efed;
+  }
+  .about-banner-pic {
+    width: 800px;
+    height: 400px;
+    margin-right: 7%;
+  }
+  .about-banner-pic img {
+    width: 100%;
+    height: 400px;
+  }
+  .about-banner-pic:before {
+    content: '';
+    width: 800px;
+    height: 400px;
+    display: block;
+    border: 1px solid #e2e2e2;
+    position: absolute;
+    left: 20px;
+    top: 20px;
+  }
+  .about-banner-content {
+    margin-top: 25px;
+    width: 400px;
+    position: relative;
+  }
 }
