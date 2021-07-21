@@ -3,7 +3,7 @@
  * 2.總價待修正變數值(setPrice), 商品數量加減沒有連動到 state中
  * 3.未連動資料庫(sql語法未完成)
  */
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {
   TextField,
   MenuItem,
@@ -21,6 +21,8 @@ const CartFunc = styled.div`
 `
 
 function CartCard(props) {
+  const [dataLoading, setDataLoading] = useState(false)
+
   const {
     step1,
     setStep1,
@@ -34,10 +36,74 @@ function CartCard(props) {
     setCount,
     cateLabels,
   } = props
+  async function getCartFromServer() {
+    // 開啟載入指示
+    setDataLoading(true)
+
+    // 連接的伺服器資料網址
+    const url = 'http://localhost:7000/cart'
+    // const url = Settings.host + '/users'
+
+    // 注意header資料格式要設定，伺服器才知道是json格式
+    const request = new Request(url, {
+      method: 'GET',
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'appliaction/json',
+      }),
+    })
+
+    const response = await fetch(request)
+    const cart1 = await response.json()
+    console.log(cart1)
+    // 設定資料
+    setStep1(cart1)
+  }
+  
+  async function deletcUserFromServer(iId) {
+    // 開啟載入指示
+    setDataLoading(true)
+
+    // 連接的伺服器資料網址
+    const url = 'http://localhost:7000/cart/' + iId
+
+    // 注意header資料格式要設定，伺服器才知道是json格式
+    const request = new Request(url, {
+      method: 'DELETE',
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'appliaction/json',
+      }),
+    })
+
+    const response = await fetch(request)
+    const data = await response.json()
+    console.log(data)
+
+    // 設定資料
+    if (!data.iId) {
+      const newStep1 = step1.filter((value, index) => {
+        return value.id !== step1
+      })
+
+      setStep1(newStep1)
+      alert('刪除完成')
+    }
+  }
+  useEffect(() => {
+    getCartFromServer()
+  }, [])
+  // 每次users資料有變動就會X秒後關掉載入指示
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setDataLoading(false)
+  //   }, 1000)
+  // }, [step1])
+
   const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
-      padding: theme.spacing(2)
+      padding: theme.spacing(2),
     },
     paper: {
       padding: theme.spacing(2),
@@ -128,7 +194,12 @@ function CartCard(props) {
                   <button className="outlineChoose" onClick={(e) => {}}>
                     下次再買
                   </button>
-                  <button className="outlineChoose">X</button>
+                  <button
+                    className="outlineChoose"
+                    onClick={() => deletcUserFromServer(v.iId)}
+                  >
+                    X
+                  </button>
                 </td>
                 {/* </Grid> */}
               </tr>

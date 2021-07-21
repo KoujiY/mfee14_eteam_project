@@ -18,15 +18,12 @@ function FinalCheck(props) {
     count,
     setCount,
     step2,
-    setStep2,
-    handleStep2Change,
     step3,
   } = props
   return (
     <>
       <div className="cartBody dropDown">
         <h2>我的購物車</h2>
-        <img alt="收合icon" onClick={() => {}}></img>
         <MyCartCheck
           step1={step1}
           setStep1={setStep1}
@@ -42,7 +39,6 @@ function FinalCheck(props) {
       </div>
       <div className="cartBody dropDown">
         <h2>收貨地址</h2>
-        <img alt="收合icon" onClick={() => {}}></img>
         <AddressCheck step2={step2} />
       </div>
       <CreditCheck step3={step3} />
@@ -66,7 +62,6 @@ function FinalCheck(props) {
           </h3>
         </div>
       </div>
-      <button>結帳</button>
     </>
   )
 }

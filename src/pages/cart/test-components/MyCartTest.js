@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import TotalBar from '../components/TotalBar'
 import CartCard from '../components/CartCard'
 import {
@@ -9,39 +9,20 @@ import {
   Typography,
   Hidden,
 } from '@material-ui/core'
-// let products = {
-//   iId: '',
-//   pic: 'https://fakeimg.pl/250x100/',
-//   name: '',
-//   category: '',
-//   price: '123',
-//   count: 1,
-//   total: '',
-// }
-//種類設定
-// const cateLabels = [
-//   {
-//     value: 0,
-//     label: '200g',
-//     price: 200,
-//   },
-//   {
-//     value: 1,
-//     label: '500g',
-//     price: 400,
-//   },
-//   {
-//     value: 2,
-//     label: '1kg',
-//     price: 600,
-//   },
-//   {
-//     value: 3,
-//     label: '1.5kg',
-//     price: 800,
-//   },
-// ]
 
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
+  paper: {
+    padding: theme.spacing(0),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+  },
+  typography: {
+    padding: theme.spacing(2),
+  },
+}))
 function MyCartTest(props) {
   const {
     step1,
@@ -55,19 +36,69 @@ function MyCartTest(props) {
     count,
     setCount,
   } = props
-  const useStyles = makeStyles((theme) => ({
-    root: {
-      flexGrow: 1,
-    },
-    paper: {
-      padding: theme.spacing(0),
-      textAlign: 'center',
-      color: theme.palette.text.secondary,
-    },
-    typography: {
-      padding: theme.spacing(2),
-    },
-  }))
+  // async function getCartFromServer() {
+  //   // 開啟載入指示
+  //   // setDataLoading(true)
+
+  //   // 連接的伺服器資料網址
+  //   const url = 'http://localhost:7000/cart'
+  //   // const url = Settings.host + '/users'
+
+  //   // 注意header資料格式要設定，伺服器才知道是json格式
+  //   const request = new Request(url, {
+  //     method: 'GET',
+  //     headers: new Headers({
+  //       Accept: 'application/json',
+  //       'Content-Type': 'appliaction/json',
+  //     }),
+  //   })
+
+  //   const response = await fetch(request)
+  //   const data = await response.json()
+  //   console.log(data)
+  //   // 設定資料
+  //   setStep1(data)
+  // }
+
+  async function addCartFromServer() {
+    // 開啟載入指示
+    // setDataLoading(true)
+
+    // 連接的伺服器資料網址
+    const url = 'http://localhost:7000/cart'
+    // const url = Settings.host + '/users'
+    const newData = [
+      {
+        // iId: '',
+        // pic: '',
+        // name: '',
+        // category: '',
+        // iPrice: '',
+        // iCount: '',
+        // total: '',
+      },
+    ]
+    // 注意header資料格式要設定，伺服器才知道是json格式
+    const request = new Request(url, {
+      method: 'POST',
+      body: JSON.stringify(newData), //要轉為json
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      }),
+    })
+
+    const response = await fetch(request)
+    const data = await response.json()
+    // 設定資料
+    setStep1(data)
+    console.log('伺服器回傳的json資料', data)
+  }
+
+  useEffect(() => {
+    addCartFromServer()
+  }, [])
+
   const classes = useStyles()
   return (
     <>
@@ -128,7 +159,7 @@ function MyCartTest(props) {
           <img src="" alt="商品圖片" />
           <p>推薦商品</p>
           <span>NT$ 700</span>
-          <button>購買</button>
+          <button onClick={() => addCartFromServer()}>購買</button>
         </div>
       </div>
     </>

@@ -71,6 +71,7 @@ table {
   font-size: 1.2rem;
   display: flex;
   justify-content: space-between;
+  /* margin: auto 29px; */
 }
 
 small {
@@ -94,3 +95,7 @@ small {
     background-color: rgb(185, 185, 185);
     margin: 30px 35px;
   }
+
+  @media (max-width: 600px) and (width: 100%){ 
+    .forPhone{width: 100%;}
+   }

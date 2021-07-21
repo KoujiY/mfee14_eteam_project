@@ -21,9 +21,10 @@ import {
   Toolbar,
   Grid,
   TextField,
+  Hidden,
+  Container,
 } from '@material-ui/core'
 import '../Cart.css'
-import { useForm } from 'react-hook-form'
 
 import IconCart from './IconCart'
 
@@ -355,27 +356,55 @@ export default function Steppers(props) {
         ) : (
           <div>
             {/* 結帳流程圖 */}
-            <Stepper
-              alternativeLabel
-              activeStep={activeStep}
-              connector={<ColorlibConnector />}
-              className={classes.root}
-            >
-              {/* onClick流程圖回上一頁還有 bug(不能跳回指定那頁，只能返回第一頁) */}
-              {steps.map((label) => (
-                <Step key={label}>
-                  <StepLabel
-                    alternativeLabel={true}
-                    StepIconComponent={ColorlibStepIcon}
-                    className={classes.root}
-                    disabled={activeStep === 0}
-                    onClick={activeStep === 0 ? 'disabled' : handleBack}
-                  >
-                    {label}
-                  </StepLabel>
-                </Step>
-              ))}
-            </Stepper>
+            <Hidden xsDown>
+              <Stepper
+                alternativeLabel
+                activeStep={activeStep}
+                connector={<ColorlibConnector />}
+                className={classes.root}
+              >
+                {/* onClick流程圖回上一頁還有 bug(不能跳回指定那頁，只能返回第一頁) */}
+                {steps.map((label) => (
+                  <Step key={label}>
+                    <StepLabel
+                      alternativeLabel={true}
+                      StepIconComponent={ColorlibStepIcon}
+                      className={classes.root}
+                      disabled={activeStep === 0}
+                      onClick={activeStep === 0 ? 'disabled' : handleBack}
+                    >
+                      {label}
+                    </StepLabel>
+                  </Step>
+                ))}
+              </Stepper>
+            </Hidden>
+            <Hidden smUp>
+              <AppBar
+                style={{
+                  width: '100%',
+                  height: '60px',
+                  backgroundColor: '#0065B4',
+                  position: 'sticky',
+                }}
+              >
+                <Toolbar>
+                  <Button onClick={handleBack} style={{ color: 'white' }}>
+                    +
+                  </Button>
+                  <Typography>
+                    {activeStep === steps.length - 1
+                      ? '確認訂單'
+                      : activeStep === 2
+                      ? '選擇付款'
+                      : activeStep === 1
+                      ? '收貨地址'
+                      : '我的購物車'}
+                  </Typography>
+                </Toolbar>
+              </AppBar>
+            </Hidden>
+
             <form
               onSubmit={handleSubmit}
               onChange={handleErrors}
@@ -386,79 +415,91 @@ export default function Steppers(props) {
                 {getStepContent(activeStep)}
               </Typography>
               {/* <input type="submit" /> */}
-              <Grid container xs={12}>
-                <Paper position="fixed" className="cartBody">
-                  <div>
-                    <Grid item xs={3}>
-                      <Typography>總金額:</Typography>
-                    </Grid>
-                    <Grid item xs={3}>
-                      <Typography>
-                        NT$
-                        {step1.map((v, i) => {
-                          v.iPrice = step1[i].iPrice
-                          v.iCount = step1[i].iCount
-                          v.total = v.iPrice * v.iCount
-                          for (let i = 0; i < step1.length - 1; i++) {
-                            v.total += v.total[i]
-                            console.log(v.total)
-                          }
-                          return v.total
-                        })}
-                      </Typography>
-                    </Grid>
-                    <Grid item xs={6}>
-                      {/* <Button
+              <AppBar position="fixed" style={{ top: 'auto', bottom: 0 }}>
+                <Toolbar>
+                  <Grid container xs={12} position="sticky">
+                    <Paper className="cartBody">
+                      <div>
+                        <Grid item xs={3}>
+                          <Typography>總金額:</Typography>
+                        </Grid>
+                        <Grid item xs={3}>
+                          <Typography>
+                            NT$
+                            {step1.map((v, i) => {
+                              v.iPrice = step1[i].iPrice
+                              v.iCount = step1[i].iCount
+                              v.total = v.iPrice * v.iCount
+                              for (let i = 0; i < step1.length - 1; i++) {
+                                v.total += v.total[i]
+                                console.log(v.total)
+                              }
+                              return v.total
+                            })}
+                          </Typography>
+                        </Grid>
+                        <Grid item xs={6}>
+                          {/* <Button
                 disabled={activeStep === 0}
                 onClick={handleBack}
                 className={classes.button}
               >
                 上一頁
               </Button> */}
-                      <Button
-                        onChange={handleSubmit}
-                        position="fixed"
-                        variant="contained"
-                        color="primary"
-                        onClick={handleNext}
-                        className={classes.button}
-                        disabled={activeStep === 0 && step1.length < 0}
-                        type={
-                          activeStep < steps.length - 1 ? 'button' : 'submit'
-                        }
-                      >
-                        {activeStep === steps.length - 1
-                          ? '結帳'
-                          : activeStep < 2
-                          ? '下一頁'
-                          : '確認訂單'}
-                      </Button>
-                    </Grid>
-                  </div>
+                          <Button
+                            onChange={handleSubmit}
+                            position="fixed"
+                            variant="contained"
+                            color="primary"
+                            onClick={handleNext}
+                            className={classes.button}
+                            disabled={activeStep === 0 && step1.length < 0}
+                            type={
+                              activeStep < steps.length - 1
+                                ? 'button'
+                                : 'submit'
+                            }
+                          >
+                            {activeStep === steps.length - 1
+                              ? '結帳'
+                              : activeStep < 2
+                              ? '下一頁'
+                              : '確認訂單'}
+                          </Button>
+                        </Grid>
+                      </div>
 
-                  <div>
-                    <Grid
-                      item
-                      style={{ gridColumnEnd: 'span 8', direction: 'row' }}
-                    >
-                      <Grid
-                        style={{ gridColumnEnd: 'span 6', direction: 'row' }}
-                      >
-                        <label>折扣碼</label>
-                      </Grid>
-                      <Grid
-                        style={{ gridColumnEnd: 'span 6', direction: 'row' }}
-                      >
-                        <TextField
-                          input
-                          label=""
-                          inputProps={{ width: '100px' }}
-                        ></TextField>
-                      </Grid>
-                    </Grid>
-                  </div>
-                </Paper>
-              </Grid>
+                      <div>
+                        <Grid
+                          item
+                          style={{ gridColumnEnd: 'span 8', direction: 'row' }}
+                        >
+                          <Grid
+                            style={{
+                              gridColumnEnd: 'span 6',
+                              direction: 'row',
+                            }}
+                          >
+                            <label>折扣碼</label>
+                          </Grid>
+                          <Grid
+                            style={{
+                              gridColumnEnd: 'span 6',
+                              direction: 'row',
+                            }}
+                          >
+                            <TextField
+                              select
+                              label=""
+                              inputProps={{ width: '100px' }}
+                            ></TextField>
+                          </Grid>
+                        </Grid>
+                      </div>
+                    </Paper>
+                  </Grid>
+                </Toolbar>
+              </AppBar>
             </form>
           </div>
         )}

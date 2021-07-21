@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import Steppers from '../components/Steppers'
 import { cities, townships } from '../data/townships'
@@ -29,16 +29,26 @@ const cateLabels = [
 const TestForm = () => {
   //分步驟為 3 step
   const [step1, setStep1] = useState([
+    // {
+    //   iId: '9999',
+    //   pic: 'https://fakeimg.pl/125x125/',
+    //   name: '範例咖啡豆',
+    //   category: '',
+    //   iPrice: 123,
+    //   iCount: 1,
+    //   total: '',
+    // },
     {
-      iId: '9999',
-      pic: 'https://fakeimg.pl/125x125/',
-      name: '範例咖啡豆',
-      category: '',
-      iPrice: 123,
-      iCount: 1,
-      total: '',
+      // iId: '',
+      // pic: '',
+      // name: '',
+      // // category: '',
+      // iPrice: '',
+      // iCount: '',
+      // total: '',
     },
   ])
+  console.log(step1.length)
   const [step2, setStep2] = useState({
     error: '',
     country: '',
@@ -209,27 +219,65 @@ const TestForm = () => {
   const handleInvalid = (e) => {
     e.preventDefault()
 
-    const updatedStep2Errors = {
-      ...step2Errors,
-      [e.target.name]: () => {
-        let temp = {}
-        // temp.country = step2.country || step2.street ? '' : '必填，不得為空'
-        temp.phone = RegExp(/^09\d{8}$/).test(step2.phone) ? '' : '請填手機號碼'
-        temp.email = RegExp(/\S+@\S+\.\S+/).test(step2.email) ? '' : '請填信箱'
-
-        setStep2Errors({
-          ...temp,
-        })
-        return Object.values(temp).every((x) => x == '')
-      },
-    }
     // const updatedStep3Errors = {
     //   ...step3Errors,
     //   [e.target.name]: e.target.validationMessage,
     // }
-    setStep2Errors(updatedStep2Errors)
+    // setStep2Errors(updatedStep2Errors)
   }
 
+  // async function getCartFromServer() {
+  //   // 開啟載入指示
+  //   // setDataLoading(true)
+
+  //   // 連接的伺服器資料網址
+  //   const url = 'http://localhost:6005/cart'
+  //   // const url = Settings.host + '/users'
+
+  //   // 注意header資料格式要設定，伺服器才知道是json格式
+  //   const request = new Request(url, {
+  //     method: 'GET',
+  //     headers: new Headers({
+  //       Accept: 'application/json',
+  //       'Content-Type': 'appliaction/json',
+  //     }),
+  //   })
+
+  //   const response = await fetch(request)
+  //   const data = await response.json()
+  //   console.log(data)
+  //   // 設定資料
+  //   getCartFromServer(data)
+  // }
+
+  // async function addUsersFromServer() {
+  //   // 開啟載入指示
+  //   // setDataLoading(true)
+
+  //   // 連接的伺服器資料網址
+  //   const url = 'http://localhost:6005/cart'
+  //   // const url = Settings.host + '/users'
+
+  //   // 注意header資料格式要設定，伺服器才知道是json格式
+  //   const request = new Request(url, {
+  //     method: 'POST',
+  //     body: JSON.stringify(step1), //要轉為json
+  //     headers: new Headers({
+  //       Accept: 'application/json',
+  //       'Content-Type': 'application/json',
+  //     }),
+  //   })
+
+  //   const response = await fetch(request)
+  //   const data = await response.json()
+  //   console.log(data)
+  //   // 設定資料
+  //   addUsersFromServer(step1)
+  // }
+
+  // useEffect(() => {
+  //   getCartFromServer()
+  // }, [])
   return (
     <>
       <Steppers

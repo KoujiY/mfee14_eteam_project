@@ -14,7 +14,7 @@ function TotalBar(props) {
         </div>
         <div>
           <label>折扣碼</label>
-          <input type="text" placeholder="請輸入折扣碼" />
+          <select type="text" placeholder="請輸入折扣碼" />
         </div>
       </div>
     </>

@@ -16,7 +16,7 @@ function Address(props) {
       <div className="stepped">
         <img src="" alt="流程圖" />
       </div>
-      <div className="cartBody dropDown">
+      <div className="cartBody forPhone dropDown">
         <h2>我的購物車</h2>
         <svg alt="收合icon" onClick={() => {}}></svg>
         <DropDown>

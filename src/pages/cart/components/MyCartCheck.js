@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { TextField, MenuItem, Container,Grid } from '@material-ui/core'
+import { TextField, MenuItem, Container, Grid, Hidden } from '@material-ui/core'
 
 //組件
 import CartCard from './CartCard'
@@ -46,22 +46,25 @@ function MyCartCheck(props) {
   // ]
   return (
     <>
-      <Container>
-        <div className="cart-thead">
-          <div className="cart-th">商品圖片</div>
-          <div className="cart-th">商品名稱</div>
-          <div className="cart-th">規格</div>
-          <div className="cart-th">商品數量</div>
-          <div className="cart-th">商品價格</div>
-          <div className="cart-th">總價</div>
-        </div>
-      </Container>
+      <Hidden smDown>
+        <Container>
+          <div className="cart-thead">
+            <div className="cart-th">商品圖片</div>
+            <div className="cart-th">商品名稱</div>
+            <div className="cart-th">規格</div>
+            <div className="cart-th">商品數量</div>
+            <div className="cart-th">商品價格</div>
+            <div className="cart-th">總價</div>
+          </div>
+        </Container>
+      </Hidden>
+
       <tbody className="cart-tbody">
         {step1.length < 0 ? (
-          <Container className="item-card">
+          <Grid item className="item-card">
             購物車沒有商品QQ
             <button>去選購</button>
-          </Container>
+          </Grid>
         ) : (
           step1.map((v, i) => {
             v.iId = step1[i].iId
