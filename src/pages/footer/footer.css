@@ -142,50 +142,31 @@ li,
 ul {
   list-style: none;
 }
-
-.fontsize-20 {
-  font-size: 20px;
+li a {
+  display: block;
 }
-
-.mt-30 {
-  margin-top: 30px;
+.footer-pr-16 {
+  padding-right: 16px;
 }
-.py-15 {
-  padding: 15px 0;
+.footer-mb-32 {
+  margin-bottom: 32px;
 }
-.mb-20 {
-  margin-top: 20px;
+.footer-mb-16 {
+  margin-bottom: 16px;
 }
-.pb-32 {
+.footer-pb-12 {
+  padding-bottom: 12px;
+}
+.footer-pb-32 {
   padding-bottom: 32px;
 }
-.pb-20 {
-  padding-bottom: 20px;
-}
 
-.mb-30 {
-  margin-bottom: 30px;
-}
-
-/* .fontsize16 {
-  font-size: 16px;
-} */
-
-/* .d-flex-columm {
-  display: flex;
-  flex-direction: column;
-} */
-.d-flex {
-  display: flex;
+.footer-line-height-20 {
+  line-height: 20px;
 }
 
 /*container    rwd*/
 @media screen and (max-width: 1920px) {
-  .container {
-    margin: 0 auto;
-    max-width: 1920px;
-    position: relative;
-  }
   .container-1 {
     margin: 0 auto;
     max-width: 1200px;
@@ -263,22 +244,30 @@ ul {
   .partner > ul > li {
     padding-bottom: 15px;
   }
-
-  .footer-right > a {
-    padding-bottom: 15px;
+  .footer-mr-6 {
+    padding-right: 6px;
   }
-  /*.button-w =白色方形按鈕*/
-  .button-w {
+  .footer-mb-12 {
+    margin-bottom: 12px;
+  }
+  .footer-mb-18 {
+    margin-bottom: 18px;
+  }
+
+  /* .footer-right > a {
+    padding-bottom: 15px;
+  } */
+  /*.footer-solid-button-white =白色方形按鈕*/
+  .footer-solid-button-white {
     text-align: center;
     padding: 10px 0;
-
     width: 210px;
     height: 40px;
-
     color: #f9f9f9;
     border: 2px solid #f9f9f9;
+    margin-bottom: 20px;
   }
-  .button-w > a {
+  .footer-solid-button-white > a {
     text-decoration: none;
     color: #f9f9f9;
   }
@@ -294,37 +283,48 @@ ul {
 
   .copyright {
     text-align: center;
-    margin-top: 10%;
+    margin-top: 15%;
+  }
+  .footer-community-icon {
+    width: 20px;
+    height: 20px;
+    fill: #f9f9f9;
+  }
+  .footer-small-size10 {
+    font-size: 10px;
+  }
+  .footer-size16 {
+    font-size: 16px;
+  }
+  .footer-size12-noto {
+    font-size: 12px;
+  }
+  .phone-text-follow {
+    display: none;
   }
 }
-
+/* 1231231515151521321323135155151155515151515 */
 @media screen and (min-width: 320px) and (max-width: 576px) {
-  .container {
-    max-width: 100%;
-  }
-  .container-1 {
-    margin: 0 auto;
-    max-width: 100%;
-  }
   .footer-bg {
     width: 100%;
     height: 460px;
     background-color: #0065b4;
     color: #f9f9f9;
     text-decoration: none;
+    overflow: hidden;
   }
   /*footer的群組*/
   .footer-group {
-    padding-top: 20px;
+    padding-top: 32px;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
   /*手機板的圖片*/
   .phonelogo2 {
-    width: 60%;
-    height: 40px;
-    margin-bottom: 15px;
+    width: 50%;
+    height: 27px;
+    margin-bottom: 30px;
   }
   .phonelogo2 > img {
     width: 100%;
@@ -337,19 +337,7 @@ ul {
   .partner {
     display: none;
   }
-
-  .logo2 {
-    display: flex;
-
-    width: 150px;
-
-    height: 100%;
-  }
-  .logo2 > img {
-    width: 100%;
-
-    height: 100%;
-  }
+  /*  */
   .footer-left {
     display: none;
   }
@@ -361,8 +349,8 @@ ul {
     display: flex;
   }
 
-  /*.button-w =白色方形按鈕*/
-  .button-w {
+  /*.footer-solid-button-white =白色方形按鈕*/
+  .footer-solid-button-white {
     text-align: center;
     padding: 10px 0;
 
@@ -372,13 +360,14 @@ ul {
     color: #f9f9f9;
     border: 2px solid #f9f9f9;
   }
-  .button-w > a {
+  .footer-solid-button-white > a {
     text-decoration: none;
     color: #f9f9f9;
   }
   /*手機板的文字*/
   .phone-item {
     display: block;
+    text-align: center;
   }
 
   /*手機板的logo*/
@@ -387,7 +376,12 @@ ul {
   }
 
   .copyright {
-    text-align: center;
-    margin-bottom: 100px;
+    font-size: 8px;
+    margin-top: 5%;
+
+    color: #f9f9f9;
+  }
+  .phone-text-follow {
+    display: block;
   }
 }

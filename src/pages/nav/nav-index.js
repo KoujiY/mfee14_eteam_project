@@ -43,7 +43,7 @@ function Nav() {
       let persent = Math.floor(
         (scrolltop / (websideheight - windowheight)) * 100
       )
-      console.log(persent) //等於 scrolltop/scrolltop
+      // console.log(persent) //等於 scrolltop/scrolltop
 
       if (persent >= 10) {
         $('nav').css('opacity', '0')
@@ -112,9 +112,9 @@ function Nav() {
 
           <div className="nav-logo">
             <div className="logo">
-              <a href="#/">
+              <Link to="/">
                 <img src={Logo} alt="Logo" />
-              </a>
+              </Link>
             </div>
           </div>
           <div className="nav-links phone-nav-links">
@@ -163,10 +163,10 @@ function Nav() {
 
             <ul className="links">
               <li className="phone-shop">
-                <a href="#/">店家專區</a>
+                <Link to="#/">店家專區</Link>
               </li>
               <li>
-                <a href="#/">
+                <Link to="#/">
                   <div className="phone-allicon-star-close">
                     店家地圖 {/*?xml version="1.0" encoding="iso-8859-1"?*/}
                     {/* Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  */}
@@ -212,7 +212,7 @@ function Nav() {
                       <g></g>
                     </svg>
                   </div>
-                  <div className="d-flex arrow  bx ">
+                  <div className="nav-d-flex arrow  bx ">
                     <img
                       src={location1}
                       className="nav-icon-1 icon-close "
@@ -223,15 +223,15 @@ function Nav() {
                       <p className=" ">store map</p>
                     </div>
                   </div>
-                </a>
+                </Link>
                 <ul className="htmlCss-sub-menu sub-menu">
                   <li>
-                    <a href="32">店家畫面</a>
+                    <Link to="#/">店家畫面</Link>
                   </li>
                 </ul>
               </li>
               <li>
-                <a href="#/">
+                <Link to="#/">
                   <div className="phone-allicon-star-close ">
                     咖啡介紹 {/*?xml version="1.0" encoding="iso-8859-1"?*/}
                     {/* Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  */}
@@ -277,7 +277,7 @@ function Nav() {
                       <g></g>
                     </svg>
                   </div>
-                  <div className="d-flex bx arrow ">
+                  <div className="nav-d-flex bx arrow ">
                     <img
                       src={coffeecup}
                       className="nav-icon-1 icon-close  "
@@ -288,28 +288,28 @@ function Nav() {
                       <p>indroduce</p>
                     </div>
                   </div>
-                </a>
+                </Link>
 
                 <ul className="js-sub-menu sub-menu">
                   <li>
-                    <a href="#/">地球儀動態展示選擇</a>
+                    <Link to="#/">地球儀動態展示選擇</Link>
                   </li>
                   <li>
-                    <a href="#/">台灣地圖展示選擇</a>
+                    <Link to="#/">台灣地圖展示選擇</Link>
                   </li>
                   <li>
-                    <a href="#/">地球儀動態展示選擇</a>
+                    <Link to="#/">地球儀動態展示選擇</Link>
                   </li>
                   <li>
-                    <a href="#/">屬性標籤分類選擇</a>
+                    <Link to="#/">屬性標籤分類選擇</Link>
                   </li>
                   <li>
-                    <a href="#/">產地/產品介紹</a>
+                    <Link to="#/">產地/產品介紹</Link>
                   </li>
                 </ul>
               </li>
               <li>
-                <a href="#/">
+                <Link to="#/">
                   <div className="phone-allicon-star-close">
                     全部商品 {/*?xml version="1.0" encoding="iso-8859-1"?*/}
                     {/* Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  */}
@@ -355,7 +355,7 @@ function Nav() {
                       <g></g>
                     </svg>
                   </div>
-                  <div className="d-flex bx arrow">
+                  <div className="nav-d-flex bx arrow">
                     <img
                       src={coffeebag}
                       className="nav-icon-1 icon-close  "
@@ -366,27 +366,27 @@ function Nav() {
                       <p className=" ">products</p>
                     </div>
                   </div>
-                </a>
+                </Link>
 
                 <ul className="all-sub-menu sub-menu">
                   <li>
-                    <a href="#/">咖啡</a>
+                    <Link to="#/">咖啡</Link>
                   </li>
                   <li>
-                    <a href="#/">器材</a>
+                    <Link to="#/">器材</Link>
                   </li>
                   <li>
-                    <a href="#/">甜點</a>
+                    <Link to="#/">甜點</Link>
                   </li>
                   <li>
-                    <a href="#/">品牌周邊</a>
+                    <Link to="#/">品牌周邊</Link>
                   </li>
                 </ul>
               </li>
               <li>
                 <Link to="/about">
                   <div className="phone-allicon-star-close">關於我們</div>
-                  <div className="d-flex bx arrow">
+                  <div className="nav-d-flex bx arrow">
                     <img
                       src={aboutus}
                       className="nav-icon-2  icon-close "
@@ -403,7 +403,7 @@ function Nav() {
           </div>
           <div className="loginbar">
             <div className="loginbar-left">
-              <a href="#/">
+              <Link to="#/">
                 {/*?xml version="1.0" encoding="iso-8859-1"?*/}
                 {/* Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  */}
                 <svg
@@ -446,10 +446,10 @@ function Nav() {
                   <g></g>
                 </svg>
                 登入/註冊
-              </a>
+              </Link>
             </div>
             <div className="loginbar-center">
-              <a href="#/">
+              <Link to="#/">
                 {/*?xml version="1.0" encoding="iso-8859-1"?*/}
                 {/* Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  */}
                 <svg
@@ -493,65 +493,67 @@ function Nav() {
                   <g></g>
                 </svg>
                 店家專區
-              </a>
+              </Link>
             </div>
             <div className="loginbar-right">
-              {/*?xml version="1.0" encoding="iso-8859-1"?*/}
-              {/* Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  */}
-              <svg
-                className="nav-icon-chart"
-                version="1.1"
-                id="Capa_1"
-                xmlns="http://www.w3.org/2000/svg"
-                xmlnsXlink="http://www.w3.org/1999/xlink"
-                x="0px"
-                y="0px"
-                viewBox="0 0 450.391 450.391"
-                style={{ enableBackground: 'new 0 0 450.391 450.391' }}
-                xmlSpace="preserve"
-              >
-                <g>
+              <Link to="#/">
+                {/*?xml version="1.0" encoding="iso-8859-1"?*/}
+                {/* Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  */}
+                <svg
+                  className="nav-icon-chart"
+                  version="1.1"
+                  id="Capa_1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlnsXlink="http://www.w3.org/1999/xlink"
+                  x="0px"
+                  y="0px"
+                  viewBox="0 0 450.391 450.391"
+                  style={{ enableBackground: 'new 0 0 450.391 450.391' }}
+                  xmlSpace="preserve"
+                >
                   <g>
                     <g>
-                      <path
-                        d="M143.673,350.322c-25.969,0-47.02,21.052-47.02,47.02c0,25.969,21.052,47.02,47.02,47.02
+                      <g>
+                        <path
+                          d="M143.673,350.322c-25.969,0-47.02,21.052-47.02,47.02c0,25.969,21.052,47.02,47.02,47.02
 				c25.969,0,47.02-21.052,47.02-47.02C190.694,371.374,169.642,350.322,143.673,350.322z M143.673,423.465
 				c-14.427,0-26.122-11.695-26.122-26.122c0-14.427,11.695-26.122,26.122-26.122c14.427,0,26.122,11.695,26.122,26.122
 				C169.796,411.77,158.1,423.465,143.673,423.465z"
-                      />
-                      <path
-                        d="M342.204,350.322c-25.969,0-47.02,21.052-47.02,47.02c0,25.969,21.052,47.02,47.02,47.02s47.02-21.052,47.02-47.02
+                        />
+                        <path
+                          d="M342.204,350.322c-25.969,0-47.02,21.052-47.02,47.02c0,25.969,21.052,47.02,47.02,47.02s47.02-21.052,47.02-47.02
 				C389.224,371.374,368.173,350.322,342.204,350.322z M342.204,423.465c-14.427,0-26.122-11.695-26.122-26.122
 				c0-14.427,11.695-26.122,26.122-26.122s26.122,11.695,26.122,26.122C368.327,411.77,356.631,423.465,342.204,423.465z"
-                      />
-                      <path
-                        d="M448.261,76.037c-2.176-2.377-5.153-3.865-8.359-4.18L99.788,67.155L90.384,38.42
+                        />
+                        <path
+                          d="M448.261,76.037c-2.176-2.377-5.153-3.865-8.359-4.18L99.788,67.155L90.384,38.42
 				C83.759,19.211,65.771,6.243,45.453,6.028H10.449C4.678,6.028,0,10.706,0,16.477s4.678,10.449,10.449,10.449h35.004
 				c11.361,0.251,21.365,7.546,25.078,18.286l66.351,200.098l-5.224,12.016c-5.827,15.026-4.077,31.938,4.702,45.453
 				c8.695,13.274,23.323,21.466,39.184,21.943h203.233c5.771,0,10.449-4.678,10.449-10.449c0-5.771-4.678-10.449-10.449-10.449
 				H175.543c-8.957-0.224-17.202-4.936-21.943-12.539c-4.688-7.51-5.651-16.762-2.612-25.078l4.18-9.404l219.951-22.988
 				c24.16-2.661,44.034-20.233,49.633-43.886l25.078-105.012C450.96,81.893,450.36,78.492,448.261,76.037z M404.376,185.228
 				c-3.392,15.226-16.319,26.457-31.869,27.69l-217.339,22.465L106.58,88.053l320.261,4.702L404.376,185.228z"
-                      />
+                        />
+                      </g>
                     </g>
                   </g>
-                </g>
-                <g></g>
-                <g></g>
-                <g></g>
-                <g></g>
-                <g></g>
-                <g></g>
-                <g></g>
-                <g></g>
-                <g></g>
-                <g></g>
-                <g></g>
-                <g></g>
-                <g></g>
-                <g></g>
-                <g></g>
-              </svg>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                  <g></g>
+                </svg>
+              </Link>
             </div>
           </div>
           <div className="phone-loginbar">

@@ -138,45 +138,9 @@ body {
   background-color: #f9f9f9;
 }
 
-li {
-  list-style-type: none;
-}
-.d-flex {
-  display: flex;
-}
-
-/* .fontsize-20 {
-  font-size: 20px;
-}
-
-
-.py-15 {
-  padding: 15px 0;
-} */
-
-/* 
-.fontsize60 {
-  font-size: 60px;
-}
-
-.mb-20 {
-  margin-top: 20px;
-}
-.pb-32 {
-  padding-bottom: 32px;
-}
-.pb-20 {
-  padding-bottom: 20px;
-}
-
-.mb-30 {
-  margin-bottom: 30px;
-}
-
-
-
-.align-center {
-  align-items: center;
+li,
+ul {
+  list-style: none;
 }
 
 /*container    rwd*/
@@ -185,6 +149,7 @@ li {
     max-width: 1920px;
     position: relative;
     margin: 0 auto;
+    overflow: hidden;
   }
   .container-1 {
     max-width: 1200px;
@@ -248,6 +213,7 @@ li {
   }
   /* ///herro文字////// */
   .herro-text {
+    opacity: 0;
     display: flex;
     align-items: center;
     position: absolute;
@@ -453,10 +419,10 @@ li {
   }
 
   .twopage-rectangle {
-    width: 30%;
-    height: 35%;
-    background-color: rgba(9, 55, 121, 0.486);
-    box-shadow: 0 0 5px 3px rgba(9, 55, 121, 0.486);
+    width: 40%;
+    height: 45%;
+    background-color: #659de1;
+    box-shadow: 0 0 10px 20px#659de1;
     position: absolute;
     bottom: -5%;
     left: -4%;
@@ -501,6 +467,7 @@ li {
   }
 
   .three-content {
+    opacity: 0;
     width: 50%;
     position: absolute;
     top: 5%;
@@ -528,7 +495,7 @@ li {
     left: 0px;
     width: 60px;
     height: 20px;
-    border-bottom: 3px solid #85d1f5;
+    border-bottom: 3px solid #002875;
   }
 
   .button-black {
@@ -584,6 +551,7 @@ li {
     width: 100%;
     padding: 0 1%;
     height: 30%;
+    color: #002875;
   }
 
   .item-2 {
@@ -621,11 +589,15 @@ li {
     justify-content: center;
     height: 35px;
     width: 100px;
-    border: 2px solid #659de1;
+    border: 2px solid #002875;
+  }
+  .card-button a {
+    text-decoration: none;
+    color: #002875;
   }
 
   .best-selling-group {
-    margin-top: 5%;
+    margin-top: 120px;
     color: #002875;
     font-size: 34px;
     display: flex;
@@ -677,6 +649,87 @@ li {
     height: 40px;
     fill: #f9f9f9;
     margin: 0 1%;
+  }
+  .indexlove {
+    fill: #002875;
+    width: 20px;
+    height: 20px;
+  }
+  .indexlove.active {
+    fill: #ff5554;
+  }
+  .indexlove-2 {
+    fill: #002875;
+    width: 20px;
+    height: 20px;
+  }
+  .indexlove-2.active {
+    fill: #ff5554;
+  }
+  .new-product-3 {
+    fill: #002875;
+    width: 20px;
+    height: 20px;
+  }
+  .new-product-3.active {
+    fill: #ff5554;
+  }
+  .new-product-4 {
+    fill: #002875;
+    width: 20px;
+    height: 20px;
+  }
+  .new-product-4.active {
+    fill: #ff5554;
+  }
+  .new-product-5 {
+    fill: #002875;
+    width: 20px;
+    height: 20px;
+  }
+  .new-product-5.active {
+    fill: #ff5554;
+  }
+  .new-product-6 {
+    fill: #002875;
+    width: 20px;
+    height: 20px;
+  }
+  .new-product-6.active {
+    fill: #ff5554;
+  }
+  /* /// */
+  .hot-product-1 {
+    fill: #002875;
+    width: 20px;
+    height: 20px;
+  }
+  .hot-product-1.active {
+    fill: #ff5554;
+  }
+  .hot-product-2 {
+    fill: #002875;
+    width: 20px;
+    height: 20px;
+  }
+  .hot-product-2.active {
+    fill: #ff5554;
+  }
+  .hot-product-3 {
+    fill: #002875;
+    width: 20px;
+    height: 20px;
+  }
+  .hot-product-3.active {
+    fill: #ff5554;
+  }
+  .hot-product-4 {
+    fill: #002875;
+    width: 20px;
+    height: 20px;
+  }
+  .hot-product-4.active {
+    fill: #ff5554;
   }
 
   /* //////////////////////////////////// */
@@ -736,7 +789,7 @@ li {
     height: 570px;
     background-color: #f0ecd7;
     position: absolute;
-    bottom: -36%;
+    bottom: 3%;
     z-index: -1;
   }
   .top-box {
@@ -749,13 +802,25 @@ li {
     justify-content: center;
     align-items: center;
     text-align: center;
+    z-index: 200;
+    bottom: 0;
     right: 0;
-    z-index: 5;
-    bottom: -36%;
   }
   .top-box a {
     color: #f9f9f9;
     text-decoration: none;
+  }
+  .long-colorship {
+    width: 760px;
+    height: 30px;
+    position: absolute;
+    bottom: 28.5%;
+    left: -37%;
+    z-index: -1;
+  }
+  .long-colorship img {
+    width: 760px;
+    height: 30px;
   }
 }
 
@@ -816,11 +881,12 @@ li {
   }
 
   .one-herro-button-left {
-    margin-top: 5px;
-    width: 60%;
-    height: 7%;
+    width: 50%;
     border-radius: 40px;
     padding: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     border: 2px solid #f9f9f9;
     position: absolute;
@@ -831,11 +897,14 @@ li {
   }
 
   .one-herro-button-right {
-    width: 60%;
-    height: 7%;
+    width: 50%;
+
     border-radius: 40px;
     text-align: center;
     padding: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border: 2px solid #f9f9f9;
     position: absolute;
     bottom: 25%;
@@ -859,7 +928,7 @@ li {
   .two-section {
     width: 100%;
     height: 100%;
-    margin-bottom: 35%;
+    margin-bottom: 20%;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -869,8 +938,8 @@ li {
     display: none;
   }
   .twopic-big-text {
-    font-size: 12px;
-    padding: 2% 0;
+    font-size: 18px;
+    padding: 2% 2%;
   }
 
   .twopage-pic {
@@ -892,17 +961,17 @@ li {
   }
 
   .cardtwo {
-    width: 70%;
-    height: 45%;
+    width: 65%;
+    height: 40%;
     background-color: #f9f9f9;
     position: absolute;
     box-shadow: 3px 5px 8px #0029758e;
-    bottom: -30%;
-    left: -35%;
+    bottom: -15%;
+    left: -10%;
+    padding-top: 10px;
 
     z-index: 3;
     text-align: center;
-    margin-bottom: 50px;
   }
 
   .fontsize34-group > .fontsize34 {
@@ -917,19 +986,20 @@ li {
   .button-blue-right {
     display: flex;
     align-items: center;
-    width: 30%;
-    height: 13%;
+    width: 36%;
+    height: 15%;
     border-radius: 40px;
     justify-content: center;
     padding: 12px 0;
     border: 2px solid #002875;
     position: absolute;
-    bottom: 10%;
+    bottom: 7%;
     z-index: 2;
-    right: 25%;
+    right: 32%;
   }
 
   .button-blue-right a {
+    font-size: 12px;
     color: #002875;
     text-decoration: none;
   }
@@ -956,7 +1026,7 @@ li {
 
   .phone-long-colorship {
     display: block;
-    margin-bottom: 60px;
+    margin-bottom: 120px;
   }
 
   .phone-long-colorship img {
@@ -989,13 +1059,14 @@ li {
   }
   /*重疊在圖片上的文字*/
   .three-content {
+    opacity: 0;
     width: 70%;
     position: absolute;
     left: 6%;
     color: #f9f9f9;
   }
   .threepic-big-text {
-    font-size: 34px;
+    font-size: 24px;
   }
 
   .threepic-small-text {
@@ -1083,13 +1154,20 @@ li {
     justify-content: center;
     height: 35px;
     width: 100px;
-    border: 2px solid #659de1;
+    border: 2px solid #002875;
+  }
+  .card-button a {
+    text-decoration: none;
+    color: #002875;
   }
 
   .long-colorship {
-    width: 60%;
-    height: 15px;
-    margin-bottom: 30px;
+    width: 90%;
+    height: 30px;
+    position: absolute;
+    bottom: 37%;
+    left: -37%;
+    z-index: -10;
   }
   .long-colorship img {
     width: 100%;
@@ -1101,16 +1179,13 @@ li {
     margin-left: 27%;
     display: flex;
   }
-  .top-box {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-  }
+
   /* /////////////////////////////////////////////// */
   /* 第四頁 */
   .best-selling-group {
     font-size: 16px;
     padding: 0 2%;
+    margin-top: 110px;
   }
 
   .button-blue-bg {

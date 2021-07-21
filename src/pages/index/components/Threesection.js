@@ -71,6 +71,67 @@ function Threesection() {
   useEffect(() => {
     generalServer()
   }, [])
+  //////////////////// 第三頁：向下滑動，分隔用長條色塊移入//////////////////////
+  useEffect(() => {
+    $(window).scroll(function () {
+      let scrolltop = $(this).scrollTop() //console.log(scrolltop);
+      let windowheight = $(window).height() //為可視範圍console.log(windowheight);
+      let websideheight = $('body').height() //console.log(websideheight);
+      let persent = Math.floor(
+        (scrolltop / (websideheight - windowheight)) * 100
+      )
+      console.log(persent) //等於 scrolltop/scrolltop
+      // if (persent >= 0) {
+      //   $('nav').css(' position', 'fixed').css('z-index', '6')
+      // }
+
+      if (persent >= 15) {
+        $('nav').css('opacity', '0')
+      } else {
+        $('nav').css('transition', '0.5s').css('opacity', '1')
+      }
+      if (persent >= 15) {
+        $('.about-banner-group').css('opacity', '1').css('transition', '2.5s')
+      }
+      if (persent >= 66) {
+        $('.long-colorship').css('left', '80%').css('transition', '3s')
+      }
+    })
+  }, [])
+  ///////////點擊愛心會變色//////////
+  useEffect(() => {
+    $('.indexlove').click(function () {
+      $('.indexlove').toggleClass('active')
+    })
+  }, [])
+  useEffect(() => {
+    $('.indexlove-2').click(function () {
+      $('.indexlove-2').toggleClass('active')
+    })
+  }, [])
+
+  useEffect(() => {
+    $('.new-product-3').click(function () {
+      $('.new-product-3').toggleClass('active')
+    })
+  }, [])
+  useEffect(() => {
+    $('.new-product-4').click(function () {
+      $('.new-product-4').toggleClass('active')
+    })
+  }, [])
+  useEffect(() => {
+    $('.new-product-5').click(function () {
+      $('.new-product-5').toggleClass('active')
+    })
+  }, [])
+  useEffect(() => {
+    $('.new-product-6').click(function () {
+      $('.new-product-6').toggleClass('active')
+    })
+  }, [])
+
+  ////////////////////////  ss
 
   return (
     <>
@@ -80,10 +141,9 @@ function Threesection() {
           <img src={phonethreesection} alt="phonethreesection" />
         </div>
         <div className="three-content">
-          <div className="">
-            <div className="threepic-big-text">在車水馬龍的都會中，</div>
-            <div className="threepic-big-text">你渴求著片刻的喘息...</div>
-          </div>
+          <div className="threepic-big-text">在車水馬龍的都會中，</div>
+          <div className="threepic-big-text">你渴求著片刻的喘息...</div>
+
           <div className="threepic-small-text">
             我們將守著那寧靜的角落，將一抹芬芳贈與給你
           </div>
@@ -95,7 +155,7 @@ function Threesection() {
         <div className="button-black fontsize-20">
           <Link to="#/"> ALL</Link>
         </div>
-        {/* //////////phone點擊按鈕的card   /////////////////////////////////////// */}
+        {/* ///////phone點擊按鈕的card */}
         <div className="phone-threesection-click-card">
           <div className="box">
             <div className="box1">
@@ -112,7 +172,25 @@ function Threesection() {
                   <div className="product-card-text1">
                     {users.length > 0 && users[0].iName}
                   </div>
-                  <div>svg</div>
+                  <div className="indexlove">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 512 455.52"
+                    >
+                      <defs>
+                        <style
+                          dangerouslySetInnerHTML={{
+                            __html: '.cls-1{}',
+                          }}
+                        />
+                      </defs>
+                      <g id="圖層_2" data-name="圖層 2">
+                        <g id="圖層_1-2" data-name="圖層 1">
+                          <path d="M471.38,44.58C444.88,15.83,408.51,0,369,0c-29.55,0-56.62,9.34-80.45,27.77a164.79,164.79,0,0,0-32.52,34,164.31,164.31,0,0,0-32.53-34C199.65,9.34,172.58,0,143,0,103.49,0,67.12,15.83,40.61,44.58,14.43,73,0,111.8,0,153.87c0,43.3,16.14,82.94,50.78,124.74C81.77,316,126.32,354,177.9,397.93c17.61,15,37.58,32,58.31,50.15a30.06,30.06,0,0,0,39.58,0c20.73-18.13,40.7-35.16,58.32-50.18,51.58-44,96.12-81.9,127.11-119.3C495.87,236.81,512,197.17,512,153.87,512,111.8,497.57,73,471.38,44.58Z" />
+                        </g>
+                      </g>
+                    </svg>
+                  </div>
                 </div>
                 <div className="product-card-text2">
                   {users.length > 0 && users[0].iDiscr}
@@ -121,7 +199,7 @@ function Threesection() {
                   特價:{users.length > 0 && users[0].iPrice}元
                 </div>
                 <div className="card-button">
-                  <a href="#/"> 購買</a>
+                  <Link to="#/"> 購買</Link>
                 </div>
               </div>
             </div>
@@ -139,7 +217,25 @@ function Threesection() {
                   <div className="product-card-text1">
                     {users.length > 0 && users[1].iName}
                   </div>
-                  <div>svg</div>
+                  <div className="indexlove-2">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 512 455.52"
+                    >
+                      <defs>
+                        <style
+                          dangerouslySetInnerHTML={{
+                            __html: '.cls-1{}',
+                          }}
+                        />
+                      </defs>
+                      <g id="圖層_2" data-name="圖層 2">
+                        <g id="圖層_1-2" data-name="圖層 1">
+                          <path d="M471.38,44.58C444.88,15.83,408.51,0,369,0c-29.55,0-56.62,9.34-80.45,27.77a164.79,164.79,0,0,0-32.52,34,164.31,164.31,0,0,0-32.53-34C199.65,9.34,172.58,0,143,0,103.49,0,67.12,15.83,40.61,44.58,14.43,73,0,111.8,0,153.87c0,43.3,16.14,82.94,50.78,124.74C81.77,316,126.32,354,177.9,397.93c17.61,15,37.58,32,58.31,50.15a30.06,30.06,0,0,0,39.58,0c20.73-18.13,40.7-35.16,58.32-50.18,51.58-44,96.12-81.9,127.11-119.3C495.87,236.81,512,197.17,512,153.87,512,111.8,497.57,73,471.38,44.58Z" />
+                        </g>
+                      </g>
+                    </svg>
+                  </div>
                 </div>
                 <div className="product-card-text2">
                   {users.length > 0 && users[1].iDiscr}
@@ -148,7 +244,7 @@ function Threesection() {
                   特價:{users.length > 0 && users[1].iPrice}元
                 </div>
                 <div className="card-button">
-                  <a href="#/"> 購買</a>
+                  <Link to="#/"> 購買</Link>
                 </div>
               </div>
             </div>
@@ -166,7 +262,25 @@ function Threesection() {
                   <div className="product-card-text1">
                     {users.length > 0 && users[2].iName}
                   </div>
-                  <div>svg</div>
+                  <div className="new-product-3">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 512 455.52"
+                    >
+                      <defs>
+                        <style
+                          dangerouslySetInnerHTML={{
+                            __html: '.cls-1{}',
+                          }}
+                        />
+                      </defs>
+                      <g id="圖層_2" data-name="圖層 2">
+                        <g id="圖層_1-2" data-name="圖層 1">
+                          <path d="M471.38,44.58C444.88,15.83,408.51,0,369,0c-29.55,0-56.62,9.34-80.45,27.77a164.79,164.79,0,0,0-32.52,34,164.31,164.31,0,0,0-32.53-34C199.65,9.34,172.58,0,143,0,103.49,0,67.12,15.83,40.61,44.58,14.43,73,0,111.8,0,153.87c0,43.3,16.14,82.94,50.78,124.74C81.77,316,126.32,354,177.9,397.93c17.61,15,37.58,32,58.31,50.15a30.06,30.06,0,0,0,39.58,0c20.73-18.13,40.7-35.16,58.32-50.18,51.58-44,96.12-81.9,127.11-119.3C495.87,236.81,512,197.17,512,153.87,512,111.8,497.57,73,471.38,44.58Z" />
+                        </g>
+                      </g>
+                    </svg>
+                  </div>
                 </div>
                 <div className="product-card-text2">
                   {users.length > 0 && users[2].iDiscr}
@@ -175,7 +289,7 @@ function Threesection() {
                   特價:{users.length > 0 && users[2].iPrice}元
                 </div>
                 <div className="card-button">
-                  <a href="#/"> 購買</a>
+                  <Link to="#/"> 購買</Link>
                 </div>
               </div>
             </div>
@@ -193,7 +307,25 @@ function Threesection() {
                   <div className="product-card-text1">
                     {users.length > 0 && users[3].iName}
                   </div>
-                  <div>svg</div>
+                  <div className="new-product-4">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 512 455.52"
+                    >
+                      <defs>
+                        <style
+                          dangerouslySetInnerHTML={{
+                            __html: '.cls-1{;}',
+                          }}
+                        />
+                      </defs>
+                      <g id="圖層_2" data-name="圖層 2">
+                        <g id="圖層_1-2" data-name="圖層 1">
+                          <path d="M471.38,44.58C444.88,15.83,408.51,0,369,0c-29.55,0-56.62,9.34-80.45,27.77a164.79,164.79,0,0,0-32.52,34,164.31,164.31,0,0,0-32.53-34C199.65,9.34,172.58,0,143,0,103.49,0,67.12,15.83,40.61,44.58,14.43,73,0,111.8,0,153.87c0,43.3,16.14,82.94,50.78,124.74C81.77,316,126.32,354,177.9,397.93c17.61,15,37.58,32,58.31,50.15a30.06,30.06,0,0,0,39.58,0c20.73-18.13,40.7-35.16,58.32-50.18,51.58-44,96.12-81.9,127.11-119.3C495.87,236.81,512,197.17,512,153.87,512,111.8,497.57,73,471.38,44.58Z" />
+                        </g>
+                      </g>
+                    </svg>
+                  </div>
                 </div>
                 <div className="product-card-text2">
                   {users.length > 0 && users[3].iDiscr}
@@ -202,7 +334,7 @@ function Threesection() {
                   特價:{users.length > 0 && users[3].iPrice}元
                 </div>
                 <div className="card-button">
-                  <a href="#/"> 購買</a>
+                  <Link to="#/"> 購買</Link>
                 </div>
               </div>
             </div>
@@ -220,7 +352,25 @@ function Threesection() {
                   <div className="product-card-text1">
                     {users.length > 0 && users[4].iName}
                   </div>
-                  <div>svg</div>
+                  <div className="new-product-5 ">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 512 455.52"
+                    >
+                      <defs>
+                        <style
+                          dangerouslySetInnerHTML={{
+                            __html: '.cls-1{}',
+                          }}
+                        />
+                      </defs>
+                      <g id="圖層_2" data-name="圖層 2">
+                        <g id="圖層_1-2" data-name="圖層 1">
+                          <path d="M471.38,44.58C444.88,15.83,408.51,0,369,0c-29.55,0-56.62,9.34-80.45,27.77a164.79,164.79,0,0,0-32.52,34,164.31,164.31,0,0,0-32.53-34C199.65,9.34,172.58,0,143,0,103.49,0,67.12,15.83,40.61,44.58,14.43,73,0,111.8,0,153.87c0,43.3,16.14,82.94,50.78,124.74C81.77,316,126.32,354,177.9,397.93c17.61,15,37.58,32,58.31,50.15a30.06,30.06,0,0,0,39.58,0c20.73-18.13,40.7-35.16,58.32-50.18,51.58-44,96.12-81.9,127.11-119.3C495.87,236.81,512,197.17,512,153.87,512,111.8,497.57,73,471.38,44.58Z" />
+                        </g>
+                      </g>
+                    </svg>
+                  </div>
                 </div>
                 <div className="product-card-text2">
                   {users.length > 0 && users[4].iDiscr}
@@ -247,7 +397,25 @@ function Threesection() {
                   <div className="product-card-text1">
                     {users.length > 0 && users[5].iName}
                   </div>
-                  <div>svg</div>
+                  <div className="new-product-6">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 512 455.52"
+                    >
+                      <defs>
+                        <style
+                          dangerouslySetInnerHTML={{
+                            __html: '.cls-1{}',
+                          }}
+                        />
+                      </defs>
+                      <g id="圖層_2" data-name="圖層 2">
+                        <g id="圖層_1-2" data-name="圖層 1">
+                          <path d="M471.38,44.58C444.88,15.83,408.51,0,369,0c-29.55,0-56.62,9.34-80.45,27.77a164.79,164.79,0,0,0-32.52,34,164.31,164.31,0,0,0-32.53-34C199.65,9.34,172.58,0,143,0,103.49,0,67.12,15.83,40.61,44.58,14.43,73,0,111.8,0,153.87c0,43.3,16.14,82.94,50.78,124.74C81.77,316,126.32,354,177.9,397.93c17.61,15,37.58,32,58.31,50.15a30.06,30.06,0,0,0,39.58,0c20.73-18.13,40.7-35.16,58.32-50.18,51.58-44,96.12-81.9,127.11-119.3C495.87,236.81,512,197.17,512,153.87,512,111.8,497.57,73,471.38,44.58Z" />
+                        </g>
+                      </g>
+                    </svg>
+                  </div>
                 </div>
                 <div className="product-card-text2">
                   {users.length > 0 && users[5].iDiscr}
@@ -344,66 +512,67 @@ function Threesection() {
       <div className="long-colorship">
         <img src={longcolorship} alt="longcolorship" />
       </div>
-
-      <div className="chart-box">
-        <div className="chartbox-icon ">
-          {/*?xml version="1.0" encoding="iso-8859-1"?*/}
-          {/* Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  */}
-          <svg
-            version="1.1"
-            id="Capa_1"
-            xmlns="http://www.w3.org/2000/svg"
-            xmlnsXlink="http://www.w3.org/1999/xlink"
-            x="0px"
-            y="0px"
-            viewBox="0 0 450.391 450.391"
-            style={{ enableBackground: 'new 0 0 450.391 450.391' }}
-            xmlSpace="preserve"
-          >
-            <g>
+      <Link to="#/">
+        <div className="chart-box">
+          <div className="chartbox-icon ">
+            {/*?xml version="1.0" encoding="iso-8859-1"?*/}
+            {/* Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  */}
+            <svg
+              version="1.1"
+              id="Capa_1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlnsXlink="http://www.w3.org/1999/xlink"
+              x="0px"
+              y="0px"
+              viewBox="0 0 450.391 450.391"
+              style={{ enableBackground: 'new 0 0 450.391 450.391' }}
+              xmlSpace="preserve"
+            >
               <g>
                 <g>
-                  <path
-                    d="M143.673,350.322c-25.969,0-47.02,21.052-47.02,47.02c0,25.969,21.052,47.02,47.02,47.02
+                  <g>
+                    <path
+                      d="M143.673,350.322c-25.969,0-47.02,21.052-47.02,47.02c0,25.969,21.052,47.02,47.02,47.02
 				c25.969,0,47.02-21.052,47.02-47.02C190.694,371.374,169.642,350.322,143.673,350.322z M143.673,423.465
 				c-14.427,0-26.122-11.695-26.122-26.122c0-14.427,11.695-26.122,26.122-26.122c14.427,0,26.122,11.695,26.122,26.122
 				C169.796,411.77,158.1,423.465,143.673,423.465z"
-                  />
-                  <path
-                    d="M342.204,350.322c-25.969,0-47.02,21.052-47.02,47.02c0,25.969,21.052,47.02,47.02,47.02s47.02-21.052,47.02-47.02
+                    />
+                    <path
+                      d="M342.204,350.322c-25.969,0-47.02,21.052-47.02,47.02c0,25.969,21.052,47.02,47.02,47.02s47.02-21.052,47.02-47.02
 				C389.224,371.374,368.173,350.322,342.204,350.322z M342.204,423.465c-14.427,0-26.122-11.695-26.122-26.122
 				c0-14.427,11.695-26.122,26.122-26.122s26.122,11.695,26.122,26.122C368.327,411.77,356.631,423.465,342.204,423.465z"
-                  />
-                  <path
-                    d="M448.261,76.037c-2.176-2.377-5.153-3.865-8.359-4.18L99.788,67.155L90.384,38.42
+                    />
+                    <path
+                      d="M448.261,76.037c-2.176-2.377-5.153-3.865-8.359-4.18L99.788,67.155L90.384,38.42
 				C83.759,19.211,65.771,6.243,45.453,6.028H10.449C4.678,6.028,0,10.706,0,16.477s4.678,10.449,10.449,10.449h35.004
 				c11.361,0.251,21.365,7.546,25.078,18.286l66.351,200.098l-5.224,12.016c-5.827,15.026-4.077,31.938,4.702,45.453
 				c8.695,13.274,23.323,21.466,39.184,21.943h203.233c5.771,0,10.449-4.678,10.449-10.449c0-5.771-4.678-10.449-10.449-10.449
 				H175.543c-8.957-0.224-17.202-4.936-21.943-12.539c-4.688-7.51-5.651-16.762-2.612-25.078l4.18-9.404l219.951-22.988
 				c24.16-2.661,44.034-20.233,49.633-43.886l25.078-105.012C450.96,81.893,450.36,78.492,448.261,76.037z M404.376,185.228
 				c-3.392,15.226-16.319,26.457-31.869,27.69l-217.339,22.465L106.58,88.053l320.261,4.702L404.376,185.228z"
-                  />
+                    />
+                  </g>
                 </g>
               </g>
-            </g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-          </svg>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+              <g></g>
+            </svg>
+          </div>
         </div>
-      </div>
+      </Link>
       <div className="top-box">
         <a href="#">TOP</a>
       </div>

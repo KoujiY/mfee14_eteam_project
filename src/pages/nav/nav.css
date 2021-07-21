@@ -128,9 +128,10 @@ table {
   border-spacing: 0;
 }
 /* ///////////常用工具//// */
-.d-flex {
+.nav-d-flex {
   display: flex;
 }
+
 .margin-x-2 {
   margin: 0 6%;
 }
@@ -141,6 +142,16 @@ table {
 }
 
 @media screen and (max-width: 1920px) {
+  .container {
+    max-width: 1920px;
+    position: relative;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+  .container-1 {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
   .nav-icon-1 {
     width: 45px;
     height: 35px;
@@ -152,11 +163,7 @@ table {
     fill: #f9f9f9;
     padding-right: 5px;
   }
-  /* .container {
-    margin: 0 auto;
-    max-width: 1920px;
-    position: relative;
-  } */
+
   /* /nav整個部分/ */
   nav {
     max-width: 100vw;

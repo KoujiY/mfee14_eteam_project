@@ -195,7 +195,7 @@ function Index(props) {
       let persent = Math.floor(
         (scrolltop / (websideheight - windowheight)) * 100
       )
-      console.log(persent) //等於 scrolltop/scrolltop
+      // console.log(persent) //等於 scrolltop/scrolltop
       if (persent >= 18) {
         $('.chart-box').css('display', 'block').css('position', 'fixed')
       } else {
@@ -203,12 +203,16 @@ function Index(props) {
       }
 
       //////////////滑鼠移下來card移動////////
-      if (persent >= 10) {
+      if (persent >= 2) {
         $('.onepage-rectangle')
-          .css('transition', '1.5s')
-          .css('transform', `translateX(${-20}px`)
+          .css('transition', '1s')
+          .css('transform', `translateX(${-40}px`)
       }
-
+      //////////////   第一頁：圖片上文字隨滑動淡入淡出效果////////////
+      if (persent === 0) {
+        $('.herro-text').css('opacity', '1').css('transition', '1.5s')
+      }
+      ///////////    第二頁：文字card下滑時切開特效///////////
       if (persent >= 22) {
         $('.cardtwo')
           .css('transition', '1.5s')
@@ -219,11 +223,15 @@ function Index(props) {
           .css('transform', `translate(${80}px,${-80}px)`)
           .css('transition', '1.5s')
       }
-
+      ///////////////////   第三頁：圖片上文字隨滑動淡入淡出效果////////////
+      if (persent >= 40) {
+        $('.three-content').css('opacity', '1').css('transition', '1.5s')
+      }
+      ///////////////    第四頁：隨滑動改變底部色塊顏色/////////////
       if (persent >= 80) {
         $('.four-rectangle')
           .css('transition', '1.5s')
-          .css('background', '#C5F5F4')
+          .css('background', '#b2cceb')
       }
     })
   }, [])
@@ -254,15 +262,14 @@ function Index(props) {
       <div className="container">
         <Twosection />
         <Threesection />
+        <div className="container-1">
+          <Foursection />
+        </div>
       </div>
-      <div className="container-1">
-        <Foursection />
-      </div>
+
       {/* //////////////////////////////// */}
     </>
   )
 }
 
-//我的爸爸是app.js
-//小孩
 export default withRouter(Index)

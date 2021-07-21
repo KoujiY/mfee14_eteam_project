@@ -69,11 +69,40 @@ function Foursection() {
   useEffect(() => {
     generalServer()
   }, [])
+  ///////滑鼠hover滑過去title底線會動////////////
+  useEffect(() => {
+    $('.about-title').on('click mouseenter mouseleave', function () {
+      $('.border-bottom-blue').css('width', '110%').css('transition', '1.5s')
+    })
+  }, [])
+  /////////////////////
+  useEffect(() => {
+    $('.hot-product-1').click(function () {
+      $('.hot-product-1').toggleClass('active')
+    })
+  }, [])
+  useEffect(() => {
+    $('.hot-product-2').click(function () {
+      $('.hot-product-2').toggleClass('active')
+    })
+  }, [])
+
+  useEffect(() => {
+    $('.hot-product-3').click(function () {
+      $('.hot-product-3').toggleClass('active')
+    })
+  }, [])
+
+  useEffect(() => {
+    $('.hot-product-4').click(function () {
+      $('.hot-product-4').toggleClass('active')
+    })
+  }, [])
 
   return (
     <>
       <div className="best-selling-group">
-        <div className="Coffee products-text">
+        <div className="about-title">
           Coffee products
           <div className="border-bottom-blue"> </div>
         </div>
@@ -97,7 +126,25 @@ function Foursection() {
                 <div className="product-card-text1">
                   {general.length > 0 && general[0].iName}
                 </div>
-                <div>svg</div>
+                <div className="hot-product-1">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 455.52"
+                  >
+                    <defs>
+                      <style
+                        dangerouslySetInnerHTML={{
+                          __html: '.cls-1{}',
+                        }}
+                      />
+                    </defs>
+                    <g id="圖層_2" data-name="圖層 2">
+                      <g id="圖層_1-2" data-name="圖層 1">
+                        <path d="M471.38,44.58C444.88,15.83,408.51,0,369,0c-29.55,0-56.62,9.34-80.45,27.77a164.79,164.79,0,0,0-32.52,34,164.31,164.31,0,0,0-32.53-34C199.65,9.34,172.58,0,143,0,103.49,0,67.12,15.83,40.61,44.58,14.43,73,0,111.8,0,153.87c0,43.3,16.14,82.94,50.78,124.74C81.77,316,126.32,354,177.9,397.93c17.61,15,37.58,32,58.31,50.15a30.06,30.06,0,0,0,39.58,0c20.73-18.13,40.7-35.16,58.32-50.18,51.58-44,96.12-81.9,127.11-119.3C495.87,236.81,512,197.17,512,153.87,512,111.8,497.57,73,471.38,44.58Z" />
+                      </g>
+                    </g>
+                  </svg>
+                </div>
               </div>
               <div className="product-card-text2">
                 {general.length > 0 && general[0].iDiscr}
@@ -125,7 +172,25 @@ function Foursection() {
               <div className="product-card-text1">
                 {general.length > 0 && general[1].iName}
               </div>
-              <div>svg</div>
+              <div className="hot-product-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 512 455.52"
+                >
+                  <defs>
+                    <style
+                      dangerouslySetInnerHTML={{
+                        __html: '.cls-1{}',
+                      }}
+                    />
+                  </defs>
+                  <g id="圖層_2" data-name="圖層 2">
+                    <g id="圖層_1-2" data-name="圖層 1">
+                      <path d="M471.38,44.58C444.88,15.83,408.51,0,369,0c-29.55,0-56.62,9.34-80.45,27.77a164.79,164.79,0,0,0-32.52,34,164.31,164.31,0,0,0-32.53-34C199.65,9.34,172.58,0,143,0,103.49,0,67.12,15.83,40.61,44.58,14.43,73,0,111.8,0,153.87c0,43.3,16.14,82.94,50.78,124.74C81.77,316,126.32,354,177.9,397.93c17.61,15,37.58,32,58.31,50.15a30.06,30.06,0,0,0,39.58,0c20.73-18.13,40.7-35.16,58.32-50.18,51.58-44,96.12-81.9,127.11-119.3C495.87,236.81,512,197.17,512,153.87,512,111.8,497.57,73,471.38,44.58Z" />
+                    </g>
+                  </g>
+                </svg>
+              </div>
             </div>
             <div className="product-card-text2">
               {general.length > 0 && general[1].iDiscr}
@@ -153,7 +218,25 @@ function Foursection() {
                 <div className="product-card-text1">
                   {general.length > 0 && general[2].iName}
                 </div>
-                <div>svg</div>
+                <div className="hot-product-3">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 455.52"
+                  >
+                    <defs>
+                      <style
+                        dangerouslySetInnerHTML={{
+                          __html: '.cls-1{}',
+                        }}
+                      />
+                    </defs>
+                    <g id="圖層_2" data-name="圖層 2">
+                      <g id="圖層_1-2" data-name="圖層 1">
+                        <path d="M471.38,44.58C444.88,15.83,408.51,0,369,0c-29.55,0-56.62,9.34-80.45,27.77a164.79,164.79,0,0,0-32.52,34,164.31,164.31,0,0,0-32.53-34C199.65,9.34,172.58,0,143,0,103.49,0,67.12,15.83,40.61,44.58,14.43,73,0,111.8,0,153.87c0,43.3,16.14,82.94,50.78,124.74C81.77,316,126.32,354,177.9,397.93c17.61,15,37.58,32,58.31,50.15a30.06,30.06,0,0,0,39.58,0c20.73-18.13,40.7-35.16,58.32-50.18,51.58-44,96.12-81.9,127.11-119.3C495.87,236.81,512,197.17,512,153.87,512,111.8,497.57,73,471.38,44.58Z" />
+                      </g>
+                    </g>
+                  </svg>
+                </div>
               </div>
               <div className="product-card-text2">
                 {general.length > 0 && general[2].iDiscr}
@@ -182,7 +265,25 @@ function Foursection() {
                 <div className="product-card-text1">
                   {general.length > 0 && general[3].iName}
                 </div>
-                <div>svg</div>
+                <div className="hot-product-4">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 455.52"
+                  >
+                    <defs>
+                      <style
+                        dangerouslySetInnerHTML={{
+                          __html: '.cls-1{}',
+                        }}
+                      />
+                    </defs>
+                    <g id="圖層_2" data-name="圖層 2">
+                      <g id="圖層_1-2" data-name="圖層 1">
+                        <path d="M471.38,44.58C444.88,15.83,408.51,0,369,0c-29.55,0-56.62,9.34-80.45,27.77a164.79,164.79,0,0,0-32.52,34,164.31,164.31,0,0,0-32.53-34C199.65,9.34,172.58,0,143,0,103.49,0,67.12,15.83,40.61,44.58,14.43,73,0,111.8,0,153.87c0,43.3,16.14,82.94,50.78,124.74C81.77,316,126.32,354,177.9,397.93c17.61,15,37.58,32,58.31,50.15a30.06,30.06,0,0,0,39.58,0c20.73-18.13,40.7-35.16,58.32-50.18,51.58-44,96.12-81.9,127.11-119.3C495.87,236.81,512,197.17,512,153.87,512,111.8,497.57,73,471.38,44.58Z" />
+                      </g>
+                    </g>
+                  </svg>
+                </div>
               </div>
               <div className="product-card-text2">
                 {general.length > 0 && general[3].iDiscr}
@@ -191,7 +292,7 @@ function Foursection() {
                 特價:{general.length > 0 && general[3].iPrice}元
               </div>
               <div className="card-button">
-                <a href="#/"> 購買</a>
+                <Link to="#/"> 購買</Link>
               </div>
             </div>
           </div>
