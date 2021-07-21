@@ -127,6 +127,9 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+.about-pb-12 {
+  padding-bottom: 12px;
+}
 
 *,
 *::before,
@@ -207,33 +210,7 @@ body {
   .pic-block4 {
     display: none;
   }
-  /* ///////喜歡//////// */
-  /* .likeicon {
-    width: 60px;
-    height: 60px;
-    fill: rgb(139, 138, 139);
-  }
-  .likeicon.active {
-    fill: brown;
-  } */
-  /* .ss {
-    height: 1000px;
-    width: 100%;
-    background-color: cadetblue;
-  }
-  .ss.active {
-    background-color: rgb(160, 95, 120);
-  } */
 
-  /* ////輪播軸的最長寬////////// */
-  /* .about-img-wrap {
-    display: flex;
-    width: 1200px;
-    transform: translateX(0px);
-    height: 100%;
-    z-index: -5;
-  } */
-  /* //////////////////////// */
   .mt-220 {
     margin-top: 220px;
   }
@@ -417,5 +394,55 @@ body {
     right: -5%;
     bottom: -7%;
     z-index: 2;
+  }
+  /* ///////////////// 全部的//////////////////// */
+  .contact-group {
+    display: flex;
+    width: 1200px;
+    height: 400px;
+    margin-bottom: 100px;
+  }
+
+  /* /////////左//// */
+  .about-contact-information-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    width: 400px;
+    margin-right: 80px;
+    margin-bottom: 120px;
+  }
+  .about-contact-information-logo {
+    width: 300px;
+    height: 150px;
+    margin-bottom: 140px;
+  }
+  .about-buttom {
+    background-color: #0065b4;
+    color: #f9f9f9;
+    border: 0;
+    width: 80px;
+    height: 35px;
+    box-shadow: 1px 1px 1px rgb(117, 116, 116);
+    margin-top: 15px;
+  }
+  .about-input {
+    background-color: #f9f9f9;
+    width: 220px;
+    height: 35px;
+  }
+  /* /////////右邊的 */
+  .aa {
+    width: 820px;
+    height: 100%;
+  }
+
+  .about-right-picture {
+    background: url('img/contact.jpg') center center no-repeat;
+    width: 100%;
+    height: 400px;
+    background-attachment: fixed;
+    background-size: cover;
   }
 }

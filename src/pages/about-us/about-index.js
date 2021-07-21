@@ -10,6 +10,8 @@ import aboutherrosection3 from './img/about-carousel-pic3.jpg'
 import aboutherrosection4 from './img/about-carousel-pic4.jpg'
 import aboutbanner1 from './img/about-banner1.jpg'
 import aboutjoinsection from './img/about-join-process-section.jpg'
+import logoblue from './svg/logoblue.svg'
+import coffeecup from './svg/coffeecup.svg'
 
 function About() {
   useEffect(() => {
@@ -31,13 +33,18 @@ function About() {
       if (persent1 >= 2) {
         $('.about-banner-pic ').css('opacity', '1').css('transition', '2.5s')
       }
+      if (persent1 >= 2) {
+        $('.about-banner-group::after')
+          .css('transform', `translate(${-130}px,${-120}px)`)
+          .css('transition', '2.5s')
+      }
       ////////about-joining加盟流程做位移陰影特效//////////
-      if (persent1 >= 68) {
+      if (persent1 >= 40) {
         $('.about-joining-items-pic')
           .css('transition', '2s')
           .css('transform', `translate(${-130}px,${-120}px)`)
       }
-      if (persent1 >= 68) {
+      if (persent1 >= 40) {
         $('.about-joining-card3')
           .css('transform', `translate(${-60}px,${-46}px)`)
           .css('transition', '1.5s')
@@ -214,18 +221,6 @@ function About() {
     //////////////////////////////////////////////////////
   }, [])
 
-  // /////////點擊變色事件///////////////
-  // useEffect(() => {
-  //   $('.likeicon').click(function () {
-  //     $('.likeicon').toggleClass('active')
-  //   })
-  // }, [])
-  // ////////////////////////  ss
-  // useEffect(() => {
-  //   $('.ss').click(function () {
-  //     $('.ss').toggleClass('active')
-  //   })
-  // }, [])
   ////////////////////
 
   return (
@@ -415,8 +410,34 @@ function About() {
             </div>
             <div className="about-joining-card3"></div>
           </div>
+          {/* //////////////////////////////// */}
+          <div className="contact-group">
+            <div className="about-contact-information-group">
+              <div className="about-contact-information-logo">
+                <img src={logoblue} alt="logoblue" />
+              </div>
+
+              <div className="about-contact-information-email-group">
+                <div className="about-email-from">
+                  <p className="about-pb-12">想了解更多資訊</p>
+                  <p>歡迎留下您的資訊，我們會盡快聯繫您</p>
+                  <form
+                    method="post"
+                    action="https://store.medulla.co.jp/freyia/join"
+                  >
+                    <input className="about-input" type="email" name="email" />
+                    <button className="about-buttom" type="submit">
+                      加入我們
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div className="aa">
+              <div className="about-right-picture"></div>
+            </div>
+          </div>
         </div>
-        <div></div>
       </div>
     </>
   )
