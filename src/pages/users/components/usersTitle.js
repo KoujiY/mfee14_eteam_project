@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 
 // import './usersEdit.css'
 
@@ -24,17 +24,20 @@ const MemberConnect = styled.div`
   margin-bottom: 60px;
 `
 
-function UsersTitle() {
+function UsersTitle(props) {
+  //  取uId 值
+  // const uId = props.match.params.uId
+  //  console.log(uId)
   return (
     <>
       <MemberTextTitle>會員中心</MemberTextTitle>
       <MemberConnect>
-        <Link to="./usersText">會員資料</Link>
-        <Link to="./usersTrack">會員商品追蹤</Link>
-        <Link to="./usersConsumption">會員消費紀錄</Link>
+        <Link to="/usersText">會員資料</Link>
+        <Link to="/usersTrack">會員商品追蹤</Link>
+        <Link to="/usersConsumption">會員消費紀錄</Link>
       </MemberConnect>
     </>
   )
 }
 
-export default UsersTitle
+export default withRouter(UsersTitle)

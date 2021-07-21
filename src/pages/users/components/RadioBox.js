@@ -2,6 +2,7 @@ import React from 'react'
 
 function RadioBox(props) {
   // 傳入的值至props內 並用物件列出來
+  // console.log(props)
   const { uGender, setUgender, value } = props
   return (
     <>
@@ -14,6 +15,7 @@ function RadioBox(props) {
         onChange={(e) => {
           setUgender(e.target.value)
         }}
+        required
       />
     </>
   )
