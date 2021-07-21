@@ -30,14 +30,10 @@ function About() {
         $('nav').css('transition', '0.5s').css('opacity', '1')
       }
 
-      if (persent1 >= 2) {
+      if (persent1 >= 0) {
         $('.about-banner-pic ').css('opacity', '1').css('transition', '2.5s')
       }
-      if (persent1 >= 2) {
-        $('.about-banner-group::after')
-          .css('transform', `translate(${-130}px,${-120}px)`)
-          .css('transition', '2.5s')
-      }
+
       ////////about-joining加盟流程做位移陰影特效//////////
       if (persent1 >= 40) {
         $('.about-joining-items-pic')

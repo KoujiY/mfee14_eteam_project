@@ -131,7 +131,81 @@ function Threesection() {
     })
   }, [])
 
-  ////////////////////////  ss
+  ////////////new的資訊滑鼠hover圖片放大////////////  ss
+  useEffect(() => {
+    // 1
+    $('.newproduct-hover-1').on(' mouseenter ', function () {
+      $('.newproduct-hover-1')
+        .css('Transform', `scale(${1.5})`)
+        .css('transition', '1s')
+    })
+    $('.newproduct-hover-1').on('mouseleave', function () {
+      $('.newproduct-hover-1')
+        .css('Transform', `scale(${1})`)
+        .css('transition', '1s')
+    })
+    // 2
+    $('.newproduct-hover-2').on(' mouseenter ', function () {
+      $('.newproduct-hover-2')
+        .css('Transform', `scale(${1.5})`)
+        .css('transition', '1s')
+    })
+    $('.newproduct-hover-2').on('mouseleave', function () {
+      $('.newproduct-hover-2')
+        .css('Transform', `scale(${1})`)
+        .css('transition', '1s')
+    })
+    // 3/
+    $('.newproduct-hover-3').on(' mouseenter ', function () {
+      $('.newproduct-hover-3')
+        .css('Transform', `scale(${1.5})`)
+        .css('transition', '1s')
+    })
+    $('.newproduct-hover-3').on('mouseleave', function () {
+      $('.newproduct-hover-3')
+        .css('Transform', `scale(${1})`)
+        .css('transition', '1s')
+    })
+
+    // //4 /
+    $('.newproduct-hover-4').on(' mouseenter ', function () {
+      $('.newproduct-hover-4')
+        .css('Transform', `scale(${1.5})`)
+        .css('transition', '1s')
+    })
+    $('.newproduct-hover-4').on('mouseleave', function () {
+      $('.newproduct-hover-4')
+        .css('Transform', `scale(${1})`)
+        .css('transition', '1s')
+    })
+
+    // //5
+    $('.newproduct-hover-5').on(' mouseenter ', function () {
+      $('.newproduct-hover-5')
+        .css('Transform', `scale(${1.5})`)
+        .css('transition', '1s')
+    })
+    $('.newproduct-hover-5').on('mouseleave', function () {
+      $('.newproduct-hover-5')
+        .css('Transform', `scale(${1})`)
+        .css('transition', '1s')
+    })
+
+    // //
+    $('.newproduct-hover-6').on(' mouseenter ', function () {
+      $('.newproduct-hover-6')
+        .css('Transform', `scale(${1.5})`)
+        .css('transition', '1s')
+    })
+    $('.newproduct-hover-6').on('mouseleave', function () {
+      $('.newproduct-hover-6')
+        .css('Transform', `scale(${1})`)
+        .css('transition', '1s')
+    })
+  }, [])
+  //scale(1.16)scale(1.16)
+
+ 
 
   return (
     <>
@@ -161,6 +235,7 @@ function Threesection() {
             <div className="box1">
               <div className="box1-pic">
                 <img
+                  className="newproduct-hover-1"
                   src={`http://localhost:3000/img/index/newproduct/${
                     users.length > 0 && users[0].iImg
                   }`}
@@ -206,6 +281,7 @@ function Threesection() {
             <div className="box1">
               <div className="box1-pic">
                 <img
+                  className="newproduct-hover-2"
                   src={`http://localhost:3000/img/index/newproduct/${
                     users.length > 0 && users[1].iImg
                   }`}
@@ -251,6 +327,7 @@ function Threesection() {
             <div className="box1">
               <div className="box1-pic">
                 <img
+                  className="newproduct-hover-3"
                   src={`http://localhost:3000/img/index/newproduct/${
                     users.length > 0 && users[2].iImg
                   }`}
@@ -296,6 +373,7 @@ function Threesection() {
             <div className="box1">
               <div className="box1-pic">
                 <img
+                  className="newproduct-hover-4"
                   src={`http://localhost:3000/img/index/newproduct/${
                     users.length > 0 && users[3].iImg
                   }`}
@@ -341,6 +419,7 @@ function Threesection() {
             <div className="box1">
               <div className="box1-pic">
                 <img
+                  className="newproduct-hover-5"
                   src={`http://localhost:3000/img/index/newproduct/${
                     users.length > 0 && users[4].iImg
                   }`}
@@ -386,6 +465,7 @@ function Threesection() {
             <div className="box1">
               <div className="box1-pic">
                 <img
+                  className="newproduct-hover-6"
                   src={`http://localhost:3000/img/index/newproduct/${
                     users.length > 0 && users[5].iImg
                   }`}

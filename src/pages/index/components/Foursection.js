@@ -99,6 +99,56 @@ function Foursection() {
     })
   }, [])
 
+  ////////////hot的資訊滑鼠hover圖片放大/////////////  ss
+  useEffect(() => {
+    // 1
+    $('.newproduct-hot-1').on(' mouseenter ', function () {
+      $('.newproduct-hot-1')
+        .css('Transform', `scale(${1.5})`)
+        .css('transition', '1s')
+    })
+    $('.newproduct-hot-1').on('mouseleave', function () {
+      $('.newproduct-hot-1')
+        .css('Transform', `scale(${1})`)
+        .css('transition', '1s')
+    })
+    // 2/
+    $('.newproduct-hot-2').on(' mouseenter ', function () {
+      $('.newproduct-hot-2')
+        .css('Transform', `scale(${1.5})`)
+        .css('transition', '1s')
+    })
+    $('.newproduct-hot-2').on('mouseleave', function () {
+      $('.newproduct-hot-2')
+        .css('Transform', `scale(${1})`)
+        .css('transition', '1s')
+    })
+
+    // 3/
+    $('.newproduct-hot-3').on(' mouseenter ', function () {
+      $('.newproduct-hot-3')
+        .css('Transform', `scale(${1.5})`)
+        .css('transition', '1s')
+    })
+    $('.newproduct-hot-3').on('mouseleave', function () {
+      $('.newproduct-hot-3')
+        .css('Transform', `scale(${1})`)
+        .css('transition', '1s')
+    })
+
+    // //4 /
+    $('.newproduct-hot-4').on(' mouseenter ', function () {
+      $('.newproduct-hot-4')
+        .css('Transform', `scale(${1.5})`)
+        .css('transition', '1s')
+    })
+    $('.newproduct-hot-4').on('mouseleave', function () {
+      $('.newproduct-hot-4')
+        .css('Transform', `scale(${1})`)
+        .css('transition', '1s')
+    })
+  }, [])
+
   return (
     <>
       <div className="best-selling-group">
@@ -115,6 +165,7 @@ function Foursection() {
           <div className="box2-group">
             <div className="box2-pic">
               <img
+                className="newproduct-hot-1"
                 src={`http://localhost:3000/img/index/generalproduct/${
                   general.length > 0 && general[0].iImg
                 }`}
@@ -161,6 +212,7 @@ function Foursection() {
         <div className="box3">
           <div className="box2-pic">
             <img
+              className="newproduct-hot-2"
               src={`http://localhost:3000/img/index/generalproduct/${
                 general.length > 0 && general[1].iImg
               }`}
@@ -207,6 +259,7 @@ function Foursection() {
           <div className="aaa">
             <div className="box2-pic">
               <img
+                className="newproduct-hot-3"
                 src={`http://localhost:3000/img/index/generalproduct/${
                   general.length > 0 && general[2].iImg
                 }`}
@@ -251,49 +304,48 @@ function Foursection() {
           </div>
         </div>
         <div className="box5">
-          <div className="aaa">
-            <div className="box2-pic">
-              <img
-                src={`http://localhost:3000/img/index/generalproduct/${
-                  general.length > 0 && general[3].iImg
-                }`}
-                alt="123"
-              />
-            </div>
-            <div className="item-1">
-              <div className="item-2">
-                <div className="product-card-text1">
-                  {general.length > 0 && general[3].iName}
-                </div>
-                <div className="hot-product-4">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 512 455.52"
-                  >
-                    <defs>
-                      <style
-                        dangerouslySetInnerHTML={{
-                          __html: '.cls-1{}',
-                        }}
-                      />
-                    </defs>
-                    <g id="圖層_2" data-name="圖層 2">
-                      <g id="圖層_1-2" data-name="圖層 1">
-                        <path d="M471.38,44.58C444.88,15.83,408.51,0,369,0c-29.55,0-56.62,9.34-80.45,27.77a164.79,164.79,0,0,0-32.52,34,164.31,164.31,0,0,0-32.53-34C199.65,9.34,172.58,0,143,0,103.49,0,67.12,15.83,40.61,44.58,14.43,73,0,111.8,0,153.87c0,43.3,16.14,82.94,50.78,124.74C81.77,316,126.32,354,177.9,397.93c17.61,15,37.58,32,58.31,50.15a30.06,30.06,0,0,0,39.58,0c20.73-18.13,40.7-35.16,58.32-50.18,51.58-44,96.12-81.9,127.11-119.3C495.87,236.81,512,197.17,512,153.87,512,111.8,497.57,73,471.38,44.58Z" />
-                      </g>
+          <div className="box2-pic">
+            <img
+              className="newproduct-hot-4"
+              src={`http://localhost:3000/img/index/generalproduct/${
+                general.length > 0 && general[3].iImg
+              }`}
+              alt="123"
+            />
+          </div>
+          <div className="item-1">
+            <div className="item-2">
+              <div className="product-card-text1">
+                {general.length > 0 && general[3].iName}
+              </div>
+              <div className="hot-product-4">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 512 455.52"
+                >
+                  <defs>
+                    <style
+                      dangerouslySetInnerHTML={{
+                        __html: '.cls-1{}',
+                      }}
+                    />
+                  </defs>
+                  <g id="圖層_2" data-name="圖層 2">
+                    <g id="圖層_1-2" data-name="圖層 1">
+                      <path d="M471.38,44.58C444.88,15.83,408.51,0,369,0c-29.55,0-56.62,9.34-80.45,27.77a164.79,164.79,0,0,0-32.52,34,164.31,164.31,0,0,0-32.53-34C199.65,9.34,172.58,0,143,0,103.49,0,67.12,15.83,40.61,44.58,14.43,73,0,111.8,0,153.87c0,43.3,16.14,82.94,50.78,124.74C81.77,316,126.32,354,177.9,397.93c17.61,15,37.58,32,58.31,50.15a30.06,30.06,0,0,0,39.58,0c20.73-18.13,40.7-35.16,58.32-50.18,51.58-44,96.12-81.9,127.11-119.3C495.87,236.81,512,197.17,512,153.87,512,111.8,497.57,73,471.38,44.58Z" />
                     </g>
-                  </svg>
-                </div>
+                  </g>
+                </svg>
               </div>
-              <div className="product-card-text2">
-                {general.length > 0 && general[3].iDiscr}
-              </div>
-              <div className="product-card-text3">
-                特價:{general.length > 0 && general[3].iPrice}元
-              </div>
-              <div className="card-button">
-                <Link to="#/"> 購買</Link>
-              </div>
+            </div>
+            <div className="product-card-text2">
+              {general.length > 0 && general[3].iDiscr}
+            </div>
+            <div className="product-card-text3">
+              特價:{general.length > 0 && general[3].iPrice}元
+            </div>
+            <div className="card-button">
+              <Link to="#/"> 購買</Link>
             </div>
           </div>
         </div>
