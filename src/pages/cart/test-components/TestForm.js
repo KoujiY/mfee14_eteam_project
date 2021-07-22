@@ -35,18 +35,27 @@ const TestForm = () => {
     //   name: '範例咖啡豆',
     //   category: '',
     //   iPrice: 123,
-    //   iCount: 1,
+    //   iCount: 10,
     //   total: '',
     // },
-    {
-      // iId: '',
-      // pic: '',
-      // name: '',
-      // // category: '',
-      // iPrice: '',
-      // iCount: '',
-      // total: '',
-    },
+    // {
+    //   iId: '9999',
+    //   pic: 'https://fakeimg.pl/125x125/',
+    //   name: '範例咖啡豆',
+    //   category: '',
+    //   iPrice: 123,
+    //   iCount: 10,
+    //   total: '',
+    // },
+    // {
+    //   iId: '',
+    //   pic: '',
+    //   name: '',
+    //   category: '',
+    //   iPrice: '',
+    //   iCount: '',
+    //   total: '',
+    // },
   ])
   console.log(step1.length)
   const [step2, setStep2] = useState({
@@ -203,6 +212,15 @@ const TestForm = () => {
     //   console.error('Invalid Form')
     // }
     const data = new FormData(e.target)
+
+    fetch('https://7000/order/', {
+      method: 'POST',
+      // We convert the React state to JSON and send it as the POST body
+      body: JSON.stringify(data),
+    }).then(function (response) {
+      console.log(response)
+      return response.json()
+    })
   }
 
   const handleChange = (e) => {
@@ -226,58 +244,6 @@ const TestForm = () => {
     // setStep2Errors(updatedStep2Errors)
   }
 
-  // async function getCartFromServer() {
-  //   // 開啟載入指示
-  //   // setDataLoading(true)
-
-  //   // 連接的伺服器資料網址
-  //   const url = 'http://localhost:6005/cart'
-  //   // const url = Settings.host + '/users'
-
-  //   // 注意header資料格式要設定，伺服器才知道是json格式
-  //   const request = new Request(url, {
-  //     method: 'GET',
-  //     headers: new Headers({
-  //       Accept: 'application/json',
-  //       'Content-Type': 'appliaction/json',
-  //     }),
-  //   })
-
-  //   const response = await fetch(request)
-  //   const data = await response.json()
-  //   console.log(data)
-  //   // 設定資料
-  //   getCartFromServer(data)
-  // }
-
-  // async function addUsersFromServer() {
-  //   // 開啟載入指示
-  //   // setDataLoading(true)
-
-  //   // 連接的伺服器資料網址
-  //   const url = 'http://localhost:6005/cart'
-  //   // const url = Settings.host + '/users'
-
-  //   // 注意header資料格式要設定，伺服器才知道是json格式
-  //   const request = new Request(url, {
-  //     method: 'POST',
-  //     body: JSON.stringify(step1), //要轉為json
-  //     headers: new Headers({
-  //       Accept: 'application/json',
-  //       'Content-Type': 'application/json',
-  //     }),
-  //   })
-
-  //   const response = await fetch(request)
-  //   const data = await response.json()
-  //   console.log(data)
-  //   // 設定資料
-  //   addUsersFromServer(step1)
-  // }
-
-  // useEffect(() => {
-  //   getCartFromServer()
-  // }, [])
   return (
     <>
       <Steppers

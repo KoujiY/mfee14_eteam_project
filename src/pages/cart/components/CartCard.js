@@ -10,6 +10,7 @@ import {
   Container,
   makeStyles,
   Grid,
+  Hidden,
 } from '@material-ui/core'
 import styled from 'styled-components'
 
@@ -54,12 +55,12 @@ function CartCard(props) {
     })
 
     const response = await fetch(request)
-    const cart1 = await response.json()
-    console.log(cart1)
+    const cart = await response.json()
+    console.log(cart)
     // 設定資料
-    setStep1(cart1)
+    setStep1(cart)
   }
-  
+
   async function deletcUserFromServer(iId) {
     // 開啟載入指示
     setDataLoading(true)
@@ -73,6 +74,7 @@ function CartCard(props) {
       headers: new Headers({
         Accept: 'application/json',
         'Content-Type': 'appliaction/json',
+        credentials: 'same-origin',
       }),
     })
 
@@ -127,7 +129,7 @@ function CartCard(props) {
   return (
     <>
       <tbody className="cart-tbody">
-        {step1.length < 0 ? (
+        {step1.length <= 0 ? (
           <Container className="item-card">
             購物車沒有商品QQ
             <button>去選購</button>
@@ -191,9 +193,12 @@ function CartCard(props) {
                 <td className="item-td">{v.total}</td>
 
                 <td colSpan="2" className="item-td">
-                  <button className="outlineChoose" onClick={(e) => {}}>
-                    下次再買
-                  </button>
+                  <Hidden smDown>
+                    <button className="outlineChoose" onClick={(e) => {}}>
+                      下次再買
+                    </button>
+                  </Hidden>
+
                   <button
                     className="outlineChoose"
                     onClick={() => deletcUserFromServer(v.iId)}

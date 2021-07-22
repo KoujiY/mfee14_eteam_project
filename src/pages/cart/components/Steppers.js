@@ -23,6 +23,8 @@ import {
   TextField,
   Hidden,
   Container,
+  Box,
+  MenuItem,
 } from '@material-ui/core'
 import '../Cart.css'
 
@@ -340,6 +342,26 @@ export default function Steppers(props) {
   //   setActiveStep(0)
   // }
 
+  let itemTotal = step1.length
+    ? step1
+        .map((v, i) => {
+          v.iPrice = step1[i].iPrice
+          v.iCount = step1[i].iCount
+          v.total = v.iPrice * v.iCount
+          // console.log(v.total)
+          return v.total
+        })
+        .reduce((a, b) => a + b)
+    : ''
+  let discount = 1500 > itemTotal > 1000 ? '50' : itemTotal > 1500 ? '70' : '0'
+  let shipping =
+    step2.choose === '宅配' && itemTotal < 1000 && activeStep > 0
+      ? 80
+      : step2.choose === '超商取貨'
+      ? 60
+      : 0
+  // const [subtotal, setSubtotal] = useState('')
+  const subtotal = itemTotal - discount + shipping
   return (
     <div className={classes.root}>
       <div>
@@ -389,9 +411,10 @@ export default function Steppers(props) {
                 }}
               >
                 <Toolbar>
-                  <Button onClick={handleBack} style={{ color: 'white' }}>
-                    +
-                  </Button>
+                  <Button
+                    onClick={handleBack}
+                    style={{ color: 'white' }}
+                  ></Button>
                   <Typography>
                     {activeStep === steps.length - 1
                       ? '確認訂單'
@@ -415,88 +438,59 @@ export default function Steppers(props) {
                 {getStepContent(activeStep)}
               </Typography>
               {/* <input type="submit" /> */}
-              <AppBar position="fixed" style={{ top: 'auto', bottom: 0 }}>
-                <Toolbar>
-                  <Grid container xs={12} position="sticky">
-                    <Paper className="cartBody">
-                      <div>
-                        <Grid item xs={3}>
-                          <Typography>總金額:</Typography>
-                        </Grid>
-                        <Grid item xs={3}>
-                          <Typography>
-                            NT$
-                            {step1.map((v, i) => {
-                              v.iPrice = step1[i].iPrice
-                              v.iCount = step1[i].iCount
-                              v.total = v.iPrice * v.iCount
-                              for (let i = 0; i < step1.length - 1; i++) {
-                                v.total += v.total[i]
-                                console.log(v.total)
-                              }
-                              return v.total
-                            })}
-                          </Typography>
-                        </Grid>
-                        <Grid item xs={6}>
-                          {/* <Button
-                disabled={activeStep === 0}
-                onClick={handleBack}
-                className={classes.button}
+              <AppBar
+                position="fixed"
+                style={{ top: 'auto', bottom: 0, backgroundColor: 'white' }}
               >
-                上一頁
-              </Button> */}
-                          <Button
-                            onChange={handleSubmit}
-                            position="fixed"
-                            variant="contained"
-                            color="primary"
-                            onClick={handleNext}
-                            className={classes.button}
-                            disabled={activeStep === 0 && step1.length < 0}
-                            type={
-                              activeStep < steps.length - 1
-                                ? 'button'
-                                : 'submit'
-                            }
-                          >
-                            {activeStep === steps.length - 1
-                              ? '結帳'
-                              : activeStep < 2
-                              ? '下一頁'
-                              : '確認訂單'}
-                          </Button>
-                        </Grid>
-                      </div>
-
-                      <div>
-                        <Grid
-                          item
-                          style={{ gridColumnEnd: 'span 8', direction: 'row' }}
-                        >
-                          <Grid
-                            style={{
-                              gridColumnEnd: 'span 6',
-                              direction: 'row',
-                            }}
-                          >
-                            <label>折扣碼</label>
-                          </Grid>
-                          <Grid
-                            style={{
-                              gridColumnEnd: 'span 6',
-                              direction: 'row',
-                            }}
-                          >
-                            <TextField
-                              select
-                              label=""
-                              inputProps={{ width: '100px' }}
-                            ></TextField>
-                          </Grid>
-                        </Grid>
-                      </div>
-                    </Paper>
+                <Toolbar
+                  style={{
+                    backgroundColor: 'white',
+                    color: '#002875',
+                    maxWidth: '1200px',
+                  }}
+                >
+                  <Grid container xs={12} style={{ margin: '10px auto' }}>
+                    <Grid item xs={3}>
+                      <Typography>
+                        <h4>總金額:</h4>
+                      </Typography>
+                    </Grid>
+                    <Grid item xs={1}>
+                      <Typography>
+                        <h4 name="subtotal">
+                          NT$
+                          {activeStep < steps.length - 1 && isNaN(itemTotal)
+                            ? 0
+                            : activeStep < steps.length - 1 &&
+                              itemTotal === true
+                            ? itemTotal
+                            : subtotal}
+                        </h4>
+                      </Typography>
+                    </Grid>
+                    <Grid item xs={6} style={{ margin: '10px auto' }}>
+                      <Button
+                        onChange={handleSubmit}
+                        position="fixed"
+                        variant="contained"
+                        color="primary"
+                        onClick={handleNext}
+                        className={classes.button}
+                        disabled={
+                          (activeStep === 0 && step1.length < 0) ||
+                          isNaN(itemTotal)
+                        }
+                        type={
+                          activeStep < steps.length - 1 ? 'button' : 'submit'
+                        }
+                      >
+                        {activeStep === steps.length - 1
+                          ? '結帳'
+                          : activeStep < 2
+                          ? '下一頁'
+                          : '確認訂單'}
+                      </Button>
+                    </Grid>
                   </Grid>
                 </Toolbar>
               </AppBar>

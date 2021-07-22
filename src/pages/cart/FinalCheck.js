@@ -20,6 +20,23 @@ function FinalCheck(props) {
     step2,
     step3,
   } = props
+  let itemTotal = step1
+    .map((v, i) => {
+      v.iPrice = step1[i].iPrice
+      v.iCount = step1[i].iCount
+      v.total = v.iPrice * v.iCount
+      // console.log(v.total)
+      return v.total
+    })
+    .reduce((a, b) => a + b)
+  let discount = 1500 > itemTotal > 1000 ? '50' : itemTotal > 1500 ? '70' : '0'
+  let shipping =
+    step2.choose === '宅配' && itemTotal < 1000
+      ? 80
+      : step2.choose === '宅配' && itemTotal > 1000
+      ? 0
+      : 60
+
   return (
     <>
       <div className="cartBody dropDown">
@@ -45,21 +62,30 @@ function FinalCheck(props) {
       <div className="cartBody">
         <div>
           <span>商品小計</span>
-          <span>NT$ 9600</span>
+          <span>
+            NT$
+            {itemTotal}
+          </span>
         </div>
         <div>
           <span>折扣減免</span>
-          <span>-NT$ 50</span>
+          <span>-NT$ {discount}</span>
+        </div>
+        <div>
+          <small>
+            {1500 > itemTotal > 1000
+              ? '(滿千折50)'
+              : itemTotal > 1500
+              ? '(滿1千5折70)'
+              : ''}
+          </small>
         </div>
         <div>
           <span>運費</span>
-          <span>NT$ 0</span>
-        </div>
-        <div>
-          <h3>
-            總金額:
-            <span>NT$ 1500</span>
-          </h3>
+          <span>NT$ {shipping}</span>
+          <small>
+            {step2.choose === '宅配' && itemTotal > 1000 ? '(滿千免運)' : ''}
+          </small>
         </div>
       </div>
     </>

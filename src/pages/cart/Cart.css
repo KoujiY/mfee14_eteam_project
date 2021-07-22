@@ -10,7 +10,7 @@ h2 {
 }
 .cartBody {
   margin: 30px auto 15px;
-  padding: 30px auto 60px;
+  padding-top: 30px;
   width: 100%;
   max-width: 1200px;
   background-color: #ffffff;
@@ -61,8 +61,6 @@ table {
   border: 1px solid #0065b4;
 }
 .formBody {
-  color: #002875;
-  border-top: 1px solid #0065b4;
   display: flex;
   justify-content: space-evenly;
 }
@@ -98,4 +96,9 @@ small {
 
   @media (max-width: 600px) and (width: 100%){ 
     .forPhone{width: 100%;}
+   }
+   .titleLine{
+    height: 10px;
+    background-color: rgb(70, 21, 21);
+    margin: 30px 35px;
    }

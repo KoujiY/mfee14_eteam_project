@@ -18,6 +18,7 @@ import {
   Typography,
   FormControl,
   Hidden,
+  Box,
 } from '@material-ui/core'
 import styled from 'styled-components'
 import { cities, townships } from '../data/townships'
@@ -83,6 +84,21 @@ function Address(props) {
         xs={{ styled: { display: 'hidden' } }}
         className="cartBody"
       >
+        <Hidden xsDown>
+          <Grid item xs={12} style={{ color: '#002875' }}>
+            <Typography
+              style={{
+                borderBottom: '1px solid #0065b4',
+                width: '80%',
+                margin: '0 auto 15px',
+              }}
+              variant="subtitle1"
+            >
+              <h2>收貨地址</h2>
+            </Typography>
+          </Grid>
+        </Hidden>
+
         <FormGroup item md={5} sm={12} className="addressPart">
           <RadioGroup
             value={step2.choose}
@@ -168,7 +184,7 @@ function Address(props) {
                   defaultValue={step2.township}
                   name="township"
                   onChange={handleStep2Change}
-                  helperText={step2.township === -1 ? '必填' : ''}
+                  // helperText={step2.township === -1 ? '必填' : ''}
                 >
                   <MenuItem value="-1">
                     <em>選擇區域</em>
@@ -239,7 +255,15 @@ function Address(props) {
         </Hidden>
         <FormGroup item md={5} sm={12} className="addressPart">
           <div className="contactInfo">
-            <h4>聯絡方式</h4>
+            <Typography
+              style={{
+                color: '#0065b4',
+                marginBottom: '15px',
+                fontSize: '1rem',
+              }}
+            >
+              聯絡方式
+            </Typography>
             <div class="inputName">
               <input
                 type="checkbox"

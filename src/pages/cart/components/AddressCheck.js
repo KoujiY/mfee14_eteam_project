@@ -1,14 +1,14 @@
 import React from 'react'
-import styled from 'styled-components'
+// import styled from 'styled-components'
 import { cities, townships } from '../data/townships'
 function AddressCheck(props) {
   const {
     step2,
-    setStep2,
-    handleStep2Change,
-    step2Errors,
-    register,
-    setStep2Errors,
+    // setStep2,
+    // handleStep2Change,
+    // step2Errors,
+    // register,
+    // setStep2Errors,
   } = props
   return (
     <>

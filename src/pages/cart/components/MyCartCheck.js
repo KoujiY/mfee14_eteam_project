@@ -46,7 +46,7 @@ function MyCartCheck(props) {
   // ]
   return (
     <>
-      <Hidden smDown>
+      <Hidden xsDown>
         <Container>
           <div className="cart-thead">
             <div className="cart-th">商品圖片</div>

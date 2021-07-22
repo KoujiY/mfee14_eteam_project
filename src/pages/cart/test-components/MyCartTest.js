@@ -60,44 +60,33 @@ function MyCartTest(props) {
   //   setStep1(data)
   // }
 
-  async function addCartFromServer() {
-    // 開啟載入指示
-    // setDataLoading(true)
 
+  // 後端相關function：加入或更新購物車
+  async function getCartData(iId, cartQty) {
     // 連接的伺服器資料網址
-    const url = 'http://localhost:7000/cart'
-    // const url = Settings.host + '/users'
-    const newData = [
-      {
-        // iId: '',
-        // pic: '',
-        // name: '',
-        // category: '',
-        // iPrice: '',
-        // iCount: '',
-        // total: '',
-      },
-    ]
+    const url = 'http://localhost:7000/cart/session?iId=${iId}&cartQty=1'
+
     // 注意header資料格式要設定，伺服器才知道是json格式
     const request = new Request(url, {
-      method: 'POST',
-      body: JSON.stringify(newData), //要轉為json
+      credentials: 'include',
+      method: 'GET', //GET不能接body
       headers: new Headers({
         Accept: 'application/json',
-        'Content-Type': 'application/json',
+        'Content-Type': 'appliaction/json',
       }),
     })
 
     const response = await fetch(request)
     const data = await response.json()
-    // 設定資料
-    setStep1(data)
-    console.log('伺服器回傳的json資料', data)
+    console.log('伺服器回傳的json資料by read', data)
+    setStep1(data.cart)
+    console.log(step1)
   }
 
   useEffect(() => {
-    addCartFromServer()
+    getCartData()
   }, [])
+  console.log(step1)
 
   const classes = useStyles()
   return (
@@ -159,7 +148,9 @@ function MyCartTest(props) {
           <img src="" alt="商品圖片" />
           <p>推薦商品</p>
           <span>NT$ 700</span>
-          <button onClick={() => addCartFromServer()}>購買</button>
+          <button type="button" onClick={() => getCartData()}>
+            購買
+          </button>
         </div>
       </div>
     </>

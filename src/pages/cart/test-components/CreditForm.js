@@ -14,7 +14,8 @@ import {
   AccordionDetails,
   Typography,
   AccordionSummary,
-  Grid
+  Grid,
+  Hidden,
 } from '@material-ui/core'
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
@@ -36,7 +37,7 @@ function CreditForm(props) {
 
   return (
     <>
-      <div className="cartBody dropDown">
+      <div className="cartBody">
         <img alt="收合icon" onClick={() => {}}></img>
         <Accordion>
           <AccordionSummary>
@@ -44,13 +45,13 @@ function CreditForm(props) {
           </AccordionSummary>
           <AccordionDetails>
             {/* <Grid container> */}
-              <MyCartCheck step1={step1} />
+            <MyCartCheck step1={step1} />
             {/* </Grid> */}
           </AccordionDetails>
         </Accordion>
       </div>
 
-      <div className="cartBody dropDown">
+      <div>
         <Accordion>
           <AccordionSummary>
             <h2>收貨地址</h2>
@@ -62,7 +63,20 @@ function CreditForm(props) {
       </div>
 
       <div className="cartBody">
-        <h2>付款方式</h2>
+        <Hidden xsDown>
+          <Grid item xs={12} style={{ color: '#002875' }}>
+            <Typography
+              style={{
+                borderBottom: '1px solid #0065b4',
+                width: '80%',
+                margin: '0 auto 15px',
+              }}
+              variant="subtitle1"
+            >
+              <h2>付款方式</h2>
+            </Typography>
+          </Grid>
+        </Hidden>
         <RadioGroup
           value={step3.payment}
           name="payment"
@@ -72,6 +86,7 @@ function CreditForm(props) {
             <AccordionSummary
               aria-controls="panel1a-content"
               id="panel1a-header"
+              sm={12}
             >
               <FormControlLabel
                 value="credit"
