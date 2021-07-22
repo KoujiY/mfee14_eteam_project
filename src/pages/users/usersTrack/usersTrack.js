@@ -6,11 +6,29 @@ import './usersTrack.css'
 
 import UsersTitle from '../components/usersTitle'
 
+// 分頁
+import { makeStyles } from '@material-ui/core/styles'
+import Pagination from '@material-ui/lab/Pagination'
+
+// 分頁
+const useStyles = makeStyles((theme) => ({
+  root: {
+    '& > *': {
+      marginTop: theme.spacing(2),
+    },
+  },
+}))
+
 function UsersTrack(props) {
+  // 初始呈現資料狀態
   const [uTrack, setUtrack] = useState([])
 
   const [dataLoading, setDataLoading] = useState(false)
 
+  // 分頁狀態
+  const [uPage, setUpage] = useState(1)
+  const classes = useStyles()
+  // 原始資料呈現
   async function getTrackToServer() {
     setDataLoading(true)
 
@@ -64,6 +82,26 @@ function UsersTrack(props) {
       }
     }, 1000)
   }
+  // 分頁
+  async function getTrackPage(uPage) {
+    setDataLoading(true)
+
+    const token = localStorage.getItem('token')
+    const url = `${process.env.REACT_APP_USERSURL}/usersTrackPage/`
+
+    const req = new Request(url, {
+      method: 'post',
+      body: JSON.stringify({ ...uPage, token }),
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      }),
+    })
+    const res = await fetch(req)
+    const data = await res.json()
+    console.log('伺服器回傳資料:', data)
+    setUtrack(data)
+  }
   useEffect(() => {
     if (localStorage.token) {
       getTrackToServer()
@@ -77,7 +115,7 @@ function UsersTrack(props) {
     setTimeout(() => {
       setDataLoading(false)
     }, 1000)
-  }, [uTrack])
+  }, [uTrack, uPage])
 
   const loading = (
     <>
@@ -150,13 +188,19 @@ function UsersTrack(props) {
             )
           })}
 
-        {/* <div className="usersTrackPage">
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
-          <div>4</div>
-          <div>5</div>
-        </div> */}
+        <div className="usersTrackPage">
+          <div className={classes.root}>
+            <Pagination
+              count={5}
+              size="large"
+              onChange={(e) => {
+                setUpage(e.target.innerText)
+                getTrackPage(e.target.innerText)
+                // console.log(e.target.innerText)
+              }}
+            />
+          </div>
+        </div>
       </div>
     </>
   )

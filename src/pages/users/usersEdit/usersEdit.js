@@ -20,6 +20,7 @@ import DialogActions from '@material-ui/core/DialogActions'
 import DialogContent from '@material-ui/core/DialogContent'
 import DialogContentText from '@material-ui/core/DialogContentText'
 import DialogTitle from '@material-ui/core/DialogTitle'
+import VisibilityOffSharpIcon from '@material-ui/icons/VisibilityOffSharp'
 
 function UsersEdit(props) {
   // 取uId 值 (改用token)
@@ -27,6 +28,9 @@ function UsersEdit(props) {
   // console.log(props);
 
   const [dataLoading, setDataLoading] = useState(false)
+
+  // 密碼顯示狀態
+  const [hidden, setHidden] = useState(true)
 
   // 顯示的狀態設定
   const [users, setUsers] = useState([])
@@ -119,18 +123,12 @@ function UsersEdit(props) {
   // 生命週期
   // 一開始載入資料(componentDidMount 代表元件”已經”出現在網⾴上，這個⽅法中可以使⽤直接DOM處理，或向伺服器要初始化資料的JS程式碼)
 
-  useEffect(() => {
-    if (localStorage.token) {
-      getUserToServer()
-    } else {
-      alert('請先行登入')
-      props.history.push('/usersLogin')
-    }
-  }, [])
+  // *****原先要呈現資料的componentDidMount 會阻擋  jquery 的行為
 
   // 密碼顯示
   useEffect(() => {
-    $('.usersLoginEyes').click(() => {
+    $('.usersLoginEyes').click((e) => {
+      e.stopPropagation() //阻止冒泡
       console.log('hi')
       if ($('#uPwd').attr('type') === 'password') {
         $('#uPwd').attr('type', 'text')
@@ -138,6 +136,15 @@ function UsersEdit(props) {
         $('#uPwd').attr('type', 'password')
       }
     })
+  }, [])
+
+  useEffect(() => {
+    if (localStorage.token) {
+      getUserToServer()
+    } else {
+      alert('請先行登入')
+      props.history.push('/usersLogin')
+    }
   }, [])
 
   //componentDidUpdate 代表元件”已經”更新完成(真實DOM)，這個⽅法中可以得到最後更新的狀態值 (只有State更新，或接收到新的props
@@ -165,6 +172,11 @@ function UsersEdit(props) {
   ])
   // 放改變狀態的初始值 (React 無法辨別物件，所以若為物件時，只能一個一個列出來)
   // useEffect 的條件中盡量不要使用物件，因為每次都會被看成是不同的
+
+  // 密碼顯示  狀態改變
+  function toggleShow() {
+    setHidden(!hidden)
+  }
 
   const loading = (
     <>
@@ -228,38 +240,13 @@ function UsersEdit(props) {
               </div>
             </div>
             <div className="memberRight">
-              <div className="memberInput">
-                <label forhtml="uName">姓名</label>
-                <input
-                  id="uName"
-                  name="uName"
-                  type="text"
-                  placeholder={'原設定的姓名:' + users.uName}
-                  value={inputs.uName}
-                  onChange={onChangeForInput('uName')}
-                />
-              </div>
-              <div className="memberInput">
-                <label forhtml="uPwd">密碼</label>
-                <input
-                  id="uPwd"
-                  name="uPwd"
-                  type="password"
-                  // 可以使用pattern屬性。該required屬性也是必需的，否則具有空值的輸入字段將從約束驗證中排除。
-                  // pattern=".{6,}"
-                  // required
-                  // title="6 characters minimum"
-                  value={inputs.uPwd}
-                  onChange={onChangeForInput('uPwd')}
-                />
-              </div>
+              <VisibilityOffSharpIcon onClick={toggleShow} />
               {/* 密碼顯示 */}
               <div className="usersLoginEyes">
-                {' '}
                 {/*?xml version="1.0" encoding="iso-8859-1"?*/}
                 {/* Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  */}
                 {/* 引入svg 前要記得轉成jsx型態 */}
-                <svg
+                {/* <svg
                   version="1.1"
                   id="Capa_1"
                   xmlns="http://www.w3.org/2000/svg"
@@ -303,8 +290,35 @@ function UsersEdit(props) {
                   <g></g>
                   <g></g>
                   <g></g>
-                </svg>
+                </svg> */}
               </div>
+              <div className="memberInput">
+                <label forhtml="uPwd">密碼</label>
+                <input
+                  id="uPwd"
+                  name="uPwd"
+                  type={hidden ? 'password' : 'text'}
+                  // 可以使用pattern屬性。該required屬性也是必需的，否則具有空值的輸入字段將從約束驗證中排除。
+                  // pattern=".{6,}"
+                  // required
+                  // title="6 characters minimum"
+                  value={inputs.uPwd}
+                  onChange={onChangeForInput('uPwd')}
+                  placeholder="此欄位必填!!!!(請填入6個位元以上的密碼)"
+                />
+              </div>
+              <div className="memberInput">
+                <label forhtml="uName">姓名</label>
+                <input
+                  id="uName"
+                  name="uName"
+                  type="text"
+                  placeholder={'原設定的姓名:' + users.uName}
+                  value={inputs.uName}
+                  onChange={onChangeForInput('uName')}
+                />
+              </div>
+
               <div className="memberInput">
                 <label forhtml="uTWId">身分證字號</label>
                 <input

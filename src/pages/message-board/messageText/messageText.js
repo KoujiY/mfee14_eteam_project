@@ -19,10 +19,10 @@ function MessageText(props) {
   const [message, setMessage] = useState('')
   // 星星
   const [mStar, setMstar] = useState(0)
-  // 點讚
-  const [mLike, setMlike] = useState(true)
-  // 存mId
-  const [mId, setMid] = useState([])
+  // 點讚 (用來存mId)
+  const [mLike, setMlike] = useState('')
+  // 點讚 (用來統計數量)
+  const [mLikeTotal, setMlikeTotal] = useState(0)
   // Loading
   const [dataLoading, setDataLoading] = useState(false)
 
@@ -73,7 +73,7 @@ function MessageText(props) {
     setDataLoading(true)
     // 取得使用者輸入的值
     const token = localStorage.getItem('token')
-    const newData = { message, token, mLike, mStar }
+    const newData = { message, token, mStar }
     // 連接的伺服器資料網址
     const url = `${process.env.REACT_APP_USERSURL}/messageAdd/`
     // 注意資料格式要設定，伺服器才知道是json格式
@@ -110,9 +110,9 @@ function MessageText(props) {
 
   // 點讚數更新
 
-  async function putMessageTextMlike() {
+  async function putMessageTextMlike(mId) {
     const token = localStorage.getItem('token')
-    const newData = { ...mLike, ...mId, token }
+    const newData = { mId, token }
     const url = `${process.env.REACT_APP_USERSURL}/messagemlike/`
     // 注意資料格式要設定，伺服器才知道是json格式
     const req = new Request(url, {
@@ -130,6 +130,10 @@ function MessageText(props) {
     const data = await res.json()
 
     console.log('伺服器回傳點讚更新的資料:', data)
+
+    window.location.reload()
+
+    // setMlikeTotal(data)
   }
 
   useEffect(() => {
@@ -206,6 +210,8 @@ function MessageText(props) {
         取消
       </button>
 
+      {/* 呈現 */}
+
       {msg.length &&
         msg.map((v) => {
           return (
@@ -221,19 +227,24 @@ function MessageText(props) {
               <div>會員名稱:{v.uName}</div>
               <div>留言內容:{v.message}</div>
               <div>
-                總計讚數:{v.mLike}
+                總計讚數:
+                {/* {mLikeTotal === 1 ? Number(v.mLike) + 1 : Number(v.mLike) + 0} */}
+                {v.mLike}
                 <button
-                  onClick={() => {
-                    // setMlike(e.target.value)
-                    setMlike(mLike + 1 < 2)
-                    setMid(v.mId)
-                    putMessageTextMlike()
-                    console.log(mLike)
-                    console.log(mId)
+                  // ****要傳任何值前，都先將值帶入該<tag>內，放入onCilck {(e)=>{e.target.值}}進行傳遞作業
+                  id={v.mId}
+                  onClick={(e) => {
+                    // 取值
+                    setMlike(e.target.id)
+                    // 將取道的值帶入function 內 執行後續處理
+                    putMessageTextMlike(e.target.id)
+                    //指的就是該<button></button>
+                    // console.log(e.target)
+                    // 檢查是否有值
+                    // console.log(mLike)
                   }}
                 >
                   點讚
-                  {/* 點讚:{mLike} */}
                 </button>
               </div>
               <Box component="fieldset" mb={3} borderColor="transparent">

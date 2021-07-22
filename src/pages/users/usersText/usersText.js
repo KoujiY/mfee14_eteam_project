@@ -56,6 +56,7 @@ function UsersText(props) {
   const [dataLoading, setDataLoading] = useState(false)
   const [discountToUse, setDiscountToUse] = useState('')
   const [discountNotToUse, setDiscountNotToUse] = useState('')
+  // 編輯信用卡
   const [credit, setCredit] = useState('')
   const [creditEdit, setCreditEdit] = useState('')
 
@@ -281,13 +282,12 @@ function UsersText(props) {
   // 編輯信用卡 顯示功能(單筆資料)
   async function getUserEditCreditCardToServer(cId) {
     setDataLoading(true)
-    console.log('找cId', props)
+    // console.log('找cId', props)
     // const cIdPathname = props.location.pathname
     // const cId = cIdPathname.slice(21)
     const token = localStorage.getItem('token')
 
-    const url =
-      `${process.env.REACT_APP_USERSURL}/usersCreditCardReadSingle/` + cId
+    const url = `${process.env.REACT_APP_USERSURL}/usersCreditCardReadSingle/`
     const req = new Request(url, {
       method: 'post',
       body: JSON.stringify({ token, cId }),
@@ -301,16 +301,16 @@ function UsersText(props) {
     console.log('編輯信用卡 顯示功能(單筆資料):', data)
 
     // 改變原狀態，把取得的資料加入
-    setCredit(data)
+    setCreditEdit(data)
   }
 
   // 編輯信用卡 編輯功能
-  async function putUserCreditCardToServer() {
+  async function putUserCreditCardToServer(cId) {
     setDataLoading(true)
     // const token = localStorage.getItem('token')
     // 取得使用者輸入的值
-    const cIdPathname = props.location.pathname
-    const cId = cIdPathname.slice(21)
+    // const cIdPathname = props.location.pathname
+    // const cId = cIdPathname.slice(21)
 
     const newData = { ...inputs, cId }
 
@@ -343,10 +343,14 @@ function UsersText(props) {
       }
     }, 1000)
   }
+  // ******e.currentTarget.id 全域物件event的方法******
+  // e.Target.id 區域物件event的方法
 
   // 開啟彈窗(編輯信用卡)
-  const handleClickOpenEditCredit = () => {
+  const handleClickOpenEditCredit = (e) => {
     setOpenEditCredit(true)
+    getUserEditCreditCardToServer(e.currentTarget.id)
+    setDataLoading(false)
     // props.history.push(`/usersText/${v.cId}`)
   }
 
@@ -522,13 +526,14 @@ function UsersText(props) {
           {/* 信用卡資訊 */}
 
           <div className="creditCardOutButton">
-            <Button
+            <button
+              className="usersTextBtn2"
               variant="outlined"
               color="primary"
               onClick={handleClickOpenReadCredit}
             >
               信用卡資訊
-            </Button>
+            </button>
             <Dialog
               fullScreen
               open={openReadCredit}
@@ -604,15 +609,21 @@ function UsersText(props) {
                               X
                             </Link> */}
                           </div>
-                          {/* <div className="usersCreaditCardBtn">
-                            <Button
-                              autoFocus
-                              color="inherit"
-                              onClick={handleClickOpenEditCredit}
-                              key={v.cId}
-                            >
-                              編輯
-                            </Button>
+                          {/* 編輯信用卡 */}
+                          <div className="usersCreaditCardBtn">
+                            <div class="usersCreaditCardEditBtnEdit">
+                              <Button
+                                autoFocus
+                                color="inherit"
+                                onClick={handleClickOpenEditCredit}
+                                // onClick={(e) => {
+                                //   console.log(e.currentTarget.id)
+                                // }}
+                                id={v.cId}
+                              >
+                                編輯
+                              </Button>
+                            </div>
                             <div>
                               <Dialog
                                 fullScreen
@@ -698,22 +709,25 @@ function UsersText(props) {
                                         />
                                       </div>
                                     </div>
-                                    <div className="usersCreaditCardEditBtnAdd">
-                                      <button
-                                        key={v.cId}
-                                        onClick={() => {
-                                          putUserCreditCardToServer()
-                                        }}
-                                      >
-                                        確認
-                                      </button>
-                                    </div>
                                   </ListItem>
+                                  <div className="usersCreaditCardEditBtnAdd">
+                                    <button
+                                      id={v.cId}
+                                      onClick={(e) => {
+                                        putUserCreditCardToServer(e.target.id)
+
+                                        console.log(e.target)
+                                        console.log(e.target.id)
+                                        console.log(v)
+                                      }}
+                                    >
+                                      確認
+                                    </button>
+                                  </div>
                                 </List>
                               </Dialog>
-                            </div> */}
-
-                          {/* <button
+                            </div>
+                            {/* <button
                               onClick={() => {
                                 props.history.push(
                                   `/usersCreditCardEdit/${v.cId}`
@@ -722,9 +736,8 @@ function UsersText(props) {
                             >
                               編輯
                             </button> */}
+                          </div>
                         </div>
-
-                        {/* </div> */}
                       </ListItem>
                     )
                   })}
@@ -833,13 +846,14 @@ function UsersText(props) {
 
           {/* 折扣碼資訊 */}
           <div className="usersTrackOutButton">
-            <Button
+            <button
+              className="usersTextBtn2"
               variant="outlined"
               color="primary"
               onClick={handleClickOpen}
             >
               折扣碼資訊
-            </Button>
+            </button>
             <Dialog
               fullScreen
               open={open}

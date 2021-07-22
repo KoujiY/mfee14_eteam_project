@@ -39,7 +39,10 @@ import MessageText from './pages/message-board/messageText/messageText'
 import NotFoundPage from './pages/users/NotFoundPage'
 // FormValidationTest
 // import FormValidationTest from './pages/users/formValidationTest'
+// 測試 上傳function component
 import UploadFun from './pages/users/components/uploadFun'
+// 測試驗證碼
+import reCAPTCHATest from './pages/login/reCAPTCHA/reCAPTCHA'
 
 function App() {
   return (

@@ -8,7 +8,19 @@ import { Link, withRouter } from 'react-router-dom'
 // orderby
 import SelectOrderBy from '../components/selectOrderBy'
 
+// 分頁
+import { makeStyles } from '@material-ui/core/styles'
+import Pagination from '@material-ui/lab/Pagination'
+
 import $ from 'jquery'
+// 分頁
+const useStyles = makeStyles((theme) => ({
+  root: {
+    '& > *': {
+      marginTop: theme.spacing(2),
+    },
+  },
+}))
 
 function UsersConsumption(props) {
   // 1. 從伺服器來的原始資料
@@ -19,6 +31,10 @@ function UsersConsumption(props) {
   const [uOrder, setUorder] = useState('')
   // loading
   const [dataLoading, setDataLoading] = useState(false)
+  // 分頁
+  const [uPage, setUpage] = useState(1)
+  const classes = useStyles()
+
   // 初始畫面
   async function getConsumptionToServer() {
     setDataLoading(true)
@@ -42,7 +58,7 @@ function UsersConsumption(props) {
   }
 
   // 排序 後的資料 要存入原本的畫面
-  async function getConsumptionOrderBy() {
+  async function getConsumptionOrderBy(uOrder) {
     setDataLoading(true)
     const token = localStorage.getItem('token')
     const newData = { ...uOrder, token }
@@ -60,6 +76,29 @@ function UsersConsumption(props) {
     const res = await fetch(req)
     const data = await res.json()
     console.log('伺服器回傳資料:', data)
+    // 要存入原本顯示的狀態
+    setUconsump(data)
+  }
+
+  //頁數
+  async function getConsumptionPage(uPage) {
+    setDataLoading(true)
+    const token = localStorage.getItem('token')
+    const newData = { ...uPage, token }
+    // console.log('newData', newData)
+    const url = `${process.env.REACT_APP_USERSURL}/usersConsumptionPage/`
+
+    const req = new Request(url, {
+      method: 'post',
+      body: JSON.stringify(newData),
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      }),
+    })
+    const res = await fetch(req)
+    const data = await res.json()
+    console.log('伺服器回傳page資料:', data)
     // 要存入原本顯示的狀態
     setUconsump(data)
   }
@@ -92,18 +131,18 @@ function UsersConsumption(props) {
   // 表單元素有更動時
   useEffect(() => {
     // 先開起載入指示器
-    setDataLoading(true)
+    // setDataLoading(true)
     // 設一個空array
-    let newConsumption = []
+    // let newConsumption = []
     // 將要執行的function 放入
-    newConsumption = getConsumptionOrderBy()
+    // newConsumption = getConsumptionOrderBy()
     // 設定回狀態
-    setDisplayUConsump(newConsumption)
+    // setDisplayUConsump(newConsumption)
     // 關閉指示器
     setTimeout(() => {
       setDataLoading(false)
     }, 800)
-  }, [uOrder])
+  }, [uOrder, uPage])
 
   const loading = (
     <>
@@ -119,8 +158,13 @@ function UsersConsumption(props) {
     <>
       <div className="userConsumptionF">
         {/* 排序 */}
-
-        <SelectOrderBy uOrder={uOrder} setUorder={setUorder} />
+        {/*  props 可以傳狀態也可以傳function */}
+        <SelectOrderBy
+          uOrder={uOrder}
+          setUorder={setUorder}
+          getConsumptionOrderBy={getConsumptionOrderBy}
+          getConsumptionToServer={getConsumptionToServer}
+        />
       </div>
       <div className="UserConsumptiondiv">
         <div className="UserConsumptionFlex">
@@ -162,13 +206,20 @@ function UsersConsumption(props) {
             )
           })}
 
-        {/* <div className="UserConsumptionPage">
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
-          <div>4</div>
-          <div>5</div>
-        </div> */}
+        <div className="UserConsumptionPage">
+          <div className={classes.root}>
+            <Pagination
+              count={5}
+              size="large"
+              onChange={(e) => {
+                setUpage(e.target.innerText)
+                // console.log(e.target.innerText)
+                console.log(e)
+                getConsumptionPage(e.target.innerText)
+              }}
+            />
+          </div>
+        </div>
       </div>
     </>
   )

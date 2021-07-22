@@ -50,6 +50,8 @@ function UploadFun(props) {
                 Math.round(ProgressEvent.loaded / ProgressEvent.total) * 100 +
                 '%'
             )
+            buttonRef.current =
+              Math.round(ProgressEvent.loaded / ProgressEvent.total) * 100 + '%'
           },
         }
       )
@@ -68,14 +70,14 @@ function UploadFun(props) {
       <div>
         <input
           /* 將input 隱藏的方法 */
-          style={{ display: 'none' }}
+          // style={{ display: 'none' }}
           type="file"
           onChange={fileSelectedHandler}
           /* 另做一個button給input */
           ref={buttonRef}
         />
         {/* 另做一個button給input */}
-        <button onClick={() => this.fileInput.click()}>選擇檔案</button>
+        {/* <button onClick={() => this.fileInput.click()}>選擇檔案</button> */}
         {/* 實際上傳用的button */}
         <button
           onClick={() => {
@@ -84,6 +86,10 @@ function UploadFun(props) {
         >
           上傳檔案
         </button>
+
+        {/* <div style={{ width: '100px', height: '100px', background: 'yellow' }}>
+          {buttonRef}
+        </div> */}
       </div>
     </>
   )

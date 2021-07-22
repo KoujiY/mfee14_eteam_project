@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Link, withRouter } from 'react-router-dom'
 
-// import './usersEdit.css'
+import './usersTitle.css'
 
 import styled from 'styled-components'
 
@@ -31,10 +31,16 @@ function UsersTitle(props) {
   return (
     <>
       <MemberTextTitle>會員中心</MemberTextTitle>
-      <MemberConnect>
-        <Link to="/usersText">會員資料</Link>
-        <Link to="/usersTrack">會員商品追蹤</Link>
-        <Link to="/usersConsumption">會員消費紀錄</Link>
+      <MemberConnect className="usersTitleA">
+        <div className="usersTitleDiv">
+          <Link to="/usersText">會員資料</Link>
+        </div>
+        <div className="usersTitleDiv">
+          <Link to="/usersTrack">會員商品追蹤</Link>
+        </div>
+        <div className="usersTitleDiv">
+          <Link to="/usersConsumption">會員消費紀錄</Link>
+        </div>
       </MemberConnect>
     </>
   )

@@ -160,6 +160,26 @@ function UsersRegister(props) {
     postUserToServer()
   }
 
+  // 自動填寫 (動態生成，無法使用)
+  // useEffect(() => {
+  //   $('#usersRegisterAutoInput').click(function () {
+  //     $('#uAcco').val('Amos666666')
+  //     $('#uPwd').val('Amos666666')
+  //     $('#uChkPwd').val('Amos666666')
+  //     $('#uMail').val('shile7350@gmail.com.tw')
+  //     $('#uPhone').val('0988888888')
+  //     $('#uName').val('Amos')
+  //     $('#uGender').prop('checked', '男')
+  //     $('#uTWId').val('A123456789')
+  //     $('#uBirth').val('79/07/27')
+  //     $('#uCountry').val('台灣')
+  //     $('#uCity').val('台北市')
+  //     $('#uTownship').val('大安區')
+  //     $('#uStreet').val('復興南路南路一段390號2樓')
+  //     $('#chk').prop('checked', true)
+  //   })
+  // }, [])
+
   // 密碼顯示
   useEffect(() => {
     $('.usersLoginEyes').click(() => {
@@ -483,7 +503,7 @@ function UsersRegister(props) {
                   name="uMail"
                   type="email"
                   {...register('uMail')}
-                  placeholder="請輸入e-mail"
+                  placeholder="請輸入geogle e-mail"
                   // required
                   value={inputs.uMail}
                   onChange={onChangeForInput('uMail')}
@@ -699,6 +719,7 @@ function UsersRegister(props) {
               >
                 送出
               </button>
+              {/* <button id="usersRegisterAutoInput">一鍵填入</button> */}
             </div>
           </form>
         </div>

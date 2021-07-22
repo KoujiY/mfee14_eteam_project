@@ -34,7 +34,7 @@
   color: #f9f9f9;
 }
 .usersCreaditCardTitleIn {
-  width: 1000px;
+  width: 900px;
   margin: 15px auto;
   display: flex;
   flex-direction: row;
@@ -58,7 +58,7 @@
 }
 
 .usersCreaditCardTextIn {
-  width: 1000px;
+  width: 900px;
   height: 100px;
   /* margin: 0 auto; */
   display: flex;
@@ -70,25 +70,25 @@
 .usersCreaditCardName {
   text-align: center;
   width: 100px;
-  margin-left: 70px;
-  margin-right: 160px;
+   margin-left: 70px;
+  margin-right: 140px;
 }
 
 .usersCreaditCardNumber {
   text-align: center;
   width: 100px;
-  margin-right: 205px;
+  margin-right: 165px;
 }
 .usersCreaditCardExp {
-  margin-right: 230px;
+  margin-right: 200px;
 }
 
 .usersCreaditCardBtn {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-left: 80px;
-  margin-right: 50px;
+  /* margin-left: 40px;
+  margin-right: 20px; */
 }
 
 /* .usersCreaditCardBtn button {
