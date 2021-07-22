@@ -158,9 +158,10 @@ function Foursection() {
           Coffee products
           <div className="index-border-bottom-blue"> </div>
         </div>
-        <div className=" index-button-blue-bg fontsize-20">
-          <Link to="#/"> ALL </Link>
-        </div>
+
+        <Link to="#/" className=" index-button-blue-bg fontsize-20">
+          ALL
+        </Link>
       </div>
       <div className="index-best-selling-item">
         <div className="index-box2">
@@ -205,9 +206,9 @@ function Foursection() {
               <div className="index-product-card-text3">
                 特價:{general.length > 0 && general[0].iPrice}元
               </div>
-              <div className="index-card-button">
-                <Link to="#/"> 購買</Link>
-              </div>
+              <Link to="#/" className="index-card-button">
+                購買
+              </Link>
             </div>
           </div>
         </div>
@@ -252,9 +253,9 @@ function Foursection() {
             <div className="index-product-card-text3">
               特價:{general.length > 0 && general[1].iPrice}元
             </div>
-            <div className="index-card-button">
-              <Link to="#/"> 購買</Link>
-            </div>
+            <Link to="#/" className="index-card-button">
+              購買
+            </Link>
           </div>
         </div>
         <div className="index-box4">
@@ -299,9 +300,9 @@ function Foursection() {
               <div className="index-product-card-text3">
                 特價:{general.length > 0 && general[1].iPrice}元
               </div>
-              <div className="index-card-button">
-                <Link to="#/"> 購買</Link>
-              </div>
+              <Link to="#/" className="index-card-button">
+                購買
+              </Link>
             </div>
           </div>
         </div>
@@ -346,9 +347,9 @@ function Foursection() {
             <div className="index-product-card-text3">
               特價:{general.length > 0 && general[3].iPrice}元
             </div>
-            <div className="index-card-button">
-              <Link to="#/"> 購買</Link>
-            </div>
+            <Link to="#/" className="index-card-button">
+              購買
+            </Link>
           </div>
         </div>
       </div>

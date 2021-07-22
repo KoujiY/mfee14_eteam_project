@@ -27,12 +27,13 @@ function Twosection() {
             <div className="index-twopic-big-text">在你手中</div>
             <div className="index-twopic-big-text">為你研磨最好的一品</div>
           </div>
-          <div className="index-button-blue-left">
-            <Link to="#/">尋找咖啡</Link>
-          </div>
-          <div className="index-button-blue-right">
-            <Link to="#/">尋找店家</Link>
-          </div>
+
+          <Link to="#/ " className="index-button-blue-left">
+            尋找咖啡
+          </Link>
+          <Link to="#/ " className="index-button-blue-right">
+            尋找店家
+          </Link>
         </div>
         <div className="index-twopage-rectangle"></div>
       </div>

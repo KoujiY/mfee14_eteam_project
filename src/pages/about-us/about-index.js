@@ -240,9 +240,10 @@ function About() {
                   <div className="about-banner-content-text">
                     無論您是在何處，您都可以拿出手機、搜尋我們的蹤跡，我們將秉持著「不期而遇」的驚喜與理念準備好咖啡，點綴您生命中的美好時刻。
                   </div>
-                  <div className="about-button-blue ">
-                    <Link to="#/">More</Link>
-                  </div>
+
+                  <Link to="#/" className="about-button-blue ">
+                    More
+                  </Link>
                 </div>
               </div>
               <div className="about-banner-pic ">
@@ -425,10 +426,7 @@ function About() {
                   <div className="about-email-from">
                     <p className="about-pb-12">想了解更多資訊</p>
                     <p>歡迎留下您的資訊，我們會盡快聯繫您</p>
-                    <form
-                      method="post"
-                      action="https://store.medulla.co.jp/freyia/join"
-                    >
+                    <form method="post" action="">
                       <input
                         className="about-input"
                         type="email"

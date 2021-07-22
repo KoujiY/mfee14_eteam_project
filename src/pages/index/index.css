@@ -239,6 +239,9 @@ table {
   .index-four-herro-button-right,
   .index-five-herro-button-left,
   .index-five-herro-button-right {
+    display: block;
+    text-decoration: none;
+    color: #002875;
     width: 110px;
     height: 40px;
     border-radius: 40px;
@@ -294,18 +297,19 @@ table {
     bottom: 30%;
     right: 35%;
   }
-  .index-one-herro-button-left > a,
-  .index-one-herro-button-right > a,
-  .index-two-herro-button-left > a,
-  .index-two-herro-button-right > a,
-  .index-three-herro-button-left > a,
-  .index-three-herro-button-right > a,
-  .index-four-herro-button-left > a,
-  .index-four-herro-button-right > a,
-  .index-five-herro-button-left > a,
-  .index-five-herro-button-right > a {
-    color: #002875;
-    text-decoration: none;
+  .index-one-herro-button-left:hover,
+  .index-one-herro-button-right:hover,
+  .index-two-herro-button-left:hover,
+  .index-two-herro-button-right:hover,
+  .index-three-herro-button-left:hover,
+  .index-three-herro-button-right:hover,
+  .index-four-herro-button-left:hover,
+  .index-four-herro-button-right:hover,
+  .index-five-herro-button-left:hover,
+  .index-five-herro-button-right:hover {
+    color: #f9f9f9;
+    background-color: #ff5554;
+    border: 2px solid #ff5554;
   }
   /* /這是重疊在輪播軸上的矩形/ */
   .index-onepage-rectangle {
@@ -384,20 +388,9 @@ table {
     display: none;
   }
 
+  .index-button-blue-right,
   .index-button-blue-left {
-    width: 110px;
-    height: 40px;
-    border-radius: 40px;
-    justify-content: center;
-    padding: 10px 0;
-    border: 2px solid #002875;
-    position: absolute;
-    bottom: 16%;
-    left: 28%;
-    z-index: 2;
-  }
-
-  .index-button-blue-right {
+    display: block;
     width: 110px;
     height: 40px;
     border-radius: 40px;
@@ -407,14 +400,22 @@ table {
     position: absolute;
     bottom: 16%;
     z-index: 2;
-    right: 28%;
-  }
-
-  .index-button-blue-right a,
-  .index-button-blue-left a {
-    color: #002875;
     font-size: 16px;
     text-decoration: none;
+    color: #002875;
+  }
+
+  .index-button-blue-left {
+    left: 28%;
+  }
+  .index-button-blue-right {
+    right: 28%;
+  }
+  .index-button-blue-right:hover,
+  .index-button-blue-left:hover {
+    background-color: #ff5554;
+    color: #f9f9f9;
+    border: 2px solid #ff5554;
   }
 
   .index-twopage-rectangle {
@@ -429,6 +430,7 @@ table {
   }
 
   .index-twopic-big-text {
+    margin: 2px;
     font-size: 34px;
     padding: 2% 0;
   }
@@ -499,6 +501,7 @@ table {
   }
 
   .index-button-black {
+    display: block;
     position: absolute;
     border-radius: 40px;
     bottom: 56%;
@@ -509,10 +512,12 @@ table {
     height: 55px;
     width: 234px;
     background-color: #9494943f;
-  }
-  .index-button-black > a {
     color: #f9f9f9;
     text-decoration: none;
+  }
+  .index-button-black:hover {
+    background-color: #ff5554;
+    color: #f9f9f9;
   }
 
   .index-box {
@@ -578,13 +583,21 @@ table {
   }
 
   .index-card-button {
+    display: block;
     border-radius: 40px;
+    text-decoration: none;
+    color: #002875;
     padding: 8px 0;
     text-align: center;
     justify-content: center;
     height: 35px;
     width: 100px;
     border: 2px solid #002875;
+  }
+  .index-card-button:hover {
+    background-color: #ff5554;
+    color: #f9f9f9;
+    border: 2px solid #ff5554;
   }
   .index-card-button a {
     text-decoration: none;
@@ -601,17 +614,21 @@ table {
   }
 
   .index-button-blue-bg {
+    display: block;
+    text-decoration: none;
     border-radius: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
     height: 50px;
     width: 300px;
+    color: #659de1;
     border: 2px solid #659de1;
   }
-  .index-button-blue-bg a {
-    color: #659de1;
-    text-decoration: none;
+  .index-button-blue-bg:hover {
+    background-color: #659de1;
+    color: #f9f9f9;
+    border: 2px solid #659de1;
   }
 
   .index-button-click {
@@ -987,14 +1004,10 @@ table {
     bottom: 7%;
     z-index: 2;
     right: 32%;
-  }
-
-  .index-button-blue-right a {
     font-size: 12px;
     color: #002875;
     text-decoration: none;
   }
-
   .index-twopage-rectangle {
     display: none;
   }

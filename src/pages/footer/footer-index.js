@@ -157,15 +157,26 @@ function Footer() {
                   </div>
                 </div>
                 <div calss="footer-right">
-                  <div className="footer-solid-button-white footer-mb-12 ">
-                    <Link to="#/">聯絡我們</Link>
-                  </div>
-                  <div className="footer-solid-button-white footer-mb-12 ">
-                    <Link to="#/">加入我們</Link>
-                  </div>
-                  <div className="footer-solid-button-white footer-mb-18  ">
-                    <Link to="#/">關於我們</Link>
-                  </div>
+                  <Link
+                    to="#/"
+                    className="footer-solid-button-white footer-mb-12 "
+                  >
+                    聯絡我們
+                  </Link>
+
+                  <Link
+                    to="#/"
+                    className="footer-solid-button-white footer-mb-12 "
+                  >
+                    加入我們
+                  </Link>
+
+                  <Link
+                    to="#/"
+                    className="footer-solid-button-white footer-mb-18  "
+                  >
+                    關於我們
+                  </Link>
                 </div>
                 <div className="footer-mb-16 footer-phone-text-follow  ">
                   follow us

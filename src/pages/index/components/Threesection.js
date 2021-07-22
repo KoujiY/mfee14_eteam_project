@@ -224,9 +224,11 @@ function Threesection() {
           New product listing
           <div className="index-border-bottom-white"></div>
         </div>
-        <div className="index-button-black fontsize-20">
-          <Link to="#/"> ALL</Link>
-        </div>
+
+        <Link to="#/" className="index-button-black fontsize-20">
+          ALL
+        </Link>
+
         {/* ///////phone點擊按鈕的card */}
         <div className="index-phone-threesection-click-card">
           <div className="index-box">
@@ -272,9 +274,10 @@ function Threesection() {
                 <div className="index-product-card-text3">
                   特價:{users.length > 0 && users[0].iPrice}元
                 </div>
-                <div className="index-card-button">
-                  <Link to="#/"> 購買</Link>
-                </div>
+
+                <Link to="#/" className="index-card-button">
+                  購買
+                </Link>
               </div>
             </div>
             <div className="index-box1">
@@ -318,9 +321,9 @@ function Threesection() {
                 <div className="index-product-card-text3">
                   特價:{users.length > 0 && users[1].iPrice}元
                 </div>
-                <div className="index-card-button">
-                  <Link to="#/"> 購買</Link>
-                </div>
+                <Link to="#/" className="index-card-button">
+                  購買
+                </Link>
               </div>
             </div>
             <div className="index-box1">
@@ -364,9 +367,9 @@ function Threesection() {
                 <div className="index-product-card-text3">
                   特價:{users.length > 0 && users[2].iPrice}元
                 </div>
-                <div className="index-card-button">
-                  <Link to="#/"> 購買</Link>
-                </div>
+                <Link to="#/" className="index-card-button">
+                  購買
+                </Link>
               </div>
             </div>
             <div className="index-box1">
@@ -410,9 +413,9 @@ function Threesection() {
                 <div className="index-product-card-text3">
                   特價:{users.length > 0 && users[3].iPrice}元
                 </div>
-                <div className="index-card-button">
-                  <Link to="#/"> 購買</Link>
-                </div>
+                <Link to="#/" className="index-card-button">
+                  購買
+                </Link>
               </div>
             </div>
             <div className="index-box1">
@@ -456,9 +459,9 @@ function Threesection() {
                 <div className="index-product-card-text3">
                   特價:{users.length > 0 && users[4].iPrice}元
                 </div>
-                <div className="index-card-button">
-                  <Link to="#/">購買</Link>
-                </div>
+                <Link to="#/" className="index-card-button">
+                  購買
+                </Link>
               </div>
             </div>
             <div className="index-box1">
@@ -502,9 +505,9 @@ function Threesection() {
                 <div className="index-product-card-text3">
                   特價:{users.length > 0 && users[5].iPrice}元
                 </div>
-                <div className="index-card-button">
-                  <Link to="#/"> 購買</Link>
-                </div>
+                <Link to="#/" className="index-card-button">
+                  購買
+                </Link>
               </div>
             </div>
           </div>

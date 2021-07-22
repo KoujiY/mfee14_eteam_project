@@ -262,6 +262,8 @@ li a {
   } */
   /*.footer-solid-button-white =白色方形按鈕*/
   .footer-solid-button-white {
+    display: block;
+    text-decoration: none;
     text-align: center;
     padding: 10px 0;
     width: 210px;
@@ -270,8 +272,9 @@ li a {
     border: 2px solid #f9f9f9;
     margin-bottom: 20px;
   }
-  .footer-solid-button-white > a {
-    text-decoration: none;
+  .footer-solid-button-white:hover {
+    background-color: #ff5554;
+    border: 2px solid #ff5554;
     color: #f9f9f9;
   }
   /*手機板的文字*/
@@ -356,17 +359,12 @@ li a {
   .footer-solid-button-white {
     text-align: center;
     padding: 10px 0;
-
     width: 210px;
     height: 40px;
-
     color: #f9f9f9;
     border: 2px solid #f9f9f9;
   }
-  .footer-solid-button-white > a {
-    text-decoration: none;
-    color: #f9f9f9;
-  }
+
   /*手機板的文字*/
   .footer-phone-item {
     display: block;

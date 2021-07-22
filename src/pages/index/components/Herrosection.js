@@ -22,48 +22,54 @@ function Herrosection() {
         <div className="index-img-wrap">
           <div className="index-onepage-pic">
             <img src={onepagepic} alt="index-onepage-pic" />
-            <div className="index-one-herro-button-left">
-              <Link to="#/">尋找咖啡</Link>
-            </div>
-            <div className="index-one-herro-button-right">
-              <Link to="#/">尋找店家</Link>
-            </div>
+
+            <Link to="#/" className="index-one-herro-button-left">
+              尋找咖啡
+            </Link>
+
+            <Link to="#/" className="index-one-herro-button-right">
+              尋找店家
+            </Link>
           </div>
           <div className="index-onepage-pic">
             <img src={onepagepic02} alt="index-onepage-pic02" />
-            <div className="index-two-herro-button-left">
-              <Link to="#/">尋找咖啡</Link>
-            </div>
-            <div className="index-two-herro-button-right">
-              <Link to="#/">尋找店家</Link>
-            </div>
+            <Link to="#/" className="index-one-herro-button-left">
+              尋找咖啡
+            </Link>
+
+            <Link to="#/" className="index-one-herro-button-right">
+              尋找店家
+            </Link>
           </div>
           <div className="index-onepage-pic">
             <img src={onepagepic03} alt="index-onepage-pic03" />
-            <div className="index-three-herro-button-left">
-              <Link to="#/">尋找咖啡</Link>
-            </div>
-            <div className="index-three-herro-button-right">
-              <Link to="#/">尋找店家</Link>
-            </div>
+            <Link to="#/" className="index-one-herro-button-left">
+              尋找咖啡
+            </Link>
+
+            <Link to="#/" className="index-one-herro-button-right">
+              尋找店家
+            </Link>
           </div>
           <div className="index-onepage-pic">
             <img src={onepagepic04} alt="index-onepage-pic04" />
-            <div className="index-four-herro-button-left">
-              <Link to="#/">尋找咖啡</Link>
-            </div>
-            <div className="index-four-herro-button-right">
-              <Link to="#/">尋找店家</Link>
-            </div>
+            <Link to="#/" className="index-one-herro-button-left">
+              尋找咖啡
+            </Link>
+
+            <Link to="#/" className="index-one-herro-button-right">
+              尋找店家
+            </Link>
           </div>
           <div className="index-onepage-pic">
             <img src={onepagepic05} alt="index-onepage-pic03" />
-            <div className="index-five-herro-button-left">
-              <Link to="#/">尋找咖啡</Link>
-            </div>
-            <div className="index-five-herro-button-right">
-              <Link to="#/">尋找店家</Link>
-            </div>
+            <Link to="#/" className="index-one-herro-button-left">
+              尋找咖啡
+            </Link>
+
+            <Link to="#/" className="index-one-herro-button-right">
+              尋找店家
+            </Link>
           </div>
         </div>
       </div>

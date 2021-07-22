@@ -315,6 +315,8 @@ table {
   }
 
   .about-button-blue {
+    display: block;
+    text-decoration: none;
     text-align: center;
     padding: 10px 0;
     width: 150px;
@@ -324,10 +326,10 @@ table {
     position: absolute;
     bottom: -3%;
     left: 70%;
-    /* border: 2px solid #f9f9f9; */
   }
 
-  .about-button-blue > a {
+  .about-button-blue:hover {
+    background-color: #ff5554;
     text-decoration: none;
     color: #f9f9f9;
   }
@@ -428,6 +430,8 @@ table {
     margin-bottom: 140px;
   }
   .about-buttom {
+    display: block;
+    text-decoration: none;
     background-color: #0065b4;
     color: #f9f9f9;
     border: 0;
@@ -436,6 +440,11 @@ table {
     box-shadow: 1px 1px 1px rgb(117, 116, 116);
     margin-top: 15px;
   }
+  .about-buttom:hover {
+    background-color: #ff5554;
+    color: #f9f9f9;
+  }
+
   .about-input {
     background-color: #f9f9f9;
     width: 220px;
