@@ -72,78 +72,80 @@ function Foursection() {
   ///////滑鼠hover滑過去title底線會動////////////
   useEffect(() => {
     $('.about-title').on('click mouseenter mouseleave', function () {
-      $('.border-bottom-blue').css('width', '110%').css('transition', '1.5s')
+      $('.index-border-bottom-blue')
+        .css('width', '110%')
+        .css('transition', '1.5s')
     })
   }, [])
-  /////////////////////
+  /////////////////////123123123123
   useEffect(() => {
-    $('.hot-product-1').click(function () {
-      $('.hot-product-1').toggleClass('active')
+    $('.index-hot-product-1').click(function () {
+      $('.index-hot-product-1').toggleClass('active')
     })
   }, [])
   useEffect(() => {
-    $('.hot-product-2').click(function () {
-      $('.hot-product-2').toggleClass('active')
-    })
-  }, [])
-
-  useEffect(() => {
-    $('.hot-product-3').click(function () {
-      $('.hot-product-3').toggleClass('active')
+    $('.index-hot-product-2').click(function () {
+      $('.index-hot-product-2').toggleClass('active')
     })
   }, [])
 
   useEffect(() => {
-    $('.hot-product-4').click(function () {
-      $('.hot-product-4').toggleClass('active')
+    $('.index-hot-product-3').click(function () {
+      $('.index-hot-product-3').toggleClass('active')
+    })
+  }, [])
+
+  useEffect(() => {
+    $('.index-hot-product-4').click(function () {
+      $('.index-hot-product-4').toggleClass('active')
     })
   }, [])
 
   ////////////hot的資訊滑鼠hover圖片放大/////////////  ss
   useEffect(() => {
     // 1
-    $('.newproduct-hot-1').on(' mouseenter ', function () {
-      $('.newproduct-hot-1')
+    $('.index-newproduct-hot-1').on(' mouseenter ', function () {
+      $('.index-newproduct-hot-1')
         .css('Transform', `scale(${1.5})`)
         .css('transition', '1s')
     })
-    $('.newproduct-hot-1').on('mouseleave', function () {
-      $('.newproduct-hot-1')
+    $('.index-newproduct-hot-1').on('mouseleave', function () {
+      $('.index-newproduct-hot-1')
         .css('Transform', `scale(${1})`)
         .css('transition', '1s')
     })
     // 2/
-    $('.newproduct-hot-2').on(' mouseenter ', function () {
-      $('.newproduct-hot-2')
+    $('.index-newproduct-hot-2').on(' mouseenter ', function () {
+      $('.index-newproduct-hot-2')
         .css('Transform', `scale(${1.5})`)
         .css('transition', '1s')
     })
-    $('.newproduct-hot-2').on('mouseleave', function () {
-      $('.newproduct-hot-2')
+    $('.index-newproduct-hot-2').on('mouseleave', function () {
+      $('.index-newproduct-hot-2')
         .css('Transform', `scale(${1})`)
         .css('transition', '1s')
     })
 
     // 3/
-    $('.newproduct-hot-3').on(' mouseenter ', function () {
-      $('.newproduct-hot-3')
+    $('.index-newproduct-hot-3').on(' mouseenter ', function () {
+      $('.index-newproduct-hot-3')
         .css('Transform', `scale(${1.5})`)
         .css('transition', '1s')
     })
-    $('.newproduct-hot-3').on('mouseleave', function () {
-      $('.newproduct-hot-3')
+    $('.index-newproduct-hot-3').on('mouseleave', function () {
+      $('.index-newproduct-hot-3')
         .css('Transform', `scale(${1})`)
         .css('transition', '1s')
     })
 
     // //4 /
-    $('.newproduct-hot-4').on(' mouseenter ', function () {
-      $('.newproduct-hot-4')
+    $('.index-newproduct-hot-4').on(' mouseenter ', function () {
+      $('.index-newproduct-hot-4')
         .css('Transform', `scale(${1.5})`)
         .css('transition', '1s')
     })
-    $('.newproduct-hot-4').on('mouseleave', function () {
-      $('.newproduct-hot-4')
+    $('.index-newproduct-hot-4').on('mouseleave', function () {
+      $('.index-newproduct-hot-4')
         .css('Transform', `scale(${1})`)
         .css('transition', '1s')
     })
@@ -151,33 +153,33 @@ function Foursection() {
 
   return (
     <>
-      <div className="best-selling-group">
+      <div className="index-best-selling-group">
         <div className="about-title">
           Coffee products
-          <div className="border-bottom-blue"> </div>
+          <div className="index-border-bottom-blue"> </div>
         </div>
-        <div className=" button-blue-bg fontsize-20">
+        <div className=" index-button-blue-bg fontsize-20">
           <Link to="#/"> ALL </Link>
         </div>
       </div>
-      <div className="best-selling-item">
-        <div className="box2">
-          <div className="box2-group">
-            <div className="box2-pic">
+      <div className="index-best-selling-item">
+        <div className="index-box2">
+          <div className="index-box2-group">
+            <div className="index-box2-pic">
               <img
-                className="newproduct-hot-1"
+                className="index-newproduct-hot-1"
                 src={`http://localhost:3000/img/index/generalproduct/${
                   general.length > 0 && general[0].iImg
                 }`}
                 alt="123"
               />
             </div>
-            <div className="item-1">
-              <div className="item-2">
-                <div className="product-card-text1">
+            <div className="index-item-1">
+              <div className="index-item-2">
+                <div className="index-product-card-text1">
                   {general.length > 0 && general[0].iName}
                 </div>
-                <div className="hot-product-1">
+                <div className="index-hot-product-1">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 512 455.52"
@@ -197,34 +199,34 @@ function Foursection() {
                   </svg>
                 </div>
               </div>
-              <div className="product-card-text2">
+              <div className="index-product-card-text2">
                 {general.length > 0 && general[0].iDiscr}
               </div>
-              <div className="product-card-text3">
+              <div className="index-product-card-text3">
                 特價:{general.length > 0 && general[0].iPrice}元
               </div>
-              <div className="card-button">
+              <div className="index-card-button">
                 <Link to="#/"> 購買</Link>
               </div>
             </div>
           </div>
         </div>
-        <div className="box3">
-          <div className="box2-pic">
+        <div className="index-box3">
+          <div className="index-box2-pic">
             <img
-              className="newproduct-hot-2"
+              className="index-newproduct-hot-2"
               src={`http://localhost:3000/img/index/generalproduct/${
                 general.length > 0 && general[1].iImg
               }`}
               alt="123"
             />
           </div>
-          <div className="item-1">
-            <div className="item-2">
-              <div className="product-card-text1">
+          <div className="index-item-1">
+            <div className="index-item-2">
+              <div className="index-product-card-text1">
                 {general.length > 0 && general[1].iName}
               </div>
-              <div className="hot-product-2">
+              <div className="index-hot-product-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 512 455.52"
@@ -244,34 +246,34 @@ function Foursection() {
                 </svg>
               </div>
             </div>
-            <div className="product-card-text2">
+            <div className="index-product-card-text2">
               {general.length > 0 && general[1].iDiscr}
             </div>
-            <div className="product-card-text3">
+            <div className="index-product-card-text3">
               特價:{general.length > 0 && general[1].iPrice}元
             </div>
-            <div className="card-button">
+            <div className="index-card-button">
               <Link to="#/"> 購買</Link>
             </div>
           </div>
         </div>
-        <div className="box4">
+        <div className="index-box4">
           <div className="aaa">
-            <div className="box2-pic">
+            <div className="index-box2-pic">
               <img
-                className="newproduct-hot-3"
+                className="index-newproduct-hot-3"
                 src={`http://localhost:3000/img/index/generalproduct/${
                   general.length > 0 && general[2].iImg
                 }`}
                 alt="123"
               />
             </div>
-            <div className="item-1">
-              <div className="item-2">
-                <div className="product-card-text1">
+            <div className="index-item-1">
+              <div className="index-item-2">
+                <div className="index-product-card-text1">
                   {general.length > 0 && general[2].iName}
                 </div>
-                <div className="hot-product-3">
+                <div className="index-hot-product-3">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 512 455.52"
@@ -291,34 +293,34 @@ function Foursection() {
                   </svg>
                 </div>
               </div>
-              <div className="product-card-text2">
+              <div className="index-product-card-text2">
                 {general.length > 0 && general[2].iDiscr}
               </div>
-              <div className="product-card-text3">
+              <div className="index-product-card-text3">
                 特價:{general.length > 0 && general[1].iPrice}元
               </div>
-              <div className="card-button">
+              <div className="index-card-button">
                 <Link to="#/"> 購買</Link>
               </div>
             </div>
           </div>
         </div>
-        <div className="box5">
-          <div className="box2-pic">
+        <div className="index-box5">
+          <div className="index-box2-pic">
             <img
-              className="newproduct-hot-4"
+              className="index-newproduct-hot-4"
               src={`http://localhost:3000/img/index/generalproduct/${
                 general.length > 0 && general[3].iImg
               }`}
               alt="123"
             />
           </div>
-          <div className="item-1">
-            <div className="item-2">
-              <div className="product-card-text1">
+          <div className="index-item-1">
+            <div className="index-item-2">
+              <div className="index-product-card-text1">
                 {general.length > 0 && general[3].iName}
               </div>
-              <div className="hot-product-4">
+              <div className="index-hot-product-4">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 512 455.52"
@@ -338,13 +340,13 @@ function Foursection() {
                 </svg>
               </div>
             </div>
-            <div className="product-card-text2">
+            <div className="index-product-card-text2">
               {general.length > 0 && general[3].iDiscr}
             </div>
-            <div className="product-card-text3">
+            <div className="index-product-card-text3">
               特價:{general.length > 0 && general[3].iPrice}元
             </div>
-            <div className="card-button">
+            <div className="index-card-button">
               <Link to="#/"> 購買</Link>
             </div>
           </div>

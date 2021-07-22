@@ -133,18 +133,19 @@ table {
 *::after {
   box-sizing: border-box;
 }
-
-body {
-  background-color: #f9f9f9;
-}
-
-li,
-ul {
-  list-style: none;
-}
+/* //有問題// */
 li a {
   display: block;
 }
+/* //////////常用工具/////////////// */
+.index-body {
+  background-color: #f9f9f9;
+}
+.index-ul-li {
+  list-style: none;
+}
+
+/* /////footer檔專屬常用工具////// */
 .footer-pr-16 {
   padding-right: 16px;
 }
@@ -160,14 +161,16 @@ li a {
 .footer-pb-32 {
   padding-bottom: 32px;
 }
-
 .footer-line-height-20 {
   line-height: 20px;
 }
-
-/*container    rwd*/
+.footer-d-flex {
+  display: flex;
+}
+/* /////////////////////////////// */
+/*index-container    rwd*/
 @media screen and (max-width: 1920px) {
-  .container-1 {
+  .index-container-1 {
     margin: 0 auto;
     max-width: 1200px;
   }
@@ -199,10 +202,10 @@ li a {
     width: 15%;
   }
 
-  .four-information {
+  .footer-four-information {
     display: flex;
   }
-  .four-information a {
+  .footer-four-information a {
     color: #f9f9f9;
     text-decoration: none;
   }
@@ -211,18 +214,18 @@ li a {
     display: flex;
   }
 
-  .phone-footer-icon {
+  .footer-phone-footer-icon {
     display: none;
   }
 
-  .map,
-  .coffee,
-  .product,
-  .partner {
+  .footer-map,
+  .footer-coffee,
+  .footer-product,
+  .footerpartner {
     width: 25%;
   }
 
-  .logo2 {
+  .footer-logo2 {
     width: 20%;
     width: 170px;
     height: 50px;
@@ -231,17 +234,17 @@ li a {
   .footer-left > ul > li {
     padding-bottom: 15px;
   }
-  .map > ul > li {
+  .footer-map > ul > li {
     padding-bottom: 15px;
   }
 
-  .coffee > ul > li {
+  .footer-coffee > ul > li {
     padding-bottom: 15px;
   }
-  .product > ul > li {
+  .footer-product > ul > li {
     padding-bottom: 15px;
   }
-  .partner > ul > li {
+  .footer-partner > ul > li {
     padding-bottom: 15px;
   }
   .footer-mr-6 {
@@ -272,16 +275,16 @@ li a {
     color: #f9f9f9;
   }
   /*手機板的文字*/
-  .phone-item {
+  .footer-phone-item {
     display: none;
   }
 
   /*手機板的logo*/
-  .phone-logo {
+  .footer-phone-logo {
     display: none;
   }
 
-  .copyright {
+  .footer-copyright {
     text-align: center;
     margin-top: 15%;
   }
@@ -299,7 +302,7 @@ li a {
   .footer-size12-noto {
     font-size: 12px;
   }
-  .phone-text-follow {
+  .footer-phone-text-follow {
     display: none;
   }
 }
@@ -321,20 +324,20 @@ li a {
     align-items: center;
   }
   /*手機板的圖片*/
-  .phonelogo2 {
+  .footer-phonelogo2 {
     width: 50%;
     height: 27px;
     margin-bottom: 30px;
   }
-  .phonelogo2 > img {
+  .footer-phonelogo2 > img {
     width: 100%;
     height: 100%;
   }
 
-  .map,
-  .coffee,
-  .product,
-  .partner {
+  .footer-map,
+  .footer-coffee,
+  .footer-product,
+  .footer-partner {
     display: none;
   }
   /*  */
@@ -345,7 +348,7 @@ li a {
     display: none;
   }
 
-  .phone-footer-icon {
+  .footer-phone-footer-icon {
     display: flex;
   }
 
@@ -365,23 +368,23 @@ li a {
     color: #f9f9f9;
   }
   /*手機板的文字*/
-  .phone-item {
+  .footer-phone-item {
     display: block;
     text-align: center;
   }
 
   /*手機板的logo*/
-  .phone-logo {
+  .footer-phone-logo {
     display: block;
   }
 
-  .copyright {
+  .footer-copyright {
     font-size: 8px;
     margin-top: 5%;
 
     color: #f9f9f9;
   }
-  .phone-text-follow {
+  .footer-phone-text-follow {
     display: block;
   }
 }

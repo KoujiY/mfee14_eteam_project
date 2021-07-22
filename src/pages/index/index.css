@@ -134,31 +134,35 @@ table {
   box-sizing: border-box;
 }
 /* /////////常用工具////////////// */
-body {
+.index-body {
   background-color: #f9f9f9;
 }
-
-li,
-ul {
+/* /////index檔專屬常用工具////// */
+.index-ul-li {
   list-style: none;
 }
+.index-d-flex-columm {
+  display: flex;
+  flex-direction: column;
+}
+/* ////////////////////////////
 
-/*container    rwd*/
+/*index-container    rwd*/
 @media screen and (max-width: 1920px) {
-  .container {
+  .index-container {
     max-width: 1920px;
     position: relative;
     margin: 0 auto;
     overflow: hidden;
   }
-  .container-1 {
+  .index-container-1 {
     max-width: 1200px;
     margin: 0 auto;
   }
   /* /////////////////// */
   /*主視覺畫面*/
 
-  .herro-section {
+  .index-herro-section {
     width: 1920px;
     height: 100%;
     overflow: hidden;
@@ -166,7 +170,7 @@ ul {
     margin: 0 auto;
   }
 
-  .img-wrap {
+  .index-img-wrap {
     display: flex;
     width: 9600px;
     transform: translateX(0px);
@@ -177,21 +181,21 @@ ul {
     transition: 3s;
   }
 
-  .onepage-pic {
+  .index-onepage-pic {
     position: relative;
     overflow: hidden;
     width: 1920px;
     height: 100%;
   }
 
-  .onepage-pic img {
+  .index-onepage-pic img {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
 
   /* /頁碼數字/ */
-  .slider-dots {
+  .index-slider-dots {
     color: #0065b4;
     display: flex;
     position: absolute;
@@ -200,19 +204,19 @@ ul {
     right: 17%;
     z-index: 3;
   }
-  .dot {
+  .index-dots {
     margin: 0 16%;
   }
   /* ////手機板的herrosection消失////// */
-  .phone-herro-section {
+  .index-phone-herro-section {
     display: none;
   }
   /* ////手機板的herrosection消失////// */
-  .phone-onepage-pic {
+  .index-phone-onepage-pic {
     display: none;
   }
   /* ///herro文字////// */
-  .herro-text {
+  .index-herro-text {
     opacity: 0;
     display: flex;
     align-items: center;
@@ -225,16 +229,16 @@ ul {
   }
 
   /* /這是輪播軸每一頁的的按紐/ */
-  .one-herro-button-left,
-  .one-herro-button-right,
-  .two-herro-button-left,
-  .two-herro-button-right,
-  .three-herro-button-left,
-  .three-herro-button-right,
-  .four-herro-button-left,
-  .four-herro-button-right,
-  .five-herro-button-left,
-  .five-herro-button-right {
+  .index-one-herro-button-left,
+  .index-one-herro-button-right,
+  .index-two-herro-button-left,
+  .index-two-herro-button-right,
+  .index-three-herro-button-left,
+  .index-three-herro-button-right,
+  .index-four-herro-button-left,
+  .index-four-herro-button-right,
+  .index-five-herro-button-left,
+  .index-five-herro-button-right {
     width: 110px;
     height: 40px;
     border-radius: 40px;
@@ -246,65 +250,65 @@ ul {
     right: 35%;
     z-index: 2;
   }
-  .one-herro-button-right {
+  .index-one-herro-button-right {
     bottom: 25%;
     right: 25%;
   }
-  .two-herro-button-left {
+  .index-two-herro-button-left {
     bottom: 40%;
     right: 30%;
   }
-  .two-herro-button-right {
+  .index-two-herro-button-right {
     bottom: 40%;
     right: 40%;
   }
-  .two-herro-button-left {
+  .index-two-herro-button-left {
     bottom: 40%;
     right: 30%;
   }
-  .two-herro-button-right {
+  .index-two-herro-button-right {
     bottom: 40%;
     right: 40%;
   }
-  .three-herro-button-left {
+  .index-three-herro-button-left {
     bottom: 30%;
     right: 20%;
   }
-  .three-herro-button-right {
+  .index-three-herro-button-right {
     bottom: 30%;
     right: 35%;
   }
-  .four-herro-button-left {
+  .index-four-herro-button-left {
     bottom: 30%;
     right: 20%;
   }
-  .four-herro-button-right {
+  .index-four-herro-button-right {
     bottom: 30%;
     right: 35%;
   }
-  .five-herro-button-left {
+  .index-five-herro-button-left {
     bottom: 30%;
     right: 20%;
   }
-  .five-herro-button-right {
+  .index-five-herro-button-right {
     bottom: 30%;
     right: 35%;
   }
-  .one-herro-button-left > a,
-  .one-herro-button-right > a,
-  .two-herro-button-left > a,
-  .two-herro-button-right > a,
-  .three-herro-button-left > a,
-  .three-herro-button-right > a,
-  .four-herro-button-left > a,
-  .four-herro-button-right > a,
-  .five-herro-button-left > a,
-  .five-herro-button-right > a {
+  .index-one-herro-button-left > a,
+  .index-one-herro-button-right > a,
+  .index-two-herro-button-left > a,
+  .index-two-herro-button-right > a,
+  .index-three-herro-button-left > a,
+  .index-three-herro-button-right > a,
+  .index-four-herro-button-left > a,
+  .index-four-herro-button-right > a,
+  .index-five-herro-button-left > a,
+  .index-five-herro-button-right > a {
     color: #002875;
     text-decoration: none;
   }
   /* /這是重疊在輪播軸上的矩形/ */
-  .onepage-rectangle {
+  .index-onepage-rectangle {
     transform: translateX(-360px);
     width: 40%;
     height: 10%;
@@ -313,12 +317,12 @@ ul {
     bottom: 0;
     z-index: 1;
   }
-  .phone-herro-text {
+  .index-phone-herro-text {
     display: none;
   }
   /* ///////////////////////////// */
   /* //第二頁/ */
-  .two-section {
+  .index-two-section {
     width: 92%;
     height: 100%;
     display: flex;
@@ -327,21 +331,21 @@ ul {
     position: relative;
   }
 
-  .two-colorship img {
+  .index-two-colorship img {
     width: 90%;
   }
 
-  .twopage-pic {
+  .index-twopage-pic {
     width: 85%;
     margin-left: auto;
     padding-top: 60px;
     padding-bottom: 170px;
   }
-  .twopage-pic img {
+  .index-twopage-pic img {
     width: 100%;
   }
 
-  .twopage-pic-bg {
+  .index-twopage-pic-bg {
     margin-left: auto;
     background: url('./img/twosection.jpg') center center no-repeat;
     min-height: 700px;
@@ -350,7 +354,7 @@ ul {
     max-width: 95%;
   }
 
-  .cardtwo {
+  .index-cardtwo {
     width: 40%;
     height: 50%;
     background-color: #f9f9f9;
@@ -362,14 +366,14 @@ ul {
     text-align: center;
     padding-top: 50px;
   }
-  .chartbox-icon {
+  .index-chartbox-icon {
     padding-top: 4px;
     padding-left: 7px;
     width: 40px;
     height: 22px;
     fill: #f9f9f9;
   }
-  .chart-box {
+  .index-chart-box {
     background-color: #ff5554;
     border-radius: 2px;
     width: 45px;
@@ -380,12 +384,7 @@ ul {
     display: none;
   }
 
-  .fontsize34-group > .fontsize34 {
-    font-size: 34px;
-    padding-top: 15px;
-  }
-
-  .button-blue-left {
+  .index-button-blue-left {
     width: 110px;
     height: 40px;
     border-radius: 40px;
@@ -398,7 +397,7 @@ ul {
     z-index: 2;
   }
 
-  .button-blue-right {
+  .index-button-blue-right {
     width: 110px;
     height: 40px;
     border-radius: 40px;
@@ -411,14 +410,14 @@ ul {
     right: 28%;
   }
 
-  .button-blue-right a,
-  .button-blue-left a {
+  .index-button-blue-right a,
+  .index-button-blue-left a {
     color: #002875;
     font-size: 16px;
     text-decoration: none;
   }
 
-  .twopage-rectangle {
+  .index-twopage-rectangle {
     width: 40%;
     height: 45%;
     background-color: #659de1;
@@ -428,45 +427,46 @@ ul {
     left: -4%;
     z-index: 1;
   }
-  .twopic-big-text {
+
+  .index-twopic-big-text {
     font-size: 34px;
     padding: 2% 0;
   }
 
   /* ////第二頁圖片消失///// */
-  .phone-twopage-pic {
+  .index-phone-twopage-pic {
     display: none;
   }
   /* ////第二頁圖片消失///// */
-  .phone-long-colorship {
+  .index-phone-long-colorship {
     display: none;
   }
   /* /////////////////////////////////////// */
   /* //第三頁////// */
-  .threepage-pic {
+  .index-threepage-pic {
     width: 100%;
   }
-  .threepage-pic > img {
+  .index-threepage-pic > img {
     width: 100%;
   }
-
-  .three-section {
+  /* ////改道這 */
+  .index-three-section {
     max-width: 100%;
     position: relative;
     overflow: hidden;
   }
-  .threepage-pic-bg {
+  .index-threepage-pic-bg {
     background: url('./img/threesection-bg.jpg') center center no-repeat;
     min-height: 1250px;
     /* background-attachment: fixed;
     background-size: cover; */
     width: 100%;
   }
-  .phone-three-pic {
+  .index-phone-three-pic {
     display: none;
   }
 
-  .three-content {
+  .index-three-content {
     opacity: 0;
     width: 50%;
     position: absolute;
@@ -474,15 +474,15 @@ ul {
     left: 18%;
     color: #f9f9f9;
   }
-
-  .newproduct-text {
+  /* ////////// */
+  .index-newproduct-text {
     font-size: 34px;
     position: absolute;
     bottom: 55%;
     left: 26%;
     color: #f9f9f9;
   }
-  .border-bottom-white {
+  .index-border-bottom-white {
     position: relative;
     left: 0px;
     width: 60px;
@@ -490,7 +490,7 @@ ul {
     border-bottom: 3px solid #f9f9f9;
   }
   /*在文字下面放線*/
-  .border-bottom-blue {
+  .index-border-bottom-blue {
     position: relative;
     left: 0px;
     width: 60px;
@@ -498,7 +498,7 @@ ul {
     border-bottom: 3px solid #002875;
   }
 
-  .button-black {
+  .index-button-black {
     position: absolute;
     border-radius: 40px;
     bottom: 56%;
@@ -510,18 +510,12 @@ ul {
     width: 234px;
     background-color: #9494943f;
   }
-  .button-black > a {
+  .index-button-black > a {
     color: #f9f9f9;
     text-decoration: none;
   }
-  .bbb {
-    max-width: 1920px;
-    height: 600px;
-    position: relative;
-    z-index: 100;
-    overflow: hidden;
-  }
-  .box {
+
+  .index-box {
     max-width: 1920px;
     display: flex;
     height: 600px;
@@ -532,30 +526,30 @@ ul {
     right: -35%;
   }
 
-  .box1 {
+  .index-box1 {
     height: 100%;
     width: 20%;
     margin-right: 20px;
   }
 
-  .box1-pic {
+  .index-box1-pic {
     width: 100%;
     height: 70%;
     overflow: hidden;
   }
-  .box1 img {
+  .index-box1 img {
     width: 100%;
     height: 100%;
   }
 
-  .item-1 {
+  .index-item-1 {
     width: 100%;
     padding: 0 1%;
     height: 30%;
     color: #002875;
   }
 
-  .item-2 {
+  .index-item-2 {
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -563,27 +557,27 @@ ul {
     padding-top: 24px;
     margin-bottom: 12px;
   }
-  .threepic-small-text {
+  .index-threepic-small-text {
     font-size: 16px;
     padding: 0 3%;
   }
-  .threepic-big-text {
+  .index-threepic-big-text {
     font-size: 60px;
     margin-bottom: 2%;
   }
-  .product-card-text1 {
+  .index-product-card-text1 {
     font-size: 16px;
   }
-  .product-card-text2 {
+  .index-product-card-text2 {
     font-size: 14px;
     padding-bottom: 24px;
   }
-  .product-card-text3 {
+  .index-product-card-text3 {
     font-size: 14px;
     padding-bottom: 18px;
   }
 
-  .card-button {
+  .index-card-button {
     border-radius: 40px;
     padding: 8px 0;
     text-align: center;
@@ -592,12 +586,12 @@ ul {
     width: 100px;
     border: 2px solid #002875;
   }
-  .card-button a {
+  .index-card-button a {
     text-decoration: none;
     color: #002875;
   }
 
-  .best-selling-group {
+  .index-best-selling-group {
     margin-top: 120px;
     color: #002875;
     font-size: 34px;
@@ -606,7 +600,7 @@ ul {
     justify-content: space-between;
   }
 
-  .button-blue-bg {
+  .index-button-blue-bg {
     border-radius: 40px;
     display: flex;
     align-items: center;
@@ -615,19 +609,19 @@ ul {
     width: 300px;
     border: 2px solid #659de1;
   }
-  .button-blue-bg a {
+  .index-button-blue-bg a {
     color: #659de1;
     text-decoration: none;
   }
 
-  .button-click {
+  .index-button-click {
     margin-top: 3%;
     margin-bottom: 5%;
     margin-left: 24%;
     display: flex;
   }
-  .button-box-left,
-  .button-box-right {
+  .index-button-box-left,
+  .index-button-box-right {
     width: 50px;
     height: 50px;
     display: flex;
@@ -639,13 +633,13 @@ ul {
     border-radius: 5px;
   }
 
-  .button-box-left {
+  .index-button-box-left {
     padding-right: 5px;
   }
-  .button-box-right {
+  .index-button-box-right {
     padding-left: 5px;
   }
-  .button-icon {
+  .index-button-icon {
     width: 35px;
     height: 40px;
     fill: #f9f9f9;
@@ -667,76 +661,76 @@ ul {
   .indexlove-2.active {
     fill: #ff5554;
   }
-  .new-product-3 {
+  .index-new-product-3 {
     fill: #002875;
     width: 20px;
     height: 20px;
   }
-  .new-product-3.active {
+  .index-new-product-3.active {
     fill: #ff5554;
   }
-  .new-product-4 {
+  .index-new-product-4 {
     fill: #002875;
     width: 20px;
     height: 20px;
   }
-  .new-product-4.active {
+  .index-new-product-4.active {
     fill: #ff5554;
   }
-  .new-product-5 {
+  .index-new-product-5 {
     fill: #002875;
     width: 20px;
     height: 20px;
   }
-  .new-product-5.active {
+  .index-new-product-5.active {
     fill: #ff5554;
   }
-  .new-product-6 {
+  .index-new-product-6 {
     fill: #002875;
     width: 20px;
     height: 20px;
   }
-  .new-product-6.active {
+  .index-new-product-6.active {
     fill: #ff5554;
   }
   /* /// */
-  .hot-product-1 {
+  .index-hot-product-1 {
     fill: #002875;
     width: 20px;
     height: 20px;
   }
-  .hot-product-1.active {
+  .index-hot-product-1.active {
     fill: #ff5554;
   }
-  .hot-product-2 {
+  .index-hot-product-2 {
     fill: #002875;
     width: 20px;
     height: 20px;
   }
-  .hot-product-2.active {
+  .index-hot-product-2.active {
     fill: #ff5554;
   }
-  .hot-product-3 {
+  .index-hot-product-3 {
     fill: #002875;
     width: 20px;
     height: 20px;
   }
-  .hot-product-3.active {
+  .index-hot-product-3.active {
     fill: #ff5554;
   }
-  .hot-product-4 {
+  .index-hot-product-4 {
     fill: #002875;
     width: 20px;
     height: 20px;
   }
-  .hot-product-4.active {
+  .index-hot-product-4.active {
     fill: #ff5554;
   }
 
   /* //////////////////////////////////// */
   /* ////第四頁//// */
 
-  .button-blue-bg {
+  .index-button-blue-bg {
     border-radius: 40px;
     display: flex;
     align-items: center;
@@ -745,12 +739,12 @@ ul {
     width: 300px;
     border: 2px solid #659de1;
   }
-  .button-blue-bg a {
+  .index-button-blue-bg a {
     color: #659de1;
     text-decoration: none;
   }
 
-  .best-selling-item {
+  .index-best-selling-item {
     display: flex;
     justify-content: center;
     max-width: 100%;
@@ -758,35 +752,35 @@ ul {
     margin-top: 60px;
     margin-bottom: 260px;
   }
-  .box2 {
+  .index-box2 {
     width: 25%;
   }
-  .box2-pic {
+  .index-box2-pic {
     width: 100%;
     height: 90%;
     overflow: hidden;
   }
-  .box2-pic img {
+  .index-box2-pic img {
     width: 100%;
     height: 100%;
   }
-  .box2-group {
+  .index-box2-group {
     width: 100%;
   }
 
-  .box3 {
+  .index-box3 {
     width: 25%;
     margin-top: 100px;
   }
-  .box4 {
+  .index-box4 {
     width: 25%;
   }
-  .box5 {
+  .index-box5 {
     width: 25%;
     margin-top: 100px;
   }
 
-  .four-rectangle {
+  .index-four-rectangle {
     width: 100%;
     height: 570px;
     background-color: #f0ecd7;
@@ -794,7 +788,7 @@ ul {
     bottom: 3%;
     z-index: -1;
   }
-  .top-box {
+  .index-top-box {
     background-color: #ff5554;
     color: #f9f9f9;
     width: 45px;
@@ -808,11 +802,11 @@ ul {
     bottom: 0;
     right: 0;
   }
-  .top-box a {
+  .index-top-box a {
     color: #f9f9f9;
     text-decoration: none;
   }
-  .long-colorship {
+  .index-long-colorship {
     width: 760px;
     height: 30px;
     position: absolute;
@@ -820,17 +814,17 @@ ul {
     left: -37%;
     z-index: -1;
   }
-  .long-colorship img {
+  .index-long-colorship img {
     width: 760px;
     height: 30px;
   }
 }
 
 @media screen and (min-width: 320px) and (max-width: 576px) {
-  .container {
+  .index-container {
     width: 100%;
   }
-  .container-1 {
+  .index-container-1 {
     max-width: 576px;
     margin: 0 auto;
   }
@@ -839,15 +833,15 @@ ul {
     display: none;
   }
   /* ///手機板數字隱藏/ */
-  .slider-dots {
+  .index-slider-dots {
     display: none;
   }
 
-  /*container  herosection */
-  .herro-section {
+  /*index-container  herosection */
+  .index-herro-section {
     display: none;
   }
-  .phone-herro-section {
+  .index-phone-herro-section {
     display: block;
     width: 100%;
     height: 100%;
@@ -855,23 +849,23 @@ ul {
     position: relative;
     margin-bottom: 15%;
   }
-  .onepage-pic {
+  .index-onepage-pic {
     display: none;
   }
-  .phone-onepage-pic {
+  .index-phone-onepage-pic {
     display: block;
     width: 100%;
     height: 100%;
   }
-  .phone-onepage-pic img {
+  .index-phone-onepage-pic img {
     width: 100%;
     height: 100%;
   }
-  .herro-text {
+  .index-herro-text {
     display: none;
   }
 
-  .phone-herro-text {
+  .index-phone-herro-text {
     display: flex;
     align-items: center;
     position: absolute;
@@ -882,7 +876,7 @@ ul {
     font-size: 24px;
   }
 
-  .one-herro-button-left {
+  .index-one-herro-button-left {
     width: 50%;
     border-radius: 40px;
     padding: 20px 0;
@@ -898,7 +892,7 @@ ul {
     z-index: 2;
   }
 
-  .one-herro-button-right {
+  .index-one-herro-button-right {
     width: 50%;
 
     border-radius: 40px;
@@ -913,13 +907,13 @@ ul {
     right: 23%;
     z-index: 2;
   }
-  .one-herro-button-left > a,
-  .one-herro-button-right > a {
+  .index-one-herro-button-left > a,
+  .index-one-herro-button-right > a {
     color: #f9f9f9;
     text-decoration: none;
   }
 
-  .onepage-rectangle {
+  .index-onepage-rectangle {
     width: 70%;
     position: absolute;
     bottom: -5%;
@@ -927,7 +921,7 @@ ul {
 
   /* ///////////////////////////// */
   /* //第二頁// */
-  .two-section {
+  .index-two-section {
     width: 100%;
     height: 100%;
     margin-bottom: 20%;
@@ -936,33 +930,33 @@ ul {
     flex-direction: column;
     overflow: hidden;
   }
-  .two-colorship {
+  .index-two-colorship {
     display: none;
   }
-  .twopic-big-text {
+  .index-twopic-big-text {
     font-size: 18px;
     padding: 2% 2%;
   }
 
-  .twopage-pic {
+  .index-twopage-pic {
     display: none;
   }
-  .twopage-pic > img {
+  .index-twopage-pic > img {
     display: none;
   }
   /*手機顯示第二頁圖片*/
-  .phone-twopage-pic {
+  .index-phone-twopage-pic {
     display: block;
   }
-  .phone-twopage-pic {
+  .index-phone-twopage-pic {
     width: 100%;
   }
-  .phone-twopage-pic > img {
+  .index-phone-twopage-pic > img {
     width: 100%;
     height: 100%;
   }
 
-  .cardtwo {
+  .index-cardtwo {
     width: 65%;
     height: 40%;
     background-color: #f9f9f9;
@@ -976,16 +970,11 @@ ul {
     text-align: center;
   }
 
-  .fontsize34-group > .fontsize34 {
-    font-size: 16px;
-    padding-top: 6px;
-  }
-
-  .button-blue-left {
+  .index-button-blue-left {
     display: none;
   }
 
-  .button-blue-right {
+  .index-button-blue-right {
     display: flex;
     align-items: center;
     width: 36%;
@@ -1000,90 +989,85 @@ ul {
     right: 32%;
   }
 
-  .button-blue-right a {
+  .index-button-blue-right a {
     font-size: 12px;
     color: #002875;
     text-decoration: none;
   }
 
-  .twopage-rectangle {
+  .index-twopage-rectangle {
     display: none;
   }
   /*隱藏電腦版二頁矩形
     */
-  .twopage-rectangle {
-    display: none;
-  }
 
   /*隱藏電腦版二頁頁圖片*/
-  .twopage-pic {
+
+  .index-twopage-pic-bg {
     display: none;
   }
-  .twopage-pic-bg {
-    display: none;
-  }
-  .threepage-pic-bg {
+  .index-threepage-pic-bg {
     display: none;
   }
 
-  .phone-long-colorship {
+  .index-phone-long-colorship {
     display: block;
     margin-bottom: 120px;
   }
 
-  .phone-long-colorship img {
+  .index-phone-long-colorship img {
     width: 70%;
     height: 20px;
   }
   /* /////////////////////////////////////////////// */
   /* //第三頁/// */
 
-  .three-section {
+  .index-three-section {
     width: 100%;
     height: 100%;
     position: relative;
   }
   /*桌機板的圖要隱藏掉*/
-  .threepage-pic {
+  .index-threepage-pic {
     display: none;
   }
 
   /*在桌機隱藏 在手機出現的圖*/
-  .phone-three-pic {
+  .index-phone-three-pic {
     width: 100%;
     height: 100%;
     display: block;
   }
   /*在桌機隱藏 在手機出現的圖*/
-  .phone-three-pic > img {
+  .index-phone-three-pic > img {
     width: 100%;
     height: 50%;
   }
   /*重疊在圖片上的文字*/
-  .three-content {
+  .index-three-content {
     opacity: 0;
     width: 70%;
     position: absolute;
     left: 6%;
     color: #f9f9f9;
   }
-  .threepic-big-text {
+  .index-threepic-big-text {
     font-size: 24px;
   }
 
-  .threepic-small-text {
+  .index-threepic-small-text {
     font-size: 16px;
     padding: 0 3%;
   }
 
-  .newproduct-text {
+  .index-newproduct-text {
     position: absolute;
     bottom: 45%;
     left: 4%;
     font-size: 16px;
     color: #f9f9f9;
   }
-  .border-bottom-white {
+  .index-border-bottom-white {
     position: relative;
     left: 0px;
     width: 60px;
@@ -1091,7 +1075,7 @@ ul {
     border-bottom: 3px solid #f9f9f9;
   }
 
-  .border-bottom-blue {
+  .index-border-bottom-blue {
     position: relative;
     left: 0px;
     width: 60px;
@@ -1099,20 +1083,19 @@ ul {
     border-bottom: 3px solid #659de1;
   }
 
-  .button-black {
+  .index-button-black {
     display: none;
   }
   /* ////手機板phone點擊按鈕的card /// */
-  .phone-threesection-click-card {
+  .index-phone-threesection-click-card {
     display: block;
     width: 100%;
     height: 450px;
-    /* margin-bottom: 330px; */
     position: relative;
     overflow: hidden;
   }
 
-  .box {
+  .index-box {
     width: 960px;
     display: flex;
     height: 100%;
@@ -1122,34 +1105,34 @@ ul {
     left: 0;
   }
 
-  .box1 {
+  .index-box1 {
     height: 100%;
     width: 20%;
     margin: 0 0.5%;
   }
 
-  .box1-pic {
+  .index-box1-pic {
     width: 100%;
     height: 60%;
   }
-  .box1 img {
+  .index-box1 img {
     width: 100%;
     height: 100%;
   }
 
-  .item-1 {
+  .index-item-1 {
     width: 100%;
     padding: 0 10px;
     height: 40%;
   }
 
-  .item-2 {
+  .index-item-2 {
     width: 100%;
     padding-right: 4px;
     padding-top: 10px;
     margin-bottom: 16px;
   }
-  .card-button {
+  .index-card-button {
     border-radius: 40px;
     padding: 8px 0;
     text-align: center;
@@ -1158,12 +1141,12 @@ ul {
     width: 100px;
     border: 2px solid #002875;
   }
-  .card-button a {
+  .index-card-button a {
     text-decoration: none;
     color: #002875;
   }
 
-  .long-colorship {
+  .index-long-colorship {
     width: 90%;
     height: 30px;
     position: absolute;
@@ -1171,11 +1154,11 @@ ul {
     left: -37%;
     z-index: -10;
   }
-  .long-colorship img {
+  .index-long-colorship img {
     width: 100%;
     height: 100%;
   }
-  .button-click {
+  .index-button-click {
     margin-top: 10%;
     margin-bottom: 15%;
     margin-left: 27%;
@@ -1184,13 +1167,13 @@ ul {
 
   /* /////////////////////////////////////////////// */
   /* 第四頁 */
-  .best-selling-group {
+  .index-best-selling-group {
     font-size: 16px;
     padding: 0 2%;
     margin-top: 110px;
   }
 
-  .button-blue-bg {
+  .index-button-blue-bg {
     border-radius: 40px;
     display: flex;
     align-items: center;
@@ -1199,12 +1182,12 @@ ul {
     width: 150px;
     border: 2px solid #659de1;
   }
-  .button-blue-bg a {
+  .index-button-blue-bg a {
     color: #659de1;
     text-decoration: none;
   }
 
-  .best-selling-item {
+  .index-best-selling-item {
     display: flex;
     flex-wrap: wrap;
     margin: 0 auto;
@@ -1214,40 +1197,40 @@ ul {
     margin-bottom: 5%;
   }
 
-  .box2 {
+  .index-box2 {
     width: 49%;
   }
-  .box2-pic {
+  .index-box2-pic {
     width: 100%;
     height: 60%;
   }
 
-  .box2-pic img {
+  .index-box2-pic img {
     width: 100%;
     height: 100%;
   }
-  .box2-group {
+  .index-box2-group {
     width: 100%;
   }
 
-  .box3 {
+  .index-box3 {
     width: 49%;
     height: 100%;
 
     margin-top: 40px;
   }
-  .box4 {
+  .index-box4 {
     width: 49%;
     height: 100%;
   }
-  .box5 {
+  .index-box5 {
     width: 49%;
     height: 100%;
 
     margin-top: 40px;
   }
 
-  .four-rectangle {
+  .index-four-rectangle {
     width: 100%;
     height: 30%;
     background-color: #fcf5e9;

@@ -94,7 +94,7 @@ function Threesection() {
         $('.about-banner-group').css('opacity', '1').css('transition', '2.5s')
       }
       if (persent >= 66) {
-        $('.long-colorship').css('left', '80%').css('transition', '3s')
+        $('.index-long-colorship').css('left', '80%').css('transition', '3s')
       }
     })
   }, [])
@@ -111,140 +111,138 @@ function Threesection() {
   }, [])
 
   useEffect(() => {
-    $('.new-product-3').click(function () {
-      $('.new-product-3').toggleClass('active')
+    $('.index-new-product-3').click(function () {
+      $('.index-new-product-3').toggleClass('active')
     })
   }, [])
   useEffect(() => {
-    $('.new-product-4').click(function () {
-      $('.new-product-4').toggleClass('active')
+    $('.index-new-product-4').click(function () {
+      $('.index-new-product-4').toggleClass('active')
     })
   }, [])
   useEffect(() => {
-    $('.new-product-5').click(function () {
-      $('.new-product-5').toggleClass('active')
+    $('.index-new-product-5').click(function () {
+      $('.index-new-product-5').toggleClass('active')
     })
   }, [])
   useEffect(() => {
-    $('.new-product-6').click(function () {
-      $('.new-product-6').toggleClass('active')
+    $('.index-new-product-6').click(function () {
+      $('.index-new-product-6').toggleClass('active')
     })
   }, [])
 
   ////////////new的資訊滑鼠hover圖片放大////////////  ss
   useEffect(() => {
     // 1
-    $('.newproduct-hover-1').on(' mouseenter ', function () {
-      $('.newproduct-hover-1')
+    $('.index-newproduct-hover-1').on(' mouseenter ', function () {
+      $('.index-newproduct-hover-1')
         .css('Transform', `scale(${1.5})`)
         .css('transition', '1s')
     })
-    $('.newproduct-hover-1').on('mouseleave', function () {
-      $('.newproduct-hover-1')
+    $('.index-newproduct-hover-1').on('mouseleave', function () {
+      $('.index-newproduct-hover-1')
         .css('Transform', `scale(${1})`)
         .css('transition', '1s')
     })
     // 2
-    $('.newproduct-hover-2').on(' mouseenter ', function () {
-      $('.newproduct-hover-2')
+    $('.index-newproduct-hover-2').on(' mouseenter ', function () {
+      $('.index-newproduct-hover-2')
         .css('Transform', `scale(${1.5})`)
         .css('transition', '1s')
     })
-    $('.newproduct-hover-2').on('mouseleave', function () {
-      $('.newproduct-hover-2')
+    $('.index-newproduct-hover-2').on('mouseleave', function () {
+      $('.index-newproduct-hover-2')
         .css('Transform', `scale(${1})`)
         .css('transition', '1s')
     })
     // 3/
-    $('.newproduct-hover-3').on(' mouseenter ', function () {
-      $('.newproduct-hover-3')
+    $('.index-newproduct-hover-3').on(' mouseenter ', function () {
+      $('.index-newproduct-hover-3')
         .css('Transform', `scale(${1.5})`)
         .css('transition', '1s')
     })
-    $('.newproduct-hover-3').on('mouseleave', function () {
-      $('.newproduct-hover-3')
+    $('.index-newproduct-hover-3').on('mouseleave', function () {
+      $('.index-newproduct-hover-3')
         .css('Transform', `scale(${1})`)
         .css('transition', '1s')
     })
 
     // //4 /
-    $('.newproduct-hover-4').on(' mouseenter ', function () {
-      $('.newproduct-hover-4')
+    $('.index-newproduct-hover-4').on(' mouseenter ', function () {
+      $('.index-newproduct-hover-4')
         .css('Transform', `scale(${1.5})`)
         .css('transition', '1s')
     })
-    $('.newproduct-hover-4').on('mouseleave', function () {
-      $('.newproduct-hover-4')
+    $('.index-newproduct-hover-4').on('mouseleave', function () {
+      $('.index-newproduct-hover-4')
         .css('Transform', `scale(${1})`)
         .css('transition', '1s')
     })
 
     // //5
-    $('.newproduct-hover-5').on(' mouseenter ', function () {
-      $('.newproduct-hover-5')
+    $('.index-newproduct-hover-5').on(' mouseenter ', function () {
+      $('.index-newproduct-hover-5')
         .css('Transform', `scale(${1.5})`)
         .css('transition', '1s')
     })
-    $('.newproduct-hover-5').on('mouseleave', function () {
-      $('.newproduct-hover-5')
+    $('.index-newproduct-hover-5').on('mouseleave', function () {
+      $('.index-newproduct-hover-5')
         .css('Transform', `scale(${1})`)
         .css('transition', '1s')
     })
 
     // //
-    $('.newproduct-hover-6').on(' mouseenter ', function () {
-      $('.newproduct-hover-6')
+    $('.index-newproduct-hover-6').on(' mouseenter ', function () {
+      $('.index-newproduct-hover-6')
         .css('Transform', `scale(${1.5})`)
         .css('transition', '1s')
     })
-    $('.newproduct-hover-6').on('mouseleave', function () {
-      $('.newproduct-hover-6')
+    $('.index-newproduct-hover-6').on('mouseleave', function () {
+      $('.index-newproduct-hover-6')
         .css('Transform', `scale(${1})`)
         .css('transition', '1s')
     })
   }, [])
   //scale(1.16)scale(1.16)
 
- 
-
   return (
     <>
-      <div className="three-section">
-        <div className="threepage-pic-bg"></div>
-        <div className="phone-three-pic">
+      <div className="index-three-section">
+        <div className="index-threepage-pic-bg"></div>
+        <div className="index-phone-three-pic">
           <img src={phonethreesection} alt="phonethreesection" />
         </div>
-        <div className="three-content">
-          <div className="threepic-big-text">在車水馬龍的都會中，</div>
-          <div className="threepic-big-text">你渴求著片刻的喘息...</div>
+        <div className="index-three-content">
+          <div className="index-threepic-big-text">在車水馬龍的都會中，</div>
+          <div className="index-threepic-big-text">你渴求著片刻的喘息...</div>
 
-          <div className="threepic-small-text">
+          <div className="index-threepic-small-text">
             我們將守著那寧靜的角落，將一抹芬芳贈與給你
           </div>
         </div>
-        <div className=" newproduct-text">
+        <div className=" index-newproduct-text">
           New product listing
-          <div className="border-bottom-white"></div>
+          <div className="index-border-bottom-white"></div>
         </div>
-        <div className="button-black fontsize-20">
+        <div className="index-button-black fontsize-20">
           <Link to="#/"> ALL</Link>
         </div>
         {/* ///////phone點擊按鈕的card */}
-        <div className="phone-threesection-click-card">
-          <div className="box">
-            <div className="box1">
-              <div className="box1-pic">
+        <div className="index-phone-threesection-click-card">
+          <div className="index-box">
+            <div className="index-box1">
+              <div className="index-box1-pic">
                 <img
-                  className="newproduct-hover-1"
+                  className="index-newproduct-hover-1"
                   src={`http://localhost:3000/img/index/newproduct/${
                     users.length > 0 && users[0].iImg
                   }`}
                   alt="123"
                 />
               </div>
-              <div className="item-1">
-                <div className="item-2">
-                  <div className="product-card-text1">
+              <div className="index-item-1">
+                <div className="index-item-2">
+                  <div className="index-product-card-text1">
                     {users.length > 0 && users[0].iName}
                   </div>
                   <div className="indexlove">
@@ -267,30 +265,30 @@ function Threesection() {
                     </svg>
                   </div>
                 </div>
-                <div className="product-card-text2">
+                <div className="index-product-card-text2">
                   {users.length > 0 && users[0].iDiscr}
                 </div>
-                <div className="product-card-text3">
+                <div className="index-product-card-text3">
                   特價:{users.length > 0 && users[0].iPrice}元
                 </div>
-                <div className="card-button">
+                <div className="index-card-button">
                   <Link to="#/"> 購買</Link>
                 </div>
               </div>
             </div>
-            <div className="box1">
-              <div className="box1-pic">
+            <div className="index-box1">
+              <div className="index-box1-pic">
                 <img
-                  className="newproduct-hover-2"
+                  className="index-newproduct-hover-2"
                   src={`http://localhost:3000/img/index/newproduct/${
                     users.length > 0 && users[1].iImg
                   }`}
                   alt="123"
                 />
               </div>
-              <div className="item-1">
-                <div className="item-2">
-                  <div className="product-card-text1">
+              <div className="index-item-1">
+                <div className="index-item-2">
+                  <div className="index-product-card-text1">
                     {users.length > 0 && users[1].iName}
                   </div>
                   <div className="indexlove-2">
@@ -313,33 +311,33 @@ function Threesection() {
                     </svg>
                   </div>
                 </div>
-                <div className="product-card-text2">
+                <div className="index-product-card-text2">
                   {users.length > 0 && users[1].iDiscr}
                 </div>
-                <div className="product-card-text3">
+                <div className="index-product-card-text3">
                   特價:{users.length > 0 && users[1].iPrice}元
                 </div>
-                <div className="card-button">
+                <div className="index-card-button">
                   <Link to="#/"> 購買</Link>
                 </div>
               </div>
             </div>
-            <div className="box1">
-              <div className="box1-pic">
+            <div className="index-box1">
+              <div className="index-box1-pic">
                 <img
-                  className="newproduct-hover-3"
+                  className="index-newproduct-hover-3"
                   src={`http://localhost:3000/img/index/newproduct/${
                     users.length > 0 && users[2].iImg
                   }`}
                   alt="123"
                 />
               </div>
-              <div className="item-1">
-                <div className="item-2">
-                  <div className="product-card-text1">
+              <div className="index-item-1">
+                <div className="index-item-2">
+                  <div className="index-product-card-text1">
                     {users.length > 0 && users[2].iName}
                   </div>
-                  <div className="new-product-3">
+                  <div className="index-new-product-3">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 512 455.52"
@@ -359,33 +357,33 @@ function Threesection() {
                     </svg>
                   </div>
                 </div>
-                <div className="product-card-text2">
+                <div className="index-product-card-text2">
                   {users.length > 0 && users[2].iDiscr}
                 </div>
-                <div className="product-card-text3">
+                <div className="index-product-card-text3">
                   特價:{users.length > 0 && users[2].iPrice}元
                 </div>
-                <div className="card-button">
+                <div className="index-card-button">
                   <Link to="#/"> 購買</Link>
                 </div>
               </div>
             </div>
-            <div className="box1">
-              <div className="box1-pic">
+            <div className="index-box1">
+              <div className="index-box1-pic">
                 <img
-                  className="newproduct-hover-4"
+                  className="index-newproduct-hover-4"
                   src={`http://localhost:3000/img/index/newproduct/${
                     users.length > 0 && users[3].iImg
                   }`}
                   alt="123"
                 />
               </div>
-              <div className="item-1">
-                <div className="item-2">
-                  <div className="product-card-text1">
+              <div className="index-item-1">
+                <div className="index-item-2">
+                  <div className="index-product-card-text1">
                     {users.length > 0 && users[3].iName}
                   </div>
-                  <div className="new-product-4">
+                  <div className="index-new-product-4">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 512 455.52"
@@ -405,33 +403,33 @@ function Threesection() {
                     </svg>
                   </div>
                 </div>
-                <div className="product-card-text2">
+                <div className="index-product-card-text2">
                   {users.length > 0 && users[3].iDiscr}
                 </div>
-                <div className="product-card-text3">
+                <div className="index-product-card-text3">
                   特價:{users.length > 0 && users[3].iPrice}元
                 </div>
-                <div className="card-button">
+                <div className="index-card-button">
                   <Link to="#/"> 購買</Link>
                 </div>
               </div>
             </div>
-            <div className="box1">
-              <div className="box1-pic">
+            <div className="index-box1">
+              <div className="index-box1-pic">
                 <img
-                  className="newproduct-hover-5"
+                  className="index-newproduct-hover-5"
                   src={`http://localhost:3000/img/index/newproduct/${
                     users.length > 0 && users[4].iImg
                   }`}
                   alt="123"
                 />
               </div>
-              <div className="item-1">
-                <div className="item-2">
-                  <div className="product-card-text1">
+              <div className="index-item-1">
+                <div className="index-item-2">
+                  <div className="index-product-card-text1">
                     {users.length > 0 && users[4].iName}
                   </div>
-                  <div className="new-product-5 ">
+                  <div className="index-new-product-5 ">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 512 455.52"
@@ -451,33 +449,33 @@ function Threesection() {
                     </svg>
                   </div>
                 </div>
-                <div className="product-card-text2">
+                <div className="index-product-card-text2">
                   {users.length > 0 && users[4].iDiscr}
                 </div>
-                <div className="product-card-text3">
+                <div className="index-product-card-text3">
                   特價:{users.length > 0 && users[4].iPrice}元
                 </div>
-                <div className="card-button">
-                  <Link to="#/"> 購買</Link>
+                <div className="index-card-button">
+                  <Link to="#/">購買</Link>
                 </div>
               </div>
             </div>
-            <div className="box1">
-              <div className="box1-pic">
+            <div className="index-box1">
+              <div className="index-box1-pic">
                 <img
-                  className="newproduct-hover-6"
+                  className="index-newproduct-hover-6"
                   src={`http://localhost:3000/img/index/newproduct/${
                     users.length > 0 && users[5].iImg
                   }`}
                   alt="123"
                 />
               </div>
-              <div className="item-1">
-                <div className="item-2">
-                  <div className="product-card-text1">
+              <div className="index-item-1">
+                <div className="index-item-2">
+                  <div className="index-product-card-text1">
                     {users.length > 0 && users[5].iName}
                   </div>
-                  <div className="new-product-6">
+                  <div className="index-new-product-6">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 512 455.52"
@@ -497,13 +495,13 @@ function Threesection() {
                     </svg>
                   </div>
                 </div>
-                <div className="product-card-text2">
+                <div className="index-product-card-text2">
                   {users.length > 0 && users[5].iDiscr}
                 </div>
-                <div className="product-card-text3">
+                <div className="index-product-card-text3">
                   特價:{users.length > 0 && users[5].iPrice}元
                 </div>
-                <div className="card-button">
+                <div className="index-card-button">
                   <Link to="#/"> 購買</Link>
                 </div>
               </div>
@@ -511,9 +509,9 @@ function Threesection() {
           </div>
         </div>
       </div>
-      <div className="button-click">
-        <div className="button-box-left">
-          <div className="button-icon">
+      <div className="index-button-click">
+        <div className="index-button-box-left">
+          <div className="index-button-icon">
             {/*?xml version="1.0" encoding="iso-8859-1"?*/}
             {/* Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  */}
             <svg
@@ -550,8 +548,8 @@ function Threesection() {
             </svg>
           </div>
         </div>
-        <div className="button-box-right">
-          <div className="button-icon">
+        <div className="index-button-box-right">
+          <div className="index-button-icon">
             {/*?xml version="1.0" encoding="iso-8859-1"?*/}
             {/* Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  */}
             <svg
@@ -589,12 +587,12 @@ function Threesection() {
           </div>
         </div>
       </div>
-      <div className="long-colorship">
+      <div className="index-long-colorship">
         <img src={longcolorship} alt="longcolorship" />
       </div>
       <Link to="#/">
-        <div className="chart-box">
-          <div className="chartbox-icon ">
+        <div className="index-chart-box">
+          <div className="index-chartbox-icon ">
             {/*?xml version="1.0" encoding="iso-8859-1"?*/}
             {/* Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  */}
             <svg
@@ -653,10 +651,10 @@ function Threesection() {
           </div>
         </div>
       </Link>
-      <div className="top-box">
+      <div className="index-top-box">
         <a href="#">TOP</a>
       </div>
-      <div className="four-rectangle"></div>
+      <div className="index-four-rectangle"></div>
     </>
   )
 }

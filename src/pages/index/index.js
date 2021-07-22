@@ -1,15 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './index.css'
-// import onepagepic from './img/herrosection.jpg'
-// import onepagepic02 from './img/herrosection02.jpg'
-// import onepagepic03 from './img/herrosection03.jpg'
-// import onepagepic04 from './img/herrosection04.jpg'
-// import phoneherrosection from './img/phone-herrosection.jpg'
-// import colorshlip from './img/colorshlip.png'
-// import phonetwosection from './img/phone-twosection.jpg'
 import longcolorship from './img/long-colorship.png'
-// import productcard from './img/{users.length > 0 && users[0].iImg}'
-// import phonethreesection from './img/phone-threesection.jpg'
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 import { withRouter } from 'react-router-dom'
 import $ from 'jquery'
@@ -113,21 +104,21 @@ function Index(props) {
   let myInterval = 0
 
   useEffect(() => {
-    $('.slider-dots .dot').mouseenter(function () {
+    $('.index-slider-dots .index-dots').mouseenter(function () {
       // console.log($(this)); 確定滑到哪個物件
       $(this).css('color', '#FF5554').siblings().css('color', '#0065b4')
       let moveX = $(this).index() * -1920
       // console.log(moveX);
       nowpage = $(this).index()
-      $('.img-wrap').css('Transform', ` translateX(${moveX}px)`)
+      $('.index-img-wrap').css('Transform', ` translateX(${moveX}px)`)
     })
   }, [])
   useEffect(() => {
     let myInterval = 0
     function changepage() {
       let moveX = nowpage * -1920
-      $('.img-wrap').css('transform', `translateX(${moveX}px)`)
-      $('.slider-dots .dot')
+      $('.index-img-wrap').css('transform', `translateX(${moveX}px)`)
+      $('.index-slider-dots .index-dots')
         .eq(nowpage)
         .css('color', '#FF5554')
         .siblings()
@@ -144,10 +135,10 @@ function Index(props) {
       }, 5000)
     }
     startmyInterval()
-    $('.img-wrap').mouseenter(function () {
+    $('.index-img-wrap').mouseenter(function () {
       clearInterval(myInterval)
     })
-    $('.img-wrap').mouseleave(function () {
+    $('.index-img-wrap').mouseleave(function () {
       myInterval = setInterval(() => {
         if (nowpage < 4) {
           nowpage++
@@ -165,24 +156,24 @@ function Index(props) {
   let count = 0
 
   useEffect(() => {
-    $('.button-box-left').on('click', () => {
+    $('.index-button-box-left').on('click', () => {
       if (count === -7) {
         return
       }
       count--
       let movex = count * 100
-      $('.box1').css('Transform', ` translateX(${movex}px`)
+      $('.index-box1').css('Transform', ` translateX(${movex}px`)
     })
   }, [])
 
   useEffect(() => {
-    $('.button-box-right').on('click', () => {
+    $('.index-button-box-right').on('click', () => {
       if (count === 1) {
         return
       }
       count++
       let movex = count * 100
-      $('.box1').css('Transform', ` translateX(${movex}px`)
+      $('.index-box1').css('Transform', ` translateX(${movex}px`)
     })
   }, [])
 
@@ -197,39 +188,39 @@ function Index(props) {
       )
       // console.log(persent) //等於 scrolltop/scrolltop
       if (persent >= 18) {
-        $('.chart-box').css('display', 'block').css('position', 'fixed')
+        $('.index-chart-box').css('display', 'block').css('position', 'fixed')
       } else {
-        $('.chart-box').css('display', 'none')
+        $('.index-chart-box').css('display', 'none')
       }
 
       //////////////滑鼠移下來card移動////////
       if (persent >= 2) {
-        $('.onepage-rectangle')
+        $('.index-onepage-rectangle')
           .css('transition', '1s')
           .css('transform', `translateX(${-40}px`)
       }
       //////////////   第一頁：圖片上文字隨滑動淡入淡出效果////////////
       if (persent === 0) {
-        $('.herro-text').css('opacity', '1').css('transition', '1.5s')
+        $('.index-herro-text').css('opacity', '1').css('transition', '1.5s')
       }
       ///////////    第二頁：文字card下滑時切開特效///////////
       if (persent >= 22) {
-        $('.cardtwo')
+        $('.index-cardtwo')
           .css('transition', '1.5s')
           .css('transform', `translate(${130}px,${-130}px)`)
       }
       if (persent >= 22) {
-        $('.twopage-rectangle')
+        $('.index-twopage-rectangle')
           .css('transform', `translate(${80}px,${-80}px)`)
           .css('transition', '1.5s')
       }
       ///////////////////   第三頁：圖片上文字隨滑動淡入淡出效果////////////
       if (persent >= 40) {
-        $('.three-content').css('opacity', '1').css('transition', '1.5s')
+        $('.index-three-content').css('opacity', '1').css('transition', '1.5s')
       }
       ///////////////    第四頁：隨滑動改變底部色塊顏色/////////////
       if (persent >= 80) {
-        $('.four-rectangle')
+        $('.index-four-rectangle')
           .css('transition', '1.5s')
           .css('background', '#b2cceb')
       }
@@ -239,7 +230,7 @@ function Index(props) {
 
   useEffect(() => {
     $(document).ready(function () {
-      $('.top-box a').click(function (event) {
+      $('.index-top-box a').click(function (event) {
         event.preventDefault()
         $('html,body').animate(
           {
@@ -253,19 +244,21 @@ function Index(props) {
 
   return (
     <>
-      <div className="container">
-        <Herrosection />
-      </div>
-      <div className="phone-herro-section">
-        <Phoneherrosection />
-      </div>
-      <div className="container">
-        <Twosection />
-        <Threesection />
-        <div className="container-1">
-          <Foursection />
+      <body className="index-body">
+        <div className="index-container">
+          <Herrosection />
         </div>
-      </div>
+        <div className="index-phone-herro-section">
+          <Phoneherrosection />
+        </div>
+        <div className="index-container">
+          <Twosection />
+          <Threesection />
+          <div className="index-container-1">
+            <Foursection />
+          </div>
+        </div>
+      </body>
 
       {/* //////////////////////////////// */}
     </>

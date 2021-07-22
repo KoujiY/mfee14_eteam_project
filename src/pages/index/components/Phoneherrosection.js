@@ -10,11 +10,11 @@ function Phoneherrosection() {
   return (
     <>
       {/* //////////////手機板的 herrosection////////////////// */}
-      <div className="phone-onepage-pic">
+      <div className="index-phone-onepage-pic">
         <img src={phoneherrosection} alt=" phone-herrosection" />
       </div>
 
-      <div className="phone-herro-text">
+      <div className="index-phone-herro-text">
         <div>
           {/*?xml version="1.0" encoding="iso-8859-1"?*/}
           {/* Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  */}
@@ -55,16 +55,16 @@ function Phoneherrosection() {
             <g></g>
           </svg>
         </div>
-        <div className="d-flex-columm">
+        <div className="index-d-flex-columm">
           <div>旅行‧寧靜‧生活</div>
           <div>Mercurius Coffee</div>
         </div>
       </div>
-      <div className="onepage-rectangle" />
-      <div className="one-herro-button-left">
+      <div className="index-onepage-rectangle" />
+      <div className="index-one-herro-button-left">
         <Link to="#/">尋找咖啡</Link>
       </div>
-      <div className="one-herro-button-right">
+      <div className="index-one-herro-button-right">
         <Link to="#/">尋找店家</Link>
       </div>
     </>

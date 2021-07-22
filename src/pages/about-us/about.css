@@ -127,25 +127,45 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-.about-pb-12 {
-  padding-bottom: 12px;
-}
 
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
-body {
+
+/* ////////常用工具///////// */
+.index-body {
   background-color: #f9f9f9;
 }
+.index-ul-li {
+  list-style: none;
+}
+.index-body {
+  background-color: #f9f9f9;
+}
+/* //////about專屬用具/////////// */
+.about-pb-12 {
+  padding-bottom: 12px;
+}
+.about-mt-220 {
+  margin-top: 220px;
+}
+.about-mt-2 {
+  margin-top: 2205px;
+}
+.about-pt-5 {
+  padding-top: 5px;
+}
+
+/* /////////////////////////13132111155589889898898898988988989989889 */
 @media screen and (max-width: 1920px) {
-  .container {
+  .index-container {
     margin: 0 auto;
     max-width: 1920px;
     position: relative;
   }
-  .container-1 {
+  .index-container-1 {
     margin: 0 auto;
     max-width: 1200px;
   }
@@ -159,7 +179,7 @@ body {
     margin-bottom: 120px;
   }
   /* //////上層///////// */
-  .herro-section-top-group {
+  .about-herro-section-top-group {
     width: 100%;
     height: 150px;
     display: flex;
@@ -184,35 +204,28 @@ body {
     margin: 0 auto;
     position: relative;
   }
-  .d-flex {
-    display: flex;
-  }
-  .carousel-pic {
+  .about-carousel-pic {
     position: relative;
     overflow: hidden;
     width: 1200px;
     height: 350px;
   }
-  .carousel-pic img {
+  .about-carousel-pic img {
     width: 1200px;
     height: 100%;
     object-fit: cover;
   }
-  .pic-block1 {
+  .about-pic-block1 {
     display: block;
   }
-  .pic-block2 {
+  .about-pic-block2 {
     display: none;
   }
-  .pic-block3 {
+  .about-pic-block3 {
     display: none;
   }
-  .pic-block4 {
+  .about-pic-block4 {
     display: none;
-  }
-
-  .mt-220 {
-    margin-top: 220px;
   }
 
   .about-title-icon-1 {
@@ -347,9 +360,7 @@ body {
     fill: #002875;
     color: #002875;
   }
-  .padding-top-3 {
-    padding-top: 5px;
-  }
+
   /* ////////////////第三頁 */
   /* ////////加盟流程//////////// */
   .about-join-process-section {
@@ -372,8 +383,6 @@ body {
     height: 470px;
     position: absolute;
     box-shadow: 3px 5px 8px #0029758e;
-    /* 
-    top: 17%; */
     bottom: -7%;
     right: -5%;
     z-index: 3;
@@ -396,7 +405,7 @@ body {
     z-index: 2;
   }
   /* ///////////////// 全部的//////////////////// */
-  .contact-group {
+  .about-contact-group {
     display: flex;
     width: 1200px;
     height: 400px;
@@ -433,7 +442,7 @@ body {
     height: 35px;
   }
   /* /////////右邊的 */
-  .aa {
+  .about-contact-pic-bg {
     width: 820px;
     height: 100%;
   }

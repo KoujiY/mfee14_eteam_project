@@ -18,64 +18,64 @@ import onepagepic05 from '../img/herrosection05.jpg'
 function Herrosection() {
   return (
     <>
-      <div className="herro-section">
-        <div className="img-wrap">
-          <div className="onepage-pic">
-            <img src={onepagepic} alt="onepage-pic" />
-            <div className="one-herro-button-left">
+      <div className="index-herro-section">
+        <div className="index-img-wrap">
+          <div className="index-onepage-pic">
+            <img src={onepagepic} alt="index-onepage-pic" />
+            <div className="index-one-herro-button-left">
               <Link to="#/">尋找咖啡</Link>
             </div>
-            <div className="one-herro-button-right">
+            <div className="index-one-herro-button-right">
               <Link to="#/">尋找店家</Link>
             </div>
           </div>
-          <div className="onepage-pic">
-            <img src={onepagepic02} alt="onepage-pic02" />
-            <div className="two-herro-button-left">
+          <div className="index-onepage-pic">
+            <img src={onepagepic02} alt="index-onepage-pic02" />
+            <div className="index-two-herro-button-left">
               <Link to="#/">尋找咖啡</Link>
             </div>
-            <div className="two-herro-button-right">
+            <div className="index-two-herro-button-right">
               <Link to="#/">尋找店家</Link>
             </div>
           </div>
-          <div className="onepage-pic">
-            <img src={onepagepic03} alt="onepage-pic03" />
-            <div className="three-herro-button-left">
+          <div className="index-onepage-pic">
+            <img src={onepagepic03} alt="index-onepage-pic03" />
+            <div className="index-three-herro-button-left">
               <Link to="#/">尋找咖啡</Link>
             </div>
-            <div className="three-herro-button-right">
+            <div className="index-three-herro-button-right">
               <Link to="#/">尋找店家</Link>
             </div>
           </div>
-          <div className="onepage-pic">
-            <img src={onepagepic04} alt="onepage-pic04" />
-            <div className="four-herro-button-left">
+          <div className="index-onepage-pic">
+            <img src={onepagepic04} alt="index-onepage-pic04" />
+            <div className="index-four-herro-button-left">
               <Link to="#/">尋找咖啡</Link>
             </div>
-            <div className="four-herro-button-right">
+            <div className="index-four-herro-button-right">
               <Link to="#/">尋找店家</Link>
             </div>
           </div>
-          <div className="onepage-pic">
-            <img src={onepagepic05} alt="onepage-pic03" />
-            <div className="five-herro-button-left">
+          <div className="index-onepage-pic">
+            <img src={onepagepic05} alt="index-onepage-pic03" />
+            <div className="index-five-herro-button-left">
               <Link to="#/">尋找咖啡</Link>
             </div>
-            <div className="five-herro-button-right">
+            <div className="index-five-herro-button-right">
               <Link to="#/">尋找店家</Link>
             </div>
           </div>
         </div>
       </div>
-      <div className="slider-dots">
-        <div className="dot">01</div>
-        <div className="dot">02</div>
-        <div className="dot">03</div>
-        <div className="dot">04</div>
-        <div className="dot">05</div>
+      <div className="index-slider-dots">
+        <div className="index-dots">01</div>
+        <div className="index-dots">02</div>
+        <div className="index-dots">03</div>
+        <div className="index-dots">04</div>
+        <div className="index-dots">05</div>
       </div>
       {/* ////////////////////////////////////////////////////// */}
-      <div className="herro-text">
+      <div className="index-herro-text">
         <div>
           {/*?xml version="1.0" encoding="iso-8859-1"?*/}
           {/* Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  */}
@@ -121,7 +121,7 @@ function Herrosection() {
           <div>Mercurius Coffee</div>
         </div>
       </div>
-      <div className="onepage-rectangle" />
+      <div className="index-onepage-rectangle" />
     </>
   )
 }
