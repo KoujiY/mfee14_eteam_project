@@ -27,6 +27,7 @@ import {
   MenuItem,
 } from '@material-ui/core'
 import '../Cart.css'
+import { cities, townships } from '../data/townships'
 
 import IconCart from './IconCart'
 
@@ -141,20 +142,7 @@ c-9.4,0-17.1-7.6-17.1-17.1s7.6-17.1,17.1-17.1h68.3c9.4,0,17.1,7.6,17.1,17.1S401.
       <SvgIcon alt="checkedPage" viewBox="0 -31 512.00033 512">
         <g>
           <g>
-            <path d="M426.6,68.3H51.2C22.9,68.3,0,91.2,0,119.5v34.1h477.8v-34.1C477.8,91.2,454.9,68.3,426.6,68.3z" />
-          </g>
-        </g>
-        <g>
-          <g>
-            <path
-              d="M0,256v102.4c0,28.3,22.9,51.2,51.2,51.2h375.5c28.3,0,51.2-22.9,51.2-51.2V256H0z M392.5,324.2h-68.3
-c-9.4,0-17.1-7.6-17.1-17.1s7.6-17.1,17.1-17.1h68.3c9.4,0,17.1,7.6,17.1,17.1S401.9,324.2,392.5,324.2z"
-            />
-          </g>
-        </g>
-        <g>
-          <g>
-            <rect y="187.7" width="477.9" height="34.1" />
+            <polygon points="482.182,67.907 196.748,386.672 27.576,225.852 0,254.861 199.059,444.093 512,94.607 		" />
           </g>
         </g>
       </SvgIcon>
@@ -196,6 +184,9 @@ const useStyles = makeStyles((theme) => ({
     width: '80%',
     maxWidth: '1200px',
     backgroundColor: '#F9F9F9',
+    [theme.breakpoints.down('xs')]: {
+      width: '100%',
+    },
   },
   button: {
     marginLeft: theme.spacing(1),
@@ -235,7 +226,6 @@ export default function Steppers(props) {
     handleStep3Change,
     handleInvalid,
     handleErrors,
-    handleSubmit,
     errors,
   } = props
 
@@ -341,13 +331,12 @@ export default function Steppers(props) {
   // const handleReset = () => {
   //   setActiveStep(0)
   // }
-
   let itemTotal = step1.length
     ? step1
         .map((v, i) => {
-          v.iPrice = step1[i].iPrice
-          v.iCount = step1[i].iCount
-          v.total = v.iPrice * v.iCount
+          v.sPrice = step1[i].sPrice
+          v.cartQty = step1[i].cartQty
+          v.total = v.sPrice * v.cartQty
           // console.log(v.total)
           return v.total
         })
@@ -362,6 +351,52 @@ export default function Steppers(props) {
       : 0
   // const [subtotal, setSubtotal] = useState('')
   const subtotal = itemTotal - discount + shipping
+
+  //表單送出
+  async function handleSubmit(e) {
+    e.preventDefault()
+    let data = { orderList: [] }
+    for (let item of step1) {
+      const temp = {
+        iId: item.iId,
+        oListName: item.iName,
+        // sName: item.sName,
+        oListprice: item.sPrice || 1,
+        oQty: item.cartQty || 1,
+        // iImg: item.iImg,
+        // total: item.cartQty * item.sPrice || 1,
+      }
+      console.log(temp)
+      data.orderList.push(temp)
+    }
+    data.order = {
+      oAddress:
+        step2.country +
+        cities[step2.city] +
+        townships[step2.city][step2.township] +
+        step2.street,
+      oName: step2.name,
+      oPhone: step2.phone,
+      oMail: step2.email,
+      cNum: step3.creditNum,
+      oPrice: subtotal,
+    }
+    console.log(data)
+    const url = 'http://localhost:7000/order/order-1'
+
+    const request = new Request(url, {
+      credentials: 'include',
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      }),
+    })
+    const response = await fetch(request)
+    const dataRes = await response.json()
+    console.log('伺服器回傳的json資料', dataRes)
+  }
   return (
     <div className={classes.root}>
       <div>
@@ -438,70 +473,87 @@ export default function Steppers(props) {
                 {getStepContent(activeStep)}
               </Typography>
               {/* <input type="submit" /> */}
-              <AppBar
+              {/* <AppBar
                 position="fixed"
-                style={{ top: 'auto', bottom: 0, backgroundColor: 'white' }}
+                style={{
+                  top: 'auto',
+                  bottom: 0,
+                  backgroundColor: 'white',
+                  maxWidth: '1200px',
+                  display: 'flex',
+                  justifyContent: 'center',
+                }}
+              > */}
+              <Toolbar
+                position="fixed"
+                style={{
+                  backgroundColor: 'white',
+                  color: '#002875',
+
+                  // maxWidth: '1200px',
+                }}
               >
-                <Toolbar
+                <Grid
+                  container
+                  xs={12}
                   style={{
-                    backgroundColor: 'white',
-                    color: '#002875',
-                    maxWidth: '1200px',
+                    margin: '10px auto',
+                    display: 'flex',
+                    justifyContent: 'space-around',
                   }}
                 >
-                  <Grid container xs={12} style={{ margin: '10px auto' }}>
-                    <Grid item xs={3}>
-                      <Typography>
-                        <h4>總金額:</h4>
-                      </Typography>
-                    </Grid>
-                    <Grid item xs={1}>
-                      <Typography>
-                        <h4 name="subtotal">
-                          NT$
-                          {activeStep < steps.length - 1 && isNaN(itemTotal)
-                            ? 0
-                            : activeStep < steps.length - 1 &&
-                              itemTotal === true
-                            ? itemTotal
-                            : subtotal}
-                        </h4>
-                      </Typography>
-                    </Grid>
-                    <Grid item xs={6} style={{ margin: '10px auto' }}>
-                      <Button
-                        onChange={handleSubmit}
-                        position="fixed"
-                        variant="contained"
-                        color="primary"
-                        onClick={handleNext}
-                        className={classes.button}
-                        disabled={
-                          (activeStep === 0 && step1.length < 0) ||
-                          isNaN(itemTotal)
-                        }
-                        type={
-                          activeStep < steps.length - 1 ? 'button' : 'submit'
-                        }
-                      >
-                        {activeStep === steps.length - 1
-                          ? '結帳'
-                          : activeStep < 2
-                          ? '下一頁'
-                          : '確認訂單'}
-                      </Button>
-                    </Grid>
+                  <Grid item xs={2}>
+                    <Typography>
+                      <h4>總金額:</h4>
+                    </Typography>
                   </Grid>
-                </Toolbar>
-              </AppBar>
+                  <Grid item md={8} sm={6} xs={5}>
+                    <Typography>
+                      <h4 name="subtotal">
+                        NT$
+                        {activeStep < steps.length - 1 && isNaN(itemTotal)
+                          ? 0
+                          : activeStep < steps.length - 1 && itemTotal === true
+                          ? itemTotal
+                          : subtotal}
+                      </h4>
+                    </Typography>
+                  </Grid>
+                  <Grid style={{ marginLeft: '0', margin: '15px 0' }}>
+                    <Button
+                      onChange={handleSubmit}
+                      position="fixed"
+                      variant="contained"
+                      color="primary"
+                      onClick={handleNext}
+                      onSubmit={() =>
+                        (activeStep = steps.length ? handleSubmit() : '')
+                      }
+                      className={classes.button}
+                      // disabled={
+                      //   (activeStep === 0 && step1.length < 0) ||
+                      //   isNaN(itemTotal)
+                      // }
+                      type={activeStep < steps.length - 1 ? 'button' : 'submit'}
+                    >
+                      {activeStep === steps.length - 1
+                        ? '結帳'
+                        : activeStep < 2
+                        ? '下一頁'
+                        : '確認訂單'}
+                    </Button>
+                  </Grid>
+                </Grid>
+              </Toolbar>
+              {/* </AppBar> */}
             </form>
           </div>
         )}
       </div>
-      <pre>{JSON.stringify(step1, null, 2)}</pre>
+      {/* <pre>{JSON.stringify(step1, null, 2)}</pre>
       <pre>{JSON.stringify(step2, null, 2)}</pre>
       <pre>{JSON.stringify(step3, null, 2)}</pre>
-      <pre>{JSON.stringify(step3, null, 2)}</pre>
+      <pre>{JSON.stringify(step3, null, 2)}</pre> */}
     </div>
   )
 }

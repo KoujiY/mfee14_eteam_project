@@ -5,7 +5,7 @@
  * 6. sql
  */
 
-import React, { useState } from 'react'
+import React from 'react'
 import {
   FormGroup,
   RadioGroup,
@@ -13,18 +13,16 @@ import {
   FormControlLabel,
   TextField,
   MenuItem,
-  Container,
+  AccordionSummary,
+  AccordionDetails,
   Grid,
   Typography,
-  FormControl,
+  Accordion,
   Hidden,
-  Box,
 } from '@material-ui/core'
-import styled from 'styled-components'
 import { cities, townships } from '../data/townships'
 import '../Cart.css'
 
-import { useForm } from 'react-hook-form'
 //組件
 import MyCartCheck from '../components/MyCartCheck'
 
@@ -32,24 +30,22 @@ function Address(props) {
   const {
     step1,
     step2,
-    setStep2,
     handleStep2Change,
-    step2Errors,
-    register,
-    setStep2Errors,
+    // step2Errors,
+    // setStep2Errors,
     errors,
-    handleErrors,
-    cateLabels,
-    cateLabel,
-    setCateLabel,
-    price,
-    setPrice,
-    handleChange,
-    count,
-    setCount,
+    // handleErrors,
+    // cateLabels,
+    // cateLabel,
+    // setCateLabel,
+    // price,
+    // setPrice,
+    // handleChange,
+    // count,
+    // setCount,
   } = props
-  const [city, setCity] = useState(-1)
-  const [township, setTownship] = useState(step2.township)
+  // const [city, setCity] = useState(-1)
+  // const [township, setTownship] = useState(step2.township)
 
   const validPhone = new RegExp(/^09\d{8}$/)
   const validEmail = new RegExp(/\S+@\S+\.\S+/)
@@ -58,26 +54,19 @@ function Address(props) {
 
   return (
     <>
-      <div className="cartBody forPhone">
-        <Typography variant="subtitle1">
-          <h2>我的購物車</h2>
-        </Typography>
-        <svg alt="收合icon" onClick={() => {}}></svg>
-        {/* <DropDown> */}
-        <MyCartCheck
-          step1={step1}
-          count={count}
-          setCount={setCount}
-          cateLabel={cateLabel}
-          setCategory={setCateLabel}
-          handleChange={handleChange}
-          price={price}
-          setPrice={setPrice}
-          cateLabels={cateLabels}
-        />
-        {/* </DropDown> */}
+      <div>
+        {/* <img alt="收合icon" onClick={() => {}}></img> */}
+        <Accordion style={{ margin: '20px auto' }}>
+          <AccordionSummary>
+            <h2>我的購物車</h2>
+          </AccordionSummary>
+          <AccordionDetails style={{ display: 'block' }}>
+            {/* <Grid container> */}
+            <MyCartCheck step1={step1} />
+            {/* </Grid> */}
+          </AccordionDetails>
+        </Accordion>
       </div>
-      {/* <Container className="cartBody"> */}
 
       <Grid
         container
@@ -217,14 +206,14 @@ function Address(props) {
                   required
                 ></TextField>
               </div>
-              <input
+              {/* <input
                 type="checkbox"
                 name="agree"
                 id="saveAddress"
                 checked={step2.agree}
                 onChange={handleStep2Change}
               />
-              幫我記住地址，下次使用
+              幫我記住地址，下次使用 */}
             </div>
           ) : (
             <div className="to711">
@@ -264,7 +253,7 @@ function Address(props) {
             >
               聯絡方式
             </Typography>
-            <div class="inputName">
+            {/* <div class="inputName">
               <input
                 type="checkbox"
                 id="fillMemberInfo"
@@ -272,7 +261,7 @@ function Address(props) {
                 onClick={() => {}}
               />
               同會員資料
-            </div>
+            </div> */}
             <div className="inputName">
               <label htmlFor="contactName">聯絡人姓名</label>
               <TextField
@@ -330,8 +319,8 @@ function Address(props) {
                 }
               ></TextField>
             </div>
-            <input type="checkbox" id="saveContacInfo" />
-            幫我記住聯絡資訊，下次使用
+            {/* <input type="checkbox" id="saveContacInfo" />
+            幫我記住聯絡資訊，下次使用 */}
             <br />
             <input type="checkbox" id="saveEmailToSEO" />
             我想收到電子報，有優惠通知我。

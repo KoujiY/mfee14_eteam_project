@@ -32,18 +32,17 @@ const CreditField = styled(FormGroup)`
 `
 const validCreditNum = new RegExp(/\b(?:\d{4}[ -]?){3}(?=\d{4}\b)/)
 function CreditForm(props) {
-  const { step3, setStep3, handleStep3Change, register, errors, step2, step1 } =
-    props
+  const { step3, handleStep3Change, errors, step2, step1 } = props
 
   return (
     <>
-      <div className="cartBody">
-        <img alt="收合icon" onClick={() => {}}></img>
-        <Accordion>
+      <div>
+        {/* <img alt="收合icon" onClick={() => {}}></img> */}
+        <Accordion style={{ margin: '20px auto' }}>
           <AccordionSummary>
             <h2>我的購物車</h2>
           </AccordionSummary>
-          <AccordionDetails>
+          <AccordionDetails style={{ display: 'block' }}>
             {/* <Grid container> */}
             <MyCartCheck step1={step1} />
             {/* </Grid> */}
@@ -82,14 +81,14 @@ function CreditForm(props) {
           name="payment"
           onChange={handleStep3Change}
         >
-          <Accordion>
+          <Accordion elevation={1}>
             <AccordionSummary
               aria-controls="panel1a-content"
               id="panel1a-header"
               sm={12}
             >
               <FormControlLabel
-                value="credit"
+                value="信用卡"
                 name="payment"
                 control={<Radio size="small" />}
                 label="信用卡"
@@ -174,7 +173,7 @@ function CreditForm(props) {
                   }
                 ></TextField>
               </div>
-              <div class="inputName">
+              {/* <div class="inputName">
                 <input type="checkbox" name="agree" />
                 幫我記住聯絡資訊，下次使用
                 <button
@@ -187,119 +186,45 @@ function CreditForm(props) {
                   更新
                 </button>
               </div>
-              <Typography></Typography>
+              <Typography></Typography> */}
             </AccordionDetails>
           </Accordion>
-
-          <FormGroup>
-            <FormControlLabel
-              value="信用卡"
-              name="payment"
-              control={<Radio size="small" />}
-              label="信用卡"
-              labelPlacement="center"
-              color="default"
-              // size="small"
-              onChange={handleStep3Change}
-            />
-            <div className="changeText"></div>
-            <img alt="icon" />
-          </FormGroup>
-          {step3.payment !== '' && step3.payment === '信用卡' ? (
-            <CreditField type="primary" className="creditField">
-              <div className="inputName">
-                <label htmlFor="creditName">持卡人姓名</label>
-                <TextField
-                  type="text"
-                  placeholder="您的姓名"
-                  name="creditName"
-                  defaultValue={step3.creditName}
-                  onChange={handleStep3Change}
-                  required
-                >
-                  {/* {errors.creditName && (
-                    <small>{errors.creditName.message}</small>
-                  )} */}
-                </TextField>
-              </div>
-              <div className="inputName">
-                <label htmlFor="creditNum">卡號</label>
-                <TextField
-                  type="text"
-                  placeholder="****-****-****-****"
-                  name="creditNum"
-                  maxLength="16"
-                  defaultValue={step3.creditNum}
-                  onChange={handleStep3Change}
-                ></TextField>
-              </div>
-              <div className="inputName">
-                <label htmlFor="validity">有效期限</label>
-                <TextField
-                  type="text"
-                  placeholder="MM/YY"
-                  name="validity"
-                  defaultValue={step3.validity}
-                  onChange={handleStep3Change}
-                ></TextField>
-              </div>
-              <div className="inputName">
-                <label htmlFor="ccv">CCV</label>
-                <TextField
-                  input
-                  type="text"
-                  placeholder="123"
-                  name="ccv"
-                  maxLength="3"
-                  minLength="3"
-                  defaultValue={step3.ccv}
-                  //驗證失敗
-                  onChange={(e) =>
-                    handleStep3Change(e) && step3.ccv.length === 3 ? (
-                      step3.ccv
-                    ) : (
-                      <p>長度錯誤</p>
-                    )
-                  }
-                ></TextField>
-              </div>
-              <div class="inputName">
-                <input type="checkbox" name="agree" />
-                幫我記住聯絡資訊，下次使用
-                <button
-                  type="button"
-                  // onClick={(e) => {
-                  //   document.getElementsByClassName('changeText').innerHtml =
-                  //     '**' + step3.creditNum.slice(11, 16)
-                  // }}
-                >
-                  更新
-                </button>
-              </div>
-            </CreditField>
-          ) : (
-            ''
-          )}
-          <FormControlLabel
-            value="行動支付"
-            name="payment"
-            control={<Radio size="small" />}
-            label="行動支付"
-            labelPlacement="center"
-            color="default"
-            // size="small"
-            onChange={handleStep3Change}
-          />
-          <FormControlLabel
-            value="貨到付款"
-            name="payment"
-            control={<Radio size="small" />}
-            label="貨到付款"
-            labelPlacement="center"
-            color="default"
-            // size="small"
-            onChange={handleStep3Change}
-          />
+          <Accordion elevation={1}>
+            <AccordionSummary
+              aria-controls="panel1a-content"
+              id="panel1a-header"
+              sm={12}
+            >
+              <FormControlLabel
+                value="行動支付"
+                name="payment"
+                control={<Radio size="small" />}
+                label="行動支付"
+                labelPlacement="center"
+                color="default"
+                // size="small"
+                onChange={handleStep3Change}
+              />
+            </AccordionSummary>
+          </Accordion>
+          <Accordion elevation={1}>
+            <AccordionSummary
+              aria-controls="panel1a-content"
+              id="panel1a-header"
+              sm={12}
+            >
+              <FormControlLabel
+                value="貨到付款"
+                name="payment"
+                control={<Radio size="small" />}
+                label="貨到付款"
+                labelPlacement="center"
+                color="default"
+                // size="small"
+                onChange={handleStep3Change}
+              />
+            </AccordionSummary>
+          </Accordion>
         </RadioGroup>
       </div>
     </>

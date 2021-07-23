@@ -59,39 +59,37 @@ function MyCartCheck(props) {
         </Container>
       </Hidden>
 
-      <tbody className="cart-tbody">
-        {step1.length < 0 ? (
-          <Grid item className="item-card">
-            購物車沒有商品QQ
-            <button>去選購</button>
-          </Grid>
-        ) : (
-          step1.map((v, i) => {
-            v.iId = step1[i].iId
-            v.name = step1[i].name
-            v.pic = step1[i].pic
-            v.category = step1[i].category
-            v.iCount = step1[i].iCount
-            v.iPrice = step1[i].iPrice
-            v.total = v.iCount * v.iPrice
-            return (
-              <Grid item xs={12}>
-                <tr key={i} value={i}>
-                  <td className="item-td">
-                    {/* input id rwd作用 */}
-                    <input
-                      type="hidden"
-                      key={i}
-                      className="cartId"
-                      value={v.iId}
-                    />
-                    <img src={v.pic} alt="商品圖片" />
-                  </td>
-                  <td key={i} value={i}>
-                    {v.name}
-                  </td>
-                  <td className="item-td">
-                    {/* <TextField
+      <Container className="item-card  ">
+        {step1.map((v, i) => {
+          v.iId = step1[i].iId
+          v.iName = step1[i].iName
+          v.iImg = step1[i].iImg
+          v.sName = step1[i].sName
+          v.cartQty = step1[i].cartQty
+          v.sPrice = step1[i].sPrice
+          v.total = v.cartQty * v.sPrice
+          return (
+            <Grid
+              item
+              key={i}
+              value={i}
+              style={{
+                width:'95%',
+                display: 'flex',
+                // alignSelf:'center',
+                justifyContent: 'space-between',
+              }}
+            >
+              <div className="item-td">
+                {/* input id rwd作用 */}
+                <input type="hidden" key={i} className="cartId" value={v.iId} />
+                <img src={v.iImg} alt="商品圖片" />
+              </div>
+              <div key={i} value={i}>
+                {v.iName}
+              </div>
+              <div className="item-td">
+                {/* <TextField
                     select
                     value={v.cateLabel}
                     key={i}
@@ -103,23 +101,21 @@ function MyCartCheck(props) {
                       </MenuItem>
                     ))}
                   </TextField> */}
-                    {v.category}
-                  </td>
-                  <td className="item-td">{v.iCount}</td>
-                  <td className="item-td">{v.iPrice}</td>
-                  <td className="item-td">{v.total}</td>
-                  {/* <td colSpan="2" className="item-td">
+                {v.sName}
+              </div>
+              <td className="item-td">{v.cartQty}</td>
+              <td className="item-td">NT$ {v.sPrice}</td>
+              <td className="item-td">NT$ {v.total}</td>
+              {/* <td colSpan="2" className="item-td">
                   <button className="outlineChoose" onClick={(e) => {}}>
                     下次再買
                   </button>
                   <button className="outlineChoose">X</button>
                 </td> */}
-                </tr>
-              </Grid>
-            )
-          })
-        )}
-      </tbody>
+            </Grid>
+          )
+        })}
+      </Container>
     </>
   )
 }

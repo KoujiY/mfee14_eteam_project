@@ -10,6 +10,7 @@ import {
   Container,
   makeStyles,
   Grid,
+  Typography,
   Hidden,
 } from '@material-ui/core'
 import styled from 'styled-components'
@@ -36,17 +37,19 @@ function CartCard(props) {
     count,
     setCount,
     cateLabels,
+    getCartData,
   } = props
   async function getCartFromServer() {
     // 開啟載入指示
     setDataLoading(true)
 
     // 連接的伺服器資料網址
-    const url = 'http://localhost:7000/cart'
+    const url = 'http://localhost:7000/cart/session'
     // const url = Settings.host + '/users'
 
     // 注意header資料格式要設定，伺服器才知道是json格式
     const request = new Request(url, {
+      credentials: 'include',
       method: 'GET',
       headers: new Headers({
         Accept: 'application/json',
@@ -55,10 +58,10 @@ function CartCard(props) {
     })
 
     const response = await fetch(request)
-    const cart = await response.json()
-    console.log(cart)
+    const data = await response.json()
+    console.log(data)
     // 設定資料
-    setStep1(cart)
+    setStep1(data.cart)
   }
 
   async function deletcUserFromServer(iId) {
@@ -66,15 +69,15 @@ function CartCard(props) {
     setDataLoading(true)
 
     // 連接的伺服器資料網址
-    const url = 'http://localhost:7000/cart/' + iId
+    const url = 'http://localhost:7000/cart/session/remove/' + iId
 
     // 注意header資料格式要設定，伺服器才知道是json格式
     const request = new Request(url, {
-      method: 'DELETE',
+      credentials: 'include',
+      method: 'GET',
       headers: new Headers({
         Accept: 'application/json',
         'Content-Type': 'appliaction/json',
-        credentials: 'same-origin',
       }),
     })
 
@@ -89,12 +92,16 @@ function CartCard(props) {
       })
 
       setStep1(newStep1)
-      alert('刪除完成')
+      // alert('刪除完成')
     }
   }
   useEffect(() => {
+    deletcUserFromServer()
+  }, [])
+  useEffect(() => {
     getCartFromServer()
   }, [])
+
   // 每次users資料有變動就會X秒後關掉載入指示
   // useEffect(() => {
   //   setTimeout(() => {
@@ -108,10 +115,11 @@ function CartCard(props) {
       padding: theme.spacing(2),
     },
     paper: {
-      padding: theme.spacing(2),
+      padding: theme.spacing(0),
       textAlign: 'center',
       color: theme.palette.text.secondary,
       height: '150px',
+      width: '100%',
     },
     image: {
       width: 125,
@@ -129,85 +137,111 @@ function CartCard(props) {
   return (
     <>
       <tbody className="cart-tbody">
-        {step1.length <= 0 ? (
-          <Container className="item-card">
-            購物車沒有商品QQ
-            <button>去選購</button>
-          </Container>
+        {step1.length < 1 ? (
+          <tr>
+            <h3>購物車沒有商品</h3>
+            <button className="outlineChoose">去選購</button>
+          </tr>
         ) : (
           step1.map((v, i) => {
-            v.name = step1[i].name
-            v.pic = step1[i].pic
+            v.iName = step1[i].iName
+            v.sName = step1[i].sName
+            v.iImg = step1[i].iImg
             v.iId = step1[i].iId
-            v.iCount = step1[i].iCount
-            v.iPrice = step1[i].iPrice
-            v.total = v.iCount * v.iPrice
+            v.cartQty = step1[i].cartQty
+            v.sPrice = step1[i].sPrice
+            v.total = v.cartQty * v.sPrice
             return (
-              <tr key={i} value={i}>
-                {/* <Grid item xs className={classes.paper}> */}
-                <td className="item-td">
-                  {/* input id rwd作用 */}
+              <Grid
+                container
+                key={i}
+                value={i}
+                style={{
+                  // width: '95%',
+                  // display: 'flex',
+                  // alignSelf:'center',
+                  justifyContent: 'space-between',
+                }}
+                className="item-card  "
+              >
+                <div className="item-td">
                   <input
                     type="hidden"
                     key={i}
                     className="cartId"
                     value={v.iId}
                   />
-                  <img src={v.pic} alt="商品圖片" className={classes.img} />
-                </td>
+                  <img src={v.iImg} alt="商品圖片" className={classes.img} />
+                </div>
 
-                <td key={i} value={i}>
-                  {v.name}
-                </td>
+                {/* <div key={i} value={i}> */}
+                <div className="item-td">{v.iName}</div>
+                {/* </div> */}
 
-                <td className="item-td">
-                  <TextField
+                <div className="item-td">
+                  {/* <TextField
                     select
-                    value={v.cateLabel}
+                    value={v.sName}
                     key={i}
                     onChange={v.handleChange}
-                  >
-                    {cateLabels.map((option) => (
+                  > */}
+                  {/* 規格待修 */}
+                  {/* {cateLabels.map((option) => (
                       <MenuItem key={option.value} value={option.value}>
                         {option.label}
                       </MenuItem>
                     ))}
-                  </TextField>
-                </td>
+                  </TextField> */}
+                  {/* <Grid
+                  item
+                  xs={2}
+                  style={{ margin: '10px auto', width: '10px' }}
+                > */}
+                  {v.sName}
+                  {/* </Grid> */}
+                </div>
 
-                <td className="item-td">
+                <div className="item-div">
+                  {/* <Grid item style={{ margin: '10px' }}> */}
                   <button
                     type="button"
-                    onClick={() => (v.iCount <= 1 ? 1 : setCount(v.iCount - 1))}
+                    onClick={v.cartQty <= 1 ? 1 : () => getCartData()}
                   >
                     -
                   </button>
-                  {v.iCount}
-                  <button type="button" onClick={setCount(v.iCount - 1)}>
+                  {v.cartQty}
+                  <button type="button" onClick={() => getCartData()}>
                     +
                   </button>
-                </td>
+                  {/* </Grid> */}
+                </div>
+                {/* <Grid item style={{ margin: '10px' }}>
+                  {v.sPrice}
+                </Grid>
+                <Grid item style={{ margin: '10px' }}>
+                  <div className="item-div"> {v.total}</div>
+                </Grid> */}
+                <td className="item-td">NT$ {v.sPrice}</td>
+                <td className="item-td">NT$ {v.total}</td>
+                {/* <div className="cart-th"></div> */}
 
-                <td className="item-td">{v.iPrice}</td>
-
-                <td className="item-td">{v.total}</td>
-
-                <td colSpan="2" className="item-td">
-                  <Hidden smDown>
+                {/* <div colSpan="2" className="item-div"> */}
+                {/* <Hidden smDown>
                     <button className="outlineChoose" onClick={(e) => {}}>
                       下次再買
                     </button>
-                  </Hidden>
-
+                  </Hidden> */}
+                <Grid item style={{ margin: '10px' }}>
                   <button
                     className="outlineChoose"
+                    type="button"
                     onClick={() => deletcUserFromServer(v.iId)}
                   >
                     X
                   </button>
-                </td>
-                {/* </Grid> */}
-              </tr>
+                </Grid>
+                {/* </div> */}
+              </Grid>
             )
           })
         )}

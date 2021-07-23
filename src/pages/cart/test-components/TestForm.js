@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
 import Steppers from '../components/Steppers'
-import { cities, townships } from '../data/townships'
 
 const cateLabels = [
   {
@@ -31,7 +30,7 @@ const TestForm = () => {
   const [step1, setStep1] = useState([
     // {
     //   iId: '9999',
-    //   pic: 'https://fakeimg.pl/125x125/',
+    //   iImg: 'https://fakeimg.pl/125x125/',
     //   name: '範例咖啡豆',
     //   category: '',
     //   iPrice: 123,
@@ -40,24 +39,16 @@ const TestForm = () => {
     // },
     // {
     //   iId: '9999',
-    //   pic: 'https://fakeimg.pl/125x125/',
+    //   iImg: 'https://fakeimg.pl/125x125/',
     //   name: '範例咖啡豆',
     //   category: '',
     //   iPrice: 123,
     //   iCount: 10,
     //   total: '',
     // },
-    // {
-    //   iId: '',
-    //   pic: '',
-    //   name: '',
-    //   category: '',
-    //   iPrice: '',
-    //   iCount: '',
-    //   total: '',
-    // },
+    {},
   ])
-  console.log(step1.length)
+  // console.log(step1.length)
   const [step2, setStep2] = useState({
     error: '',
     country: '',
@@ -85,12 +76,11 @@ const TestForm = () => {
   const [cateLabel, setCateLabel] = useState(0)
   const [price, setPrice] = useState(0)
   const [count, setCount] = useState(1)
-
+  const [country, setCountry] = useState(-1)
+  const [township, setTownship] = useState(-1)
   const [step2Errors, setStep2Errors] = useState({
     country: '',
     city: '',
-    township: -1,
-    street: -1,
     name: '',
     phone: '',
     email: '',
@@ -203,25 +193,7 @@ const TestForm = () => {
   //   Object.values(errors).forEach((val) => val.length > 0 && (valid = false))
   //   return valid
   // }
-  //表單送出
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    // if (validateForm(step2Errors.errors)) {
-    //   console.info('Valid Form')
-    // } else {
-    //   console.error('Invalid Form')
-    // }
-    const data = new FormData(e.target)
 
-    fetch('https://7000/order/', {
-      method: 'POST',
-      // We convert the React state to JSON and send it as the POST body
-      body: JSON.stringify(data),
-    }).then(function (response) {
-      console.log(response)
-      return response.json()
-    })
-  }
 
   const handleChange = (e) => {
     // const updatedFieldErrors = {
@@ -268,7 +240,6 @@ const TestForm = () => {
         handleInvalid={handleInvalid}
         errors={errors}
         handleErrors={handleErrors}
-        handleSubmit={handleSubmit}
       />
     </>
   )

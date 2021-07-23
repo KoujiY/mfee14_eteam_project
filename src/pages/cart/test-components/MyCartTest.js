@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import TotalBar from '../components/TotalBar'
+
 import CartCard from '../components/CartCard'
 import {
   Container,
@@ -36,35 +36,12 @@ function MyCartTest(props) {
     count,
     setCount,
   } = props
-  // async function getCartFromServer() {
-  //   // 開啟載入指示
-  //   // setDataLoading(true)
-
-  //   // 連接的伺服器資料網址
-  //   const url = 'http://localhost:7000/cart'
-  //   // const url = Settings.host + '/users'
-
-  //   // 注意header資料格式要設定，伺服器才知道是json格式
-  //   const request = new Request(url, {
-  //     method: 'GET',
-  //     headers: new Headers({
-  //       Accept: 'application/json',
-  //       'Content-Type': 'appliaction/json',
-  //     }),
-  //   })
-
-  //   const response = await fetch(request)
-  //   const data = await response.json()
-  //   console.log(data)
-  //   // 設定資料
-  //   setStep1(data)
-  // }
-
 
   // 後端相關function：加入或更新購物車
   async function getCartData(iId, cartQty) {
     // 連接的伺服器資料網址
-    const url = 'http://localhost:7000/cart/session?iId=${iId}&cartQty=1'
+    // const url = 'http://localhost:7000/cart/session?iId=${iId}&cartQty=${cartQty}'
+    const url = 'http://localhost:7000/cart/session?iId=1&cartQty=1'
 
     // 注意header資料格式要設定，伺服器才知道是json格式
     const request = new Request(url, {
@@ -101,7 +78,7 @@ function MyCartTest(props) {
                     <h2>我的購物車</h2>
                   </Typography>
 
-                  <thead className="cart-thead">
+                  {/* <thead className="cart-thead">
                     <th className="cart-th">商品圖片</th>
                     <th className="cart-th">商品名稱</th>
                     <th className="cart-th">規格</th>
@@ -109,8 +86,8 @@ function MyCartTest(props) {
                     <th className="cart-th">商品價格</th>
                     <th className="cart-th">總價</th>
                     <th className="cart-th" colSpan="2"></th>
-                  </thead>
-                  {/* <div className="cart-thead">
+                  </thead> */}
+                  <div className="cart-thead">
             <div className="cart-th">商品圖片</div>
             <div className="cart-th">商品名稱</div>
             <div className="cart-th">規格</div>
@@ -119,10 +96,10 @@ function MyCartTest(props) {
             <div className="cart-th">總價</div>
             <div className="cart-th"> </div>
             <div> </div>
-          </div> */}
+          </div>
                 </Paper>
               </Hidden>
-              <Paper elevation={0}>
+              {/* <Paper Paper xs={6} elevation={0}> */}
                 <tbody>
                   <CartCard
                     step1={step1}
@@ -135,9 +112,10 @@ function MyCartTest(props) {
                     price={price}
                     setPrice={setPrice}
                     cateLabels={cateLabels}
+                    getCartData={getCartData}
                   />
                 </tbody>
-              </Paper>
+              {/* </Paper> */}
             </table>
           </Grid>
         </Grid>
