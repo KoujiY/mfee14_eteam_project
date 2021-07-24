@@ -29,7 +29,6 @@
 .usersCreaditCardEditTitle {
   width: 1200px;
   margin: 0 auto;
-  padding-right: 50px;
   background-color: #0065b4;
   height: 50px;
   color: #f9f9f9;
@@ -37,6 +36,7 @@
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  font-size: 20px;
 }
 .usersCreaditCardEditText {
   margin: 0 auto;
@@ -46,7 +46,7 @@
   height: 100px;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  /* justify-content: space-between; */
   align-items: center;
   border-bottom: 1px solid #0065b4;
 }
@@ -57,7 +57,7 @@
   border-color: black;
   width: 200px;
   height: 40px;
-  margin-left: 20px;
+  /* margin-left: 20px; */
 }
 .usersCreaditCardEditInp > input:hover {
   background-color: rgb(190, 188, 188);
@@ -71,4 +71,25 @@
   height: 40px;
   margin-top: 30px;
   margin-left: 900px;
+}
+
+/* CSS最後修改樣式 */
+.usersCreditEditInpCname {
+  margin-left: 60px;
+}
+.usersCreditEditInpCnum {
+  margin-left: 150px;
+}
+.usersCreditEditInpCexp{
+  margin-left: 120px;
+}
+.usersCreditEditInpCCCV{
+  margin-left: 50px;
+}
+
+.usersCreaditCardAddBtnEdit button {
+  width: 90px;
+  height: 40px;
+  margin-top: 30px;
+  margin-left: 850px;
 }

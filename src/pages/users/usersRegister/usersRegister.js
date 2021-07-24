@@ -393,7 +393,9 @@ function UsersRegister(props) {
           >
             <div className="inputLeft">
               <div className="registerInput">
-                <label forhtml="uAcco">帳號</label>
+                <label className="usersRegisterUaccoLab" forhtml="uAcco">
+                  帳號
+                </label>
                 {/*  每一個輸入框一定要加名稱，和定義的欄位狀態值最好一樣 */}
                 <input
                   id="uAcco"
@@ -409,10 +411,12 @@ function UsersRegister(props) {
                   className={`form-control ${errors.uAcco ? 'is-invalid' : ''}`}
                 />
                 {/* 錯誤訊息顯示的地方 */}
-                <div className="invalid-feedback">{errors.uAcco?.message}</div>
+                <div className="invalid-feedbackReg">{errors.uAcco?.message}</div>
               </div>
               <div className="registerInput">
-                <label forhtml="uPwd">密碼</label>
+                <label className="usersRegisterUpwdLab" forhtml="uPwd">
+                  密碼
+                </label>
                 <input
                   id="uPwd"
                   name="uPwd"
@@ -475,10 +479,12 @@ function UsersRegister(props) {
                     <g></g>
                   </svg>
                 </div>
-                <div className="invalid-feedback">{errors.uPwd?.message}</div>
+                <div className="invalid-feedbackReg">{errors.uPwd?.message}</div>
               </div>
               <div className="registerInput">
-                <label forhtml="uChkPwd">確認密碼</label>
+                <label className="usersRegisterUchkpwdLab" forhtml="uChkPwd">
+                  確認密碼
+                </label>
                 <input
                   id="uChkPwd"
                   name="uChkPwd"
@@ -492,12 +498,14 @@ function UsersRegister(props) {
                     errors.uChkPwd ? 'is-invalid' : ''
                   }`}
                 />
-                <div className="invalid-feedback">
+                <div className="invalid-feedbackReg">
                   {errors.uChkPwd?.message}
                 </div>
               </div>
               <div className="registerInput">
-                <label forhtml="uMail">e-mail</label>
+                <label className="usersRegisterUmailLab" forhtml="uMail">
+                  e-mail
+                </label>
                 <input
                   id="uMail"
                   name="uMail"
@@ -509,10 +517,12 @@ function UsersRegister(props) {
                   onChange={onChangeForInput('uMail')}
                   className={`form-control ${errors.uMail ? 'is-invalid' : ''}`}
                 />
-                <div className="invalid-feedback">{errors.uMail?.message}</div>
+                <div className="invalid-feedbackReg">{errors.uMail?.message}</div>
               </div>
               <div className="registerInput">
-                <label forhtml="uPhone">電話</label>
+                <label className="usersRegisterUphoneLab" forhtml="uPhone">
+                  電話
+                </label>
                 <input
                   id="uPhone"
                   name="uPhone"
@@ -526,13 +536,15 @@ function UsersRegister(props) {
                     errors.uPhone ? 'is-invalid' : ''
                   }`}
                 />
-                <div className="invalid-feedback">{errors.uPhone?.message}</div>
+                <div className="invalid-feedbackReg">{errors.uPhone?.message}</div>
               </div>
             </div>
             <p className="registerTitle1">聯絡人資訊</p>
             <div className="inputLeft">
               <div className="registerInput">
-                <label forhtml="uName">姓名</label>
+                <label className="usersRegisterUnameLab" forhtml="uName">
+                  姓名
+                </label>
                 <input
                   id="uName"
                   name="uName"
@@ -544,10 +556,12 @@ function UsersRegister(props) {
                   onChange={onChangeForInput('uName')}
                   className={`form-control ${errors.uName ? 'is-invalid' : ''}`}
                 />
-                <div className="invalid-feedback">{errors.uName?.message}</div>
+                <div className="invalid-feedbackReg">{errors.uName?.message}</div>
               </div>
               <div className="registerRadio">
-                <label forhtml="uGender">性別</label>
+                <label className="usersRegisterUgenderLab" forhtml="uGender">
+                  性別
+                </label>
                 <input
                   id="uGender"
                   type="radio"
@@ -574,7 +588,7 @@ function UsersRegister(props) {
                   className={`rad  ${errors.uGender ? 'is-invalid' : ''}`}
                 />
                 女
-                <div className="invalid-feedback">
+                <div className="invalid-feedbackReg">
                   {errors.uGender?.message}
                 </div>
                 {/* 用一個陣列來一次產出選項按鈕群組 */}
@@ -590,7 +604,9 @@ function UsersRegister(props) {
                 })} */}
               </div>
               <div className="registerInput">
-                <label forhtml="uTWId">身分證字號</label>
+                <label className="usersRegisterUTWIdLab" forhtml="uTWId">
+                  身分證字號
+                </label>
                 <input
                   id="uTWId"
                   name="uTWId"
@@ -602,10 +618,12 @@ function UsersRegister(props) {
                   onChange={onChangeForInput('uTWId')}
                   className={`form-control ${errors.uTWId ? 'is-invalid' : ''}`}
                 />
-                <div className="invalid-feedback">{errors.uTWId?.message}</div>
+                <div className="invalid-feedbackReg">{errors.uTWId?.message}</div>
               </div>
               <div className="registerInput">
-                <label forhtml="uBirth">出生年月日</label>
+                <label className="usersRegisterUbirthLab" forhtml="uBirth">
+                  出生年月日
+                </label>
                 <input
                   id="uBirth"
                   name="uBirth"
@@ -619,13 +637,15 @@ function UsersRegister(props) {
                     errors.uBirth ? 'is-invalid' : ''
                   }`}
                 />
-                <div className="invalid-feedback">{errors.uBirth?.message}</div>
+                <div className="invalid-feedbackReg">{errors.uBirth?.message}</div>
               </div>
               <div className="registerInput">
-                <label>地址</label>
+                <label className="usersRegisterUaddrLab">地址</label>
               </div>
               <div className="registerInput">
-                <label forhtml="uCountry">國家</label>
+                <label className="usersRegisterUcountryLab" forhtml="uCountry">
+                  國家
+                </label>
                 <input
                   id="uCountry"
                   name="uCountry"
@@ -639,12 +659,14 @@ function UsersRegister(props) {
                     errors.uCountry ? 'is-invalid' : ''
                   }`}
                 />
-                <div className="invalid-feedback">
+                <div className="invalid-feedbackReg">
                   {errors.uCountry?.message}
                 </div>
               </div>
               <div className="registerInput">
-                <label forhtml="uCity">縣市</label>
+                <label className="usersRegisterUcityLab" forhtml="uCity">
+                  縣市
+                </label>
                 <input
                   id="uCity"
                   name="uCity"
@@ -656,10 +678,15 @@ function UsersRegister(props) {
                   onChange={onChangeForInput('uCity')}
                   className={`form-control ${errors.uCity ? 'is-invalid' : ''}`}
                 />
-                <div className="invalid-feedback">{errors.uCity?.message}</div>
+                <div className="invalid-feedbackReg">{errors.uCity?.message}</div>
               </div>
               <div className="registerInput">
-                <label forhtml="uTownship">鄉鎮/區</label>
+                <label
+                  className="usersRegisterUtownshipLab"
+                  forhtml="uTownship"
+                >
+                  鄉鎮/區
+                </label>
                 <input
                   id="uTownship"
                   name="uTownship"
@@ -673,12 +700,14 @@ function UsersRegister(props) {
                     errors.uTownship ? 'is-invalid' : ''
                   }`}
                 />
-                <div className="invalid-feedback">
+                <div className="invalid-feedbackReg">
                   {errors.uTownship?.message}
                 </div>
               </div>
               <div className="registerInput">
-                <label forhtml="uStreet">街道</label>
+                <label className="usersRegisterUstreetLab" forhtml="uStreet">
+                  街道
+                </label>
                 <input
                   id="uStreet"
                   name="uStreet"
@@ -692,7 +721,7 @@ function UsersRegister(props) {
                     errors.uStreet ? 'is-invalid' : ''
                   }`}
                 />
-                <div className="invalid-feedback">
+                <div className="invalid-feedbackReg">
                   {errors.uStreet?.message}
                 </div>
               </div>
@@ -707,7 +736,7 @@ function UsersRegister(props) {
                   }`}
                 />
                 <label forhtml="chk">我同意相關聲明事項</label>
-                <div className="invalid-feedback">{errors.chk?.message} </div>
+                <div className="invalid-feedbackRegchk">{errors.chk?.message} </div>
               </div>
               <button
                 type="submit"

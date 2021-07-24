@@ -5,12 +5,13 @@
   font-family: Noto Sans TC;
   text-decoration: none;
 } */
+
 .usersTitleDiv {
   position: relative;
 }
 .usersTitleDiv > a {
   color: #0065b4;
-  font-size: 20px;
+  font-size: 28px;
   width: 200px;
   font-family: Noto Sans TC;
   text-decoration: none;

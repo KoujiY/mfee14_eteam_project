@@ -359,6 +359,13 @@ function UsersText(props) {
     setOpenEditCredit(false)
   }
 
+  // const checkToken = () => {
+  //   if (!localStorage.token) {
+  //     alert('請先行登入')
+  //     props.history.push('/usersLogin')
+  //   }
+  // }
+
   // 生命週期
   // 一開始載入資料(componentDidMount 代表元件”已經”出現在網⾴上，這個⽅法中可以使⽤直接DOM處理，或向伺服器要初始化資料的JS程式碼)
 
@@ -503,7 +510,7 @@ function UsersText(props) {
               // 前端存圖片路徑
               // src={`http://localhost:3000/img/users/${users.uImg}`}
               // 後端存圖片的路徑
-              // 若取出的值為陣列 users.length > 0 && users[1].iImg
+              // 若取出的值為陣列 users.length > 0 && users[0].iImg
               // 若取出的值為物件 users.iImg
               src={`http://localhost:7000/img/${users.uImg}`}
               alt="123"
@@ -612,7 +619,8 @@ function UsersText(props) {
                           {/* 編輯信用卡 */}
                           <div className="usersCreaditCardBtn">
                             <div class="usersCreaditCardEditBtnEdit">
-                              <Button
+                              <button
+                                className="usersTextBtn3"
                                 autoFocus
                                 color="inherit"
                                 onClick={handleClickOpenEditCredit}
@@ -622,7 +630,7 @@ function UsersText(props) {
                                 id={v.cId}
                               >
                                 編輯
-                              </Button>
+                              </button>
                             </div>
                             <div>
                               <Dialog
@@ -664,6 +672,7 @@ function UsersText(props) {
                                     <div className="usersCreaditCardEditText">
                                       <div className="usersCreaditCardEditInp">
                                         <input
+                                          className="usersCreditEditInpCname"
                                           name="cName"
                                           type="text"
                                           placeholder={
@@ -676,7 +685,8 @@ function UsersText(props) {
                                       </div>
                                       <div className="usersCreaditCardEditInp">
                                         <input
-                                          name=""
+                                          className="usersCreditEditInpCnum"
+                                          name="cNum"
                                           type="text"
                                           placeholder={
                                             '原設定的卡號:' + creditEdit.cNum
@@ -687,6 +697,7 @@ function UsersText(props) {
                                       </div>
                                       <div className="usersCreaditCardEditInp">
                                         <input
+                                          className="usersCreditEditInpCexp"
                                           name="cExp"
                                           type="text"
                                           placeholder={
@@ -699,6 +710,7 @@ function UsersText(props) {
                                       </div>
                                       <div className="usersCreaditCardEditInp">
                                         <input
+                                          className="usersCreditEditInpCCCV"
                                           name="cCCV"
                                           type="text"
                                           placeholder={
@@ -710,15 +722,16 @@ function UsersText(props) {
                                       </div>
                                     </div>
                                   </ListItem>
-                                  <div className="usersCreaditCardEditBtnAdd">
+                                  <div class="usersCreaditCardAddBtnEdit">
                                     <button
+                                      className="usersTextBtn3"
                                       id={v.cId}
                                       onClick={(e) => {
                                         putUserCreditCardToServer(e.target.id)
 
-                                        console.log(e.target)
-                                        console.log(e.target.id)
-                                        console.log(v)
+                                        // console.log(e.target)
+                                        // console.log(e.target.id)
+                                        // console.log(v)
                                       }}
                                     >
                                       確認
@@ -742,7 +755,12 @@ function UsersText(props) {
                     )
                   })}
                 <div className="usersCreaditCardBtnAdd">
-                  <button onClick={handleClickOpenAddCredit}>新增</button>
+                  <button
+                    className="usersTextBtn3"
+                    onClick={handleClickOpenAddCredit}
+                  >
+                    新增
+                  </button>
                 </div>
                 <div>
                   <Dialog
@@ -823,8 +841,9 @@ function UsersText(props) {
                           </div>
                         </div>
                       </ListItem>
-                      <div className="usersCreaditCardAddBtnAdd">
+                      <div className="usersCreaditCardAddBtnAddChk">
                         <button
+                          className="usersTextBtn3"
                           // type="submit"
                           onClick={() => {
                             postUserCreditCardToServer()

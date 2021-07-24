@@ -293,7 +293,9 @@ function UsersEdit(props) {
                 </svg> */}
               </div>
               <div className="memberInput">
-                <label forhtml="uPwd">密碼</label>
+                <label className="userEditUpwdLab" forhtml="uPwd">
+                  密碼
+                </label>
                 <input
                   id="uPwd"
                   name="uPwd"
@@ -308,7 +310,9 @@ function UsersEdit(props) {
                 />
               </div>
               <div className="memberInput">
-                <label forhtml="uName">姓名</label>
+                <label className="userEditUnameLab" forhtml="uName">
+                  姓名
+                </label>
                 <input
                   id="uName"
                   name="uName"
@@ -320,7 +324,9 @@ function UsersEdit(props) {
               </div>
 
               <div className="memberInput">
-                <label forhtml="uTWId">身分證字號</label>
+                <label className="userEditUTWIdLab" forhtml="uTWId">
+                  身分證字號
+                </label>
                 <input
                   id="uTWId"
                   name="uTWId"
@@ -331,7 +337,9 @@ function UsersEdit(props) {
                 />
               </div>
               <div className="memberInput">
-                <label forhtml="uMail">e-mail</label>
+                <label className="userEditUmailLab" forhtml="uMail">
+                  e-mail
+                </label>
                 <input
                   id="uMail"
                   name="uMail"
@@ -342,7 +350,9 @@ function UsersEdit(props) {
                 />
               </div>
               <div className="memberInput">
-                <label forhtml="uPhone">電話</label>
+                <label className="userEditUphoneLab" forhtml="uPhone">
+                  電話
+                </label>
                 <input
                   id="uPhone"
                   name="uPhone"
@@ -353,7 +363,9 @@ function UsersEdit(props) {
                 />
               </div>
               <div className="memberInput">
-                <label forhtml="uBirth">出生年月日</label>
+                <label className="userEditUbirthLab" forhtml="uBirth">
+                  出生年月日
+                </label>
                 <input
                   id="uBirth"
                   name="uBirth"
@@ -364,10 +376,10 @@ function UsersEdit(props) {
                 />
               </div>
               <div className="memberInputAddr">
-                <label className="lab">地址</label>
+                <label className="userEditUaddrLab">地址</label>
               </div>
               <div className="memberInput">
-                <label className="lab" forhtml="uCountry">
+                <label className="userEditUcountryLab" forhtml="uCountry">
                   國家
                 </label>
                 <input
@@ -381,7 +393,7 @@ function UsersEdit(props) {
                 />
               </div>
               <div className="memberInput">
-                <label className="lab" forhtml="uCity">
+                <label className="userEditUcityLab" forhtml="uCity">
                   縣市
                 </label>
                 <input
@@ -395,7 +407,7 @@ function UsersEdit(props) {
                 />
               </div>
               <div className="memberInput">
-                <label className="lab" forhtml="uTownship">
+                <label className="userEditUtownshipLab" forhtml="uTownship">
                   鄉鎮/區
                 </label>
                 <input
@@ -409,7 +421,7 @@ function UsersEdit(props) {
                 />
               </div>
               <div className="memberInput">
-                <label className="lab" forhtml="uStreet">
+                <label className="userEditUstreetLab" forhtml="uStreet">
                   街道
                 </label>
                 <input
@@ -423,7 +435,7 @@ function UsersEdit(props) {
                 />
               </div>
               <div className="memberTextarea">
-                <label forhtml="uDiscr">個人描述</label>
+                <label forhtml="userEditUdiscrLab">個人描述</label>
                 <textarea
                   id="uDiscr"
                   name="uDiscr"

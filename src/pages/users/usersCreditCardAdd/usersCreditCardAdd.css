@@ -36,6 +36,7 @@
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  font-size: 20px;
 }
 .usersCreaditCardAddText {
   margin: 0 auto;
@@ -62,9 +63,19 @@
 .usersCreaditCardAddInp > input:hover {
   background-color: rgb(190, 188, 188);
 }
-.usersCreaditCardAddBtnAdd button {
+.usersCreaditCardBtnAdd button {
   width: 90px;
   height: 40px;
   margin-top: 30px;
-  margin-left: 900px;
+  margin-left: 850px;
 }
+.usersCreaditCardAddBtnAddChk button{
+  width: 90px;
+  height: 40px;
+  margin-top: 30px;
+  margin-left: 850px;
+}
+
+
+
+

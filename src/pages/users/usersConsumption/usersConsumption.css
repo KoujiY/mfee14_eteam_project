@@ -112,12 +112,12 @@
   overflow: hidden;
   width: 125px;
   height: 125px;
-  margin-left: 35px;
+  margin-left: 20px;
   margin-right: 35px;
 }
 .UserConsumptionName {
   width: 100px;
-  margin-right: 40px;
+  margin-right: 30px;
 }
 .UserConsumptionSpec {
   display: inline-block;
@@ -126,14 +126,14 @@
   height: 40px;
   border: 1px solid #0065b4;
   border-radius: 25px;
-  margin-right: 55px;
+  margin-right: 45px;
 }
 .UserConsumptionQty {
   text-align: center;
   font-size: 16px;
   width: 80px;
   border-bottom: 1px solid #0065b4;
-  margin-right: 75px;
+  margin-right: 95px;
 }
 .UserConsumptionSpecialoffer {
   width: 72px;
@@ -142,19 +142,21 @@
   text-decoration: line-through;
 }
 .UserConsumptionTotal {
-  margin-left: 72px;
+  margin-left: 80px;
   margin-right: 40px;
   width: 50px;
 }
 
-.UserConsumptionPage {
-  width: 1100px;
-  height: 40px;
-  margin-top: 120px;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
+.UserConsumptionPageBox {
+  /* width: 1200px;
+  height: 60px;
+  position: relative; */
+  margin-left: 760px;
+}
+
+/* .UserConsumptionPage {
+  margin: 0 auto;
 }
 .UserConsumptionPage div {
   margin-right: 40px;
-}
+} */

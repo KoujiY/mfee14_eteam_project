@@ -163,8 +163,8 @@ function UsersLogin(props) {
       </div>
       <div className="loginRow">
         <div className="logindiv">
-          <p className="loginText">登入到您的帳戶</p>
-          <p className="loginText">請輸入您的帳號和密碼</p>
+          <p className="usersloginText">登入到您的帳戶</p>
+          <p className="usersloginText">請輸入您的帳號和密碼</p>
           <form // 阻擋表單預設行為
             onSubmit={handleSubmit(onSubmit)}
             // onChange={handleChange}
@@ -184,12 +184,14 @@ function UsersLogin(props) {
                 onChange={(e) => {
                   setUacco(e.target.value)
                 }}
-                className={`inp form-control ${
+                className={`form-controlLogin ${
                   errors.uAcco ? 'is-invalid' : ''
                 }`}
                 // required
               />
-              <div className="invalid-feedback">{errors.uAcco?.message}</div>
+              <div className="invalid-feedbackLogin">
+                {errors.uAcco?.message}
+              </div>
             </div>
             <div className="uPwd">
               <label forhtml="uPwd">密碼</label>
@@ -205,7 +207,7 @@ function UsersLogin(props) {
                   setUpwd(e.target.value)
                 }}
                 // required
-                className={`inp form-control ${
+                className={`form-controlLogin ${
                   errors.uPwd ? 'is-invalid' : ''
                 }`}
               />
@@ -260,7 +262,9 @@ function UsersLogin(props) {
                   <g></g>
                 </svg>
               </div>
-              <div className="invalid-feedback">{errors.uPwd?.message}</div>
+              <div className="invalid-feedbackLogin">
+                {errors.uPwd?.message}
+              </div>
             </div>
             <div className="chk">
               {/* 點擊後 token 會延長儲存時間 */}
@@ -280,13 +284,14 @@ function UsersLogin(props) {
 
               <div className="forget">
                 <div>
-                  <Button
+                  <button
+                    className="usersLoginButtonFor"
                     variant="outlined"
                     color="primary"
                     onClick={handleClickOpen}
                   >
                     忘記密碼
-                  </Button>
+                  </button>
                   <Dialog
                     open={open}
                     onClose={handleClose}
@@ -360,13 +365,13 @@ function UsersLogin(props) {
         </div>
         <div className="borderCenter"></div>
         <div className="register">
-          <p>創建一個帳戶</p>
-          <ul>
-            <li>「說幹話不只是狀態，更是一種心態！」</li>
-            <li>「說幹話不只是狀態，更是一種心態！」</li>
-            <li>「說幹話不只是狀態，更是一種心態！」</li>
-            <li>「說幹話不只是狀態，更是一種心態！」</li>
-            <li>「說幹話不只是狀態，更是一種心態！」</li>
+          <p className="usersloginRes">創建一個帳戶</p>
+          <ul className="usersloginResUl">
+            <li>創建一個帳戶，享受咖啡餘韻</li>
+            <li>讓生活授受充滿咖啡的芬芳</li>
+            <li>如果說有驚喜，那就是喝下咖啡的瞬間</li>
+            <li>加入我們，有讓你喝不完的咖啡</li>
+            <li>建立起與我們的連結，此生不後悔</li>
           </ul>
           <Link to="/usersRegister" className="btnBlue btn3">
             創建一個帳戶

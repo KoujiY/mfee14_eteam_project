@@ -5,7 +5,9 @@ import { Link, withRouter } from 'react-router-dom'
 import './usersTrack.css'
 
 import UsersTitle from '../components/usersTitle'
-
+// Icon
+import IconButton from '@material-ui/core/IconButton'
+import CloseIcon from '@material-ui/icons/Close'
 // 分頁
 import { makeStyles } from '@material-ui/core/styles'
 import Pagination from '@material-ui/lab/Pagination'
@@ -153,13 +155,14 @@ function UsersTrack(props) {
                 <div className="usersTrackSpec">{v.sName}</div>
 
                 <div className="usersTrackQty">1</div>
-                <div>
+                <div className="usersTrackTotalPrice">
                   {/* <p className="usersTrackSpecialoffer">原價 1400</p> */}
                   <p>{v.iPrice}</p>
                 </div>
                 <div className="usersTrackTotal">{v.iPrice * 1}</div>
                 <div className="usersTrackBtn">
                   <button
+                    className="usersTextBtn3"
                     onClick={() => {
                       props.history.push('/usersLogin')
                     }}
@@ -167,6 +170,7 @@ function UsersTrack(props) {
                     加入購物車
                   </button>
                   <button
+                    className="usersTextBtn3"
                     onClick={() => {
                       props.history.push('/usersLogin')
                     }}
@@ -175,14 +179,24 @@ function UsersTrack(props) {
                   </button>
                 </div>
                 <div className="usersTrackIcon">
-                  <Link
+                  {/* <Link
                     to=""
                     onClick={() => {
                       deleteTrackToServer(v.iId)
                     }}
                   >
                     X
-                  </Link>
+                  </Link> */}
+                  <IconButton
+                    edge="start"
+                    color="inherit"
+                    onClick={() => {
+                      deleteTrackToServer(v.iId)
+                    }}
+                    aria-label="close"
+                  >
+                    <CloseIcon />
+                  </IconButton>
                 </div>
               </div>
             )

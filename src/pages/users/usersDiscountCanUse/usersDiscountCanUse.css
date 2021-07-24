@@ -52,6 +52,7 @@
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
+  font-size: 20px;
 }
 
 .usersDiscountTitle div {
@@ -69,6 +70,7 @@
   justify-content: space-evenly;
   align-items: center;
   border-bottom: 1px solid #0065b4;
+  font-size: 20px;
 }
 
 .usersDiscountText div {

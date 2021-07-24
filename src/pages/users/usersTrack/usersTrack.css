@@ -83,14 +83,14 @@
     height: 40px;
     border: 1px solid #0065b4;
     border-radius: 25px;
-    margin-right: 55px;
+    margin-right: 45px;
   }
   .usersTrackQty {
     text-align: center;
     font-size: 16px;
     width: 80px;
     border-bottom: 1px solid #0065b4;
-    margin-right: 85px;
+    margin-right: 95px;
   }
   .usersTrackSpecialoffer {
     width: 72px;
@@ -111,7 +111,7 @@
   }
   
   .usersTrackBtn button {
-    width: 90px;
+    width: 100px;
     height: 40px;
     margin-top: 5px;
     margin-bottom: 20px;
@@ -137,3 +137,24 @@
     margin-right: 40px;
   }
   
+
+  /* CSS最後修改樣式 */
+
+  .usersTextBtn3 {
+    background-color: transparent;
+    border: 1px solid #002875;
+    padding: 8px 15px;
+    color: #002875;
+    border-radius: 3px;
+  }
+  .usersTextBtn3:hover {
+    background-color: #0065b4;
+    color: #ffffff;
+    border: 1px solid #0065b4;
+  }
+
+  /* CSS最後修改樣式 */
+
+  .usersTrackTotalPrice{
+    margin-right: 20px;
+  }

@@ -102,7 +102,7 @@ function UsersCreditCard(props) {
             credit.map((v) => {
               return (
                 <div className="usersCreaditCardText" key={v.cId}>
-                  <div className="usersCreaditCardName">{v.cName}</div>
+                  <div className="usersCreaditCardName ">{v.cName}</div>
                   <div className="usersCreaditCardNumber">{v.cNum}</div>
                   <div className="usersCreaditCardExp">{v.cExp}</div>
                   <div className="usersCreaditCardPwd">{v.cCCV}</div>

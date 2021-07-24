@@ -206,9 +206,10 @@ function UsersConsumption(props) {
             )
           })}
 
-        <div className="UserConsumptionPage">
-          <div className={classes.root}>
+        <div className="UserConsumptionPageBox">
+          <div className={`${classes.root} `}>
             <Pagination
+              className="UserConsumptionPage"
               count={5}
               size="large"
               onChange={(e) => {

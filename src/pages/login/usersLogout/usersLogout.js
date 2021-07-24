@@ -1,6 +1,8 @@
+import { PinDropSharp } from '@material-ui/icons'
 import React from 'react'
+import { withRouter } from 'react-router-dom'
 
-function UsersLogout() {
+function UsersLogout(props) {
   async function usersLogoutToServer() {
     const token = localStorage.getItem('token')
     const url = `${process.env.REACT_APP_USERSURL}/logout/`
@@ -18,6 +20,7 @@ function UsersLogout() {
 
     if (data) {
       localStorage.removeItem('token')
+      props.history.push('/')
     }
   }
 
@@ -34,4 +37,4 @@ function UsersLogout() {
   )
 }
 
-export default UsersLogout
+export default withRouter(UsersLogout)
