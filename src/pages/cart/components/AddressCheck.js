@@ -39,7 +39,7 @@ function AddressCheck(props) {
         <Grid item sm={5} xs={12}>
           <Paper elevation={0} className={classes.paper}>
             <Grid className="address">
-              <h4>{step2.choose}</h4>
+              <h4 className="h4">{step2.choose}</h4>
               {step2.country === -1 || step2.township === -1 ? (
                 ''
               ) : (
@@ -56,7 +56,7 @@ function AddressCheck(props) {
         <Grid item sm={5} xs={12}>
           <Paper elevation={0} className={classes.paper}>
             <Grid className="contactInfo">
-              <h4>聯絡方式</h4>
+              <h4 className="h4">聯絡方式</h4>
               <div>
                 <p>{step2.name}</p>
                 <p>{step2.phone}</p>

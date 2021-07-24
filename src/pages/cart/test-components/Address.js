@@ -219,15 +219,28 @@ function Address(props) {
             <div className="to711">
               <div className="inputName">
                 <label htmlFor="to711city">縣市名</label>
-                <select name="to711city">
-                  <option value="0">請選擇縣市</option>
-                </select>
+                <TextField select value={step2.city} name="to711Store">
+                  <MenuItem value="-1">
+                    <em>請選擇縣市</em>
+                  </MenuItem>
+                  <MenuItem value="0">
+                    <em>台北市</em>
+                  </MenuItem>
+                </TextField>
+                {/* <select name="to711city">
+                  <option value="0"></option>
+                </select> */}
               </div>
               <div className="inputName">
                 <label htmlFor="to711Store">店名</label>
-                <select name="to711Store">
-                  <option value="0">請選擇店名</option>
-                </select>
+                <TextField select value={step2.city} name="to711Store">
+                  <MenuItem value="-1">
+                    <em>請選擇店名</em>
+                  </MenuItem>
+                  <MenuItem value="0">
+                    <em>中山店</em>
+                  </MenuItem>
+                </TextField>
               </div>
               <small>目前僅支持7-11超商店取，不便之處還請見諒</small>
             </div>
@@ -321,7 +334,7 @@ function Address(props) {
             </div>
             {/* <input type="checkbox" id="saveContacInfo" />
             幫我記住聯絡資訊，下次使用 */}
-            <br />
+            {/* <br /> */}
             <input type="checkbox" id="saveEmailToSEO" />
             我想收到電子報，有優惠通知我。
           </div>

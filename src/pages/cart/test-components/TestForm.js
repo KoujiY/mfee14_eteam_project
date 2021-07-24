@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-
+import { withRouter, Link } from 'react-router'
 import Steppers from '../components/Steppers'
 
 const cateLabels = [
@@ -25,7 +25,7 @@ const cateLabels = [
   },
 ]
 
-const TestForm = () => {
+const TestForm = (props) => {
   //分步驟為 3 step
   const [step1, setStep1] = useState([
     // {
@@ -194,7 +194,6 @@ const TestForm = () => {
   //   return valid
   // }
 
-
   const handleChange = (e) => {
     // const updatedFieldErrors = {
     //   ...fieldErrors,
@@ -215,6 +214,14 @@ const TestForm = () => {
     // }
     // setStep2Errors(updatedStep2Errors)
   }
+  // useEffect(() => {
+  //   if (localStorage.token) {
+  //     // 裡面填自己的function
+  //   } else {
+  //     alert('請先行登入')
+  //     props.history.push('/usersLogin')
+  //   }
+  // }, [])
 
   return (
     <>
@@ -245,4 +252,4 @@ const TestForm = () => {
   )
 }
 
-export default TestForm
+export default withRouter(TestForm)

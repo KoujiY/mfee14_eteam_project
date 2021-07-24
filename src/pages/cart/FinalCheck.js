@@ -108,9 +108,9 @@ function FinalCheck(props) {
               <Grid item xs={12}>
                 <small>
                   {1500 > itemTotal > 1000
-                    ? '(滿千折50)'
+                    ? '(居家防疫來點消費: －50)'
                     : itemTotal > 1500
-                    ? '(滿1千5折70)'
+                    ? '(刺激經濟你我做起: －70)'
                     : ''}
                 </small>
               </Grid>

@@ -9,6 +9,7 @@ import {
   Typography,
   Hidden,
 } from '@material-ui/core'
+import GuessYouLikeCard from '../../../../src/global_components/GuessYouLikeCard'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -35,18 +36,20 @@ function MyCartTest(props) {
     handleChange,
     count,
     setCount,
+    // product
   } = props
 
-  // 後端相關function：加入或更新購物車
-  async function getCartData(iId, cartQty) {
+  console.log(step1)
+
+  //猜你喜歡元件
+  const [itemsArr, setItemsArr] = useState([])
+  async function getAllItemsData(page) {
     // 連接的伺服器資料網址
-    // const url = 'http://localhost:7000/cart/session?iId=${iId}&cartQty=${cartQty}'
-    const url = 'http://localhost:7000/cart/session?iId=1&cartQty=1'
+    const url = `http://localhost:7000/items?iId=3`
 
     // 注意header資料格式要設定，伺服器才知道是json格式
     const request = new Request(url, {
-      credentials: 'include',
-      method: 'GET', //GET不能接body
+      method: 'GET',
       headers: new Headers({
         Accept: 'application/json',
         'Content-Type': 'appliaction/json',
@@ -56,14 +59,16 @@ function MyCartTest(props) {
     const response = await fetch(request)
     const data = await response.json()
     console.log('伺服器回傳的json資料by read', data)
-    setStep1(data.cart)
-    console.log(step1)
-  }
 
+    // 設定資料
+    setItemsArr(data.result2)
+
+    // setTotalPages(data.totalPages)
+    // setNowPage(data.page)
+  }
   useEffect(() => {
-    getCartData()
+    getAllItemsData()
   }, [])
-  console.log(step1)
 
   const classes = useStyles()
   return (
@@ -88,49 +93,74 @@ function MyCartTest(props) {
                     <th className="cart-th" colSpan="2"></th>
                   </thead> */}
                   <div className="cart-thead">
-            <div className="cart-th">商品圖片</div>
-            <div className="cart-th">商品名稱</div>
-            <div className="cart-th">規格</div>
-            <div className="cart-th">商品數量</div>
-            <div className="cart-th">商品價格</div>
-            <div className="cart-th">總價</div>
-            <div className="cart-th"> </div>
-            <div> </div>
-          </div>
+                    <div className="cart-th">商品圖片</div>
+                    <div className="cart-th">商品名稱</div>
+                    <div className="cart-th">規格</div>
+                    <div className="cart-th">商品數量</div>
+                    <div className="cart-th">商品價格</div>
+                    <div className="cart-th">總價</div>
+                    <div className="cart-th"> </div>
+                    <div> </div>
+                  </div>
                 </Paper>
               </Hidden>
               {/* <Paper Paper xs={6} elevation={0}> */}
-                <tbody>
-                  <CartCard
-                    step1={step1}
-                    setStep1={setStep1}
-                    count={count}
-                    setCount={setCount}
-                    cateLabel={cateLabel}
-                    setCategory={setCateLabel}
-                    handleChange={handleChange}
-                    price={price}
-                    setPrice={setPrice}
-                    cateLabels={cateLabels}
-                    getCartData={getCartData}
-                  />
-                </tbody>
+              <tbody>
+                <CartCard
+                  step1={step1}
+                  setStep1={setStep1}
+                  count={count}
+                  setCount={setCount}
+                  cateLabel={cateLabel}
+                  setCategory={setCateLabel}
+                  handleChange={handleChange}
+                  price={price}
+                  setPrice={setPrice}
+                  cateLabels={cateLabels}
+                />
+              </tbody>
               {/* </Paper> */}
             </table>
           </Grid>
         </Grid>
       </div>
-      <div className="cartBody itemRecom">
+      <Grid container justify="center" className="cartBody itemRecom">
+        <Grid container justify="center" className="GuessYouLike">
+          <Grid item justify="flex-start">
+            <h4 className="h4">猜你也喜歡</h4>
+          </Grid>
+          <Grid item container>
+            <Grid item container spacing={6} justify="center">
+              {itemsArr.slice(0, 4).map((value, index) => {
+                return (
+                  <Grid
+                    key={index}
+                    item
+                    xs={2}
+                    style={{ boxSizing: 'content-box' }}
+                  >
+                    <GuessYouLikeCard
+                      product={value}
+                      setStep1={setStep1}
+                    ></GuessYouLikeCard>
+                  </Grid>
+                )
+              })}
+            </Grid>
+          </Grid>
+        </Grid>
+      </Grid>
+      {/* <div className="cartBody itemRecom">
         <h3>猜你喜歡</h3>
         <div className="recommend-card">
           <img src="" alt="商品圖片" />
           <p>推薦商品</p>
-          <span>NT$ 700</span>
-          <button type="button" onClick={() => getCartData()}>
+          <span>NT$ 700</span> */}
+      {/* <button type="button" onClick={() => getCartData()}>
             購買
-          </button>
-        </div>
-      </div>
+          </button> */}
+      {/* </div> */}
+      {/* </div> */}
     </>
   )
 }

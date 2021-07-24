@@ -16,6 +16,14 @@ h2 {
   background-color: #ffffff;
   padding-bottom: 60px;
 }
+.h4{
+  display: block;
+  margin-block-start: 1.33em;
+  margin-block-end: 1.33em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
 table {
   width: 90%;
   max-width: 960px;
@@ -38,7 +46,7 @@ table {
 }
 
 .item-card {
-  margin: 10px auto;
+  margin: 40px auto;
   max-width: 932px;
   width: 932px;
   width: 80%;
@@ -73,7 +81,7 @@ table {
   justify-content: space-between;
   /* margin: auto 29px; */
 }
-.cart-th{
+.cart-th {
   margin: 10px;
 }
 small {
@@ -85,30 +93,34 @@ small {
 .inputName {
   height: 25px auto;
   display: flex;
+  margin: 15px auto;
   /* justify-content: space-between; */
 }
 .inputName label {
   margin-right: 15px;
   text-align: right;
   width: 100px;
+  color: #002875;
 }
 .line {
-    width: 1px;
-    background-color: rgb(185, 185, 185);
-    margin: 30px 35px;
+  width: 1px;
+  background-color: rgb(185, 185, 185);
+  margin: 30px 35px;
+}
+
+@media (max-width: 600px) and (width: 100%) {
+  .forPhone {
+    width: 100%;
   }
+}
+.titleLine {
+  height: 10px;
+  background-color: rgb(70, 21, 21);
+  margin: 30px 35px;
+}
 
-  @media (max-width: 600px) and (width: 100%){ 
-    .forPhone{width: 100%;}
-   }
-   .titleLine{
-    height: 10px;
-    background-color: rgb(70, 21, 21);
-    margin: 30px 35px;
-   }
-
-   /* icon */
-  .success-checkmark {
+/* icon */
+.success-checkmark {
   width: 80px;
   height: 115px;
   margin: 0 auto;
@@ -136,8 +148,9 @@ small {
   border-radius: 0 100px 100px 0;
   animation: rotate-circle 4.25s ease-in;
 }
-.success-checkmark .check-icon::before, .success-checkmark .check-icon::after {
-  content: "";
+.success-checkmark .check-icon::before,
+.success-checkmark .check-icon::after {
+  content: '';
   height: 100px;
   position: absolute;
   background: #ffffff;
@@ -249,4 +262,24 @@ small {
     right: 8px;
     top: 38px;
   }
+}
+
+.margin1 {
+  margin: 'auto 10px';
+}
+
+.delete{
+  /* width: 30px;
+  height: 40px; */
+font-size: 1.5rem;
+  color:#0065b4;
+  background-color: transparent;
+  border: 1px solid transparent;
+}
+
+.delete:hover{
+font-size: 1.5rem;
+  color:#FF5554;
+  background-color: transparent;
+  border: 1px solid transparent;
 }

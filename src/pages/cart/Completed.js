@@ -1,5 +1,6 @@
 import React from 'react'
 import { Grid, Paper, makeStyles } from '@material-ui/core'
+import { Link } from 'react-router-dom'
 //組件
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -17,6 +18,10 @@ const useStyles = makeStyles((theme) => ({
   },
   button: {
     margin: '30px 10px',
+    width: '50px',
+  },
+  h4: {
+    margin: '-50px auto 50px',
   },
 }))
 function Completed(props) {
@@ -28,7 +33,6 @@ function Completed(props) {
           <Grid item xs={12}>
             <Paper elevation={0} className={classes.paper}>
               <h3 className={classes.h3}>感謝您的購買!</h3>
-              <h4>訂單已成立！</h4>
               <div className="success-checkmark">
                 <div className="check-icon">
                   <span className="icon-line line-tip"></span>
@@ -38,9 +42,19 @@ function Completed(props) {
                 </div>
               </div>
               <div className={classes.h3}>
-                {' '}
-                <button className="outlineChoose">去看我的訂單</button>
-                <button className="outlineChoose">回首頁</button>
+                <h4 className={classes.h4}>訂單已成立！</h4>
+
+                {/* 連去消費紀錄 */}
+                <Link to="/usersConsumption">
+                  <button className="outlineChoose margin1">
+                    去看我的訂單
+                  </button>
+                </Link>
+
+                {/* 連去首頁 */}
+                <Link to="/">
+                  <button className="outlineChoose">回首頁</button>
+                </Link>
               </div>
             </Paper>
           </Grid>

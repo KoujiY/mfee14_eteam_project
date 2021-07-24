@@ -16,15 +16,15 @@ import {
   StepConnector,
   Button,
   Typography,
-  Paper,
+  // Paper,
   AppBar,
   Toolbar,
   Grid,
-  TextField,
+  // TextField,
   Hidden,
-  Container,
-  Box,
-  MenuItem,
+  // Container,
+  // Box,
+  // MenuItem,
 } from '@material-ui/core'
 import '../Cart.css'
 import { cities, townships } from '../data/townships'
@@ -42,7 +42,7 @@ import Completed from '../Completed'
 const ColorlibConnector = withStyles({
   alternativeLabel: {
     top: 95,
-    margin: 'auto 0px',
+    margin: '120px auto 0px',
     color: '#fcf5e9',
     fill: '#fcf5e9',
     maxWidth: '665px',
@@ -180,12 +180,13 @@ ColorlibStepIcon.propTypes = {
 //全頁設定，有搭配 cart.css
 const useStyles = makeStyles((theme) => ({
   root: {
-    margin: '0px auto',
+    margin: '120px auto 0',
     width: '80%',
     maxWidth: '1200px',
     backgroundColor: '#F9F9F9',
     [theme.breakpoints.down('xs')]: {
       width: '100%',
+      margin: '0px auto 0',
     },
   },
   button: {
@@ -382,7 +383,7 @@ export default function Steppers(props) {
       oPrice: subtotal,
     }
     console.log(data)
-    const url = 'http://localhost:7000/order/order-1'
+    const url = 'http://localhost:7000/order/order'
 
     const request = new Request(url, {
       credentials: 'include',
@@ -443,13 +444,28 @@ export default function Steppers(props) {
                   height: '60px',
                   backgroundColor: '#0065B4',
                   position: 'sticky',
+                  paddingTop: '8px',
                 }}
               >
                 <Toolbar>
-                  <Button
-                    onClick={handleBack}
-                    style={{ color: 'white' }}
-                  ></Button>
+                  <Button onClick={handleBack} style={{ padding: '0' }}>
+                    <SvgIcon
+                      style={{ fill: 'white', width: '20px' }}
+                      viewBox="0 0 490.787 490.787"
+                    >
+                      <path
+                        d="M362.671,490.787c-2.831,0.005-5.548-1.115-7.552-3.115L120.452,253.006
+	c-4.164-4.165-4.164-10.917,0-15.083L355.119,3.256c4.093-4.237,10.845-4.354,15.083-0.262c4.237,4.093,4.354,10.845,0.262,15.083
+	c-0.086,0.089-0.173,0.176-0.262,0.262L143.087,245.454l227.136,227.115c4.171,4.16,4.179,10.914,0.019,15.085
+	C368.236,489.664,365.511,490.792,362.671,490.787z"
+                      />
+                      <path
+                        d="M362.671,490.787c-2.831,0.005-5.548-1.115-7.552-3.115L120.452,253.006c-4.164-4.165-4.164-10.917,0-15.083L355.119,3.256
+	c4.093-4.237,10.845-4.354,15.083-0.262c4.237,4.093,4.354,10.845,0.262,15.083c-0.086,0.089-0.173,0.176-0.262,0.262
+	L143.087,245.454l227.136,227.115c4.171,4.16,4.179,10.914,0.019,15.085C368.236,489.664,365.511,490.792,362.671,490.787z"
+                      />
+                    </SvgIcon>
+                  </Button>
                   <Typography>
                     {activeStep === steps.length - 1
                       ? '確認訂單'
@@ -504,7 +520,7 @@ export default function Steppers(props) {
                 >
                   <Grid item xs={2}>
                     <Typography>
-                      <h4>總金額:</h4>
+                      <h4 className="h4">總金額:</h4>
                     </Typography>
                   </Grid>
                   <Grid item md={8} sm={6} xs={5}>
@@ -552,7 +568,6 @@ export default function Steppers(props) {
       </div>
       {/* <pre>{JSON.stringify(step1, null, 2)}</pre>
       <pre>{JSON.stringify(step2, null, 2)}</pre>
-      <pre>{JSON.stringify(step3, null, 2)}</pre>
       <pre>{JSON.stringify(step3, null, 2)}</pre> */}
     </div>
   )
