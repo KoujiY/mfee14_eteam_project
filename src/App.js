@@ -9,7 +9,10 @@ import About from './pages/about-us/about-index'
 
 // 回到頂部功能
 import ScrollToTop from './global_components/scrollTop'
-
+    
+// 購物車
+import TestForm from './pages/cart/test-components/TestForm'
+    
 // 會員登入
 import UsersLogin from './pages/login/usersLogin/usersLogin'
 // 會員登出(功能)
@@ -89,6 +92,9 @@ function App() {
         <ScrollToTop>
           <Switch>
             {/* 路由 */}
+            <Route exact path="/cart">
+              <TestForm />
+            </Route>
             <Route path="/about">
               <About />
             </Route>
