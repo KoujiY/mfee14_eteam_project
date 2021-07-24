@@ -9,7 +9,11 @@ import About from './pages/about-us/about-index'
 
 // 回到頂部功能
 import ScrollToTop from './global_components/scrollTop'
-    
+
+// 商品頁面
+import ItemsIndex from './pages/items/items-index'
+import ItemInfo from './pages/items/items-info'
+
 // 購物車
 import TestForm from './pages/cart/test-components/TestForm'
     
@@ -56,42 +60,15 @@ function App() {
     <Router>
       <Nav />
       <>
-        {/* 連結 */}
-        {/* <Link to="/">Users</Link>
-        <br />
-        <Link to="/usersLogin">UsersLogin</Link>
-        <br />
-        <Link to="/usersLogout">UsersLogout</Link>
-        <br />
-        <Link to="/usersForget">UsersForget</Link>
-        <br />
-        <Link to="/usersRegister">UsersRegister</Link>
-        <br />
-        <Link to="/usersText/">UsersText</Link>
-        <br />
-        <Link to="/usersEdit/">UsersEdit</Link>
-        <br />
-        <Link to="/usersConsumption">UsersConsumption</Link>
-        <br />
-        <Link to="/usersTrack">UsersTrack</Link>
-        <br />
-        <Link to="/usersCreditCard">UsersCreditCard</Link>
-        <br />
-        <Link to="/usersCreditCardAdd">UsersCreditCardAdd</Link>
-        <br />
-        <Link to="/usersCreditCardEdit">UsersCreditCardEdit</Link>
-        <br />
-        <Link to="/usersDiscountCanUse">UsersDiscountCanUse</Link>
-        <br />
-        <Link to="/usersDiscountNotCanUse">UsersDiscountNotCanUse</Link>
-        <br />
-        <Link to="/messageText">MessageText</Link> */}
-        {/* <br />
-        <Link to="/formValidationTest">FormValidationTest</Link> */}
-
         <ScrollToTop>
           <Switch>
             {/* 路由 */}
+            <Route path="/items/index">
+              <ItemsIndex />
+            </Route>
+            <Route path="/items/info/:iId?">
+              <ItemInfo />
+            </Route>
             <Route exact path="/cart">
               <TestForm />
             </Route>
@@ -157,4 +134,5 @@ function App() {
     </Router>
   )
 }
+
 export default App
