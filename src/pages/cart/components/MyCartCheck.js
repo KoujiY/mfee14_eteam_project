@@ -1,49 +1,61 @@
 import React from 'react'
-import styled from 'styled-components'
-import { TextField, MenuItem, Container, Grid, Hidden } from '@material-ui/core'
+import {
+  TextField,
+  MenuItem,
+  makeStyles,
+  Container,
+  Grid,
+  Hidden,
+} from '@material-ui/core'
 
-//組件
-import CartCard from './CartCard'
-
-const CartFunc = styled.div`
-  display: none;
-`
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+    padding: theme.spacing(2),
+  },
+  paper: {
+    padding: theme.spacing(0),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+    height: '150px',
+    width: '100%',
+  },
+  image: {
+    // width: 125,
+    // height: 125,
+  },
+  img: {
+    margin: 'auto',
+    display: 'block',
+    maxWidth: '125px',
+    maxHeight: '125px',
+    marginRight: '-20px',
+    marginLeft: '10px',
+    [theme.breakpoints.down('xs')]: {
+      width: '90%',
+    },
+  },
+  iName: {
+    // margin: 'auto 20px',
+    // width:'150px',
+  },
+}))
 
 function MyCartCheck(props) {
+  const classes = useStyles()
+
   const {
     step1,
-    setStep1,
-    cateLabels,
-    cateLabel,
-    setCateLabel,
-    price,
-    setPrice,
-    handleChange,
-    count,
-    setCount,
+    // setStep1,
+    // cateLabels,
+    // cateLabel,
+    // setCateLabel,
+    // price,
+    // setPrice,
+    // handleChange,
+    // count,
+    // setCount,
   } = props
-  // const cateLabels = [
-  //   {
-  //     value: 0,
-  //     label: '200g',
-  //     price: 200,
-  //   },
-  //   {
-  //     value: 1,
-  //     label: '500g',
-  //     price: 400,
-  //   },
-  //   {
-  //     value: 2,
-  //     label: '1kg',
-  //     price: 600,
-  //   },
-  //   {
-  //     value: 3,
-  //     label: '1.5kg',
-  //     price: 800,
-  //   },
-  // ]
   return (
     <>
       <Hidden xsDown>
@@ -59,7 +71,6 @@ function MyCartCheck(props) {
         </Container>
       </Hidden>
 
-      <Container className="item-card  ">
         {step1.map((v, i) => {
           v.iId = step1[i].iId
           v.iName = step1[i].iName
@@ -69,12 +80,14 @@ function MyCartCheck(props) {
           v.sPrice = step1[i].sPrice
           v.total = v.cartQty * v.sPrice
           return (
+      <Container className="item-card  ">
+
             <Grid
               item
               key={i}
               value={i}
               style={{
-                width:'95%',
+                width: '95%',
                 display: 'flex',
                 // alignSelf:'center',
                 justifyContent: 'space-between',
@@ -83,9 +96,13 @@ function MyCartCheck(props) {
               <div className="item-td">
                 {/* input id rwd作用 */}
                 <input type="hidden" key={i} className="cartId" value={v.iId} />
-                <img src={v.iImg} alt="商品圖片" />
+                <img
+                  src={`http://localhost:7000/img/${v.iImg}`}
+                  alt="商品圖片"
+                  className={classes.img}
+                />
               </div>
-              <div key={i} value={i}>
+              <div key={i} value={i} className={classes.iName}>
                 {v.iName}
               </div>
               <div className="item-td">
@@ -113,9 +130,10 @@ function MyCartCheck(props) {
                   <button className="outlineChoose">X</button>
                 </td> */}
             </Grid>
+      </Container>
+
           )
         })}
-      </Container>
     </>
   )
 }
