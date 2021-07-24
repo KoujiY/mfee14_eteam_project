@@ -25,7 +25,7 @@ import ItemInfo from './pages/items/items-info'
 
 // 購物車
 import TestForm from './pages/cart/test-components/TestForm'
-    
+
 // 會員登入
 import UsersLogin from './pages/login/usersLogin/usersLogin'
 // 會員登出(功能)
@@ -76,38 +76,38 @@ function App() {
         <ScrollToTop>
           <Switch>
             {/* 路由表 */}
-          <Route path="/coffee-introduce/coffee-introduce-global">
-            <CoffeeIntroduceGlobal />
-          </Route>
-          <Route path="/coffee-introduce/coffee-introduce-taiwan">
-            <CoffeeIntroduceTaiwan />
-          </Route>
-          <Route path="/partners/partners-index">
-            <PartnersIndex />
-          </Route>
-          <Route path="/partners/partners-mainPage">
-            <PartnersMainPage />
-          </Route>
-          <Route path="/partners/partners-edit">
-            <PartnersEdit />
-          </Route>
-          <Route path="/shop-map/shop-map-APIpage">
-            <APIpage
-              addrRef={addrRef}
-              nowPosi={nowPosi}
-              addrIndex={addrIndex}
-              setNowPosi={setNowPosi}
-              setAddrIndex={setAddrIndex}
-            />
-          </Route>
-          <Route path="/shop-map/shop-map-index">
-            <ShopMapIndex
-              addrRef={addrRef}
-              nowPosi={nowPosi}
-              setNowPosi={setNowPosi}
-              setAddrIndex={setAddrIndex}
-            />
-          </Route>
+            <Route path="/coffee-introduce/coffee-introduce-global">
+              <CoffeeIntroduceGlobal />
+            </Route>
+            <Route path="/coffee-introduce/coffee-introduce-taiwan">
+              <CoffeeIntroduceTaiwan />
+            </Route>
+            <Route path="/partners/partners-index">
+              <PartnersIndex />
+            </Route>
+            <Route path="/partners/partners-mainPage">
+              <PartnersMainPage />
+            </Route>
+            <Route path="/partners/partners-edit">
+              <PartnersEdit />
+            </Route>
+            <Route path="/shop-map/shop-map-APIpage">
+              <APIpage
+                addrRef={addrRef}
+                nowPosi={nowPosi}
+                addrIndex={addrIndex}
+                setNowPosi={setNowPosi}
+                setAddrIndex={setAddrIndex}
+              />
+            </Route>
+            <Route path="/shop-map/shop-map-index">
+              <ShopMapIndex
+                addrRef={addrRef}
+                nowPosi={nowPosi}
+                setNowPosi={setNowPosi}
+                setAddrIndex={setAddrIndex}
+              />
+            </Route>
             <Route path="/items/index">
               <ItemsIndex />
             </Route>

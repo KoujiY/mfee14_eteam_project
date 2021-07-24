@@ -91,9 +91,10 @@ function PartnersEdit(props) {
       <Container
         style={{
           backgroundColor: '#f9f9f9',
-          minHeight: '3rem',
+          minHeight: '50vw',
           padding: '0',
           position: 'relative',
+          marginTop: '120px',
         }}
       >
         <Grid container justify="space-between">

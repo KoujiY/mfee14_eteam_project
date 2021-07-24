@@ -118,7 +118,14 @@ function APIpage(props) {
 
   return (
     <>
-      <Box style={{ height: '100vh', width: '100%', position: 'relative' }}>
+      <Box
+        style={{
+          height: '100vh',
+          width: '100%',
+          position: 'relative',
+          marginTop: '120px',
+        }}
+      >
         <GoogleMap
           center={props.nowPosi}
           zoom={17}

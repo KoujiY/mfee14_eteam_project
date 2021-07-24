@@ -27,6 +27,7 @@ const TopTitleBox = styled(Box)`
   font-size: 6rem;
   color: #fcf5e9;
   margin-left: -30%;
+  margin-top: 1.5625vw;
 `
 const BottomTitleBox = styled(Box)`
   width: 100%;
@@ -39,7 +40,8 @@ const BottomTitleBox = styled(Box)`
 `
 const SubBottomBox1 = styled(Box)`
   font-size: 3.75rem;
-  margin-left: 30%;
+  margin-left: 32%;
+  margin-top: 1vw;
 `
 const SubBottomBox2 = styled(Box)`
   text-align: right;
@@ -97,7 +99,7 @@ const DecoBg = styled(Box)`
 function CoffeeIntroduceGlobal() {
   return (
     <>
-      <Grid container>
+      <Grid container style={{ marginTop: '120px' }}>
         <EarthGrid container item sm={7} justify="flex-end" alignItems="center">
           <Grid item>
             <Earth />

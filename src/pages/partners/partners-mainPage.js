@@ -37,7 +37,7 @@ const cardInfo = [
 function PartnersMainPage() {
   return (
     <>
-      <Box style={{ background: '#f9f9f9' }}>
+      <Box style={{ background: '#f9f9f9', marginTop: '120px' }}>
         <OuterGrid container alignContent="center">
           <TitleGrid container item sm={12}>
             <AvatarPic image="https://material-ui.com/static/images/cards/contemplative-reptile.jpg" />

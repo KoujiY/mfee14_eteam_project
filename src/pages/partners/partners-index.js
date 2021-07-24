@@ -51,7 +51,7 @@ const JoinTextBox = styled(Box)`
 function PartnersIndex(props) {
   return (
     <>
-      <Grid container>
+      <Grid container style={{ marginTop: '120px' }}>
         <LoginGrid container item sm={5}>
           <form style={{ width: '100%', height: '100%' }}>
             <Grid

@@ -146,6 +146,7 @@ function ShopMapIndex(props) {
           height: '100vh',
           background: `url('https://material-ui.com/static/images/cards/contemplative-reptile.jpg') no-repeat`,
           backgroundSize: 'cover',
+          marginTop: '120px',
         }}
       >
         <FindAddrGrid
