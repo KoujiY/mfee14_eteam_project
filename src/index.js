@@ -1,6 +1,6 @@
-// 連結到DOM上
 import React from 'react'
 import ReactDOM from 'react-dom'
+import './index.css'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 
