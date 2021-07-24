@@ -621,9 +621,10 @@ table {
     align-items: center;
     justify-content: center;
     height: 50px;
-    width: 300px;
+    width: 240px;
     color: #659de1;
     border: 2px solid #659de1;
+    font-size: 20px;
   }
   .index-button-blue-bg:hover {
     background-color: #659de1;
@@ -746,20 +747,6 @@ table {
 
   /* //////////////////////////////////// */
   /* ////第四頁//// */
-
-  .index-button-blue-bg {
-    border-radius: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 50px;
-    width: 300px;
-    border: 2px solid #659de1;
-  }
-  .index-button-blue-bg a {
-    color: #659de1;
-    text-decoration: none;
-  }
 
   .index-best-selling-item {
     display: flex;
@@ -893,7 +880,7 @@ table {
     font-size: 24px;
   }
 
-  .index-one-herro-button-left {
+  /* .index-one-herro-button-left {
     width: 50%;
     border-radius: 40px;
     padding: 20px 0;
@@ -923,7 +910,7 @@ table {
     bottom: 25%;
     right: 23%;
     z-index: 2;
-  }
+  } */
   .index-one-herro-button-left > a,
   .index-one-herro-button-right > a {
     color: #f9f9f9;
@@ -950,10 +937,10 @@ table {
   .index-two-colorship {
     display: none;
   }
-  .index-twopic-big-text {
+  /* .index-twopic-big-text {
     font-size: 18px;
     padding: 2% 2%;
-  }
+  } */
 
   .index-twopage-pic {
     display: none;
@@ -1061,25 +1048,25 @@ table {
     opacity: 0;
     width: 70%;
     position: absolute;
-    left: 6%;
+    left: 2%;
     color: #f9f9f9;
   }
-  .index-threepic-big-text {
+  /* .index-threepic-big-text {
     font-size: 24px;
-  }
+  } */
 
   .index-threepic-small-text {
     font-size: 16px;
     padding: 0 3%;
   }
 
-  .index-newproduct-text {
+  /* .index-newproduct-text {
     position: absolute;
     bottom: 45%;
     left: 4%;
     font-size: 16px;
     color: #f9f9f9;
-  }
+  } */
   .index-border-bottom-white {
     position: relative;
     left: 0px;
@@ -1096,9 +1083,6 @@ table {
     border-bottom: 3px solid #659de1;
   }
 
-  .index-button-black {
-    display: none;
-  }
   /* ////手機板phone點擊按鈕的card /// */
   .index-phone-threesection-click-card {
     display: block;
@@ -1191,7 +1175,7 @@ table {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 50px;
+    height: 40px;
     width: 150px;
     border: 2px solid #659de1;
   }
@@ -1250,5 +1234,133 @@ table {
     position: absolute;
     bottom: -1%;
     z-index: -1;
+  }
+}
+@media screen and (max-width: 576px) {
+  .index-twopic-big-text {
+    margin: 2%;
+    font-size: 28px;
+    padding: 2% 0;
+  }
+  .index-one-herro-button-left {
+    width: 40%;
+    border-radius: 40px;
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 2px solid #f9f9f9;
+    position: absolute;
+    bottom: 35%;
+    margin-bottom: 5px;
+    right: 23%;
+    z-index: 2;
+  }
+
+  .index-one-herro-button-right {
+    width: 40%;
+    border-radius: 40px;
+    text-align: center;
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #f9f9f9;
+    position: absolute;
+    bottom: 25%;
+    right: 23%;
+    z-index: 2;
+  }
+
+  .index-button-black {
+    display: block;
+    position: absolute;
+    border-radius: 40px;
+    bottom: 44%;
+    right: 2%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 47px;
+    width: 204px;
+    background-color: #9494943f;
+    color: #f9f9f9;
+    text-decoration: none;
+  }
+  .index-newproduct-text {
+    font-size: 34px;
+    position: absolute;
+    bottom: 44%;
+    left: 2%;
+    color: #f9f9f9;
+  }
+  .index-threepic-big-text {
+    font-size: 34px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .index-twopic-big-text {
+    font-size: 14px;
+    margin: 2%;
+
+    padding: 2% 0;
+  }
+  .index-one-herro-button-left {
+    width: 50%;
+    border-radius: 40px;
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 2px solid #f9f9f9;
+    position: absolute;
+    bottom: 35%;
+    margin-bottom: 5px;
+    right: 23%;
+    z-index: 2;
+  }
+
+  .index-one-herro-button-right {
+    width: 50%;
+
+    border-radius: 40px;
+    text-align: center;
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #f9f9f9;
+    position: absolute;
+    bottom: 25%;
+    right: 23%;
+    z-index: 2;
+  }
+  .index-button-black {
+    display: block;
+    position: absolute;
+    border-radius: 40px;
+    bottom: 58%;
+    right: 2%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 37px;
+    width: 154px;
+    background-color: #9494943f;
+    color: #f9f9f9;
+    text-decoration: none;
+  }
+  .index-newproduct-text {
+    font-size: 26px;
+    position: absolute;
+    bottom: 63%;
+    left: 2%;
+    color: #f9f9f9;
+  }
+  .index-threepic-big-text {
+    font-size: 24px;
   }
 }

@@ -159,7 +159,7 @@ function Foursection() {
           <div className="index-border-bottom-blue"> </div>
         </div>
 
-        <Link to="#/" className=" index-button-blue-bg fontsize-20">
+        <Link to="#/" className=" index-button-blue-bg ">
           ALL
         </Link>
       </div>

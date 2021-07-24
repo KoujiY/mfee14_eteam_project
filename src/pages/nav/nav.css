@@ -338,6 +338,9 @@ table {
   .nav-phone-allicon-star-close {
     display: none;
   }
+  /* .abc {
+    display: none;
+  } */
 }
 
 @media screen and (max-width: 954px) {
