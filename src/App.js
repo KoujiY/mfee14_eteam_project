@@ -1,13 +1,15 @@
-// 設定路由
-
 import React from 'react'
-
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
 
+// 首頁、Nav、Footer、關於我們
+import Nav from './pages/nav/nav-index'
+import Index from './pages/index/index'
+import Footer from './pages/footer/footer-index'
+import About from './pages/about-us/about-index'
+
+// 回到頂部功能
 import ScrollToTop from './global_components/scrollTop'
 
-import Users from './pages/users/users'
-// 會員登入
 import UsersLogin from './pages/login/usersLogin/usersLogin'
 // 會員登出(功能)
 import UsersLogout from './pages/login/usersLogout/usersLogout'
@@ -48,6 +50,7 @@ function App() {
   return (
     // 路由器
     <Router>
+            <Nav />
       <>
         {/* 連結 */}
         {/* <Link to="/">Users</Link>
@@ -85,6 +88,9 @@ function App() {
         <ScrollToTop>
           <Switch>
             {/* 路由 */}
+            <Route path="/about">
+              <About />
+            </Route>
             <Route path="/usersCreditCardAdd">
               <UsersCreditCardAdd />
             </Route>
@@ -127,14 +133,11 @@ function App() {
             <Route path="/messageText">
               <MessageText />
             </Route>
-            {/* <Route path="/formValidationTest">
-              <FormValidationTest />
-            </Route> */}
             <Route path="/uploadFun">
               <UploadFun />
             </Route>
             <Route exact path="/">
-              <Users />
+              <Index />
             </Route>
             {/* 404頁面 */}
             <Route path="*">
@@ -144,7 +147,5 @@ function App() {
         </ScrollToTop>
       </>
     </Router>
-  )
-}
 
 export default App
