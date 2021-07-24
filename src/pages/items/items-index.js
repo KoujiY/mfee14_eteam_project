@@ -7,7 +7,6 @@ import ProductCard from './ProductCard'
 import GuessYouLikeCard from './GuessYouLikeCard'
 import Grid from '@material-ui/core/Grid'
 import Divider from '@material-ui/core/Divider'
-import CardActionArea from '@material-ui/core/CardActionArea'
 import IconButton from '@material-ui/core/IconButton'
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
 
@@ -103,7 +102,7 @@ function ItemsIndex() {
         <CardMedia
           className="itemsIndexBg"
           component="img"
-          image="http://localhost:3000/items-index-bg.jpg"
+          image="http://localhost:3000/index/items-index-bg.jpg"
           title="itemsIndexBg"
         />
 
@@ -111,7 +110,7 @@ function ItemsIndex() {
           <div className="itemsIndexPic">
             <CardMedia
               component="img"
-              image="http://localhost:3000/items-index-pic.jpg"
+              image="http://localhost:3000/index/items-index-pic.jpg"
               height="100%"
               title="itemsIndexPic"
             />
@@ -233,7 +232,7 @@ function ItemsIndex() {
 
       <Divider variant="middle" style={{ marginTop: '50px' }} />
 
-      <Grid container justify="center">
+      <Grid container justify="center" style={{ marginBottom: '80px' }}>
         <Grid container justify="center" className="GuessYouLike">
           <Grid item justify="flex-start">
             <h4>猜你也喜歡</h4>

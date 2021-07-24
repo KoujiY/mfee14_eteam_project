@@ -8,7 +8,7 @@ import Tabs from '@material-ui/core/Tabs'
 import Tab from '@material-ui/core/Tab'
 import Buttons from './Buttons'
 import { withRouter } from 'react-router-dom'
-import GuessYouLikeCard from './GuessYouLikeCard'
+import MessageText from './messageText'
 
 function ItemInfo(props) {
   console.log(props)
@@ -18,15 +18,15 @@ function ItemInfo(props) {
   const [productData, setProductData] = useState({})
 
   const [largePic, setLargePic] = useState(
-    'http://localhost:3000/smallpic1.jpg'
+    'http://localhost:3000/index/smallpic1.jpg'
   )
 
   const ImgArr = [
-    'http://localhost:3000/smallpic1.jpg',
-    'http://localhost:3000/smallpic2.jpg',
-    'http://localhost:3000/smallpic3.jpg',
-    'http://localhost:3000/smallpic4.jpg',
-    'http://localhost:3000/smallpic5.jpg',
+    'http://localhost:3000/index/smallpic1.jpg',
+    'http://localhost:3000/index/smallpic2.jpg',
+    'http://localhost:3000/index/smallpic3.jpg',
+    'http://localhost:3000/index/smallpic4.jpg',
+    'http://localhost:3000/index/smallpic5.jpg',
   ]
 
   const [specIndex, setSpecIndex] = useState(0)
@@ -213,8 +213,60 @@ function ItemInfo(props) {
               <Grid item>
                 <TabPanel value={value} index={0}>
                   {/* {productData.iIdData && productData.iIdData.iDiscr} */}
+
                   <p style={{ fontSize: '16px', textAlign: 'center' }}>
-                    酸度:2 醇度:4
+                    ★G1精品級濾掛咖啡
+                  </p>
+                  <p style={{ fontSize: '16px', textAlign: 'center' }}>
+                    ★國際咖啡師杯測把關
+                  </p>
+                  <p style={{ fontSize: '16px', textAlign: 'center' }}>
+                    ★30年老師傅精心烘焙
+                  </p>
+
+                  <p
+                    style={{
+                      fontSize: '16px',
+                      maxWidth: '500px',
+                      textAlign: 'center',
+                      marginTop: '50px',
+                    }}
+                  >
+                    我們對於咖啡烘焙充滿著無比的熱情。每一款咖啡都需要不同的時間與溫度，以粹煉出最完美的烘焙境界，進而為每一杯咖啡帶來獨有的香氣、酸度、體度與風味。
+                  </p>
+
+                  <p
+                    style={{
+                      fontSize: '16px',
+                      maxWidth: '500px',
+                      textAlign: 'center',
+                      marginTop: '50px',
+                    }}
+                  >
+                    此款綜合產區咖啡豆具有柑橘香氣，且帶有一絲花香甜美氣息，更能品嘗到平衡的可可尾韻。
+                  </p>
+
+                  <img
+                    src="http://localhost:3000/index/items-index-pic.jpg"
+                    style={{ maxWidth: '500px' }}
+                    alt=""
+                  ></img>
+
+                  <p
+                    style={{
+                      fontSize: '24px',
+                      textAlign: 'center',
+                      marginTop: '50px',
+                    }}
+                  >
+                    商品規格
+                  </p>
+
+                  <p style={{ fontSize: '16px', textAlign: 'center' }}>
+                    酸度:2
+                  </p>
+                  <p style={{ fontSize: '16px', textAlign: 'center' }}>
+                    醇度:4
                   </p>
                   <p style={{ fontSize: '16px', textAlign: 'center' }}>
                     產區:拉丁美洲
@@ -238,7 +290,7 @@ function ItemInfo(props) {
             <Grid container justify="center" style={{ marginTop: '30px' }}>
               <Grid item>
                 <TabPanel value={value} index={1}>
-                  沒有人聊天
+                  <MessageText></MessageText>
                 </TabPanel>
               </Grid>
             </Grid>

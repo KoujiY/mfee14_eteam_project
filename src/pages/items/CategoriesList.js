@@ -11,7 +11,7 @@ function CategoriesList(props) {
   const { open, setOpen, setICateId } = props
 
   return (
-    <List component="nav" aria-labelledby="nested-list-subheader">
+    <List aria-labelledby="nested-list-subheader">
       <ListItem
         button
         onClick={() => {

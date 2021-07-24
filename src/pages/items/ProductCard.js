@@ -22,7 +22,7 @@ function ProductCard(props) {
         <CardMedia
           height="350px"
           component="img"
-          image="http://localhost:3000/items1.jpg"
+          image="http://localhost:3000/index/items1.jpg"
           title="ProductCard"
         />
 
