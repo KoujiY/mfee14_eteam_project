@@ -562,7 +562,7 @@ table {
     width: 100%;
     height: 100%;
   }
-  /* /////////////////////////////////////////////////// */
+  /* /////////////////////////////////////////////////123// */
 
   /* //桌機板的右側局部 資訊顯示 25%/ */
   .nav-phone-loginbar {
@@ -571,7 +571,7 @@ table {
     display: flex;
     justify-content: center;
   }
-  /* //////////////////////////////////////// */
+  /* /////////////////////////////////////123123/// ///1123*/
 
   nav .nav-navbar .nav-link {
     width: 100%;
@@ -593,4 +593,8 @@ table {
   nav .nav-navbar .phone-nav-links {
     height: 100%;
   }
+}
+
+.toggleClassDisplayNone {
+  display: none;
 }

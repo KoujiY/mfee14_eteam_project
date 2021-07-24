@@ -150,7 +150,7 @@ function Foursection() {
         .css('transition', '1s')
     })
   }, [])
-
+  //
   return (
     <>
       <div className="index-best-selling-group">

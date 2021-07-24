@@ -11,6 +11,7 @@ import coffeebag from './svg/coffeebag.svg'
 import aboutus from './svg/about us.svg'
 
 function Nav() {
+  const [hidden, setHidden] = useState(true)
   useEffect(() => {
     let menuOpenBtn = document.querySelector('.nav-navbar .bx-menu')
     let closeOpenBtn = document.querySelector('.nav-links .bx-x')
@@ -34,7 +35,7 @@ function Nav() {
       navLinks.classList.toggle('show3')
     })
   }, [])
-
+  ///
   useEffect(() => {
     $(window).scroll(function () {
       let scrolltop = $(this).scrollTop() //console.log(scrolltop);
@@ -52,6 +53,13 @@ function Nav() {
       }
     })
   }, [])
+
+  useEffect(() => {
+    if (!localStorage.token) {
+      setHidden(!hidden)
+    }
+  }, [])
+
   return (
     <>
       <body className="index-body">
@@ -404,7 +412,10 @@ function Nav() {
             </div>
             <div className="nav-loginbar">
               <div className="nav-loginbar-left">
-                <Link to="#/">
+                <Link
+                  to="#/"
+                  className={hidden ? 'toggleClassDisplayNone' : ''}
+                >
                   {/*?xml version="1.0" encoding="iso-8859-1"?*/}
                   {/* Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  */}
                   <svg
@@ -449,7 +460,11 @@ function Nav() {
                   登入/註冊
                 </Link>
                 {/* /////////////////////// */}
-                <Link to="/" className="abc">
+
+                <Link
+                  to="/"
+                  className={!hidden ? 'toggleClassDisplayNone' : ''}
+                >
                   {/*?xml version="1.0" encoding="iso-8859-1"?*/}
                   {/* Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  */}
                   <svg

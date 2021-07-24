@@ -658,7 +658,7 @@ function Threesection() {
       <div className="index-top-box">
         <a href="#">TOP</a>
       </div>
-      <div className="index-four-rectangle"></div>
+      <div className="index-four-rectangle1"></div>
     </>
   )
 }
