@@ -36,8 +36,8 @@ function CategoriesList(props) {
               <GiCoffeeBeans />
             </ListItemIcon>
             <ListItemText
-              id="1117"
-              primary="小海"
+              id="1"
+              primary="咖啡"
               // inset
               onClick={(event) => {
                 setICateId(event.currentTarget.id)
@@ -51,8 +51,8 @@ function CategoriesList(props) {
               <GiCoffeeBeans />
             </ListItemIcon>
             <ListItemText
-              id="929"
-              primary="深深"
+              id="2"
+              primary="器材"
               // inset
               onClick={(event) => {
                 setICateId(event.currentTarget.id)
@@ -61,12 +61,35 @@ function CategoriesList(props) {
             />
           </ListItem>
 
-          {/* <ListItem button inset>
+          <ListItem button inset>
             <ListItemIcon>
               <GiCoffeeBeans />
             </ListItemIcon>
-            <ListItemText primary="分類3" inset />
-          </ListItem> */}
+            <ListItemText
+              id="3"
+              primary="甜點"
+              // inset
+              onClick={(event) => {
+                setICateId(event.currentTarget.id)
+                // console.log(event.currentTarget)
+              }}
+            />
+          </ListItem>
+
+          <ListItem button inset>
+            <ListItemIcon>
+              <GiCoffeeBeans />
+            </ListItemIcon>
+            <ListItemText
+              id="4"
+              primary="品牌周邊"
+              // inset
+              onClick={(event) => {
+                setICateId(event.currentTarget.id)
+                // console.log(event.currentTarget)
+              }}
+            />
+          </ListItem>
         </List>
       </Collapse>
 

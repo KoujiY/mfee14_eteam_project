@@ -106,7 +106,7 @@ function ItemInfo(props) {
 
   return (
     <>
-      <Grid container justify="center">
+      <Grid container justify="center" style={{ marginTop: '200px' }}>
         <Grid container direction="column" className="ItemInfoContainer">
           <Grid item container justify="space-between">
             <Grid
@@ -209,18 +209,42 @@ function ItemInfo(props) {
             </Tabs>
             <Divider variant="middle" />
 
-            <Grid container justify="center" style={{ marginTop: '30px' }}>
+            <Grid
+              container
+              justify="center"
+              style={{ marginTop: '30px', marginBottom: '200px' }}
+            >
               <Grid item>
                 <TabPanel value={value} index={0}>
                   {/* {productData.iIdData && productData.iIdData.iDiscr} */}
 
-                  <p style={{ fontSize: '16px', textAlign: 'center' }}>
+                  <p
+                    style={{
+                      fontSize: '16px',
+                      textAlign: 'center',
+                      marginTop: '30px',
+                    }}
+                  >
                     ★G1精品級濾掛咖啡
                   </p>
-                  <p style={{ fontSize: '16px', textAlign: 'center' }}>
+
+                  <p
+                    style={{
+                      fontSize: '16px',
+                      textAlign: 'center',
+                      marginTop: '30px',
+                    }}
+                  >
                     ★國際咖啡師杯測把關
                   </p>
-                  <p style={{ fontSize: '16px', textAlign: 'center' }}>
+
+                  <p
+                    style={{
+                      fontSize: '16px',
+                      textAlign: 'center',
+                      marginTop: '30px',
+                    }}
+                  >
                     ★30年老師傅精心烘焙
                   </p>
 
@@ -229,7 +253,7 @@ function ItemInfo(props) {
                       fontSize: '16px',
                       maxWidth: '500px',
                       textAlign: 'center',
-                      marginTop: '50px',
+                      marginTop: '80px',
                     }}
                   >
                     我們對於咖啡烘焙充滿著無比的熱情。每一款咖啡都需要不同的時間與溫度，以粹煉出最完美的烘焙境界，進而為每一杯咖啡帶來獨有的香氣、酸度、體度與風味。
@@ -240,7 +264,7 @@ function ItemInfo(props) {
                       fontSize: '16px',
                       maxWidth: '500px',
                       textAlign: 'center',
-                      marginTop: '50px',
+                      marginTop: '80px',
                     }}
                   >
                     此款綜合產區咖啡豆具有柑橘香氣，且帶有一絲花香甜美氣息，更能品嘗到平衡的可可尾韻。
@@ -256,38 +280,84 @@ function ItemInfo(props) {
                     style={{
                       fontSize: '24px',
                       textAlign: 'center',
-                      marginTop: '50px',
+                      marginTop: '80px',
                     }}
                   >
                     商品規格
                   </p>
 
-                  <p style={{ fontSize: '16px', textAlign: 'center' }}>
+                  <p
+                    style={{
+                      fontSize: '16px',
+                      textAlign: 'center',
+                      marginTop: '30px',
+                    }}
+                  >
                     酸度:2
                   </p>
-                  <p style={{ fontSize: '16px', textAlign: 'center' }}>
+                  <p
+                    style={{
+                      fontSize: '16px',
+                      textAlign: 'center',
+                      marginTop: '30px',
+                    }}
+                  >
                     醇度:4
                   </p>
-                  <p style={{ fontSize: '16px', textAlign: 'center' }}>
+                  <p
+                    style={{
+                      fontSize: '16px',
+                      textAlign: 'center',
+                      marginTop: '30px',
+                    }}
+                  >
                     產區:拉丁美洲
                   </p>
-                  <p style={{ fontSize: '16px', textAlign: 'center' }}>
+                  <p
+                    style={{
+                      fontSize: '16px',
+                      textAlign: 'center',
+                      marginTop: '30px',
+                    }}
+                  >
                     處理法:自然乾燥法(日曬)
                   </p>
-                  <p style={{ fontSize: '16px', textAlign: 'center' }}>
+                  <p
+                    style={{
+                      fontSize: '16px',
+                      textAlign: 'center',
+                      marginTop: '30px',
+                    }}
+                  >
                     適合搭配的食物風味:果乾、焦糖、牛奶巧克力
                   </p>
-                  <p style={{ fontSize: '16px', textAlign: 'center' }}>
+                  <p
+                    style={{
+                      fontSize: '16px',
+                      textAlign: 'center',
+                      marginTop: '30px',
+                    }}
+                  >
                     海拔:950-1,200公尺
                   </p>
-                  <p style={{ fontSize: '16px', textAlign: 'center' }}>
+                  <p
+                    style={{
+                      fontSize: '16px',
+                      textAlign: 'center',
+                      marginTop: '30px',
+                    }}
+                  >
                     變種:Yellow Bourbon
                   </p>
                 </TabPanel>
               </Grid>
             </Grid>
 
-            <Grid container justify="center" style={{ marginTop: '30px' }}>
+            <Grid
+              container
+              justify="center"
+              style={{ marginTop: '30px', marginBottom: '200px' }}
+            >
               <Grid item>
                 <TabPanel value={value} index={1}>
                   <MessageText></MessageText>
@@ -295,8 +365,6 @@ function ItemInfo(props) {
               </Grid>
             </Grid>
           </Grid>
-
-          <Divider variant="middle" style={{ marginTop: '30px' }} />
         </Grid>
       </Grid>
     </>

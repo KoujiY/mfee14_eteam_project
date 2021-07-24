@@ -98,7 +98,7 @@ function ItemsIndex() {
 
   return (
     <>
-      <div className="itemsIndex">
+      <div className="itemsIndex" style={{ marginTop: '120px'}}>
         <CardMedia
           className="itemsIndexBg"
           component="img"
