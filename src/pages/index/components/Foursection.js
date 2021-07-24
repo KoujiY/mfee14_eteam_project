@@ -150,11 +150,27 @@ function Foursection() {
         .css('transition', '1s')
     })
   }, [])
+  ///////滑鼠hover滑過去title底線會動////////////
+  useEffect(() => {
+    $('.about-title').on(' mouseenter ', function () {
+      $('.index-border-bottom-blue')
+        .css('width', '110%')
+        .css('transition', '1.5s')
+    })
+  }, [])
+  useEffect(() => {
+    $('.about-title').on('mouseleave', function () {
+      $('.index-border-bottom-blue')
+        .css('width', '5%')
+        .css('transition', '1.5s')
+    })
+  }, [])
+  //////
   //
   return (
     <>
       <div className="index-best-selling-group">
-        <div className="about-title">
+        <div className="about-title ">
           Coffee products
           <div className="index-border-bottom-blue"> </div>
         </div>
@@ -200,7 +216,7 @@ function Foursection() {
                   </svg>
                 </div>
               </div>
-              <div className="index-product-card-text2">
+              <div className="index-product-card-text2  index-letter-1-height-20">
                 {general.length > 0 && general[0].iDiscr}
               </div>
               <div className="index-product-card-text3">
@@ -247,7 +263,7 @@ function Foursection() {
                 </svg>
               </div>
             </div>
-            <div className="index-product-card-text2">
+            <div className="index-product-card-text2  index-letter-1-height-20">
               {general.length > 0 && general[1].iDiscr}
             </div>
             <div className="index-product-card-text3">
@@ -294,7 +310,7 @@ function Foursection() {
                   </svg>
                 </div>
               </div>
-              <div className="index-product-card-text2">
+              <div className="index-product-card-text2  index-letter-1-height-20">
                 {general.length > 0 && general[2].iDiscr}
               </div>
               <div className="index-product-card-text3">
@@ -341,7 +357,7 @@ function Foursection() {
                 </svg>
               </div>
             </div>
-            <div className="index-product-card-text2">
+            <div className="index-product-card-text2  index-letter-1-height-20">
               {general.length > 0 && general[3].iDiscr}
             </div>
             <div className="index-product-card-text3">
@@ -353,6 +369,7 @@ function Foursection() {
           </div>
         </div>
       </div>
+      <div className="index-four-rectangle"></div>
     </>
   )
 }

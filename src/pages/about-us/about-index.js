@@ -231,7 +231,7 @@ function About() {
             <div className="about-banner-contentgroup">
               <div className="about-banner-contents">
                 <div className="about-banner-content-item-gp">
-                  <div className="about-title">
+                  <div className="about-title-28 about-title">
                     Story <div className="index-border-bottom-blue"></div>
                   </div>
                   <div className="about-banner-content-text">
@@ -254,7 +254,7 @@ function About() {
 
           <div className="index-container-1">
             <div className="about-big-group ">
-              <div className="about-title">
+              <div className="about-title about-title-28 ">
                 Cooperative Advantages
                 <div className="index-border-bottom-blue"></div>
               </div>
@@ -406,7 +406,7 @@ function About() {
               </div>
             </div>
             <div className="about-join-process-section">
-              <div className="about-title about-title-group">
+              <div className="about-title about-title-group about-title-28 ">
                 Joining process
                 <div className="index-border-bottom-blue"></div>
               </div>
