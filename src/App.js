@@ -1,5 +1,14 @@
-import React from 'react'
+import React, { useState, useRef } from 'react'
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
+
+// 其他引用項目
+import CoffeeIntroduceGlobal from './pages/coffee-introduce/coffee-introduce-global'
+import CoffeeIntroduceTaiwan from './pages/coffee-introduce/coffee-introduce-taiwan'
+import ShopMapIndex from './pages/shop-map/shop-map-index'
+import APIpage from './pages/shop-map/shop-map-APIpage'
+import PartnersIndex from './pages/partners/partners-index'
+import PartnersMainPage from './pages/partners/partners-mainPage'
+import PartnersEdit from './pages/partners/partners-edit'
 
 // 首頁、Nav、Footer、關於我們
 import Nav from './pages/nav/nav-index'
@@ -55,6 +64,10 @@ import UploadFun from './pages/users/components/uploadFun'
 import reCAPTCHATest from './pages/login/reCAPTCHA/reCAPTCHA'
 
 function App() {
+  const [nowPosi, setNowPosi] = useState({ lat: 0, lng: 0 })
+  const [addrIndex, setAddrIndex] = useState('')
+  const addrRef = useRef('')
+
   return (
     // 路由器
     <Router>
@@ -62,7 +75,39 @@ function App() {
       <>
         <ScrollToTop>
           <Switch>
-            {/* 路由 */}
+            {/* 路由表 */}
+          <Route path="/coffee-introduce/coffee-introduce-global">
+            <CoffeeIntroduceGlobal />
+          </Route>
+          <Route path="/coffee-introduce/coffee-introduce-taiwan">
+            <CoffeeIntroduceTaiwan />
+          </Route>
+          <Route path="/partners/partners-index">
+            <PartnersIndex />
+          </Route>
+          <Route path="/partners/partners-mainPage">
+            <PartnersMainPage />
+          </Route>
+          <Route path="/partners/partners-edit">
+            <PartnersEdit />
+          </Route>
+          <Route path="/shop-map/shop-map-APIpage">
+            <APIpage
+              addrRef={addrRef}
+              nowPosi={nowPosi}
+              addrIndex={addrIndex}
+              setNowPosi={setNowPosi}
+              setAddrIndex={setAddrIndex}
+            />
+          </Route>
+          <Route path="/shop-map/shop-map-index">
+            <ShopMapIndex
+              addrRef={addrRef}
+              nowPosi={nowPosi}
+              setNowPosi={setNowPosi}
+              setAddrIndex={setAddrIndex}
+            />
+          </Route>
             <Route path="/items/index">
               <ItemsIndex />
             </Route>
