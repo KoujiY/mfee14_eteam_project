@@ -404,7 +404,7 @@ function Nav() {
             </div>
             <div className="nav-loginbar">
               <div className="nav-loginbar-left">
-                <Link to="#/">
+                <Link to="/usersLogin">
                   {/*?xml version="1.0" encoding="iso-8859-1"?*/}
                   {/* Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  */}
                   <svg
@@ -449,7 +449,7 @@ function Nav() {
                   登入/註冊
                 </Link>
                 {/* /////////////////////// */}
-                <Link to="#/">
+                <Link to="/usersLogout">
                   {/*?xml version="1.0" encoding="iso-8859-1"?*/}
                   {/* Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  */}
                   <svg

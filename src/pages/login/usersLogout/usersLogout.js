@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { withRouter } from 'react-router'
 
-function UsersLogout() {
+function UsersLogout(props) {
   async function usersLogoutToServer() {
     const token = localStorage.getItem('token')
     const url = `${process.env.REACT_APP_USERSURL}/logout/`
@@ -19,7 +20,12 @@ function UsersLogout() {
     if (data) {
       localStorage.removeItem('token')
     }
+    props.history.push('/')
   }
+
+  useEffect(() => {
+    usersLogoutToServer()
+  }, [])
 
   return (
     <>
@@ -34,4 +40,4 @@ function UsersLogout() {
   )
 }
 
-export default UsersLogout
+export default withRouter(UsersLogout)

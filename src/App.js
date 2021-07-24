@@ -10,6 +10,7 @@ import About from './pages/about-us/about-index'
 // 回到頂部功能
 import ScrollToTop from './global_components/scrollTop'
 
+// 會員登入
 import UsersLogin from './pages/login/usersLogin/usersLogin'
 // 會員登出(功能)
 import UsersLogout from './pages/login/usersLogout/usersLogout'
@@ -50,7 +51,7 @@ function App() {
   return (
     // 路由器
     <Router>
-            <Nav />
+      <Nav />
       <>
         {/* 連結 */}
         {/* <Link to="/">Users</Link>
@@ -146,6 +147,8 @@ function App() {
           </Switch>
         </ScrollToTop>
       </>
+      <Footer />
     </Router>
-
+  )
+}
 export default App

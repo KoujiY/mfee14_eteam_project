@@ -188,19 +188,19 @@ function UsersTrack(props) {
             )
           })}
 
-        <div className="usersTrackPage">
-          <div className={classes.root}>
-            <Pagination
-              count={5}
-              size="large"
-              onChange={(e) => {
-                setUpage(e.target.innerText)
-                getTrackPage(e.target.innerText)
-                // console.log(e.target.innerText)
-              }}
-            />
-          </div>
-        </div>
+        {/* <div className="usersTrackPage"> */}
+        {/* <div className={classes.root}> */}
+        <Pagination
+          count={5}
+          size="large"
+          onChange={(e) => {
+            setUpage(e.target.innerText)
+            getTrackPage(e.target.innerText)
+            // console.log(e.target.innerText)
+          }}
+        />
+        {/* </div> */}
+        {/* </div> */}
       </div>
     </>
   )
