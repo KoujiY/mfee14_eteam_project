@@ -18,14 +18,20 @@ function GuessYouLikeCard(props) {
           <CardMedia
             height="200px"
             component="img"
-            image="http://localhost:3000/index/items1.jpg"
+            image={`http://220.135.31.123:3000/index/${props.product.iImg}`}
             title="GuessYouLikeCard"
           />
 
-          <p style={{ fontSize: '16px', marginLeft: '15px' }}>
+          <p
+            style={{ fontSize: '16px', marginLeft: '15px', marginTop: '15px' }}
+          >
             {props.product.iName}
           </p>
-          <p style={{ fontSize: '25px', marginLeft: '15px' }}>$700</p>
+          <p
+            style={{ fontSize: '25px', marginLeft: '15px', marginTop: '15px' }}
+          >
+            $700
+          </p>
         </CardActionArea>
 
         <CardActions>

@@ -94,7 +94,7 @@ function PartnersEdit(props) {
           minHeight: '50vw',
           padding: '0',
           position: 'relative',
-          marginTop: '120px',
+          marginTop: '150px',
         }}
       >
         <Grid container justify="space-between">
@@ -179,7 +179,7 @@ function PartnersEdit(props) {
             style={{
               transitionDelay: '100ms',
               position: 'absolute',
-              top: '75px',
+              top: '60px',
               right: '15px',
             }}
             unmountOnExit
@@ -207,7 +207,7 @@ function PartnersEdit(props) {
             style={{
               transitionDelay: '100ms',
               position: 'absolute',
-              top: '75px',
+              top: '60px',
               right: '15px',
             }}
             unmountOnExit

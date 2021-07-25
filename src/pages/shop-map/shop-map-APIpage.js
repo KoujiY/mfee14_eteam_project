@@ -94,14 +94,20 @@ function APIpage(props) {
 
   // didMount，設定初始化行為(取得當前位置)，未來可能採用google api比較誤差
   useEffect(() => {
-    navigator.geolocation.getCurrentPosition((position) => {
-      const tempPosi = {
-        lat: +position.coords.latitude,
-        lng: +position.coords.longitude,
+    console.log('didMount開始')
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const tempPosi = {
+          lat: +position.coords.latitude,
+          lng: +position.coords.longitude,
+        }
+        if (tempPosi !== props.nowPosi) props.setNowPosi(tempPosi)
+        console.log('didMount完成，當前座標為', tempPosi)
+      },
+      (err) => {
+        console.log('發生錯誤', err)
       }
-      if (tempPosi !== props.nowPosi) props.setNowPosi(tempPosi)
-      console.log('didMount完成，當前座標為', tempPosi)
-    })
+    )
   }, [])
 
   // didUpdate，模擬前一頁輸入地址查詢的操作，補上if條件避免異步處理時尚未更新geocoder的狀況

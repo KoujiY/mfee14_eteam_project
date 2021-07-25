@@ -47,7 +47,7 @@ function PartnersMainPage() {
                 style={{ fontSize: '3rem', color: '#002875' }}
                 gutterBottom
               >
-                歡迎回來！ 墨丘利咖啡 - 大安店
+                歡迎回來！ 墨丘利咖啡 - 台北世貿店
               </Typography>
               <Typography style={{ fontSize: '1.5rem', color: '#0065b4' }}>
                 請點選以下區塊進行相關的管理與維護操作

@@ -305,7 +305,7 @@ function Nav() {
                   </ul>
                 </li>
                 <li className="index-ul-li">
-                  <Link to="#/">
+                  <Link to="/items/index">
                     <div className="nav-phone-allicon-star-close">
                       全部商品 {/*?xml version="1.0" encoding="iso-8859-1"?*/}
                       {/* Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  */}

@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react'
-import { withRouter } from 'react-router'
+import { PinDropSharp } from '@material-ui/icons'
+import React from 'react'
+import { withRouter } from 'react-router-dom'
 
 function UsersLogout(props) {
   async function usersLogoutToServer() {
@@ -19,13 +20,9 @@ function UsersLogout(props) {
 
     if (data) {
       localStorage.removeItem('token')
+      props.history.push('/')
     }
-    props.history.push('/')
   }
-
-  useEffect(() => {
-    usersLogoutToServer()
-  }, [])
 
   return (
     <>

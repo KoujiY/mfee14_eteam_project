@@ -2,6 +2,7 @@
   width: 1000px;
   border-bottom: 1px solid #0065b4;
   margin: 0 auto;
+  margin-top: 180px;
 }
 
 .logintitle p {
@@ -46,21 +47,7 @@
   margin-bottom: 15px;
 }
 
-.inp {
-  border-top: 0;
-  border-left: 0;
-  border-right: 0;
-  border-color: black;
-  width: 245px;
-  height: 44px;
-  margin-left: 30px;
-}
-
-.inp:hover {
-  background-color: rgb(190, 188, 188);
-}
-
-.loginText,
+.usersloginText,
 .forget,
 .register ul,
 .register > p {
@@ -140,4 +127,47 @@
   width: 30px;
   height: 30px;
   /* border: 1px solid black; */
+}
+
+/* CSS最後修改樣式 */
+
+.form-controlLogin {
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-color: black;
+  width: 245px;
+  height: 44px;
+  margin-left: 30px;
+}
+
+.form-controlLogin:hover {
+  background-color: rgb(190, 188, 188);
+}
+
+.invalid-feedbackLogin {
+  margin-left: 60px;
+  margin-top: 10px;
+  color: red;
+}
+
+.usersLoginButtonFor {
+  border: none;
+  color: red;
+  background-color: transparent;
+  font-size: 16px;
+  border-bottom: 1px solid red;
+}
+
+/* CSS最後修改樣式 */
+.usersloginText {
+  margin-bottom: 20px;
+}
+
+.usersloginRes {
+  margin-bottom: 30px;
+}
+.usersloginResUl > li {
+  padding-bottom: 7px;
+  padding-left: 18px;
 }
