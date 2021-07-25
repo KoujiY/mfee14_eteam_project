@@ -175,7 +175,7 @@ function Nav() {
                   <Link to="#/">店家專區</Link>
                 </li>
                 <li className="index-ul-li">
-                  <Link to="#/">
+                  <Link to="/shop-map/shop-map-index">
                     <div className="nav-phone-allicon-star-close">
                       店家地圖 {/*?xml version="1.0" encoding="iso-8859-1"?*/}
                       {/* Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  */}
@@ -233,11 +233,11 @@ function Nav() {
                       </div>
                     </div>
                   </Link>
-                  <ul className="index-ul-li htmlCss-sub-menu sub-menu">
+                  {/* <ul className="index-ul-li htmlCss-sub-menu sub-menu">
                     <li className="index-ul-li">
                       <Link to="#/">店家畫面</Link>
                     </li>
-                  </ul>
+                  </ul> */}
                 </li>
                 <li className="index-ul-li">
                   <Link to="#/">
@@ -301,24 +301,19 @@ function Nav() {
 
                   <ul className="index-ul-li js-sub-menu sub-menu">
                     <li className="index-ul-li">
-                      <Link to="#/">地球儀動態展示選擇</Link>
+                      <Link to="/coffee-introduce/coffee-introduce-global">
+                        世界的咖啡
+                      </Link>
                     </li>
                     <li className="index-ul-li">
-                      <Link to="#/">台灣地圖展示選擇</Link>
-                    </li>
-                    <li className="index-ul-li">
-                      <Link to="#/">地球儀動態展示選擇</Link>
-                    </li>
-                    <li className="index-ul-li">
-                      <Link to="#/">屬性標籤分類選擇</Link>
-                    </li>
-                    <li className="index-ul-li">
-                      <Link to="#/">產地/產品介紹</Link>
+                      <Link to="/coffee-introduce/coffee-introduce-taiwan">
+                        臺灣的咖啡
+                      </Link>
                     </li>
                   </ul>
                 </li>
                 <li className="index-ul-li">
-                  <Link to="#/">
+                  <Link to="/items/index">
                     <div className="nav-phone-allicon-star-close">
                       全部商品 {/*?xml version="1.0" encoding="iso-8859-1"?*/}
                       {/* Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  */}
@@ -460,7 +455,6 @@ function Nav() {
                   登入/註冊
                 </Link>
                 {/* /////////////////////// */}
-
                 <Link
                   to="/"
                   className={!hidden ? 'toggleClassDisplayNone' : ''}
@@ -515,7 +509,7 @@ function Nav() {
                 </Link>
               </div>
               <div className="nav-loginbar-center">
-                <Link to="#/">
+                <Link to="/partners/partners-index">
                   {/*?xml version="1.0" encoding="iso-8859-1"?*/}
                   {/* Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  */}
                   <svg
@@ -562,7 +556,7 @@ function Nav() {
                 </Link>
               </div>
               <div className="nav-loginbar-right">
-                <Link to="#/">
+                <Link to="/cart">
                   {/*?xml version="1.0" encoding="iso-8859-1"?*/}
                   {/* Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  */}
                   <svg

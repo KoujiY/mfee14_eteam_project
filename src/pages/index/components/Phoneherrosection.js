@@ -62,10 +62,10 @@ function Phoneherrosection() {
       </div>
       <div className="index-onepage-rectangle" />
       <div className="index-one-herro-button-left">
-        <Link to="#/">尋找咖啡</Link>
+        <Link to="/coffee-introduce/coffee-introduce-global">尋找咖啡</Link>
       </div>
       <div className="index-one-herro-button-right">
-        <Link to="#/">尋找店家</Link>
+        <Link to="/shop-map/shop-map-index">尋找店家</Link>
       </div>
     </>
   )
