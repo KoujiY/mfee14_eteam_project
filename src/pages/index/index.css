@@ -227,6 +227,10 @@ table {
     color: #f9f9f9;
     z-index: 4;
   }
+  .index-letter-1-height-20 {
+    letter-spacing: 1px;
+    line-height: 20px;
+  }
 
   /* /這是輪播軸每一頁的的按紐/ */
   .index-one-herro-button-left,
@@ -297,6 +301,9 @@ table {
     bottom: 30%;
     right: 35%;
   }
+  /* .index-mb-5 {
+    margin-bottom: 5%;
+  } */
   .index-one-herro-button-left:hover,
   .index-one-herro-button-right:hover,
   .index-two-herro-button-left:hover,
@@ -454,6 +461,7 @@ table {
   /* ////改道這 */
   .index-three-section {
     max-width: 100%;
+
     position: relative;
     overflow: hidden;
   }
@@ -526,7 +534,7 @@ table {
     height: 600px;
     position: absolute;
     z-index: 2;
-    bottom: 0%;
+    bottom: 5%;
     left: 26%;
     right: -35%;
   }
@@ -549,7 +557,7 @@ table {
 
   .index-item-1 {
     width: 100%;
-    padding: 0 1%;
+    padding: 0 3%;
     height: 30%;
     color: #002875;
   }
@@ -612,6 +620,7 @@ table {
     align-items: center;
     justify-content: space-between;
   }
+  /* .index-coffee-product-items */
 
   .index-button-blue-bg {
     display: block;
@@ -621,9 +630,10 @@ table {
     align-items: center;
     justify-content: center;
     height: 50px;
-    width: 300px;
+    width: 240px;
     color: #659de1;
     border: 2px solid #659de1;
+    font-size: 20px;
   }
   .index-button-blue-bg:hover {
     background-color: #659de1;
@@ -747,20 +757,6 @@ table {
   /* //////////////////////////////////// */
   /* ////第四頁//// */
 
-  .index-button-blue-bg {
-    border-radius: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 50px;
-    width: 300px;
-    border: 2px solid #659de1;
-  }
-  .index-button-blue-bg a {
-    color: #659de1;
-    text-decoration: none;
-  }
-
   .index-best-selling-item {
     display: flex;
     justify-content: center;
@@ -768,6 +764,7 @@ table {
     height: 600px;
     margin-top: 60px;
     margin-bottom: 260px;
+    z-index: 3;
   }
   .index-box2 {
     width: 25%;
@@ -829,14 +826,14 @@ table {
     position: absolute;
     bottom: 28.5%;
     left: -37%;
-    z-index: -1;
+    z-index: 1;
   }
   .index-long-colorship img {
     width: 760px;
     height: 30px;
   }
 }
-
+/* /// */
 @media screen and (min-width: 320px) and (max-width: 576px) {
   .index-container {
     width: 100%;
@@ -893,7 +890,7 @@ table {
     font-size: 24px;
   }
 
-  .index-one-herro-button-left {
+  /* .index-one-herro-button-left {
     width: 50%;
     border-radius: 40px;
     padding: 20px 0;
@@ -923,7 +920,7 @@ table {
     bottom: 25%;
     right: 23%;
     z-index: 2;
-  }
+  } */
   .index-one-herro-button-left > a,
   .index-one-herro-button-right > a {
     color: #f9f9f9;
@@ -950,10 +947,10 @@ table {
   .index-two-colorship {
     display: none;
   }
-  .index-twopic-big-text {
+  /* .index-twopic-big-text {
     font-size: 18px;
     padding: 2% 2%;
-  }
+  } */
 
   .index-twopage-pic {
     display: none;
@@ -1061,25 +1058,25 @@ table {
     opacity: 0;
     width: 70%;
     position: absolute;
-    left: 6%;
+    left: 2%;
     color: #f9f9f9;
   }
-  .index-threepic-big-text {
+  /* .index-threepic-big-text {
     font-size: 24px;
-  }
+  } */
 
   .index-threepic-small-text {
     font-size: 16px;
     padding: 0 3%;
   }
 
-  .index-newproduct-text {
+  /* .index-newproduct-text {
     position: absolute;
     bottom: 45%;
     left: 4%;
     font-size: 16px;
     color: #f9f9f9;
-  }
+  } */
   .index-border-bottom-white {
     position: relative;
     left: 0px;
@@ -1096,9 +1093,6 @@ table {
     border-bottom: 3px solid #659de1;
   }
 
-  .index-button-black {
-    display: none;
-  }
   /* ////手機板phone點擊按鈕的card /// */
   .index-phone-threesection-click-card {
     display: block;
@@ -1181,9 +1175,9 @@ table {
   /* /////////////////////////////////////////////// */
   /* 第四頁 */
   .index-best-selling-group {
-    font-size: 16px;
+    font-size: 24px;
     padding: 0 2%;
-    margin-top: 110px;
+    margin-top: 80px;
   }
 
   .index-button-blue-bg {
@@ -1191,7 +1185,7 @@ table {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 50px;
+    height: 40px;
     width: 150px;
     border: 2px solid #659de1;
   }
@@ -1206,8 +1200,9 @@ table {
     margin: 0 auto;
     width: 98%;
     height: 100%;
-    margin-top: 5%;
-    margin-bottom: 5%;
+    margin-top: 40px;
+    margin-bottom: 70px;
+    /* z-index: 3; */
   }
 
   .index-box2 {
@@ -1249,6 +1244,137 @@ table {
     background-color: #fcf5e9;
     position: absolute;
     bottom: -1%;
-    z-index: -1;
+    z-index: -4;
+  }
+}
+@media screen and (max-width: 576px) {
+  .index-twopic-big-text {
+    margin: 2%;
+    font-size: 28px;
+    padding: 2% 0;
+  }
+  .index-one-herro-button-left {
+    width: 40%;
+    border-radius: 40px;
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 2px solid #f9f9f9;
+    position: absolute;
+    bottom: 35%;
+    margin-bottom: 5px;
+    right: 23%;
+    z-index: 2;
+  }
+
+  .index-one-herro-button-right {
+    width: 40%;
+    border-radius: 40px;
+    text-align: center;
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #f9f9f9;
+    position: absolute;
+    bottom: 25%;
+    right: 23%;
+    z-index: 2;
+  }
+
+  .index-button-black {
+    display: block;
+    position: absolute;
+    border-radius: 40px;
+    bottom: 44%;
+    right: 2%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 47px;
+    width: 204px;
+    background-color: #9494943f;
+    color: #f9f9f9;
+    text-decoration: none;
+  }
+  .index-newproduct-text {
+    font-size: 34px;
+    position: absolute;
+    bottom: 44%;
+    left: 2%;
+    color: #f9f9f9;
+  }
+  .index-threepic-big-text {
+    font-size: 34px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .index-twopic-big-text {
+    font-size: 14px;
+    margin: 2%;
+
+    padding: 2% 0;
+  }
+  .index-one-herro-button-left {
+    width: 50%;
+    border-radius: 40px;
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 2px solid #f9f9f9;
+    position: absolute;
+    bottom: 35%;
+    margin-bottom: 5px;
+    right: 23%;
+    z-index: 2;
+  }
+
+  .index-one-herro-button-right {
+    width: 50%;
+
+    border-radius: 40px;
+    text-align: center;
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #f9f9f9;
+    position: absolute;
+    bottom: 25%;
+    right: 23%;
+    z-index: 2;
+  }
+  .index-button-black {
+    display: block;
+    position: absolute;
+    border-radius: 40px;
+    bottom: 58%;
+    right: 2%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 37px;
+    width: 154px;
+    background-color: #9494943f;
+    color: #f9f9f9;
+    text-decoration: none;
+  }
+  .index-newproduct-text {
+    font-size: 26px;
+    position: absolute;
+    bottom: 63%;
+    left: 2%;
+    color: #f9f9f9;
+  }
+  .index-threepic-big-text {
+    font-size: 24px;
+  }
+  .index-coffee-product-items {
+    font-size: 26px;
   }
 }

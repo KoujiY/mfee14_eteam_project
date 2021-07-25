@@ -220,7 +220,7 @@ function Threesection() {
             我們將守著那寧靜的角落，將一抹芬芳贈與給你
           </div>
         </div>
-        <div className=" index-newproduct-text">
+        <div className=" index-newproduct-text ">
           New product listing
           <div className="index-border-bottom-white"></div>
         </div>
@@ -267,8 +267,8 @@ function Threesection() {
                     </svg>
                   </div>
                 </div>
-                {/* //// */}
-                <div className="index-product-card-text2">
+                {/* 1321231212121121212//// */}
+                <div className="index-product-card-text2 index-letter-1-height-20">
                   {users.length > 0 && users[0].iDiscr}
                 </div>
                 <div className="index-product-card-text3">
@@ -315,7 +315,7 @@ function Threesection() {
                     </svg>
                   </div>
                 </div>
-                <div className="index-product-card-text2">
+                <div className="index-product-card-text2 index-letter-1-height-20">
                   {users.length > 0 && users[1].iDiscr}
                 </div>
                 <div className="index-product-card-text3">
@@ -361,7 +361,7 @@ function Threesection() {
                     </svg>
                   </div>
                 </div>
-                <div className="index-product-card-text2">
+                <div className="index-product-card-text2 index-letter-1-height-20">
                   {users.length > 0 && users[2].iDiscr}
                 </div>
                 <div className="index-product-card-text3">
@@ -407,7 +407,7 @@ function Threesection() {
                     </svg>
                   </div>
                 </div>
-                <div className="index-product-card-text2">
+                <div className="index-product-card-text2 index-letter-1-height-20">
                   {users.length > 0 && users[3].iDiscr}
                 </div>
                 <div className="index-product-card-text3">
@@ -453,7 +453,7 @@ function Threesection() {
                     </svg>
                   </div>
                 </div>
-                <div className="index-product-card-text2">
+                <div className="index-product-card-text2 index-letter-1-height-20">
                   {users.length > 0 && users[4].iDiscr}
                 </div>
                 <div className="index-product-card-text3">
@@ -499,7 +499,7 @@ function Threesection() {
                     </svg>
                   </div>
                 </div>
-                <div className="index-product-card-text2">
+                <div className="index-product-card-text2 index-letter-1-height-20">
                   {users.length > 0 && users[5].iDiscr}
                 </div>
                 <div className="index-product-card-text3">
@@ -658,7 +658,7 @@ function Threesection() {
       <div className="index-top-box">
         <a href="#">TOP</a>
       </div>
-      <div className="index-four-rectangle"></div>
+      {/* <div className="index-four-rectangle1"></div> */}
     </>
   )
 }
