@@ -254,7 +254,7 @@ function Index(props) {
         <div className="index-container">
           <Twosection />
           <Threesection />
-          <div className="index-container-1">
+          <div className="index-container-1 ">
             <Foursection />
           </div>
         </div>

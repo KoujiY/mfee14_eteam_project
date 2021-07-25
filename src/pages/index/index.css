@@ -301,6 +301,9 @@ table {
     bottom: 30%;
     right: 35%;
   }
+  /* .index-mb-5 {
+    margin-bottom: 5%;
+  } */
   .index-one-herro-button-left:hover,
   .index-one-herro-button-right:hover,
   .index-two-herro-button-left:hover,
@@ -1172,9 +1175,9 @@ table {
   /* /////////////////////////////////////////////// */
   /* 第四頁 */
   .index-best-selling-group {
-    font-size: 16px;
+    font-size: 24px;
     padding: 0 2%;
-    margin-top: 110px;
+    margin-top: 80px;
   }
 
   .index-button-blue-bg {
@@ -1197,9 +1200,9 @@ table {
     margin: 0 auto;
     width: 98%;
     height: 100%;
-    margin-top: 5%;
-    margin-bottom: 5%;
-    z-index: 3;
+    margin-top: 40px;
+    margin-bottom: 70px;
+    /* z-index: 3; */
   }
 
   .index-box2 {
