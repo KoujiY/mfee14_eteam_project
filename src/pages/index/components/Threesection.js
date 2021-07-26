@@ -267,7 +267,7 @@ function Threesection() {
                     </svg>
                   </div>
                 </div>
-                {/* 1321231212121121212//// */}
+
                 <div className="index-product-card-text2 index-letter-1-height-20">
                   {users.length > 0 && users[0].iDiscr}
                 </div>
