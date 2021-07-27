@@ -18,7 +18,8 @@ const LoginGrid = styled(Grid)`
 const LoginBgBox = styled(Box)`
   width: 100%;
   height: 50vw;
-  background-color: #fcf5e9;
+  background: url(http://localhost:3000/index/partner-index.jpg);
+  background-size: cover;
   box-sizing: border-box;
 `
 const MainTitleBox = styled(Box)`
@@ -51,7 +52,7 @@ const JoinTextBox = styled(Box)`
 function PartnersIndex(props) {
   return (
     <>
-      <Grid container>
+      <Grid container style={{ marginTop: '120px' }}>
         <LoginGrid container item sm={5}>
           <form style={{ width: '100%', height: '100%' }}>
             <Grid

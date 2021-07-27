@@ -83,7 +83,7 @@ function CoffeeIntroduceContent(props) {
           style={{
             width: '100%',
             height: '62.5vw',
-            background: `url('https://material-ui.com/static/images/cards/contemplative-reptile.jpg') no-repeat`,
+            background: `url('http://localhost:3000/index/coffee-introduce.jpg') no-repeat`,
             backgroundSize: 'cover',
           }}
         >
@@ -190,8 +190,8 @@ function CoffeeIntroduceContent(props) {
                 Related Products
               </Box>
               <Grid container justify="space-around">
-                {relatedItems.map((v) => {
-                  return <ItemCard key={v.iId} item={v} />
+                {relatedItems.map((v, i) => {
+                  return <ItemCard key={v.iId} item={v} picIndex={i + 1} />
                 })}
               </Grid>
             </Grid>

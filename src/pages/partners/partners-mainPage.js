@@ -40,7 +40,9 @@ function PartnersMainPage() {
       <Box style={{ background: '#f9f9f9', marginTop: '120px' }}>
         <OuterGrid container alignContent="center">
           <TitleGrid container item sm={12}>
-            <AvatarPic image="https://material-ui.com/static/images/cards/contemplative-reptile.jpg" />
+            <AvatarPic
+              image={`http://localhost:3000/img/2021-07-25eddie1.jpg`}
+            />
 
             <TitleBox>
               <Typography
@@ -61,6 +63,7 @@ function PartnersMainPage() {
                 title={v.title}
                 subTitle={v.subTitle}
                 link={v.link}
+                imgIndex={i}
               ></OptionCard>
             ))}
           </Grid>

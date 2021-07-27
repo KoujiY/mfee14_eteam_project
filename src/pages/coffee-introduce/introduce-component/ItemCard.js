@@ -32,14 +32,14 @@ const ItemGrid = styled(Grid)`
 `
 
 function ItemCard(props) {
-  const { item } = props
+  const { item, picIndex } = props
 
   return (
     <IntroduceCard square>
       <CardMedia
         component="img"
         height="76.19%"
-        image="https://material-ui.com/static/images/cards/contemplative-reptile.jpg"
+        image={`http://localhost:3000/index/smallpic${picIndex}.jpg`}
       />
       <ItemGrid container direction="column" justify="space-between">
         <Grid item>

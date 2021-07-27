@@ -83,7 +83,7 @@ const boxCut = keyframes`
 const DecoPic = styled(Box)`
   width: 25vw;
   height: 14.0625vw;
-  background: url('https://material-ui.com/static/images/cards/contemplative-reptile.jpg')
+  background: url('https://live.staticflickr.com/522/19551136614_4189c11d26_z.jpg')
     no-repeat;
   background-size: cover;
   color: #f9f9f9;

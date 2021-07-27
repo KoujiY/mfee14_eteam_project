@@ -144,7 +144,7 @@ function ShopMapIndex(props) {
         style={{
           width: '100%',
           height: '100vh',
-          background: `url('https://material-ui.com/static/images/cards/contemplative-reptile.jpg') no-repeat`,
+          background: `url('http://localhost:3000/index/shop_map_index.jpg') no-repeat`,
           backgroundSize: 'cover',
           marginTop: '120px',
         }}

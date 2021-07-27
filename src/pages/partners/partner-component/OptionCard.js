@@ -36,7 +36,7 @@ const SubTitle = styled(Grid)`
   margin-top: 1vw;
 `
 function OptionCard(props) {
-  const { title, subTitle, link } = props
+  const { title, subTitle, link, imgIndex } = props
   return (
     <IntroduceCard
       square
@@ -47,7 +47,7 @@ function OptionCard(props) {
       <CardMedia
         component="img"
         height="100%"
-        image="https://images.unsplash.com/photo-1519810755548-39cd217da494?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80"
+        image={`http://localhost:3000/index/p_mainpage_0${imgIndex}.jpg`}
       />
       <MainCardActionArea style={{ height: '25vw', marginTop: '-25vw' }}>
         <CardContent style={{ padding: '0px' }}>
